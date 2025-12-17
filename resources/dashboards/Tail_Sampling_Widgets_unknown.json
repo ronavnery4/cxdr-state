@@ -1,0 +1,104 @@
+{
+  "id": "unknown",
+  "name": "Tail Sampling Widgets",
+  "exported_at": "2025-12-17T14:44:14.277217",
+  "data": {
+    "id": "S8TMZIxR7xXcyzeDCDJmI",
+    "name": "Tail Sampling Widgets",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "331a1181-71a9-4d28-970a-82060128586a"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a23e6f1a-6f85-4d47-bd5f-a16409cc213c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f6722771-a901-4bdb-a3dc-8c320bd9a31c"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "57137aad-ab51-4cd3-af80-6d0483729de3",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(otelcol_exporter_sent_spans_total{exporter=\"coralogix\"}[5m]))\n/\nsum(rate(otelcol_receiver_accepted_spans_total{receiver=\"otlp\"}[5m])) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "604800s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

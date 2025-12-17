@@ -1,0 +1,3938 @@
+{
+  "id": "unknown",
+  "name": "RabbitMQ - Dashboard",
+  "exported_at": "2025-12-17T14:44:14.274293",
+  "data": {
+    "id": "UEiirAeaO9SavOtdpd4M7",
+    "name": "RabbitMQ - Dashboard",
+    "description": "Use this dashboard to monitor RabbitMQ, including server status, work metrics for queues, and high-level memory and disk utilization metrics. ",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "abe7d774-3368-47f6-ae3e-0ab5a7cdfbd9"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "45ef49df-406d-493c-bc97-b6d6d6530148"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2897848786779416"
+                  },
+                  "title": "Total",
+                  "description": "Total",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8e62a120-d098-406f-bcba-7f899c0a6d94",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "59ec56c1-5f80-4979-8771-5e0872421cc6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "365637021822766"
+                  },
+                  "title": "Published",
+                  "description": "Published",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c3987004-89c7-4c8f-9543-c2239974c4aa",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_publish_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "97f708d2-a90e-461f-be7b-4d88bf6008d3"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3887710096467342"
+                  },
+                  "title": "Delivered",
+                  "description": "Delivered",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fb5e4d6c-ff32-4fd1-aed5-7307a8178545",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_deliver_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "38dfb642-48f0-407a-aa2a-04ed1a528069"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1617549139483708"
+                  },
+                  "title": "Acknowledged",
+                  "description": "Acknowledged",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c5ef3a18-a00f-4dd1-b1f1-15c2d54b0b70",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_ack_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a9415307-1db9-44e0-ab69-1510b7bf3a64"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4977859213014974"
+                  },
+                  "title": "Unacknowledged",
+                  "description": "Unacknowledged",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8155682e-38b7-42a6-8c6e-6d6dda2db295",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_unacknowledged_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "31d6ffdf-ffa9-4a2c-a68a-5c7941e60f1c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1615527313425462"
+                  },
+                  "title": "Ready",
+                  "description": "Ready",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "75b78aa8-a1b8-4872-b73e-ce506c3ebe21",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_ready_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},rabbitmq_queue=${rabbitmq_queue},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7a36df50-2081-4c65-818a-1e671b210670"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1305454914823028"
+                  },
+                  "title": "Number of connections",
+                  "description": "Number of connections",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "91c76612-c1fd-4a86-ba56-0e919c145cfa",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_connections{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "27f4247e-6331-474f-b594-deb35a5da6a8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1713017477278470"
+                  },
+                  "title": "Connections state",
+                  "description": "Connections state",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "bbb9e289-d626-4825-a35a-00485db19bcf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_connections_state{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host,rabbitmq_conn_state)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d982fcab-05a3-49a4-9904-4cf6f1a51231"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5325909812873934"
+                  },
+                  "title": "Number of queues",
+                  "description": "Number of queues",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f7b735b3-8baf-45cb-9c04-eae92cfd8ac2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_object_totals_queues{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e454e11a-aa6e-48b4-b7dd-cce385b2d228"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1236752087824626"
+                  },
+                  "title": "Totals.messages.rate",
+                  "description": "Totals.messages.rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b32262c7-30c6-4966-888c-e57115e70884",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_queue_totals_messages_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "65396085-4f30-4b9a-8eb2-30479445ad81"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7122575871405614"
+                  },
+                  "title": "Messages.publish.rate",
+                  "description": "Messages.publish.rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0b369c35-8b93-4f13-ac6b-fa7b78649577",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_messages_publish_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "80b28f93-4120-457f-bd60-deeaba90a91e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6212905325050126"
+                  },
+                  "title": "Messages.publish_out.rate",
+                  "description": "Messages.publish_out.rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a647da09-d907-4407-ad38-6a2d5a883beb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_exchange_messages_publish_out_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_node=${rabbitmq_node},region=${region},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Queue Throughput - Rate",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_BLUE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "25df640c-64cc-4a12-ad3c-93863529a292"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "2889ac16-baf6-4809-ae72-f3e6d4edf378"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7678396468976364"
+                  },
+                  "title": "Consumers Count",
+                  "description": "Consumers Count",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dfc88543-fca6-45b0-815f-79b70765a6e4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(rabbitmq_queue_consumers{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},!rabbitmq_queue=\"aliveness-test\",scope=${scope},technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ccebb817-290e-46cd-9e16-a306aae1f6bb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4039015508826208"
+                  },
+                  "title": "Consumers Count",
+                  "description": "Consumers Count",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "min(rabbitmq_queue_consumers{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (host,rabbitmq_queue)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "59917a6c-d931-49e3-a967-a314b41da6ad"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5699953300304304"
+                  },
+                  "title": "Published, Delivered, Acknowledged & Unacknowledged Counts",
+                  "description": "Published, Delivered, Acknowledged & Unacknowledged Counts",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4bfa52b7-b142-4dc8-83d0-7780783c90b8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_ack_count{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "08632f7b-8c6b-44b1-9c59-868f8edb73fd"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5787544927994892"
+                  },
+                  "title": "Queued Messages Count",
+                  "description": "Queued Messages Count",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fd3100ab-592a-4907-ba89-72938a16d9ef",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rabbitmq_queue_messages{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_queue,host,rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5306d219-aa50-4912-be27-c715d2ec4a7f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6665417564997624"
+                  },
+                  "title": "Queued Messages Count",
+                  "description": "Queued Messages Count",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(rabbitmq_queue_messages{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},!rabbitmq_queue=\"aliveness-test\",technology=${technology}}) by (rabbitmq_queue,host)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "58ae47ee-6182-436f-9e08-f7b1f1067c11"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4723689292379772"
+                  },
+                  "title": "Ready Messages Count",
+                  "description": "Ready Messages Count",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "48bfb5ca-6ce8-47db-b8d2-eb64296a06a3",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rabbitmq_queue_messages_ready{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_queue,host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1914d4e9-ba12-430f-96eb-62e9f769c31e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2644002252323326"
+                  },
+                  "title": "system.cpu.user",
+                  "description": "system.cpu.user",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "228cc7ec-f0b5-4881-ad86-0965e312cc2c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_cpu_user{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology}})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "27d57def-323a-4d56-a956-4ff467cfbe26"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "670202593347098"
+                  },
+                  "title": "Number of channels",
+                  "description": "Number of channels",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "53fe1da6-db29-4522-9b9e-72102d71cf4c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_object_totals_channels{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d2c0ab92-e657-4cfc-9586-472cb1f392bc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8314611477186028"
+                  },
+                  "title": "Messages return unroutable",
+                  "description": "Messages return unroutable",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "47a774fe-c363-48c6-90d6-95a9b20db480",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_messages_return_unroutable_count{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "fa716915-8bb2-416c-ba39-46a6c09d1118"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1106421673968950"
+                  },
+                  "title": "Node.run_queue",
+                  "description": "Node.run_queue",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "54ab148f-715b-42ee-9237-e814c42de4b7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_run_queue{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "efd061fc-5d98-4e3e-acdb-3a9d8a12424b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6570613504713152"
+                  },
+                  "title": "Messages.ack.rate",
+                  "description": "Messages.ack.rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "647da725-5f2d-4ccb-899a-35cb32f5a236",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_messages_ack_rate{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology}}) by (host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c4781a0e-5cdf-418d-8e17-6e6b68e11d19"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6800367254314378"
+                  },
+                  "title": "Messages.publish_in.rate",
+                  "description": "Messages.publish_in.rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e21c88bb-c6a2-4535-83c2-b46ba2845b2e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_exchange_messages_publish_in_rate{environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},rabbitmq_node=${rabbitmq_node},technology=${technology},rabbitmq_exchange=${rabbitmq_exchange}}) by (host,rabbitmq_exchange)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Queue Consumption & Counts",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_PURPLE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "17fbebc4-77c8-4fe5-b03a-edbfe9e520c5"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "dc2086c3-5b9e-4c7c-a1bc-169b4f589d52"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7822426464472248"
+                  },
+                  "title": "In Rate of Published messages",
+                  "description": "In Rate of Published messages",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fd0f3743-0dfd-4302-9f94-2c049ce74cb1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_exchange_messages_publish_in_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_exchange=${rabbitmq_exchange},scope=${scope},technology=${technology}}) by (rabbitmq_exchange)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5251141497037326"
+                  },
+                  "title": "Out Rate Published messages",
+                  "description": "Out Rate Published messages",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c64719e1-f4d8-415e-b741-b67062a53a72",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_exchange_messages_publish_out_rate{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},rabbitmq_exchange=${rabbitmq_exchange},scope=${scope},technology=${technology}}) by (rabbitmq_exchange)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Exchange Rates",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_PURPLE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "48577bbf-d7f8-4b9a-8509-99aaf085fa37"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "2f9e325c-2af3-4578-866a-f6031645d983"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3033292295606964"
+                  },
+                  "title": "Delivery Rate to Consumers",
+                  "description": "Delivery Rate to Consumers",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a1cc8360-57b2-4603-9a77-1eba519c1d14",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_deliver_rate{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_queue)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5157771339355104"
+                  },
+                  "title": "Messages in the queue per second",
+                  "description": "Messages in the queue per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "44d71f28-371f-4551-b033-4620d4b90c26",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_messages_rate{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_queue)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6454510068497302"
+                  },
+                  "title": "Total Count messages both ready and Ack",
+                  "description": "Total Count messages both ready and Ack",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a30016f4-37a7-4c6f-85d7-dc49bfb8e474",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_overview_queue_totals_messages_count{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},region=${region},technology=${technology}}) by (rabbitmq_cluster)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Delivery - Queue In/Out & Total Messages",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_ORANGE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "6400168e-dc98-4045-b718-2dea147dc8fb"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "5b88ef05-47f1-4685-9eef-9537ce866f17"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6184471624352208"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "CPU",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1349436754022012"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Memory",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "78256d9b-f51d-43e3-8607-256254d9a6ff"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5761312312678632"
+                  },
+                  "title": "RabbitMQ Process - CPU Usage (%)",
+                  "description": "RabbitMQ Process - CPU Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e153fd20-14ba-49b4-96db-404d6e82d749",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(system_processes_cpu_normalized_pct{team=${team},technology=\"vm\",servicename=${servicename},region=${region},mode=${mode},host=${host},environment=${environment},scope=${scope},process_name=\"rabbitmq-server\",technology=${technology}}) by (host,team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1225943500621736"
+                  },
+                  "title": "RabbitMQ Process - Memory Usage (%)",
+                  "description": "RabbitMQ Process - Memory Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "44b00eec-8703-4a81-9368-5ccc2db1a79a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_processes_mem_pct{team=${team},technology=\"vm\",servicename=${servicename},region=${region},mode=${mode},host=${host},environment=${environment},scope=${scope},process_name=\"rabbitmq-server\",technology=${technology}}) by (host,team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "50d9db6c-0a68-4075-880c-bb4f1c55f202"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7001421080815454"
+                  },
+                  "title": "VM - CPU Usage (%)",
+                  "description": "VM - CPU Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "87ab02b3-094d-4ea3-b0ab-421c5ebc8551",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(system_cpu_system{team=${team},technology=\"vm\",servicename=${servicename},region=${region},mode=${mode},host=${host},environment=${environment},scope=${scope},technology=${technology}}) by (host,team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4316129418709822"
+                  },
+                  "title": "VM - Memory Usage (%)",
+                  "description": "VM - Memory Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9756857f-e82e-48ff-be64-84728f278344",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_mem_used{technology=\"vm\",team=${team},servicename=${servicename},region=${region},mode=${mode},host=${host},environment=${environment},scope=${scope},technology=${technology}}) by (host,team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "081f65a4-3e6c-4e7d-8948-2ca6f33bda1f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6376944399603756"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Disk",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2970221721086448"
+                  },
+                  "title": "Node - Memory Usage out of Watermark (Node Limit)",
+                  "description": "Node - Memory Usage out of Watermark (Node Limit)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0355aaa1-00e2-434e-b89c-656e2902fc9a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_mem_used{rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "6f4d5e22-eba3-40ca-bea4-3589c155d476"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1300078265693916"
+                  },
+                  "title": "Node - Available Disk Space out of Watermark (Node limit)",
+                  "description": "Node - Available Disk Space out of Watermark (Node limit)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0a34ad39-5143-4a07-bdf0-a852458ab402",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_disk_free{rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1dbde5f4-2463-4c2f-9080-e813198bf5eb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5269598839681224"
+                  },
+                  "title": "Node - Memory Usage out of System total",
+                  "description": "Node - Memory Usage out of System total",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d6d8d2ed-9087-44b9-b01b-26d4a3b02ba1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_mem_used{technology=\"vm\",team=${team},servicename=${servicename},region=${region},mode=${mode},host=${host},environment=${environment},scope=${scope},technology=${technology}}) by (host,team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4fbc3dd4-80b5-4682-9f28-3713cbe65184"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7553239756096882"
+                  },
+                  "title": "VM - Disk Usage (%)",
+                  "description": "VM - Disk Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "652ce490-73c4-4bac-97c5-3259898123bc",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_disk_used{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},technology=\"vm\",scope=${scope},!device=\"/dev/loop*\",technology=${technology}}) by (host,device)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "86530c7c-e491-46b3-a473-d2ed9f170b75"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1777618801189648"
+                  },
+                  "title": "Queue - Memory Usage",
+                  "description": "Queue - Memory Usage",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "7ec0759d-6523-470a-b032-a02cef96e25d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_memory{rabbitmq_queue=${rabbitmq_queue},rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (host,rabbitmq_node,rabbitmq_queue,environment)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c0b64e60-5d93-4acc-bbfb-acc9ae255557"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1646898577095530"
+                  },
+                  "title": "VM - Disk usage (%)",
+                  "description": "VM - Disk usage (%)",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(system_disk_free{technology=\"vm\",scope=${scope},environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},technology=${technology}}) by (device,host)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a0d1d83f-8e63-40fc-b7c0-fe8ee816965a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8169777332962240"
+                  },
+                  "title": "Node socket used",
+                  "description": "Node socket used",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6f8838ec-8540-43e3-902a-3f6a29bcc803",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_sockets_used{rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a46ffc94-c054-4187-847f-8d1da9f67382"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4720451614926766"
+                  },
+                  "title": "File descriptors used",
+                  "description": "File descriptors used",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4762bd3b-d5b7-4a64-9998-48c3584a9252",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_node_fd_used{rabbitmq_node=${rabbitmq_node},host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},scope=${scope},technology=${technology}}) by (rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "288d4e3b-5765-411a-9190-e6991b1f14f7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4833871439542854"
+                  },
+                  "title": "IO Await",
+                  "description": "IO Await",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2ddbe18f-c01f-41bc-a01d-3125fe80df37",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_io_await{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},technology=\"vm\",scope=${scope},!device=\"/dev/loop*\",technology=${technology}}) by (host,device)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1d224922-fa1d-4879-bd48-bfe5ddaaf35c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8533080550666216"
+                  },
+                  "title": "Consumer Utilization",
+                  "description": "Consumer Utilization",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "cecdcb36-4a75-4205-af66-92636d16ed15",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rabbitmq_queue_consumer_utilisation{environment=\"production AND $rabbitmq_queue AND $rabbitmq_node AND (host:prod-msrmq* OR host:R-RLogger-RMQ1 OR host:prod-rlogger-rmq* OR host:R-Market-RMQ1 OR host:R-Price-RMQ01 OR host:R-Deal-F-RMQ1 OR host:LON-R-Deal-F-RMQ2 OR host:Real-Rates-RMQ* OR host:lon-rloger-rmq1 OR host:marketstream.rmq OR host:prod-msrmq* OR host:D-Price-RMQ01 OR host:D-Rate-RMQ* OR LON-Market-RMQ2 OR host:R-Rate-Sec-RMQ*) AND $scope\"}) by (rabbitmq_node)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "35e7f021-a768-4b7f-8d73-437e86a24358"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5986515988643484"
+                  },
+                  "title": "IO Util",
+                  "description": "IO Util",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "de11fa10-6e7c-4eaf-a926-52674015cc5e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_io_util{host=${host},environment=${environment},team=${team},mode=${mode},servicename=${servicename},technology=\"vm\",scope=${scope},!device=\"/dev/loop*\",technology=${technology}}) by (host,device)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Performance Metrics",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_ORANGE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "30c02a9b-d9cf-4277-a58f-7d158fe4e6bc"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "34009f5e-8efb-48a4-aeef-58785a4df6eb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1817888130112560"
+                  },
+                  "title": "RabbitMQ status",
+                  "description": "RabbitMQ status",
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "*"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "9540fd6f-7981-4fd8-82a3-7644102b4c5a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7936767640564900"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**The status check returns the status of the RabbitMQ server. Returns OK if the agent was able to contact the API and CRITICAL otherwise**",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "51efc8c8-9bf1-4f44-a742-95857e3cbbee"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "454557152451414"
+                  },
+                  "title": "RabbitMQ Aliveness",
+                  "description": "RabbitMQ Aliveness",
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "*"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "eb19b1dc-fb44-428a-aecd-9e2564e36d26"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6645794345759168"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**The Aliveness API will create a test queue, Publish and consume a message from that queue.\nReturns OK if the status code from the API is 200\nCRITICAL otherwise**",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f13c06f3-07a9-4964-9ee5-6f13fa9ff6c6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2139934402571102"
+                  },
+                  "title": "Disk Alarms",
+                  "description": "Disk Alarms",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(rabbitmq_node_disk_alarm{scope=${scope},environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},technology=${technology}})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "2924a696-a1c8-46c8-8f00-07000bcdb2d6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5879531094955340"
+                  },
+                  "title": "Memory Alarms",
+                  "description": "Memory Alarms",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(rabbitmq_node_mem_alarm{scope=${scope},environment=${environment},team=${team},host=${host},servicename=${servicename},mode=${mode},region=${region},technology=${technology}})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Ungrouped Widgets",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "scope",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "scope"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Scope",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "environment",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "environment"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Environment",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "team",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "team"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Team",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "host",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "host"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Host",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "servicename",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "servicename"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Servicename",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "mode",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "mode"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Mode",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "region",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "region"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Region",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "rabbitmq_queue",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "rabbitmq_queue"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Rabbitmq Queue",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "rabbitmq_node",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "rabbitmq_node"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Rabbitmq Node",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "rabbitmq_exchange",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "rabbitmq_exchange"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Rabbitmq Exchange",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "technology",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "technology"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Technology",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "300s",
+    "folderId": {
+      "value": "86ddb8c3-d41d-4dfb-a3fc-67d175446532"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Migrated from Datadog8"
+  }
+}

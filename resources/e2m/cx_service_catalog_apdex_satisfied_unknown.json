@@ -1,0 +1,32 @@
+{
+  "id": "unknown",
+  "name": "cx_service_catalog_apdex_satisfied",
+  "exported_at": "2025-12-17T14:43:51.911182",
+  "data": {
+    "id": "8a70c6fd-bd74-4956-a8e7-f1f15cd12ab2",
+    "name": "cx_service_catalog_apdex_satisfied",
+    "description": "Apdex threshold for  satisfied requests",
+    "createTime": "2024-06-02T15:00:23.000Z",
+    "updateTime": "2024-06-02T15:00:22.000Z",
+    "permutations": {
+      "limit": 10000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "service",
+        "sourceField": "servicename"
+      }
+    ],
+    "metricFields": [],
+    "type": "E2M_TYPE_SPANS2METRICS",
+    "spansQuery": {
+      "lucene": "(+duration:{* TO 500000] ) AND NOT tags.error: \"true\" AND (tags.span.kind: \"server\" OR tags.span.kind: \"consumer\")",
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "actionFilters": [],
+      "serviceFilters": []
+    },
+    "isInternal": true
+  }
+}

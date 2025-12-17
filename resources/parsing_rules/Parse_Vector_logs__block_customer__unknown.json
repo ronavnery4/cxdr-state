@@ -1,0 +1,46 @@
+{
+  "id": "unknown",
+  "name": "Parse Vector logs (block customer)",
+  "exported_at": "2025-12-17T14:43:55.226784",
+  "data": {
+    "id": "a2592892-6dd6-474f-a1b7-4d4788a6b0b3",
+    "name": "Parse Vector logs (block customer)",
+    "description": "",
+    "creator": "bot@coralogix.com",
+    "enabled": true,
+    "hidden": false,
+    "ruleMatchers": [
+      {
+        "applicationName": {
+          "value": "vector_app"
+        }
+      }
+    ],
+    "ruleSubgroups": [
+      {
+        "id": "48ce468f-5e84-43bd-bd3b-727220d67a27",
+        "rules": [
+          {
+            "id": "d55c83c9-9d7e-4d96-a632-5ace8e507097",
+            "name": "Parse message",
+            "description": "",
+            "sourceField": "text.message",
+            "parameters": {
+              "jsonParseParameters": {
+                "destinationField": "text",
+                "deleteSource": true,
+                "escapedValue": null,
+                "overrideDest": false
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 1
+      }
+    ],
+    "order": 8
+  }
+}

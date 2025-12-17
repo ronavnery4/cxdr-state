@@ -1,0 +1,44 @@
+{
+  "id": "unknown",
+  "name": "cx_db_catalog_apdex_satisfied",
+  "exported_at": "2025-12-17T14:43:51.911745",
+  "data": {
+    "id": "c2cb0b10-a036-4c6c-ac78-1f27c215670a",
+    "name": "cx_db_catalog_apdex_satisfied",
+    "description": "Apdex threshold for  satisfied requests",
+    "createTime": "2024-06-02T15:00:19.000Z",
+    "updateTime": "2024-06-02T15:00:18.000Z",
+    "permutations": {
+      "limit": 10000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "service",
+        "sourceField": "servicename"
+      },
+      {
+        "targetLabel": "net_peer_name",
+        "sourceField": "tags.net.peer.name"
+      },
+      {
+        "targetLabel": "db_name",
+        "sourceField": "tags.db.name"
+      },
+      {
+        "targetLabel": "db_system",
+        "sourceField": "tags.db.system"
+      }
+    ],
+    "metricFields": [],
+    "type": "E2M_TYPE_SPANS2METRICS",
+    "spansQuery": {
+      "lucene": "(+duration:{* TO 500000] ) AND NOT tags.error: \"true\" AND tags.span.kind: \"client\" AND _exists_: \"tags.db.system\"",
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "actionFilters": [],
+      "serviceFilters": []
+    },
+    "isInternal": true
+  }
+}

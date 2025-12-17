@@ -1,0 +1,1383 @@
+{
+  "id": "unknown",
+  "name": "Data Usage",
+  "exported_at": "2025-12-17T14:44:14.233229",
+  "data": {
+    "id": "PI2oQlIkSFICR1fQooxVt",
+    "name": "Data Usage",
+    "description": "View and monitor your data usage",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "b43eeea9-6609-445f-97d6-5e70597dac8c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b863ed13-a262-4d83-8458-f600a78417b7"
+              },
+              "appearance": {
+                "height": 12
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "603e7bd6-2dd7-4e5b-bb50-f930d6d13003"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "#### Data Usage Dashboard\n\n\nThis dashboard displays your account's data usage, counted towards your team daily quota.\nIf no data appears, you may need to [activate](https://coralogix.com/docs/data-usage-metrics/) the data usage metrics feature.\nIf the feature has been activated, you may delete this markdown message by using the delete in the options menu in the upper right corner.\n\n<br>\n<br>\n",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        },
+        {
+          "id": {
+            "value": "c12b77a5-f90a-4e3d-8958-7b28fc83c787"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d4cc98c8-5dab-43da-b833-9aefd22c0b0b"
+              },
+              "appearance": {
+                "height": 9
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "bcf2b1aa-dcad-47ab-8c25-2dbef8b8c281"
+                  },
+                  "title": "Quota Used",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units) / max(cx_data_plan_units_per_day) * 100    "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_PERCENT",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 80,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 90,
+                          "color": "var(--c-severity-log-critical)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5980755a-315c-466c-9883-107dbbe3d147"
+                  },
+                  "title": "Burn Rate",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "((sum(cx_data_usage_units) / max(cx_data_plan_units_per_day))  - ((time() % 86400) / 86400)) * 100 "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_PERCENT",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f5417fd0-d1dc-48b3-afac-95138a301637"
+              },
+              "appearance": {
+                "height": 8
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "40da4042-e319-4fe3-83b7-aaf6e527484b"
+                  },
+                  "title": "Current Units",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units)"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ac14d5e7-11bc-4b13-93a6-1506a6a3ebdb"
+                  },
+                  "title": "Last Hour Increase",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_units[1h]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7ac4c87b-175b-4e2b-93df-94c68b525933"
+                  },
+                  "title": "Today's Estimation",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units) +\nmax(increase(cx_data_usage_units[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "593ee53a-9b4f-4ec2-b390-d6f217d2a09b"
+                  },
+                  "title": "Estimated Daily Usage",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_units[1h])) * 24\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ef6e8609-c71f-45fc-932c-a1264e6b7f30"
+              },
+              "appearance": {
+                "height": 9
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "0b74c97a-e0e3-496a-9134-10321497a48e"
+                  },
+                  "title": "Current Data",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_bytes_total)"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "595bc64c-8b09-44db-b8bc-22c8360be0ec"
+                  },
+                  "title": "Last Hour Increase",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_bytes_total[1h]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9f9fb722-0bca-4d3e-ac74-90edebc2e8bf"
+                  },
+                  "title": "Today's Estimation",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_bytes_total) +\nmax(increase(cx_data_usage_bytes_total[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "815075f7-5ac3-4db8-82aa-0ced86b1398a"
+                  },
+                  "title": "Estimated Daily Usage",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_bytes_total[1h])) * 24\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "High Level",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "7a080d0f-929f-4ddc-8a1f-09f94d0f68ad"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a695c8cb-3243-4a19-9aab-b8a0ac560181"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2a2ae9e0-0cc0-4494-ae24-c2c675fababe"
+                  },
+                  "title": "Units by Pillar",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8704948b-5649-f1e1-9cd0-992bab361da8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{}) by (pillar,priority)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "494bb23b-0333-419d-a6c0-ab4f6b0a792c"
+                  },
+                  "title": "Units By Pillar",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units{}) by (pillar,priority)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "pillar",
+                            "priority"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "faa2b254-7689-43e9-9d62-23336d051bbf"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "334481de-23ae-4be3-8e99-4ff4d83e5637"
+                  },
+                  "title": "Units by Application",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "81018d52-59cb-d5f2-1e52-b0db7cf9ebd7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f561503b-11eb-45dc-9188-894919f9d1a3"
+                  },
+                  "title": "Units By Application",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "application_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "aafd5393-862b-451e-98cd-4834ae600973"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e7cea5c9-0431-4f28-8a98-d3808331194d"
+                  },
+                  "title": "Units by Subsystem",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a60bfa5f-4827-6f20-41c7-0364996abb70",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "0b0eed12-eec0-497e-b4f2-cb0409d8120b"
+                  },
+                  "title": "Units By Subsystem",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystem_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "By Unit",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "cefe437c-3605-471c-827a-810af76c170c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "714f05b3-92ca-4bfe-baf4-94ddd01524b0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "672e62ab-fe70-49ad-b908-2703536a5f59"
+                  },
+                  "title": "Data Usage By Pillar",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "3884b9c1-c420-be9e-e630-79efb92ab4bd",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total{}) by (pillar,priority)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7ac84d6c-3980-436f-8a7f-0ac5db61a3ed"
+                  },
+                  "title": "Data Usage By Pillar",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_bytes_total{}) by (pillar,priority)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "pillar",
+                            "priority"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_BYTES_IEC",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "63b76420-f937-479e-90e2-8558f6ba39ba"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a105342a-466c-4ff9-89c8-f603a4bea3e7"
+                  },
+                  "title": "Data Usage By Application",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f56c0b4c-7df0-113a-d735-6093457b5b74",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d817ed7a-3994-4ee8-b2a4-664c34e3d67a"
+                  },
+                  "title": "Data Usage By Application",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "application_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_BYTES_IEC",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "34c7b057-f9e7-47bc-9ee5-717aedf7077f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "247ab3f7-9cd2-432b-8740-2d128f2c5e34"
+                  },
+                  "title": "Data Usage By Subsystem",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "3be4477f-14cb-53eb-36f1-4a3f43b0a6f2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2404e70f-3def-4d26-a061-101b888bafe7"
+                  },
+                  "title": "Data Usage By Subsystem",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystem_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_BYTES_IEC",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "By Data Usage",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "86400s",
+    "folderId": {
+      "value": "d95e3baa-3c8b-4592-850e-394296331171"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix System Monitoring"
+  }
+}

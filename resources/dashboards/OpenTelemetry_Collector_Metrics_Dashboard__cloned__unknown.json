@@ -1,0 +1,4022 @@
+{
+  "id": "unknown",
+  "name": "OpenTelemetry Collector Metrics Dashboard (cloned)",
+  "exported_at": "2025-12-17T14:44:14.261902",
+  "data": {
+    "id": "Uq52Zitb6P6v6ZyYGjPdW",
+    "name": "OpenTelemetry Collector Metrics Dashboard (cloned)",
+    "description": "Default dashboard to visualize metrics for the OpenTelemetry Collector.\n\nNote: To view these metrics, enable the Prometheus receiver in the collector configuration, as shown in [this example](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/6946b963820d391325254cb9cc6bb34ae12907a0/exporter/datadogexporter/examples/collector.yaml#L37).\n\nNote the 2 sections `Datadog Exporter: Traffic Sent` and `Datadog Connector: Stats Sent` have the `equiv_otel` function in some graphs. If you need to use `equiv_otel` in other queries, monitors or alerts, please opt in to the [Preview](http://docs.datadoghq.com/opentelemetry/guide/combining_otel_and_datadog_metrics/). (cloned)",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "e4fc0bc3-fe5d-44b2-9111-f7af4bfdb561"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "849690b8-07c7-4481-9a12-cc551555d18b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6416205973430436"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "This is a default dashboard to visualize metrics from the OpenTelemetry Collector. [These metrics](https://app.datadoghq.com/metric/summary?filter=otelcol) are scraped by the Prometheus receiver.  \n\nTo view these metrics, see [the documentation](https://docs.datadoghq.com/opentelemetry/integrations/collector_health_metrics/) for instructions to enable the Prometheus receiver in the collector configuration, as shown in [this example](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/6946b963820d391325254cb9cc6bb34ae12907a0/exporter/datadogexporter/examples/collector.yaml#L37).",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7907026745649816"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**OpenTelemetry Collector guides**\n\n[Collector documentation&nbsp;\u2197](https://opentelemetry.io/docs/collector/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "About",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "9c9686cd-c040-4c01-9e56-5992ba8914ed"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "55f0ead9-069d-4ce8-ab83-6a0e8014b926"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5573486690411152"
+                  },
+                  "title": "Process uptime",
+                  "description": "Process uptime",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5fa7c9b6-4c71-4fb6-a3b6-58b40cec2a93",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_process_uptime) by (service_version)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2354107430277160"
+                  },
+                  "title": "CPU seconds",
+                  "description": "CPU seconds",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "750c75c1-639e-4e6e-a355-64f9ff494e35",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_process_cpu_seconds) by (service_version)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7831353312899136"
+                  },
+                  "title": "Runtime total system memory",
+                  "description": "Runtime total system memory",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d825d8a2-97b4-422b-acb2-f5bd8f348d70",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "309ff4a1-99f1-47f6-8010-eaa2fcf6727b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "780842557608806"
+                  },
+                  "title": "Spans sent per second",
+                  "description": "Spans sent per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6cb7bcbf-a7ce-4b76-ab56-29834ae42eba",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_spans) by (service_version)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8314177216033788"
+                  },
+                  "title": "Metric points sent per second",
+                  "description": "Metric points sent per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ac0632f7-c694-4015-980f-0059d15bab4a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_metric_points) by (service_version)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Overall Health",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_BLUE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "52e01de2-6d2d-4aae-a41e-8a7eebcdbaee"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "270e040a-5f54-4b22-bd18-3393249c1ba2"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "64712743594636"
+                  },
+                  "title": "Accepted metric points by receiver",
+                  "description": "Accepted metric points by receiver",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_receiver_accepted_metric_points) by (service,receiver)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8965089698327520"
+                  },
+                  "title": "Accepted spans by receiver",
+                  "description": "Accepted spans by receiver",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "439febbd-b7cb-4589-ab3f-7da94c39f1ab"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2541322134541422"
+                  },
+                  "title": "Accepted metric points per second",
+                  "description": "Accepted metric points per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6b63fdee-1708-4a18-bbf2-88ebfaa99cdf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_accepted_metric_points) by (receiver)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "232476650413378"
+                  },
+                  "title": "Accepted spans per second",
+                  "description": "Accepted spans per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c03e234d-190a-456b-8ef2-cab9c4e62cca",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "2d285c01-54f0-4fe3-9e0d-dd2867b7f300"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "906365731352370"
+                  },
+                  "title": "Accepted metric points",
+                  "description": "Accepted metric points",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5ac1ef15-7156-4711-8783-3cdd62849bf4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_accepted_metric_points) by (receiver)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4647817520355024"
+                  },
+                  "title": "Accepted spans",
+                  "description": "Accepted spans",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "76278515-6ca4-4272-aff7-308b53cc5ced",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "bc343402-402d-48dc-a96e-8ed0b6ead3ea"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1047655959260678"
+                  },
+                  "title": "Refused metric points",
+                  "description": "Refused metric points",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "59e871a8-23f9-4b18-b917-fa5b584fcedf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_refused_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4022718917777506"
+                  },
+                  "title": "Refused spans",
+                  "description": "Refused spans",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "17c25846-a5b4-46b0-887f-a27a1f2cc1c5",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_receiver_refused_spans)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "b1e81340-8941-4c58-8677-da466a681b82"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4183049418927876"
+                  },
+                  "title": "Scraped metric points",
+                  "description": "Scraped metric points",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5b834a4d-3203-4d72-ae69-c07e05555517",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_scraper_scraped_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3294883772736648"
+                  },
+                  "title": "Scraped metric points per second",
+                  "description": "Scraped metric points per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f494ce7b-f340-48b3-a809-a8eac39fa484",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_scraper_scraped_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6826797800818452"
+                  },
+                  "title": "Errored metric points",
+                  "description": "Errored metric points",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dc9d1bc4-1605-47e3-a70f-9c5d5a5524f9",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_scraper_errored_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Component: Receivers",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "b2e43313-e13f-48e1-b226-0d1aceb5ae7e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a5d06b15-2611-4118-a463-dcc932387fe6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7541839960022268"
+                  },
+                  "title": "Batch send size by processor",
+                  "description": "Batch send size by processor",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(otelcol_processor_batch_batch_send_size) by (service,processor)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7547900287670884"
+                  },
+                  "title": "Batch size trigger send by processor",
+                  "description": "Batch size trigger send by processor",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_processor_batch_batch_size_trigger_send) by (service,processor)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0c6e6626-7e27-48bf-a839-11ca587b9c41"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4822339738405116"
+                  },
+                  "title": "Batch send size",
+                  "description": "Batch send size",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6d6b424d-6989-4018-a584-7b96850c45bb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_processor_batch_batch_send_size)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6953698662416766"
+                  },
+                  "title": "Batch size trigger send",
+                  "description": "Batch size trigger send",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dec9c05d-e9dd-474d-9dca-e4881f225e30",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_processor_batch_batch_size_trigger_send)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "23acd4f1-7188-4634-b145-211b0e0966cc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6605942082516500"
+                  },
+                  "title": "Batch send size per second",
+                  "description": "Batch send size per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1b9df68d-f96c-4bc4-a470-c84913790f8d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_processor_batch_batch_send_size)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7203814543578154"
+                  },
+                  "title": "Batch timeout trigger send",
+                  "description": "Batch timeout trigger send",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b883d755-3a4c-40ea-a238-20e41f7e18ca",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_processor_batch_timeout_trigger_send)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Component: Processors",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "1de2a0f3-1648-4dca-98d0-50fae59277bc"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "17d791d4-0995-4dd3-92f0-c985485a19f3"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "930313914228380"
+                  },
+                  "title": "Sent metric points by exporter",
+                  "description": "Sent metric points by exporter",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_exporter_sent_metric_points) by (service,exporter)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "701933337622658"
+                  },
+                  "title": "Sent metric points by exporter",
+                  "description": "Sent metric points by exporter",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_exporter_sent_spans) by (service,exporter)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "63ac8341-3f09-47de-9beb-8a105585c86e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2429160335220158"
+                  },
+                  "title": "Metric points sent per second",
+                  "description": "Metric points sent per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9e7df40d-9ad4-4dc5-b9af-4e1f9bc98c5c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "367100826912714"
+                  },
+                  "title": "Spans sent per second",
+                  "description": "Spans sent per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "7b1c31ed-6487-47f4-8b57-c4afe775d9c7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_spans)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "6ec97d21-c0ef-4b02-ba14-6fb9f8d2cdef"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1446350839941036"
+                  },
+                  "title": "Metric points sent",
+                  "description": "Metric points sent",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4356b32a-3958-4bba-8955-d4066078ea87",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_metric_points) by (exporter)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1550943436424728"
+                  },
+                  "title": "Spans sent",
+                  "description": "Spans sent",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "17158828-d6ab-4fe2-aa4b-ca80594b8dd5",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_sent_spans) by (exporter)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dcd4067a-764f-459f-9042-02b2bbe674d1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2087528775079980"
+                  },
+                  "title": "Queue size",
+                  "description": "Queue size",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8de8e956-095b-4aa5-8947-6cad9ea1a528",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_exporter_queue_size)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4452696034338046"
+                  },
+                  "title": "Failed send spans",
+                  "description": "Failed send spans",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6b98f3bf-f52b-460b-b8ce-da78add42722",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_send_failed_spans)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c2429dd2-359b-4004-8192-4a9bcd0443ad"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6751538797814796"
+                  },
+                  "title": "Failed enqueue log records",
+                  "description": "Failed enqueue log records",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "24a8413e-0867-4c48-9127-a13fa85bb3cf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_enqueue_failed_log_records)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4419663701723004"
+                  },
+                  "title": "Failed enqueue metric points",
+                  "description": "Failed enqueue metric points",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6d6755e0-7bb9-4d4c-a66b-f99df1a5a34b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_enqueue_failed_metric_points)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5689864039218520"
+                  },
+                  "title": "Failed enqueue spans",
+                  "description": "Failed enqueue spans",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "00bb1dea-0bce-4f84-9343-40be9ad0baec",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_exporter_enqueue_failed_spans)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Component: Exporters",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "31ee46e1-4407-4950-95ca-aba33eadb32b"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d462655d-b248-4dd3-81a0-c9e76fb5cd81"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4604688596865160"
+                  },
+                  "title": "Process uptime",
+                  "description": "Process uptime",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "3ff014f5-25c3-42e1-b8a4-8be33c67cf4a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_process_uptime)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2510903991180322"
+                  },
+                  "title": "CPU seconds",
+                  "description": "CPU seconds",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "17ea5cce-ab81-46f0-95d2-5a268d75341c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_process_cpu_seconds)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5974590671284596"
+                  },
+                  "title": "RSS memory used",
+                  "description": "RSS memory used",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5de6342e-7836-4bb0-9ba1-cec1c89bfcb6",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_process_memory_rss)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0e58fe70-548c-4b23-bb7e-92a459d05285"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "346589480155598"
+                  },
+                  "title": "Runtime heap alloc",
+                  "description": "Runtime heap alloc",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "debb2c76-5c56-426b-9daf-43f203dfa17a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_process_runtime_heap_alloc_bytes)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1054348548001084"
+                  },
+                  "title": "Runtime total alloc",
+                  "description": "Runtime total alloc",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8ca6b92f-54cd-4075-8b22-53517b00b797",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_process_runtime_total_alloc_bytes)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4098523814626648"
+                  },
+                  "title": "Runtime total system memory",
+                  "description": "Runtime total system memory",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "7cda1931-6e39-4d41-82c1-eda3370e7c25",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Process",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "53ca774b-7ea3-482d-ae91-97d64089a95e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "c0f4212e-77e4-4a8f-afd1-f17767261214"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7277145780697898"
+                  },
+                  "title": "Traces/s",
+                  "description": "Traces/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0bba39c3-d330-43d2-a6d3-9d68b300b695",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_traces{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7083501826441510"
+                  },
+                  "title": "Spans/s",
+                  "description": "Spans/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "cb144a34-c133-45f3-9c84-1b06f5bd6b43",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_spans{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "472499226335686"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Flush duration represents the time it took for the outbound HTTP request for a payload to finish.\n\nIf this is very high, that could be due to throttling or other network-related issues.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1088028507133504"
+                  },
+                  "title": "Max flush duration",
+                  "description": "Max flush duration",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5e9ca014-b202-47ab-85e7-12544ec92bd7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(otelcol_datadog_trace_agent_trace_writer_flush_duration_max{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "6099e18b-a3d7-40c1-ab68-d8c5cda4e42c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8355231721049742"
+                  },
+                  "title": "Bytes/s",
+                  "description": "Bytes/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c492e6a2-37c7-4eae-9256-d3dd77120d48",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_bytes{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "916753513797492"
+                  },
+                  "title": "Payloads/s",
+                  "description": "Payloads/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "18be6194-9c74-4aa7-91a8-9b584803a3e4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_payloads{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1527418764483546"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Payloads can be rejected when writing traces from the Collector to Datadog. This could be due to network issues or payload limits.\n\nCheck your Datadog Exporter logs for lines starting with \"Trace writer\" to debug.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3411291526347074"
+                  },
+                  "title": "Trace Writer Payload Rejected",
+                  "description": "Trace Writer Payload Rejected",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "13a7df1a-5caa-4acf-b9d8-32718c671990",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_errors{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "8444e7b5-0084-4852-b76d-c5a6c4cdabc2"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2391069929057274"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Traces and spans ingested/s represents the rate of OTLP traces received and processed by the trace API. The trace API receives data from both the Datadog Exporter and the Datadog Connector, which can be grouped by the `source` tag.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8797660477705488"
+                  },
+                  "title": "Traces Ingested/s",
+                  "description": "Traces Ingested/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "194f2f02-f1b9-4293-ad87-9d999a4cc38a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8662297609527868"
+                  },
+                  "title": "Spans Ingested/s",
+                  "description": "Spans Ingested/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4dd39f2c-112d-4ac6-83b0-bbe39ce3a6b1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4959423805049258"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "If an error occurs while flushing traces from the Collector to Datadog, then the payload may be retried. A high number of retries may be indicative of a network problem.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1174082491106180"
+                  },
+                  "title": "Trace Writer Retries",
+                  "description": "Trace Writer Retries",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ce39d0dc-a920-40d4-98a5-0413124e9431",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_retries{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Datadog Exporter: Traffic Sent",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "9bb0519b-9e69-4b11-9591-6f333175fe2c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "8fb3ea49-77cb-4dda-9096-9ae0439c7c42"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1135928704646528"
+                  },
+                  "title": "Total Stats",
+                  "description": "Total Stats",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\"})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9004774405386442"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Note:** The metrics in this section have a `source` tag which indicates the component they originate from. These Datadog Connector telemetry metrics are being generated by the exporter, but the stats themselves are generated and sent by the Datadog Connector. This is why some of these metrics have a source of `datadogexporter`.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3312471392848186"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Deprecated**: When feature gate `connector.datadogconnector.NativeIngest` is enabled (default is enabled since OTel collector v0.107.0), the Datadog connector uses a different code path that does not emit these metrics. Traces and spans ingested/s represents the rate of OTLP traces received and processed by the legacy trace API. The trace API receives data from both the Datadog Exporter and the Datadog Connector, which can be grouped by the `source` tag.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3256701085410466"
+                  },
+                  "title": "Traces Ingested/s",
+                  "description": "Traces Ingested/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "693566ba-fb2a-4240-a25a-f3b3c2768aa8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogconnector\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4752297048334012"
+                  },
+                  "title": "Spans Ingested/s",
+                  "description": "Spans Ingested/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c3936a8b-2660-4e98-a269-1300658af237",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogconnector\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "90958d96-8e8c-4770-9fce-651d216fdf8a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3655624594565734"
+                  },
+                  "title": "Payloads/s",
+                  "description": "Payloads/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "79d288c4-dc0c-4abb-ab1b-b7e9d54a6d04",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_payloads{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6117365818297616"
+                  },
+                  "title": "Bytes/s",
+                  "description": "Bytes/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "761710af-c369-4895-8acb-cfbbccb261b8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_bytes{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2247423855597712"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "If an error occurs while flushing stats from the Collector to Datadog, then the payload may be retried. A high number of retries may be indicative of a network problem.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2702360482430454"
+                  },
+                  "title": "Stats Writer Retries",
+                  "description": "Stats Writer Retries",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f189eeb4-87e8-41a5-8f36-83ec4e8d3fe0",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_retries{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7df8147f-f848-456d-987e-4c186bb3fab8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7239417592714084"
+                  },
+                  "title": "Entries/s",
+                  "description": "Entries/s",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2a7c3594-371d-4875-9c7d-a71c8d3732d1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4945982251056266"
+                  },
+                  "title": "Total Stats Buckets",
+                  "description": "Total Stats Buckets",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "15d0c202-ac63-432e-9c6a-3117115b87b1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_buckets{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "949298811721524"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Payloads can be rejected when writing stats from the Collector to Datadog. This could be due to network issues or payload limits.\nCheck your Datadog Connector logs for lines starting with \"Stats writer\" to debug.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7974581426254848"
+                  },
+                  "title": "Stats Rejected",
+                  "description": "Stats Rejected",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fd35a378-1577-466e-b4c2-8856929057ca",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_errors{source=\"datadogexporter\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Query 1",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Datadog Connector: Stats Sent",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "host",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "host"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Host",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "service",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "service"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Service",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "300s",
+    "folderId": {
+      "value": "6e21acea-6a6e-4e0d-81a4-42aacb8ce016"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Migrated from Datadog"
+  }
+}

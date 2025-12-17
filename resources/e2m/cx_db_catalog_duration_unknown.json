@@ -1,0 +1,182 @@
+{
+  "id": "unknown",
+  "name": "cx_db_catalog_duration",
+  "exported_at": "2025-12-17T14:43:51.911381",
+  "data": {
+    "id": "a437c828-b4b9-4508-8f83-c02c571bf855",
+    "name": "cx_db_catalog_duration",
+    "description": null,
+    "createTime": "2024-06-02T15:00:18.000Z",
+    "updateTime": "2024-07-10T09:30:13.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "service",
+        "sourceField": "servicename"
+      },
+      {
+        "targetLabel": "error",
+        "sourceField": "tags.error"
+      },
+      {
+        "targetLabel": "db_system",
+        "sourceField": "tags.db.system"
+      },
+      {
+        "targetLabel": "db_name",
+        "sourceField": "tags.db.name"
+      },
+      {
+        "targetLabel": "db_namespace",
+        "sourceField": "tags.db.namespace"
+      },
+      {
+        "targetLabel": "net_peer_name",
+        "sourceField": "tags.net.peer.name"
+      },
+      {
+        "targetLabel": "network_peer_name",
+        "sourceField": "tags.network.peer.name"
+      },
+      {
+        "targetLabel": "db_sql_table",
+        "sourceField": "tags.db.sql.table"
+      },
+      {
+        "targetLabel": "aws_dynamodb_table_names",
+        "sourceField": "tags.aws.dynamodb.table_names"
+      },
+      {
+        "targetLabel": "db_cosmosdb_container",
+        "sourceField": "tags.db.cosmosdb.container"
+      },
+      {
+        "targetLabel": "db_elasticsearch_path_parts_index",
+        "sourceField": "tags.db.elasticsearch.path_parts.index"
+      },
+      {
+        "targetLabel": "db_redis_database_index",
+        "sourceField": "tags.db.redis.database_index"
+      },
+      {
+        "targetLabel": "db_mongodb_collection",
+        "sourceField": "tags.db.mongodb.collection"
+      },
+      {
+        "targetLabel": "db_cassandra_table",
+        "sourceField": "tags.db.cassandra.table"
+      },
+      {
+        "targetLabel": "db_collection_name",
+        "sourceField": "tags.db.collection.name"
+      },
+      {
+        "targetLabel": "operation",
+        "sourceField": "operationname"
+      },
+      {
+        "targetLabel": "db_operation",
+        "sourceField": "tags.db.operation"
+      },
+      {
+        "targetLabel": "db_operation_name",
+        "sourceField": "tags.db.operation.name"
+      },
+      {
+        "targetLabel": "db_statement_blueprint_id",
+        "sourceField": "tags.db.statement.blueprint.id"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "cx_db_catalog_duration",
+        "sourceField": "duration",
+        "aggregations": [
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                1,
+                2.5,
+                5,
+                7.5,
+                10,
+                25,
+                50,
+                75,
+                100,
+                250,
+                500,
+                750,
+                1000,
+                2500,
+                5000,
+                7500,
+                10000,
+                25000,
+                50000,
+                75000,
+                100000,
+                250000,
+                500000,
+                750000,
+                1000000,
+                2500000,
+                5000000,
+                7500000,
+                10000000
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_SPANS2METRICS",
+    "spansQuery": {
+      "lucene": "tags.span.kind: \"client\" AND _exists_: \"tags.db.system\"",
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "actionFilters": [],
+      "serviceFilters": []
+    },
+    "isInternal": true
+  }
+}

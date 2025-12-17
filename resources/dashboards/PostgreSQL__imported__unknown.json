@@ -1,0 +1,1965 @@
+{
+  "id": "unknown",
+  "name": "PostgreSQL (imported)",
+  "exported_at": "2025-12-17T14:44:14.270360",
+  "data": {
+    "id": "chrv9FQmZtoH2keg3FaRu",
+    "name": "PostgreSQL (imported)",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "8c4b2034-18fc-4442-8d4d-02ad6f4a12fc"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d3dfb088-9993-4af9-9b02-fd5d689b9864"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b2d34567-a026-4deb-b71b-9c89bb0fa854"
+                  },
+                  "title": "Top Queries",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_calls{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  )\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2490b682-30de-4644-93a6-c93b47297b83"
+                  },
+                  "title": "Queries Duration (seconds)",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_total_exec_time{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}]) / 1000\n  )\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9c4a49bb-5fdb-47cf-96cc-4bcfbd5d5055"
+                  },
+                  "title": "Queries AVG Duration (seconds)",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_total_exec_time{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  ) / sum by (query_text) (\n    increase(pg_stat_statements_top_queries_calls{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  ) / 1000\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3ec2aeaf-371c-4ad4-91bb-6d2706937467"
+              },
+              "appearance": {
+                "height": 16
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6f81ebc2-5ee0-481b-b818-23d738a0f2d9"
+                  },
+                  "title": "Blocking Queries",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count by (\n  blocked_pid, blocked_query, blocked_user, blocking_pid, blocking_query, blocking_user,\n  wait_event_type, wait_event, last_active, table_name,\n  cloud_account_id, cloud_availability_zone, cloud_platform, cloud_provider, cloud_region,\n  cx_application_name, cx_otel_integration_name, cx_subsystem_name,\n  host_id, host_image_id, host_name, host_type, job, k8s_cluster_name, os_type,\n  server, server_address, server_port, service_instance_id, service_name\n) (pg_blocking_queries_wait_time_seconds)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "blocking_pid",
+                          "width": null
+                        },
+                        {
+                          "field": "blocking_query",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_pid",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_query",
+                          "width": null
+                        },
+                        {
+                          "field": "table_name",
+                          "width": null
+                        },
+                        {
+                          "field": "blocking_user",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_user",
+                          "width": null
+                        },
+                        {
+                          "field": "wait_event_type",
+                          "width": null
+                        },
+                        {
+                          "field": "wait_event",
+                          "width": null
+                        },
+                        {
+                          "field": "last_active",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Queries Stats",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_GREEN"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "d5334a5f-2eff-40da-91ab-f8a9a5f2c8f3"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "cf54a8a6-a570-4c95-9710-7698385cbdf8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3537ee6e-d5fd-48f7-8bf9-4c1023e99231"
+                  },
+                  "title": "Version",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_static{instance=~\"{{instance}}\"}"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "instance",
+                          "width": 131
+                        },
+                        {
+                          "field": "short_version",
+                          "width": null
+                        },
+                        {
+                          "field": "server",
+                          "width": 131
+                        },
+                        {
+                          "field": "version",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ac9a06d8-0adc-4c82-bcfb-f9e449a32158"
+                  },
+                  "title": "Current fetch data",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "SUM(pg_stat_database_tup_fetched_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8a1e5bcd-1af3-4694-9e76-40b6c9f8ea51"
+                  },
+                  "title": "Current insert data",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "SUM(pg_stat_database_tup_inserted_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "dda29729-cbc1-489e-a8c0-f8335eb64a3b"
+                  },
+                  "title": "Current update data",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "SUM(pg_stat_database_tup_updated_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3bcfacc1-a7a7-4671-a456-bb437dc5742e"
+                  },
+                  "title": "Max connections",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_max_connections{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "83f07e3f-b5dc-4e96-802b-5608ec38c0fc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "79a39f3e-878f-47fb-8112-146272e57afe"
+                  },
+                  "title": "Average CPU Usage",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e1d38f5a-c379-486a-8f4b-31bc8dd0971d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rate(process_cpu_seconds_total{instance=~\"{{instance}}\"}[5m]) * 1000)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "CPU Time",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5f72420c-e3cd-4971-bf7d-1ddcbe731cd2"
+                  },
+                  "title": "Average Memory Usage",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d1f8446c-9a87-452b-a2f1-c6ef688b5187",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(rate(process_resident_memory_bytes{instance=~\"{{instance}}\"}[5m]))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Resident Mem",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6bc65a38-9ec0-49dd-9abc-ec8119214f72"
+                  },
+                  "title": "Open File Descriptors",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "651fa62d-3f75-409f-bfe4-dc79a90f8884",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "process_open_fds{instance=~\"{{instance}}\"}"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Open FD",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "General",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_CYAN"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "192a0aad-30ae-43cc-ad76-3dfc4032b278"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "eb8f0cf9-a093-4912-91eb-b82cd678f727"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d782b3bb-0cbb-4c06-835e-ee205cccc28d"
+                  },
+                  "title": "Shared Buffers",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_shared_buffers_bytes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "726ccb5f-eb1b-471e-8958-51c8ec151106"
+                  },
+                  "title": "Effective Cache",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_effective_cache_size_bytes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "83f0eb26-b1dd-4bf3-b5d4-1d827f77641b"
+                  },
+                  "title": "Maintenance Work Mem\n",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_maintenance_work_mem_bytes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "39765706-adc9-4fbc-9feb-aed7f01b96e9"
+                  },
+                  "title": "Work Mem",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_work_mem_bytes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7c2e5174-cc46-4d84-9d00-8c35131ced3f"
+                  },
+                  "title": "Max WAL Size\n",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_max_wal_size_bytes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f95cc53f-c767-42dc-be6e-d10c4b22c953"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a2a9fa56-8033-4b08-81a8-dbaf87da42c5"
+                  },
+                  "title": "Random page Cost",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_random_page_cost{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5a2693d6-7d2a-46c5-8f9e-f69098d0c8dd"
+                  },
+                  "title": "Seq Page Cost",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_seq_page_cost{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5e03fd0d-7a13-4fb3-b187-bbb571ec7fb1"
+                  },
+                  "title": "Max Worker Processes\n",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_max_worker_processes{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "93143e56-3086-4674-a6d7-d0746e222b03"
+                  },
+                  "title": "Max Parallel Workers\n",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_settings_max_parallel_workers{instance=~\"{{instance}}\"}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Settings",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "8b6fd61a-bfdc-4160-ac80-ab08e34ffa5f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "fc3cca75-cad8-4399-a74b-feee0810139d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e7530864-ada0-46c0-8d0b-0fdbcbf09c60"
+                  },
+                  "title": "Active Sessions",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d44f84b9-068b-48a0-8e5a-7596faaf880f",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "pg_stat_activity_count{datname=~\"{{datname}}\", instance=~\"{{instance}}\", state=\"active\"} !=0"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "180a2ffa-9350-4fe5-a630-ee40d08df5ed"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8e6c73fd-f479-4f6b-bb41-34cfa192f4a6"
+                  },
+                  "title": "Transactions",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0ef540d0-f110-46a2-a479-b662087e1397",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "irate(pg_stat_database_xact_commit_total{instance=~\"{{instance}}\", datname=~\"{{datname}}\"}[5m])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "56c6d5f5-f4d0-4d50-a84f-14c58b7c11ce",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "irate(pg_stat_database_xact_rollback{instance=~\"{{instance}}\", datname=~\"{{datname}}\"}[5m]) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c9d7e4df-17c3-452c-9fd4-93dfe5c4fdf5"
+                  },
+                  "title": "Update data",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "445100f5-292b-4ef1-a49e-e66bfe9b676e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "pg_stat_database_tup_updated_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "48645f3b-73ea-4a65-925b-d39c26beedfa"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "92af5c71-c58c-48c4-819e-242e01d3314d"
+                  },
+                  "title": "Fetch data (SELECT)",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_stat_database_tup_fetched_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "datname",
+                            "instance"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 36,
+                      "groupNameTemplate": "Select Queries",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_INSIDE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1c2b59f6-c86e-4cd2-a79a-dd826136227a"
+                  },
+                  "title": "Insert Data",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_stat_database_tup_inserted_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "instance"
+                          ],
+                          "stackedGroupName": "datname",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 36,
+                      "groupNameTemplate": "Insert Queries",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_INSIDE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f563ca3a-1f58-42b8-b617-ef8358fd4dbd"
+                  },
+                  "title": "Lock Tables",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_locks_count{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "instance"
+                          ],
+                          "stackedGroupName": "datname",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 36,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_INSIDE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "9a202fc7-a49e-4d3e-a575-995aedc46295"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7ddf4b1a-555d-42b3-90a3-56797588f20e"
+                  },
+                  "title": "Return Data",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_stat_database_tup_returned_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "datname",
+                            "instance"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 36,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_INSIDE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d31a389f-ccbb-463a-899d-7a6d592ead81"
+                  },
+                  "title": "Idle Sessions",
+                  "description": null,
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "pg_stat_activity_count{datname=~\"{{datname}}\", instance=~\"{{instance}}\", state=~\"idle|idle in transaction|idle in transaction (aborted)\"}"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9710a3e5-9cf4-4976-8639-e666633f8d31"
+                  },
+                  "title": "Delete Data",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "259104a0-c369-4579-bd39-5e69bffb9b3d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "pg_stat_database_tup_deleted_total{datname =~ '{{datname}}'}"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Database Stats",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "instance",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "pg_stat_activity_count"
+                        },
+                        "labelName": {
+                          "stringValue": "instance"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "instance",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "datname",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "pg_stat_activity_count"
+                        },
+                        "labelName": {
+                          "stringValue": "datname"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "datname",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "300s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

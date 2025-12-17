@@ -1,0 +1,2513 @@
+{
+  "id": "unknown",
+  "name": "Redis - Dashboard",
+  "exported_at": "2025-12-17T14:44:14.278372",
+  "data": {
+    "id": "ptRTXy0nWMPCjyMF0qDan",
+    "name": "Redis - Dashboard",
+    "description": "This dashboard provides a high-level overview of key Redis metrics to help you monitor your Redis primary's performance and manage your Redis instance.\n\nFor more information, see:\n\n- Our [official Redis documentation](https://docs.datadoghq.com/integrations/redisdb/)\n\nOr our 3-part series blog post:\n\n- Part 1: [How to monitor Redis performance metrics](https://www.datadoghq.com/blog/how-to-monitor-redis-performance-metrics/) \n- Part 2: [Collecting Redis metrics](https://www.datadoghq.com/blog/how-to-collect-redis-metrics/)\n- Part 3: [Monitoring Redis with Datadog](https://www.datadoghq.com/blog/monitor-redis-using-datadog/) ",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "ccee1dfa-fc8d-432c-a82c-5d413f7a2e4a"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "97022911-8266-4dc7-bf63-798fb24fa9a5"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "11"
+                  },
+                  "title": "Connected clients",
+                  "description": "Connected clients",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8072cbae-f703-420e-a3e6-33f0ef636635",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_clients_connected{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team, redis_host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "13"
+                  },
+                  "title": "Connected replicas",
+                  "description": "Connected replicas",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "43ce2df7-82cf-4150-9c4c-66f542d8ca71",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_net_slaves{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, redis_role, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "cc9663fd-8f36-478a-bf5c-d075b9e1782d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "14"
+                  },
+                  "title": "Rejected connections",
+                  "description": "Rejected connections",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "604d8364-da95-4deb-8761-4e155f6193cf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_net_rejected{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "16"
+                  },
+                  "title": "Keys",
+                  "description": "Keys",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "119adc05-fb3c-4da0-a19b-bbe3b8ea2a28",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_keys{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Base Activity Metrics",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_BLUE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "6377965f-8a80-4a57-b58d-54089957181a"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a58b7547-5417-45a3-a43a-ae1e85d00f96"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8573856606106340"
+                  },
+                  "title": "Redis - CPU Total usage (%)",
+                  "description": "Redis - CPU Total usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a719e7e6-042c-4a69-aefc-c4db3efaef46",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_cpu_sys{environment=${environment},team=${team},host_name=${host_name},servicename=${servicename},mode=${mode},scope=${scope},region=${region},azureaccount=${azureaccount},technology=${technology},redis_host=${redis_host}}) by (team, host_name, redis_host)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5269598839681224"
+                  },
+                  "title": "Redis Process - Used Memory out of System total",
+                  "description": "Redis Process - Used Memory out of System total",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b2d719cb-50b5-4904-87cd-506ccccf914b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_processes_mem_pct{technology=\"vm\",team=${team},servicename=${servicename},azureaccount=${azureaccount},region=${region},mode=${mode},host_name=${host_name},environment=${environment},scope=${scope},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3bafdfe1-7b41-4ed6-80fc-c7161cf6930a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7001421080815454"
+                  },
+                  "title": "VM - CPU Usage (%)",
+                  "description": "VM - CPU Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f85e2967-16d9-425b-909b-c537b3612951",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_cpu_utilization_1{team=${team},technology=\"vm\",servicename=${servicename},azureaccount=${azureaccount},region=${region},mode=${mode},host_name=${host_name},environment=${environment},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4316129418709822"
+                  },
+                  "title": "VM - Memory Usage (%)",
+                  "description": "VM - Memory Usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6c553561-6b47-47ee-bcbb-80e28590c500",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_memory_usage_By{technology=\"vm\",team=${team},servicename=${servicename},azureaccount=${azureaccount},region=${region},mode=${mode},host_name=${host_name},environment=${environment},scope=${scope},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "aac3d11e-5ca0-433c-a6d2-05137c816231"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5761312312678632"
+                  },
+                  "title": "Redis Process - CPU usage (%)",
+                  "description": "Redis Process - CPU usage (%)",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8f50a029-41ff-4d6c-a2b9-d113b99dbbec",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(system_processes_cpu_normalized_pct{team=${team},technology=\"vm\",servicename=${servicename},azureaccount=${azureaccount},region=${region},mode=${mode},host_name=${host_name},environment=${environment},scope=${scope},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1646898577095530"
+                  },
+                  "title": "Disk usage",
+                  "description": "Disk usage",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(system_filesystem_usage_By{technology=\"vm\",team=${team},servicename=${servicename},azureaccount=${azureaccount},region=${region},mode=${mode},host_name=${host_name},environment=${environment},scope=${scope},technology=${technology},redis_host=${redis_host}}) by (device, host_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Base System Metrics",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_PURPLE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "e067d4e1-c225-4172-9755-571c894de9e3"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "567ad7bb-2863-436e-93c5-4669ab0abf8f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "23"
+                  },
+                  "title": "Percent Used Memory by Host",
+                  "description": "Percent Used Memory by Host",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "351266f8-b315-411f-a339-1706cad61485",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_mem_used{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "24"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Memory usage is a crucial performance factor. If `used_memory > total available system memory`, the OS will begin swapping old/unused sections of memory and writing them to disk. Writing or reading from disk is up to 100,000 times slower than writing or reading from memory (0.1 \u00b5s for memory vs. 10 ms for disk).",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "af605c44-1bf1-4b1a-a95b-42da467d009a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "25"
+                  },
+                  "title": "Evictions",
+                  "description": "Evictions",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5554cb38-43ea-4cf1-a443-6dae4068f8bb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_keys_evicted{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5f724cd9-676d-4507-bb34-14ac1d0b579e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "29"
+                  },
+                  "title": "Blocked clients",
+                  "description": "Blocked clients",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "55270373-53fd-4c7a-bc0b-409067fd4dd2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_clients_blocked{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "898b9331-2fcf-48b9-a9f5-ca40698cf364"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "26"
+                  },
+                  "title": "Fragmentation ratio",
+                  "description": "Fragmentation ratio",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(redis_mem_fragmentation_ratio{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "27"
+                  },
+                  "title": "Fragmentation ratio",
+                  "description": "Fragmentation ratio",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "13a1009e-b8d1-4a70-949b-0b0b0c6045d1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_mem_fragmentation_ratio{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Memory Metrics",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "d25788a4-5a81-4c68-a364-f6615a403d98"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d5135f41-94ae-424a-91ba-71aadad569c0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "17"
+                  },
+                  "title": "Latency by Host",
+                  "description": "Latency by Host",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4797b3f2-6413-4f56-be33-21e10833795e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_info_latency_ms{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "18"
+                  },
+                  "title": "Note",
+                  "description": "Text widget",
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "Latency measures the **time between a client request and the server response**, and monitoring it enables you to detect changes in Redis performance. The single-threaded nature of Redis means that a long response time for one request increases the latency for all subsequent requests, leading to serious bottlenecks.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5c8337a3-4d88-446b-982c-3dcca0eab459"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "19"
+                  },
+                  "title": "Slowlog",
+                  "description": "Slowlog",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(redis_slowlog_micros_95percentile{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (command, host_name, team)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4e7d81e9-a984-464e-9d39-a34449b4e054"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "22"
+                  },
+                  "title": "Commands per second",
+                  "description": "Commands per second",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4fbc002c-11ff-46bf-8f1c-aae91c5e8490",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_commands_processed{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "481506db-1b50-4924-afad-f9bdf68fa5a7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "20"
+                  },
+                  "title": "Cache hit rate",
+                  "description": "Cache hit rate",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(redis_keyspace_hits{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "21"
+                  },
+                  "title": "Cache hit rate",
+                  "description": "Cache hit rate",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f00f706b-5aea-400b-a6b2-55c357e5adb8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_keyspace_hits{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Performance Metrics",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_ORANGE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "8fc4453d-d0ff-4b6c-a851-a0cd9d571839"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "16b63e10-0d30-40e1-8783-a9c47f936554"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4861235762516572"
+                  },
+                  "title": "Hit rate",
+                  "description": "Hit rate",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(redis_keyspace_hits{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5886678624997982"
+                  },
+                  "title": "Unsaved changes",
+                  "description": "Unsaved changes",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(redis_rdb_changes_since_last{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "be3a3a85-8040-46ad-a014-fc5dce14064b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7005159174234254"
+                  },
+                  "title": "Memory LUA",
+                  "description": "Memory LUA",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "04faea3b-9f11-4f77-9176-c6c5be9d6b04",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_mem_lua{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5193392085518178"
+                  },
+                  "title": "Replication delay",
+                  "description": "Replication delay",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9490af7f-b9e2-40ac-b5ba-7c2e59007575",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(redis_replication_delay{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}}) by (host_name, team)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "25e5a13d-d389-4939-b619-f48bfe10378b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3774440462666086"
+                  },
+                  "title": "Redis keyspace",
+                  "description": "Redis keyspace",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(redis_keys{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "9e82347f-7258-4325-94c1-f024af6cd4b4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4413414001262562"
+                  },
+                  "title": "Blocked clients",
+                  "description": "Blocked clients",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(redis_clients_blocked{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},mode=${mode},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8493776400619900"
+                  },
+                  "title": "Primary link down",
+                  "description": "Primary link down",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(redis_replication_master_link_down_since_seconds{scope=${scope},environment=${environment},team=${team},host_name=${host_name},azureaccount=${azureaccount},region=${region},servicename=${servicename},technology=${technology},redis_host=${redis_host}})"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 75,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "363638163450764"
+                  },
+                  "title": "Metric Chart",
+                  "description": "Metric Chart",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "bd797a53-5b36-41ce-a00a-d7518e01f2db",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_stats_io_threaded_writes_processed{host_name=${host_name},scope=${scope},environment=${environment},team=${team},servicename=${servicename},mode=${mode},region=${region},redis_host=${redis_host},azureaccount=${azureaccount}}) by (team, host_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0ab174f5-c8da-434f-a9c9-6df6f76de6ae"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8139094197794542"
+                  },
+                  "title": "Metric Chart",
+                  "description": "Metric Chart",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0f95871f-37a9-4e55-9e60-bd493bbf87c4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(redis_stats_io_threaded_reads_processed{host_name=${host_name},scope=${scope},environment=${environment},team=${team},servicename=${servicename},mode=${mode},region=${region},redis_host=${redis_host},azureaccount=${azureaccount}}) by (team, host_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "fdb2ce80-0266-4313-a504-be2add5de966"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6162288348704586"
+                  },
+                  "title": "Integration status",
+                  "description": "Integration status",
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "*"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Ungrouped Widgets",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "300s",
+    "folderId": {
+      "value": "86df2dd7-fb57-4e19-ae81-5091cf1a7963"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "applicationname",
+        "displayName": "applicationname",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "applicationname"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "environment",
+        "displayName": "environment",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "environment"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "team",
+        "displayName": "team",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "team"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "host_name",
+        "displayName": "host_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "host_name"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "servicename",
+        "displayName": "servicename",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "servicename"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "mode",
+        "displayName": "mode",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "mode"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "region",
+        "displayName": "region",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "region"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "azureaccount",
+        "displayName": "azureaccount",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "azureaccount"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "technology",
+        "displayName": "technology",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "technology"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      },
+      {
+        "name": "redis_host",
+        "displayName": "redis_host",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "k8s_pod_cpu_utilization_1"
+                  },
+                  "labelName": {
+                    "stringValue": "redis_host"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": null
+      }
+    ],
+    "actions": [],
+    "_source_folder_name": "Migrated from Datadog11"
+  }
+}

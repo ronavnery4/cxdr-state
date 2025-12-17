@@ -1,0 +1,189 @@
+{
+  "id": "unknown",
+  "name": "Visual Explorer - 25/03/2025 20:11:45",
+  "exported_at": "2025-12-17T14:44:14.277373",
+  "data": {
+    "id": "n3oMUxUHPk0mD1oSAfKbc",
+    "name": "Visual Explorer - 25/03/2025 20:11:45",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "b68c4cbf-45aa-41f7-b264-44dc3dbb4a5e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "e5acfcc9-489a-4996-ae44-699d8edd46be"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "475c0e89-bf52-409f-948b-b401c02a92f0"
+                  },
+                  "title": "Spanmetric",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6d0d1c37-1a91-4211-a9a6-6fd4016e6379",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "count(traces_span_metrics_calls_total) by (span_kind)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "36030809-16ac-47d0-a912-fbc3fb670071"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "318fcf7f-8a68-403a-91f6-f442583fab52"
+                  },
+                  "title": "Spans",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b613f3de-52b2-42f9-8831-44cb7631ffa1",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "tags",
+                                    "span.kind"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "120s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

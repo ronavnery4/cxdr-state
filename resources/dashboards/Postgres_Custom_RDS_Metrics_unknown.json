@@ -1,0 +1,163 @@
+{
+  "id": "unknown",
+  "name": "Postgres Custom RDS Metrics",
+  "exported_at": "2025-12-17T14:44:14.277013",
+  "data": {
+    "id": "LCAp6IURtsoGM9O59dkSp",
+    "name": "Postgres Custom RDS Metrics",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "26aa4740-6a53-474a-a5b4-d2606d8bd5fe"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "74f0e14b-3e2d-4070-abba-fcf8b84866ee"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8d46e4a1-0da4-453a-9752-267515da6871"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (clean_query) (\n    label_replace(\n      increase(pg_stat_statements_top_queries_calls[5m]),\n      \"clean_query\",\n      \"$1\",\n      \"query_text\",\n      \".*\\\\*/\\\\s*(.*)\"\n    )\n  )\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "db_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "k8s_cluster_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "server",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      }
+    ],
+    "relativeTimeFrame": "7200s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

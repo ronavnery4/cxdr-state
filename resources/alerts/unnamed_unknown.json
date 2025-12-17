@@ -1,0 +1,62 @@
+{
+  "id": "unknown",
+  "name": "unnamed",
+  "exported_at": "2025-12-17T14:44:16.318700",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector Refusing Spans",
+      "description": "OpenTelemetry Collector is refusing spans due to memory limits, please check the logs of the Kubernetes Pod and increase resources.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_pod_name",
+        "receiver"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_receiver_refused_spans_total{}[5m])) by (receiver, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "b06806cf-6fd1-497e-b04f-008de0ce57dc",
+    "createdTime": "2025-03-18T09:26:51Z",
+    "updatedTime": "2025-03-18T09:26:52Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "fcaa2bbb-db51-466c-9caf-94da88083f8a"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "unknown",
+  "name": "cx_service_catalog_service_duration",
+  "exported_at": "2025-12-17T14:43:51.910656",
+  "data": {
+    "id": "67caed59-5dac-4c2e-9e12-be25bb592525",
+    "name": "cx_service_catalog_service_duration",
+    "description": null,
+    "createTime": "2024-06-02T15:00:19.000Z",
+    "updateTime": "2024-06-02T15:00:18.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "service",
+        "sourceField": "servicename"
+      },
+      {
+        "targetLabel": "error",
+        "sourceField": "tags.error"
+      },
+      {
+        "targetLabel": "spanKind",
+        "sourceField": "tags.span.kind"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "cx_service_catalog_service_duration",
+        "sourceField": "duration",
+        "aggregations": [
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                1,
+                2.5,
+                5,
+                7.5,
+                10,
+                25,
+                50,
+                75,
+                100,
+                250,
+                500,
+                750,
+                1000,
+                2500,
+                5000,
+                7500,
+                10000,
+                25000,
+                50000,
+                75000,
+                100000,
+                250000,
+                500000,
+                750000,
+                1000000,
+                2500000,
+                5000000,
+                7500000,
+                10000000
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_SPANS2METRICS",
+    "spansQuery": {
+      "lucene": "",
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "actionFilters": [],
+      "serviceFilters": []
+    },
+    "isInternal": true
+  }
+}

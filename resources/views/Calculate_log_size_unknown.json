@@ -1,0 +1,44 @@
+{
+  "id": "unknown",
+  "name": "Calculate log size",
+  "exported_at": "2025-12-17T14:44:14.745467",
+  "data": {
+    "id": 95089,
+    "name": "Calculate log size",
+    "searchQuery": {
+      "query": "source logs \n#Lets get average and sum statistics on all logs\n| agg count() as a_Sum.Log_Count,\n      round(avg(byteLength($d:string)),2) as b_Avg.Data, \n      round(avg(byteLength($l:string)),2) as b_Avg.Labels,\n      round(avg(byteLength($m:string)),2) as b_Avg.Metadata,\n      round(sum(byteLength($d:string)),2) as a_Sum.Data, \n      round(sum(byteLength($l:string)),2) as a_Sum.Labels,\n      round(sum(byteLength($m:string)),2) as a_Sum.Metadata   \n#Now lets stich together the resource attriues average and sum data   \n| stitch (source logs\n    | choose resource.attributes\n    | agg round(avg(byteLength($d:string)),2) as Avg_RA,\n          round(sum(byteLength($d:string)),2) as Sum_RA)  into RA\n|create a_Sum.RA from RA.Sum_RA\n|create b_Avg.RA from RA.Avg_RA\n#Create Totals\n|create b_Avg.Log_Size from b_Avg.Data+b_Avg.Labels+b_Avg.Metadata\n|create a_Sum.Log_Size from a_Sum.Data+a_Sum.Labels+a_Sum.Metadata\n#Now - Lets calculate percentiles\n|create c_Pct.Total.RA_Data from round(100*a_Sum.RA/a_Sum.Data,2)\n|create c_Pct.Total.RA_All from round(100*a_Sum.RA/(a_Sum.Data+a_Sum.Labels+a_Sum.Metadata),2)\n|create c_Pct.Total.Labels from round(100*(a_Sum.Labels)/(a_Sum.Data+a_Sum.Labels+a_Sum.Metadata),2)\n|create c_Pct.Total.Metadata from round(100*(a_Sum.Metadata)/(a_Sum.Data+a_Sum.Labels+a_Sum.Metadata),2)\n|create c_Pct.Total.CX from round(100*(a_Sum.Labels+a_Sum.Metadata)/(a_Sum.Data+a_Sum.Labels+a_Sum.Metadata),2)\n|create c_Pct.Total.Addition from round(100*(a_Sum.RA+a_Sum.Labels+a_Sum.Metadata)/(a_Sum.Data+a_Sum.Labels+a_Sum.Metadata),2)\n\n|create c_Pct.Avg.RA_Data from round(100*b_Avg.RA/b_Avg.Data,2)\n|create c_Pct.Avg.RA_All from round(100*b_Avg.RA/(b_Avg.Data+b_Avg.Labels+b_Avg.Metadata),2)\n|create c_Pct.Avg.Labels from round(100*(b_Avg.Labels)/(b_Avg.Data+b_Avg.Labels+b_Avg.Metadata),2)\n|create c_Pct.Avg.Metadata from round(100*(b_Avg.Metadata)/(b_Avg.Data+b_Avg.Labels+b_Avg.Metadata),2)\n|create c_Pct.Avg.CX from round(100*(b_Avg.Labels+b_Avg.Metadata)/(b_Avg.Data+b_Avg.Labels+b_Avg.Metadata),2)\n|create c_Pct.Avg.Addition from round(100*(b_Avg.RA+b_Avg.Labels+b_Avg.Metadata)/(b_Avg.Data+b_Avg.Labels+b_Avg.Metadata),2)\n\n|choose a_Sum, b_Avg, c_Pct"
+    },
+    "timeSelection": {
+      "quickSelection": {
+        "caption": "Last 15 minutes",
+        "seconds": 900
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {}
+        }
+      ]
+    },
+    "folderId": null,
+    "isCompactMode": false
+  }
+}

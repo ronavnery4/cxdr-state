@@ -1,0 +1,2557 @@
+{
+  "id": "unknown",
+  "name": "Amazon Relational Database Service (RDS)",
+  "exported_at": "2025-12-17T14:44:14.204210",
+  "data": {
+    "id": "w_RMaCM2CIHdnUq3n_TlZ",
+    "name": "Amazon Relational Database Service (RDS)",
+    "description": "View of key metrics relating to the health and performance of deployed AWS RDS functions.",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "cd382b51-ed75-4c57-b38e-46e8801609a3"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "72c2c28f-e0b8-4186-a0b5-ec6e514d1c6e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cb53a49a-98c1-4dcc-9895-6c3034246a0c"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Amazon RDS**\n![AWS RDS](https://icon.icepanel.io/AWS/svg/Database/RDS.svg)\n Amazon Relational Database Service (RDS) is a managed service that makes it easy to set up, operate, and scale a relational database (PostgreSQL, MySQL, MariaDB, SQL Server, Oracle, Db2) in the cloud. It provides cost-efficient and resizable capacity, while managing time-consuming database administration tasks, freeing you to focus on your applications and business.\n\nThis dashboard is part of the out-of-box Amazon RDS extension and provides visibility to and alerting on key performance metrics.\n\n**Details of integrations to bring in Amazon RDS logs -** [here](https://coralogix.com/docs/cloudwatch-metricstreams-kinesis-data-firehose/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "604c8f9a-d7fb-4c3c-8c07-4bd3c50a373a"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Use Cases Covered**\n\n* CPU Utilisation (percentage of CPU utilisation)\n* Freeable Memory or Memory Available (amount of available random access memory)\n* Disk Available (amount of available local storage for each instance)\n* Database Connections (number of client network connections to the database instance)\n* Read IOPS (number of disk read I/O operations per second)\n* Write IOPS (number of disk write I/O operations per second)\n* Read Latency (amount of time it takes for a read operation to be completed)\n* Write Latency (amount of time it takes for a write operation to be completed)\n* Network Throughput (measures the incoming/outgoing(received) network traffic on the database instance)\n* Swap Usage (portion of the disk used by the operating system as virtual memory when the physical memory (RAM) is fully utilized)\n* Cache Hit Ratio (percentage of requested data that is found in the cache compared to the total number of data requests)\n* Avg Disk Queue (The number of outstanding I/Os (read/write requests) waiting to access the disk.)\n* RDS Service Limit (usage of AWS Trusted Advisor service limits for Amazon RDS instances)\n\nMore about performance monitoring of Amazon RDS[ here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "479a1125-32c0-45f8-a8e8-d0e9286069a4"
+              },
+              "appearance": {
+                "height": 22
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8b303f8c-1a04-4b48-9439-8bd765619df8"
+                  },
+                  "title": "Overall Avg  CPU Utilization (%)",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(sum_over_time(amazonaws_com_AWS_RDS_CPUUtilization_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) /  sum(sum_over_time(amazonaws_com_AWS_RDS_CPUUtilization_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": false,
+                      "unit": "UNIT_PERCENT",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "98be506e-8126-4251-8a20-dd264d7c9734"
+                  },
+                  "title": "Avg CPU Utilisation by  Database - Top 20 (%) ",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_CPUUtilization_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) /  sum(sum_over_time(amazonaws_com_AWS_RDS_CPUUtilization_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)\n"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7dbf6d28-916f-4786-a06c-4bb5d3f0769c"
+                  },
+                  "title": "CPU Utilisation by Database (%)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6e7c647c-48e8-1205-73ac-897a18372d30",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_CPUUtilization_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) /  sum(amazonaws_com_AWS_RDS_CPUUtilization_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "489a8dab-39fe-4adf-ab93-4eb59d0ba357"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6ca3b0e3-0254-4621-9905-89700f2963ce"
+                  },
+                  "title": "Avg Freeable Memory by Database - Top 20",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "(sum(sum_over_time(amazonaws_com_AWS_RDS_FreeableMemory_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_FreeableMemory_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier))/1048576"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_MIBYTES",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "40c9bbf2-081a-4ffa-a48a-5483379d2ef9"
+                  },
+                  "title": "Avg Freeable Memory by Database ",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d1c6eb42-48f0-8108-2042-1eabd84d91de",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum(amazonaws_com_AWS_RDS_FreeableMemory_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)/ sum(amazonaws_com_AWS_RDS_FreeableMemory_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) )/ 1048576"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MIBYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5b947021-ecf5-4076-89c7-cb73fa74d7ab"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d4b542ad-1999-4957-b9af-a05c6046f4b0"
+                  },
+                  "title": "Avg Disk Available by Database - Top 20",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_FreeStorageSpace_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_FreeStorageSpace_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}[${__range}])) by (DBInstanceIdentifier)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": "Free Storage"
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_BYTES_IEC",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "bf80608b-32b3-4640-bc56-c0a4cb49900d"
+                  },
+                  "title": "Avg Disk Available by Database ",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "492adb8e-001e-e3cc-5dad-34ea0f4904a0",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_FreeStorageSpace_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_FreeStorageSpace_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}[${__range}])) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "100",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 100
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "eecf68a4-82fe-4819-bbe2-3c47ea0d7087"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "31873df3-8542-451a-b837-d56369cd455f"
+                  },
+                  "title": "Total Database Connections",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum(sum_over_time(amazonaws_com_AWS_RDS_DatabaseConnections_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_DatabaseConnections_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ccfa0f4d-7bc9-4c0c-955c-3e2dedb9c4a4"
+                  },
+                  "title": "Avg Connections by Database - Top 20",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_DatabaseConnections_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_DatabaseConnections_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5bcc869b-2618-4b93-b546-1150c5750691"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d2153af2-61c5-4804-ab54-3f3eda7bbfa2"
+                  },
+                  "title": "Avg Connections by Database ",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8c7aa7a8-c290-997b-0e8e-c2cb6c56b062",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_DatabaseConnections_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_DatabaseConnections_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Avg",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "54b56dd7-bd22-4d52-b7ed-5feb1d64a597",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Max",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "363ffa43-7116-8532-dc25-531298871127",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "694d2dad-b47d-4293-8e6e-24d82290e4ba"
+                  },
+                  "title": "Max Connections by Database ",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c13a29a0-6713-89c1-c0c6-19f6197facf2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_DatabaseConnections_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_DatabaseConnections_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Avg",
+                          "isVisible": false,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "61f2f1df-bf85-02c7-8d68-beb2f63369df",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Max",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "b2b83fe6-80b5-f5bf-e02f-da449793e5eb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_DatabaseConnections{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4198989a-a3c6-4ab5-879c-014143594859"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c2b93a71-e0f5-4a8f-867e-ee794b94370b"
+                  },
+                  "title": "Overall Avg Read IOPS (count/sec)",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(sum_over_time(amazonaws_com_AWS_RDS_ReadIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_ReadIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 9999999999,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a2c996c8-25a1-4ace-885a-0176032f6989"
+                  },
+                  "title": "Avg Read IOPS by Database - Top 20 (count/sec)",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_ReadIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_ReadIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "30c86dd0-c058-4324-a94d-31461ce00814"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8ff31b20-2366-4f79-8caf-f32f47471c47"
+                  },
+                  "title": "Read IOPS by Database (count/sec)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1f5eeb6e-166f-4fce-a763-e04420bc51e1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_ReadIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)/ sum(amazonaws_com_AWS_RDS_ReadIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "AVG",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 100
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "bbe3c850-fd11-8c97-2a2e-5ea789ea6aab",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_ReadIOPS{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MAX",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "31d24aad-12ad-e69c-6d16-20fb3c3b54cb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_ReadIOPS{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "47dc5357-8cd1-4d67-a990-bfcebe9f073b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "99740332-35d8-469a-baa2-02f60b7e4227"
+                  },
+                  "title": "Overall Avg Write IOPS (count/sec)",
+                  "description": "The average number of disk write I/O operations per second.",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(sum_over_time(amazonaws_com_AWS_RDS_WriteIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)/ sum(sum_over_time(amazonaws_com_AWS_RDS_WriteIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "0223853e-c809-48f9-ac33-fe8458eaeb5e"
+                  },
+                  "title": "Avg Write IOPS by Database - Top 20 (count/sec)",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_RDS_WriteIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)/ sum(sum_over_time(amazonaws_com_AWS_RDS_WriteIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}[${__range}])) by (DBInstanceIdentifier)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "892c1cc4-857c-46bc-887f-73a8a1a73096"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "56a59b52-d3d4-4e74-8fd4-28956d6ef9de"
+                  },
+                  "title": "Write  IOPS by Database (count/sec)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2a6ae2df-7c0e-4f07-7217-311ed662d3ce",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_WriteIOPS_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)/ sum(amazonaws_com_AWS_RDS_WriteIOPS_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "AVG",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "14d17739-7e7f-92ce-abf4-77983b7f0731",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_WriteIOPS{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MAX",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "7a7dc6ec-70b5-1027-1861-7be307a8aa3d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_WriteIOPS{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "682f0b8d-5037-48bd-aa1c-f2d5c5060e09"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "56eb75e1-7311-4cee-b8fe-e5f3bc33e0ac"
+                  },
+                  "title": "Overall Avg Read Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(amazonaws_com_AWS_RDS_ReadLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}/60) by (DBInstanceIdentifier) )\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_SECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c281bc4e-f678-4f74-b918-12752f7c1099"
+                  },
+                  "title": "Read Latency by Database - Top 20",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(amazonaws_com_AWS_RDS_ReadLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}/60) by (DBInstanceIdentifier) \n"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_SECONDS",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "881d5e36-81e3-4972-a87e-8ac4986529c9"
+                  },
+                  "title": "Read Latency  by Database",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ab72d8b2-ec81-1aeb-ba9c-7d79bcaa7ac4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_ReadLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}/60) by (DBInstanceIdentifier) \n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0f78ab13-0b48-4977-8ce2-80d407e9fbf6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e7d2dfab-fbce-4870-a673-0fd1e2fb7022"
+                  },
+                  "title": "Overall Avg Write Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(amazonaws_com_AWS_RDS_WriteLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\"}/60) by (DBInstanceIdentifier)) \n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_SECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1f86902f-21ab-4fe2-9057-46fa86e5f621"
+                  },
+                  "title": "Write Latency by Database - Top 20",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(amazonaws_com_AWS_RDS_WriteLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}/60) by (DBInstanceIdentifier) \n"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "DBInstanceIdentifier"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 20,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_SECONDS",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d5537c7e-00bf-4538-8690-f57a7e8ac716"
+                  },
+                  "title": "Write Latency  by Database",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "668665cc-3b07-4f88-1130-fa7afe691531",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_WriteLatency_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}/60) by (DBInstanceIdentifier) \n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "62a7fc53-8da0-4428-aa43-4ec45340ed17"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "001bf3b9-6fc1-4f44-894a-c0576401b234"
+                  },
+                  "title": "Overall Avg Network Receive Throughput (bytes/sec)",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(amazonaws_com_AWS_RDS_NetworkReceiveThroughput_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_NetworkReceiveThroughput_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3d9e1dfb-8b52-4660-8da7-3358eec87479"
+                  },
+                  "title": "Network Receive Throughput (bytes/sec)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "d48c662d-6707-db67-1958-8c0031c8e557",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_NetworkReceiveThroughput_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_NetworkReceiveThroughput_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "AVG",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "d0b779f9-5205-0255-2513-bd1e184fe022",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_NetworkReceiveThroughput{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MAX",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "e61103ee-f3eb-6673-3392-8b982dc041fa",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_NetworkReceiveThroughput{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "cb19edbd-89a8-4a88-acb7-90e30c0283e5"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "99f99bb0-fbd1-4de4-b16d-fc58abddfbf1"
+                  },
+                  "title": "Overall  Avg Network Transmit Throughput (bytes/sec)",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(sum(amazonaws_com_AWS_RDS_NetworkTransmitThroughput_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_NetworkTransmitThroughput_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_UNSPECIFIED",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ec315a53-6fff-43d3-ae64-bd8b5774e607"
+                  },
+                  "title": " Network Transmit Throughput (bytes/sec)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a2396e1e-0f88-7a39-20d9-9bc2d97cc62a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_NetworkTransmitThroughput_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_NetworkTransmitThroughput_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "AVG",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "25eb2d6a-3401-f2ba-0502-57ad13e6131d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_RDS_NetworkTransmitThroughput{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MAX",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "9275580f-6a5e-bf87-b207-23b5ade3cfa3",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "min(amazonaws_com_AWS_RDS_NetworkTransmitThroughput{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "MIN",
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4e7b1954-ef26-4c45-94f8-116d29a369d4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7a075fc3-ce94-43f8-b0f1-ca106490a7cd"
+                  },
+                  "title": "Swap Usage",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MAX"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2c52dea6-b579-65b2-3562-f4d9b9f22561",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum(amazonaws_com_AWS_RDS_SwapUsage_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_SwapUsage_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier))/1048576"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MBYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "df369867-555f-6778-f7ba-f02a500e1c88",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum(sum_over_time(amazonaws_com_AWS_RDS_SwapUsage_sum[${__range}])) by (DBInstanceIdentifier) / sum(sum_over_time(amazonaws_com_AWS_RDS_SwapUsage_count[${__range}])) by (DBInstanceIdentifier))/1048576\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": false,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "667a3f46-83ac-4d46-b1c9-792f84d9301a"
+                  },
+                  "title": "Cache Hit Ratio (%)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b1c991bc-2081-e292-a438-60dfa4a7bc9c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum(amazonaws_com_AWS_RDS_BufferCacheHitRatio_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_BufferCacheHitRatio_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "100",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4a5e15f0-a00c-46b8-a6d6-35c664aa405e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b5b2bcc3-fee4-430b-ad26-53d0de4f395f"
+                  },
+                  "title": "Avg Disk Queue",
+                  "description": "The number of outstanding I/Os (read/write requests) waiting to access the disk.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c9496a0f-847f-8e8b-8e7f-1fc8c7de1da1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(amazonaws_com_AWS_RDS_DiskQueueDepth_sum{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"}) by (DBInstanceIdentifier) / sum(amazonaws_com_AWS_RDS_DiskQueueDepth_count{DBInstanceIdentifier=~\"{{DBInstanceIdentifier}}\",Application=~\"{{Application}}\",cloud_region=~\"{{cloud_region}}\",DatabaseClass=~\"{{DatabaseClass}}\", EngineName=~\"{{EngineName}}\" , cloud_account_id=~\"{{cloud_account_id}}\"} ) by (DBInstanceIdentifier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f4544e07-c515-4b46-a394-771d819252d4"
+                  },
+                  "title": "RDS Service Limit (Quota) Usage",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a65a24d7-a252-14c4-0417-ca2c1dfd2c3f",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "max(amazonaws_com_AWS_TrustedAdvisor_ServiceLimitUsage{ServiceName=\"RDS\",cloud_region=~\"{{cloud_region}}\"}[${__range}]) by (ServiceLimit,cloud_region) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": null
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "DBInstanceIdentifier",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_CPUUtilization",
+                "label": "DBInstanceIdentifier"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "DBInstanceIdentifier",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "Application",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_CPUUtilization",
+                "label": "Application"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "Application",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "cloud_region",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_ReadIOPS",
+                "label": "cloud_region"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "cloud_region",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "DatabaseClass",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_CPUUtilization",
+                "label": "DatabaseClass"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "DB Class",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "EngineName",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_CPUUtilization",
+                "label": "EngineName"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "Engine Name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "cloud_account_id",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "metricLabel": {
+                "metricName": "amazonaws_com_AWS_RDS_CPUUtilization",
+                "label": "cloud_account_id"
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": null
+          }
+        },
+        "displayName": "Account id",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      }
+    ],
+    "relativeTimeFrame": "1800s",
+    "folderId": {
+      "value": "9b500548-6984-408c-9249-83668e6c7a73"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "AWS"
+  }
+}

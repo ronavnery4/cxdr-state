@@ -1,0 +1,2722 @@
+{
+  "id": "unknown",
+  "name": "RUM Statistics",
+  "exported_at": "2025-12-17T14:44:14.272231",
+  "data": {
+    "id": "Oti4UBdGv8HvYaInVHWCm",
+    "name": "RUM Statistics",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "5ac464ce-0d59-aa2b-4d89-983b307e1321"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a9bdf9be-af4c-b36b-d73a-511d02222afc"
+              },
+              "appearance": {
+                "height": 8
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "86454295-9f2f-1999-cf8c-6f783a33d599"
+                  },
+                  "title": "Unique Users",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "countDistinct": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "session_context",
+                                  "user_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9b6e516e-0f07-0418-d359-61aef6e99808"
+                  },
+                  "title": "Pages",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "countDistinct": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "page_context",
+                                  "page_url"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "da643dff-2b30-ba0e-ce93-18aca0810182"
+              },
+              "appearance": {
+                "height": 8
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "efa68841-eb85-358e-4785-8f1b6be74722"
+                  },
+                  "title": "Average LT ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "LT"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8c531aa2-ec11-d536-a112-788984fdebac"
+                  },
+                  "title": "Average LCP ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "LCP"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b85dc7af-82ae-a513-b141-88ca74158664"
+                  },
+                  "title": "Average INP ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "INP"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ff13c4d9-531b-56bc-4166-a7d3ec0f8829"
+                  },
+                  "title": "Average TBT ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "TBT"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d1e4677f-efee-24a1-18f5-ebb19832ff88"
+                  },
+                  "title": "Average FCP ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "FCP"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "545b251c-c986-ba9c-af2b-a70e9041d2bf"
+                  },
+                  "title": "Average Resource Duration ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "average": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "resource_context",
+                                  "duration"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        },
+        {
+          "id": {
+            "value": "2204b483-2018-a783-91d4-3f81fd95c17f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "4b92958b-0ca1-d920-7146-a75250a78e92"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "18ccb2b8-f60b-00fc-279d-e81e47ced1aa"
+                  },
+                  "title": "Average Large Containtful Paint by Project",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4400e314-9a8e-0608-2a06-779b50f55dba",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "cx_rum.version_metadata.app_version:/vue.*/"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "applicationname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "VUE",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "1a6c8737-6fab-ef6c-cdec-69a4b1f17615",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "cx_rum.version_metadata.app_version:/daily.*/ NOT cx_rum.version_metadata.app_version:/vue.*/"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "applicationname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Daily",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5f049819-8bf3-338f-486d-96b1d9be6668"
+                  },
+                  "title": "Average Large Containtful Paint by Version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "bde6b9a2-c328-6187-2c1c-08a6e3dae167",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d25fd9d8-4a7e-c29e-038b-83e5fca70127"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1148af10-8384-66a3-421d-6a1c103df093"
+                  },
+                  "title": "LCP  by Element - Count and Average",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": null,
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "LCP"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "grouping": {
+                            "groupBy": [],
+                            "aggregations": [
+                              {
+                                "id": "65ddf28b-422b-0311-bc78-57ff42ce9b08",
+                                "name": "Count",
+                                "isVisible": true,
+                                "aggregation": {
+                                  "count": {}
+                                }
+                              },
+                              {
+                                "id": "4e95ed49-76b7-6dfa-a31d-4493baf3ac21",
+                                "name": "Average LCP (ms)",
+                                "isVisible": true,
+                                "aggregation": {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "groupBys": [
+                              {
+                                "keypath": [
+                                  "cx_rum",
+                                  "web_vitals_context",
+                                  "attribution",
+                                  "element"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            ]
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "GroupBy:cx_rum.web_vitals_context.attribution.element",
+                          "width": 625
+                        },
+                        {
+                          "field": "Aggregation:65ddf28b-422b-0311-bc78-57ff42ce9b08",
+                          "width": 200
+                        },
+                        {
+                          "field": "Aggregation:4e95ed49-76b7-6dfa-a31d-4493baf3ac21",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ab0caa0d-fbcc-2755-6c36-2b6f5404dda8"
+                  },
+                  "title": "Average Large Containtful Paint  By Fragment",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "573444e1-e14c-4cff-3a73-a283c9e9dd7c",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "page_context",
+                                    "page_fragments"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Large Containtful Paint (LCP)",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "5adc878e-bce4-1884-9786-4b7d553ee43f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "fa3f71ed-6594-ae6c-fa3b-bf289a86dde4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "732595e2-439d-868d-ad38-c99518ff6e9a"
+                  },
+                  "title": "Average Loading Time by Version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f7df1593-8728-87c4-c282-effcdf4a2909",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LT"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f9baf1fb-f2fb-a5cc-4fbd-f7b1f096680a"
+                  },
+                  "title": "Average Loading Time By Fragment",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "042e9384-3a37-1b37-edf8-1acfc25d86ea",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "LT"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "page_context",
+                                    "page_fragments"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": " Loading Time (LT)",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "11921996-36ab-d2d4-87dc-5c55d0ef1856"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a7b72e13-f9ff-4cba-bbdd-791e71549ad4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "37599e77-4d46-cba8-8071-520886827504"
+                  },
+                  "title": "Average TBT by version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dd9875e6-3fe5-5313-f57b-9d744af21e91",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "TBT"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8f645c36-ed3a-5963-c0e5-8cfbf042b3ca"
+                  },
+                  "title": "Average TBT by Fragment",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f8b6e52c-b1a2-0fff-8e87-ac4b4aebdf50",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "TBT"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "page_context",
+                                    "page_fragments"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Total Blocking Time (TBT)",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "5026ad75-e544-4d96-b822-27eec598252c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "04063859-f797-bb9b-7c0a-e0fe9d79e600"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e5a0f3ae-34eb-7c7c-67af-7b8adb01942e"
+                  },
+                  "title": "FCP by Version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "40290235-54e8-68fd-0dea-3cf266556415",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "FCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1e37259a-70af-643b-cc26-666f26cebf98"
+                  },
+                  "title": "FCP by Fragment",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "153f02f8-6c90-23bb-66aa-6a043dd357ff",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "FCP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "page_context",
+                                    "page_fragments"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "First Contentful Paint (FCP)",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "83143296-5f92-cd40-7918-d40aa25b28a9"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "2ff8b86a-a41b-8fb1-9baa-8e7b03c807e4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "001e3964-99b7-56eb-dfc8-e1135ea2836c"
+                  },
+                  "title": "Average LT by version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6aed44c7-5411-8f72-3632-7f7b12163477",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "longtask_context",
+                                        "duration"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3c60c699-ba02-8695-0782-e6fc3acc20d1"
+                  },
+                  "title": "Average LT by Context Name",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8e623392-6597-1aae-4983-d4ffc9ec3b8c",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "longtask_context",
+                                        "duration"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "longtask_context",
+                                    "name"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "  Long Task Duration",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "0c2a9402-d0ea-f8fb-b25c-eb73d0623e77"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "8df6ae03-660f-30b5-493f-4958ee14b2de"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "91ecfb99-be04-2bc3-bcd9-02a3b9e4cf3c"
+                  },
+                  "title": "Average INP by version",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a69b9818-5c64-8d5c-2ae0-a6a102041e63",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "INP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "version_metadata",
+                                    "app_version"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "969835d4-661b-23e2-e170-013a84e8b7f3"
+                  },
+                  "title": "Average INP by Fragment",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9ad3e99a-d66c-8532-43ac-9df3b298dcbd",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "web_vitals_context",
+                                        "value"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "INP"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "web_vitals_context",
+                                      "name"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "page_context",
+                                    "page_fragments"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": " Interaction to Next Paint (INP)",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "6824e92d-cd5a-6b62-3524-c68fa1457483"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b5d7d573-f758-faa4-5d56-c9690797032f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "491826df-4f77-496f-036e-8661d74d4998"
+                  },
+                  "title": "Average duration by Resource",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "127a90f1-3047-8f9e-24a2-cd000d7a3abe",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "NOT cx_rum.resource_context.name:\"https://dogfood.in.axonius.com/api/memory_measure\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "average": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "resource_context",
+                                        "duration"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "resource_context",
+                                    "name"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "bd50d54e-e534-e0bd-f460-2ea21fac45f0"
+                  },
+                  "title": "P95 duration by Resource",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f61f2f3d-7e89-47fd-925a-1695136f4b42",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "percentile": {
+                                    "field": null,
+                                    "percent": 95,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "resource_context",
+                                        "duration"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "resource_context",
+                                    "name"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "947feb82-6e5d-6733-4ec8-33988470f7e7"
+                  },
+                  "title": "P50 duration by Resource",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "73298479-db04-59a1-0762-6606d214a0c5",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "percentile": {
+                                    "field": null,
+                                    "percent": 50,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "resource_context",
+                                        "duration"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_rum",
+                                    "resource_context",
+                                    "name"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": " Resources",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      }
+    ],
+    "relativeTimeFrame": "86400s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

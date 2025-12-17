@@ -1,13 +1,239 @@
 {
   "id": "unknown",
   "name": "PostgreSQL (imported)",
-  "exported_at": "2025-12-17T15:46:09.618062",
+  "exported_at": "2025-12-17T15:49:37.301601",
   "data": {
-    "id": "4rlZETP9Yzbn6DSzjayoM",
+    "id": "chrv9FQmZtoH2keg3FaRu",
     "name": "PostgreSQL (imported)",
     "description": null,
     "layout": {
       "sections": [
+        {
+          "id": {
+            "value": "8c4b2034-18fc-4442-8d4d-02ad6f4a12fc"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d3dfb088-9993-4af9-9b02-fd5d689b9864"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b2d34567-a026-4deb-b71b-9c89bb0fa854"
+                  },
+                  "title": "Top Queries",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_calls{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  )\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2490b682-30de-4644-93a6-c93b47297b83"
+                  },
+                  "title": "Queries Duration (seconds)",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_total_exec_time{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}]) / 1000\n  )\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9c4a49bb-5fdb-47cf-96cc-4bcfbd5d5055"
+                  },
+                  "title": "Queries AVG Duration (seconds)",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(10,\n  sum by (query_text) (\n    increase(pg_stat_statements_top_queries_total_exec_time{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  ) / sum by (query_text) (\n    increase(pg_stat_statements_top_queries_calls{datname=~\"{{datname}}\", instance=~\"{{instance}}\"}[${__range}])\n  ) / 1000\n)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "query_text",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3ec2aeaf-371c-4ad4-91bb-6d2706937467"
+              },
+              "appearance": {
+                "height": 16
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6f81ebc2-5ee0-481b-b818-23d738a0f2d9"
+                  },
+                  "title": "Blocking Queries",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count by (\n  blocked_pid, blocked_query, blocked_user, blocking_pid, blocking_query, blocking_user,\n  wait_event_type, wait_event, last_active, table_name,\n  cloud_account_id, cloud_availability_zone, cloud_platform, cloud_provider, cloud_region,\n  cx_application_name, cx_otel_integration_name, cx_subsystem_name,\n  host_id, host_image_id, host_name, host_type, job, k8s_cluster_name, os_type,\n  server, server_address, server_port, service_instance_id, service_name\n) (pg_blocking_queries_wait_time_seconds)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "blocking_pid",
+                          "width": null
+                        },
+                        {
+                          "field": "blocking_query",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_pid",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_query",
+                          "width": null
+                        },
+                        {
+                          "field": "table_name",
+                          "width": null
+                        },
+                        {
+                          "field": "blocking_user",
+                          "width": null
+                        },
+                        {
+                          "field": "blocked_user",
+                          "width": null
+                        },
+                        {
+                          "field": "wait_event_type",
+                          "width": null
+                        },
+                        {
+                          "field": "wait_event",
+                          "width": null
+                        },
+                        {
+                          "field": "last_active",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Queries Stats",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_GREEN"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
         {
           "id": {
             "value": "d5334a5f-2eff-40da-91ab-f8a9a5f2c8f3"
@@ -79,7 +305,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "SUM(pg_stat_database_tup_fetched{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                            "value": "SUM(pg_stat_database_tup_fetched_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -108,7 +334,7 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
@@ -131,7 +357,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "SUM(pg_stat_database_tup_inserted{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                            "value": "SUM(pg_stat_database_tup_inserted_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -160,7 +386,7 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
@@ -183,7 +409,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "SUM(pg_stat_database_tup_updated{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
+                            "value": "SUM(pg_stat_database_tup_updated_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -212,7 +438,7 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
@@ -336,7 +562,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -400,7 +626,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -464,7 +690,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -487,7 +713,7 @@
               "description": null,
               "collapsed": false,
               "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+                "predefined": "SECTION_PREDEFINED_COLOR_CYAN"
               },
               "repetitiveVar": null
             }
@@ -598,7 +824,7 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
@@ -1061,7 +1287,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1112,7 +1338,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "irate(pg_stat_database_xact_commit{instance=~\"{{instance}}\", datname=~\"{{datname}}\"}[5m])"
+                                "value": "irate(pg_stat_database_xact_commit_total{instance=~\"{{instance}}\", datname=~\"{{datname}}\"}[5m])"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1134,7 +1360,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1166,7 +1392,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1207,7 +1433,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "pg_stat_database_tup_updated{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                                "value": "pg_stat_database_tup_updated_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1229,7 +1455,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1264,13 +1490,14 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "pg_stat_database_tup_fetched{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                            "value": "pg_stat_database_tup_fetched_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
                           },
                           "filters": [],
                           "groupNames": [
+                            "datname",
                             "instance"
                           ],
-                          "stackedGroupName": "datname",
+                          "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
@@ -1300,10 +1527,10 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_SIDE"
                       },
-                      "hashColors": null,
+                      "hashColors": false,
                       "yAxisMin": null,
                       "yAxisMax": null,
                       "decimalPrecision": null
@@ -1324,7 +1551,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "pg_stat_database_tup_inserted{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                            "value": "pg_stat_database_tup_inserted_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
                           },
                           "filters": [],
                           "groupNames": [
@@ -1360,10 +1587,10 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_SIDE"
                       },
-                      "hashColors": null,
+                      "hashColors": false,
                       "yAxisMin": null,
                       "yAxisMax": null,
                       "decimalPrecision": null
@@ -1423,7 +1650,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_SIDE"
                       },
-                      "hashColors": null,
+                      "hashColors": false,
                       "yAxisMin": null,
                       "yAxisMax": null,
                       "decimalPrecision": null
@@ -1454,13 +1681,14 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "pg_stat_database_tup_returned{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
+                            "value": "pg_stat_database_tup_returned_total{datname=~\"{{datname}}\", instance=~\"{{instance}}\"} != 0"
                           },
                           "filters": [],
                           "groupNames": [
+                            "datname",
                             "instance"
                           ],
-                          "stackedGroupName": "datname",
+                          "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
@@ -1490,10 +1718,10 @@
                       "legend": {
                         "isVisible": true,
                         "columns": [],
-                        "groupByQuery": false,
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_SIDE"
                       },
-                      "hashColors": null,
+                      "hashColors": false,
                       "yAxisMin": null,
                       "yAxisMax": null,
                       "decimalPrecision": null
@@ -1585,7 +1813,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "pg_stat_database_tup_deleted{datname =~ '{{datname}}', instance =~ '{{instance}}'}"
+                                "value": "pg_stat_database_tup_deleted_total{datname =~ '{{datname}}'}"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -1607,7 +1835,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": null,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1634,63 +1862,6 @@
               },
               "repetitiveVar": null
             }
-          }
-        },
-        {
-          "id": {
-            "value": "348e3f3b-25d0-4a3e-b6b1-e0ba48af6340"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "4b6deacd-ee40-4c67-b71e-25087358480f"
-              },
-              "appearance": {
-                "height": 28
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "fd8e5d90-375a-4a99-8d24-cc72fe9f6f49"
-                  },
-                  "title": "DataPrime",
-                  "description": null,
-                  "definition": {
-                    "dataTable": {
-                      "query": {
-                        "dataprime": {
-                          "dataprimeQuery": {
-                            "text": "source spans\n| filter $d.tags['db.statement'] != null\n| filter $m.duration != null \n| filter $d.tags['db.system'] == 'postgresql' \n| groupby $d.tags['db.statement'] as $d['tags.db.statement'] agg avg($m.duration) as $d['AVG(ms)'] "
-                          },
-                          "filters": [],
-                          "timeFrame": null
-                        }
-                      },
-                      "resultsPerPage": 100,
-                      "rowStyle": "ROW_STYLE_ONE_LINE",
-                      "columns": [
-                        {
-                          "field": "$d.tags.db.statement",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.AVG(ms)",
-                          "width": null
-                        }
-                      ],
-                      "orderBy": null,
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "internal": {}
           }
         }
       ]

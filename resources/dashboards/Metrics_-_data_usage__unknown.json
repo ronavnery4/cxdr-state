@@ -1,21 +1,21 @@
 {
   "id": "unknown",
-  "name": "Host Dashboard",
-  "exported_at": "2025-12-18T08:33:57.443300",
+  "name": "Metrics - data usage ",
+  "exported_at": "2025-12-18T08:33:57.481792",
   "data": {
-    "id": "x0ZUpHGQTAcpYSvwbBIJj",
-    "name": "Host Dashboard",
-    "description": "Gives insights into your Host health and CPU, Memory, Disk and Network usage.",
+    "id": "BJhK3ylcxmYl265AFUsYO",
+    "name": "Metrics - data usage ",
+    "description": null,
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "d102e808-e794-497f-a823-a6513bb3f3ab"
+            "value": "8068984a-771f-9bbf-c300-dc82b2213180"
           },
           "rows": [
             {
               "id": {
-                "value": "f27c90b5-026c-47e3-90d2-a580667c12bf"
+                "value": "2388fe00-c4a7-44cf-1b3c-44b860f24705"
               },
               "appearance": {
                 "height": 19
@@ -23,310 +23,18 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "c25bf898-3e4f-4e15-ab7c-ed7e850f09ac"
+                    "value": "1155cb13-365e-a92c-45e5-b8b06c2a6428"
                   },
-                  "title": "CPU Usage",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "b22b5e0c-9b62-74d1-ef1e-46c3062211bf",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{state=~\"system|user|nice|irq|softirq\", host_name=~\"{{host_name}}\"}) by (cpu, host_name)  * 100"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": {
-                    "width": 0
-                  },
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "bfeb63f0-92bf-4e61-b40d-a7ae930aabe2"
-                  },
-                  "title": "Load Average",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "eb16af10-e6a1-9ed3-b48c-1d8cf0bfd7f6",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "system_cpu_load_average_1m{host_name=~\"{{host_name}}\"}"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "1m load average",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        },
-                        {
-                          "id": "b723e712-b176-3c9c-b0fc-e9069a3e12c3",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "system_cpu_load_average_5m_1{host_name=~\"{{host_name}}\"}"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "5m load average",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        },
-                        {
-                          "id": "d849bdfc-8f20-b143-e4dd-d59b422196e8",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "system_cpu_load_average_15m{host_name=~\"{{host_name}}\"}"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "15m load average",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        },
-                        {
-                          "id": "f5a7160a-1e2a-fd6e-1f96-112082ba7204",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "count(system_cpu_utilization_1{state=\"idle\",host_name=~\"{{host_name}}\"}) by (host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Logical Cores",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": {
-                    "width": 0
-                  },
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "2519cef5-052e-4196-8c03-1d4500d1d597"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "582bd5fe-52eb-408a-a92a-44be33f17dff"
-                  },
-                  "title": "Memory Usage",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "e3844c07-2856-e045-e272-4a22aa8e9197",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(system_memory_usage_By{host_name=~\"{{host_name}}\"}) by (host_name,state)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": {
-                    "width": 0
-                  },
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "1d38b7a9-074a-4a56-b738-795d4a217534"
-                  },
-                  "title": "Memory Usage",
+                  "title": "% of Daily Quota today",
                   "description": null,
                   "definition": {
                     "gauge": {
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(system_memory_utilization_1{state=\"used\",host_name=~\"{{host_name}}\"}) * 100"
+                            "value": "sum(cx_data_usage_units)/cx_data_plan_units_per_day"
                           },
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_LAST",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
@@ -334,7 +42,7 @@
                         }
                       },
                       "min": 0,
-                      "max": 100,
+                      "max": 1,
                       "showInnerArc": true,
                       "showOuterArc": true,
                       "unit": "UNIT_PERCENT",
@@ -345,12 +53,12 @@
                           "label": null
                         },
                         {
-                          "from": 33,
+                          "from": 80,
                           "color": "var(--c-severity-log-warning)",
                           "label": null
                         },
                         {
-                          "from": 66,
+                          "from": 95,
                           "color": "var(--c-severity-log-error)",
                           "label": null
                         }
@@ -371,23 +79,13 @@
                   },
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "9a5d85ca-82b4-4471-b64e-06a3967802d4"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
-                    "value": "f6d260b7-5778-4212-87c0-81a79363c371"
+                    "value": "a3e78763-38f2-f756-1fcb-f65a34e2ba1d"
                   },
-                  "title": "Disk I/O (kB/s)",
-                  "description": null,
+                  "title": "Ingestion rate MB/s by data source",
+                  "description": "This calculates the rate of data that is sent to Coralogix per the different observability pillars",
                   "definition": {
                     "lineChart": {
                       "legend": {
@@ -402,11 +100,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "b96fc737-1854-b8e0-ff40-1cc308d84a70",
+                          "id": "29ac1eaf-5dcd-4e7f-9086-8540c9e1c45b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rate(system_disk_io_By_total{host_name=~\"{{host_name}}\"}[5m])) by (device, direction, host_name) / 1024"
+                                "value": "sum(rate(cx_data_usage_bytes_total[1h])) by (pillar) / 1024 / 1024 "
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -418,138 +116,7 @@
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "cold",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": null,
-                          "hashColors": null,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": {
-                    "width": 0
-                  },
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "de0c2418-4b33-4e5b-b6de-a73053573088"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "32d4ae7a-2956-4743-a137-582b0dbcd452"
-                  },
-                  "title": "Disk Space Usage (MB)",
-                  "description": null,
-                  "definition": {
-                    "dataTable": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "sum(system_filesystem_usage_By{state=\"used\",host_name=~\"{{host_name}}\"}) by (host_name, mountpoint, device) / 1024 / 1024"
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
-                        }
-                      },
-                      "resultsPerPage": 10,
-                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
-                      "columns": [
-                        {
-                          "field": "#chartValue",
-                          "width": 89
-                        },
-                        {
-                          "field": "device",
-                          "width": null
-                        },
-                        {
-                          "field": "host_name",
-                          "width": null
-                        },
-                        {
-                          "field": "mountpoint",
-                          "width": null
-                        }
-                      ],
-                      "orderBy": null,
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
-                    }
-                  },
-                  "appearance": {
-                    "width": 0
-                  },
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "34dbd920-e33b-45ac-be2a-ae77c9da5704"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "bcded90d-9ea3-474e-b0e0-603a99c3ec2e"
-                  },
-                  "title": "Network Received (kB/s)",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "f1da46ae-b39f-9768-a531-5e949aa265f3",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(rate(system_network_io_By_total{direction=\"receive\",host_name=~\"{{host_name}}\"}[5m])) by (device, host_name) / 1024"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
+                          "name": null,
                           "isVisible": true,
                           "colorScheme": "cold",
                           "resolution": {
@@ -577,9 +144,9 @@
                 },
                 {
                   "id": {
-                    "value": "87d2bd8e-08b6-4ffb-95b7-7721f86e5b20"
+                    "value": "37956f96-4235-b5dd-ff5a-82b768bbb24d"
                   },
-                  "title": "Network Transmitted I/O (kB/s)",
+                  "title": "data usage units/min - pillar",
                   "description": null,
                   "definition": {
                     "lineChart": {
@@ -595,11 +162,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "841b384b-3372-5cea-c76c-dfe77daaeed0",
+                          "id": "644e245a-14c0-4536-a6ef-8db9385e7403",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rate(system_network_io_By_total{direction=\"transmit\",host_name=~\"{{host_name}}\"}[5m])) by (device, host_name) / 1024"
+                                "value": "sum(rate(cx_data_usage_units[1h])) by (pillar) * 60"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -611,7 +178,481 @@
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "89f6bb8b-40e9-9522-560c-4287a75a5242"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3072a21e-34c2-7126-4b97-393f77fc8c53"
+                  },
+                  "title": "data usage MB/s by application-subsystem",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "de1f1b27-7606-42b8-a8dc-4e1a98d673a8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(cx_data_usage_bytes_total{application_name!=\"\"}[1h])) by (application_name, subsystem_name) / 1024 / 1024"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "537df726-d414-fd1c-63b3-33f2056757e1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1a6d9fc9-1854-e57f-e116-c32cd8d27a0b"
+                  },
+                  "title": "Data usage - processed units by pillar/tier",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "38eac403-ac9a-4c6c-8420-d70214290b88",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units) by (pillar, tier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f2b89335-77b9-9be2-c2fb-ee5bc5ef63ca"
+                  },
+                  "title": "Data usage - processed  GB/pillar/tier",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b5cfcba0-6f6b-4ea6-90df-91ab0d983f68",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total) by (pillar, tier) / 1024 / 1024 / 1024"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a9283e46-6a81-4cf2-dd3a-c5312d454aec"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7de643c5-a869-99f6-a308-b97d23c95aa9"
+                  },
+                  "title": "Data usage processed units by application - subsystem",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e45abf51-413e-4a63-a207-435f564c4ff7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total{application_name!=\"\"} ) by (application_name, subsystem_name) / 1024 / 1024 / 1024"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1162d71a-fd91-e3ab-bf10-3eacd272775c"
+                  },
+                  "title": "Data usage processed GB by application - subsystem",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "16b948f1-bdb7-43e0-a523-16927cc3aa77",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_bytes_total{application_name!=\"\"} ) by (application_name, subsystem_name) / 1024 / 1024 / 1024"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "65947a3f-c699-ee39-4af9-f690de511e9b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f407988a-a2bf-4a66-3e8a-4137de27599c"
+                  },
+                  "title": "data usage processed units by severity",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "59b3b4f6-dbf9-4285-8c7b-985201e1461b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{severity!=\"\"} ) by (severity)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "322f2955-7d58-486a-2c22-84d7fc5a4398"
+                  },
+                  "title": "data usage processed units by tier",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c10a56a0-894e-465e-af0e-062adf66af97",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{tier!=\"\"} ) by (tier)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "30",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
                           "isVisible": true,
                           "colorScheme": "cold",
                           "resolution": {
@@ -644,42 +685,51 @@
         }
       ]
     },
-    "variables": [
-      {
-        "name": "host_name",
-        "definition": {
-          "multiSelect": {
-            "selected": [],
-            "source": {
-              "metricLabel": {
-                "metricName": "system_cpu_load_average_1m",
-                "label": "host_name"
-              }
-            },
-            "selection": {
-              "all": {}
-            },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "selectionOptions": null
-          }
-        },
-        "displayName": "Host Name",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
-      }
-    ],
+    "variables": [],
     "filters": [
       {
         "source": {
-          "metrics": {
-            "metric": null,
-            "label": "host_name",
+          "logs": {
+            "field": null,
             "operator": {
               "equals": {
                 "selection": {
-                  "all": {}
+                  "list": {
+                    "values": []
+                  }
                 }
               }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
             }
           }
         },
@@ -688,7 +738,7 @@
         "displayName": null
       }
     ],
-    "relativeTimeFrame": "900s",
+    "relativeTimeFrame": "172800s",
     "folderId": null,
     "folderPath": null,
     "annotations": [],

@@ -1,0 +1,851 @@
+{
+  "id": "unknown",
+  "name": "Ingestion rate",
+  "exported_at": "2025-12-18T08:33:57.459194",
+  "data": {
+    "id": "Os7t3K5ZkmPvAFBbTvK8u",
+    "name": "Ingestion rate",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "91d220f6-9e2a-43af-aebc-4dde781f54e8"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "da2c89f8-b9c9-405f-a0c5-452fd736478b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9ed72bc5-118c-4845-9928-2818b6c74822"
+                  },
+                  "title": "current rate - MB/s per second",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) / 1024 / 1024"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_MIBYTES",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 0,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5826e4f4-b859-4a58-b421-5adb5e820451"
+                  },
+                  "title": "current rate - GB/s per minute",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60 / 1024 / 1024 / 1024"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_GIBYTES",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 0,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ffc28e4e-910e-4da3-891c-3faa2d594e89"
+                  },
+                  "title": "current rate - GB/s per hour",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60 * 60 / 1024 / 1024 / 1024"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_GBYTES",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 0,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ad5d7150-1d72-4c0f-9775-aff68812ee97"
+                  },
+                  "title": "current rate - TB/s per day",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60 * 60 * 24 / 1024 / 1024 / 1024 / 1024"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_CUSTOM",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 62,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "TB",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_ABSOLUTE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "df097c49-32c5-42d3-a12e-59bc97bd0bd0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d0fc93d9-4508-48d3-a39e-5a2183c5048e"
+                  },
+                  "title": "Increase over time - GB 1h bucket",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9d3bd728-41e0-4dd1-9ffc-ef052eed5dd3",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum without (severity) (increase(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[1h]))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "24085663-da6a-4912-acc2-91c079d729ca"
+                  },
+                  "title": "Increase over time - max GB",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2e296f4c-3520-4e18-8c08-90f41ac75dae",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum without (severity) (max(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[1h])) / 1024"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "TB",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "GB",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "16b5d533-cb3c-4063-9e84-df351d348f16"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "e735cf5d-5ac9-414c-aae9-8f7d5ea27fc6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "67848dae-1c9f-4edc-b327-1e12b321d488"
+                  },
+                  "title": "current rate - Unit per second",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e27235f6-cb9a-4df5-9ea2-8509725ef4bf"
+                  },
+                  "title": "current rate - Units per minute",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b791dc63-5554-4fc9-ab67-51c5060d9fac"
+                  },
+                  "title": "current rate - Units per Hour",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60 * 60"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "be4d74fc-1a5c-4672-a64f-817f832008c2"
+                  },
+                  "title": "current rate - Units per day",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum without(severity) (rate(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[60s])) * 60 * 60 * 24 "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 23000,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_ABSOLUTE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "9c1b8aa1-5f95-4214-8aa5-176aeab19b23"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5c8db1ab-95dd-478b-830c-d965e9fd5555"
+                  },
+                  "title": "Increase over time - Units 1h bucket",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c69d9f75-879a-43d8-8688-f556d9bb7172",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum without (severity) (increase(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[1h]))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "Units",
+                          "decimal": 0,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c5f8ea59-d998-41f0-aa5e-be66163ec9a2"
+                  },
+                  "title": "Increase over time - max Units",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "cf83e073-3c98-4b18-9f7b-c13dec3fdd61",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum without (severity) (max(cx_data_usage_units{pillar=~\"{{pillar}}\",priority=~\"{{priority}}\"}[1h]))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "Units",
+                          "decimal": 0,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Unit",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "pillar",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "cx_data_usage_bytes_total"
+                        },
+                        "labelName": {
+                          "stringValue": "pillar"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "pillar",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "priority",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "cx_data_usage_bytes_total"
+                        },
+                        "labelName": {
+                          "stringValue": "priority"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "priority",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "604800s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "id": "unknown",
+  "name": "Lior Dashboard",
+  "exported_at": "2025-12-18T05:48:28.651470",
+  "data": {
+    "id": "oUmPWYkzpxFMmLGWxnBDZ",
+    "name": "Lior Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "ffd3e1a9-c62d-427f-a69a-7c30ab1e8cbe"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "fdd4ad03-bff8-4860-9546-c44ab2ffcdcf"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1d5853aa-2714-44ad-a410-fb77c9816e38"
+                  },
+                  "title": "Root App= demo",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9b959dfb-6fa1-483c-b21b-7171208c725a",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "demo"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "applicationname"
+                                    ],
+                                    "scope": "DATASET_SCOPE_LABEL",
+                                    "relationType": "SPAN_RELATION_TYPE_ROOT"
+                                  }
+                                }
+                              ],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "subsystemname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": "numOfTracings",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "severity",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": true,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": true
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "cd46130c-a0dc-4bb0-9230-a1f0442c6816"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4f3d8bf4-c5ea-4a7d-8134-7bbab76d5852"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": null,
+                          "filters": [],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "startTime",
+                          "width": 200
+                        },
+                        {
+                          "field": "operationName",
+                          "width": null
+                        },
+                        {
+                          "field": "serviceName",
+                          "width": 160
+                        },
+                        {
+                          "field": "duration",
+                          "width": 100
+                        },
+                        {
+                          "field": "isError",
+                          "width": 75
+                        },
+                        {
+                          "field": "applicationName",
+                          "width": 160
+                        },
+                        {
+                          "field": "subsystemName",
+                          "width": 150
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Tracing",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_GREEN"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "4653f1df-2ed0-4b38-8731-8faa8b3f050b"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "8dffdf45-8b0d-4d67-aded-bfe18d606077"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "05bd2fea-8d52-4df3-92a9-f2515bee3480"
+                  },
+                  "title": "Root App= demo",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "83e057e2-6ea1-42b9-836a-2319d5b6eb27",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "subsystemname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        },
+                        {
+                          "id": "7a64470c-f0da-43a0-a43a-63eb0a91875a",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "cx_rum.labels"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "spans": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL",
+              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "action",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "Subsystem",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "305f09e8-a4e7-4a7a-9d7f-cbf38ca049f8"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Liory"
+  }
+}

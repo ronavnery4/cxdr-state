@@ -1,0 +1,934 @@
+{
+  "id": "unknown",
+  "name": "Security Alerts Summary",
+  "exported_at": "2025-12-18T05:48:28.759265",
+  "data": {
+    "id": "nWYDiGyCDOBKL9lgZ6qX6",
+    "name": "Security Alerts Summary",
+    "description": "This dashboard provides a comprehensive view of the security alerts triggered on the Coralogix platform",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "28b2ff55-fd9e-4ad6-afce-e90e0bc21111"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "82d6d4a9-6da8-4281-92c3-0f78a1f0d490"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3ee19243-84f7-4c1a-935d-9700f26ac374"
+                  },
+                  "title": "Total Alerts Count Over Time",
+                  "description": "Tracks the total number of security alerts generated over time, providing trend analysis.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ca196818-8a17-3241-b52f-4b6164f14463",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": " Alert Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "91617f4a-7dbf-4b5e-a76f-04d8dea3133b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8a722dfa-3f19-4c63-a338-2bc2f864c565"
+                  },
+                  "title": "Total Alert Count",
+                  "description": "Displays the cumulative number of security alerts detected across monitored systems.",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3507ac8c-a2d3-4edd-a359-8b2e40dd5cb8"
+                  },
+                  "title": "Total P1 Alert Count",
+                  "description": "Shows the total count of Priority 1 (critical) security alerts requiring immediate action.",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_priority=\"P1\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "19130611-7518-4577-8ac7-0dc3bfb9449d"
+                  },
+                  "title": "Total P2 Alert Count",
+                  "description": "Lists the total number of Priority 2 (high) security alerts that need prompt attention.",
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_priority=\"P2\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1f9c4476-c63f-49b1-8132-55f78f97a5ac"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "314e89f9-9a9f-4472-8fa3-8561d7034491"
+                  },
+                  "title": "Alert Count By Priority",
+                  "description": "Categorizes security alerts by priority levels (P1, P2, P3, etc.) to assist in incident triage.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}])))  by (alert_def_priority)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "alert_def_priority"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "severity",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4fe6455d-5d64-4345-aa34-f3d13adac822"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "aa632284-f268-4199-975a-89fbbf96f1c0"
+                  },
+                  "title": "Alert Count By Data Source",
+                  "description": "Breaks down security alerts by their originating data sources for better visibility.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}])))  by (alert_def_label_alert_extension_pack)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "alert_def_label_alert_extension_pack"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "834126b8-1a0f-4dd6-a29b-6d73238bf549"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b9120872-cecf-4612-850d-6886dfd7050f"
+                  },
+                  "title": "Top 20 Alerts by Count",
+                  "description": "Displays the top 20 most frequently triggered security alerts, helping identify recurring issues.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "topk(20,sort_desc(sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) by (alert_def_name,alert_def_priority))) "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 20,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "alert_def_name",
+                          "width": 718
+                        },
+                        {
+                          "field": "alert_def_priority",
+                          "width": 127
+                        },
+                        {
+                          "field": "#value",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "25ec0ad1-2dba-4104-8757-6c91d9915761"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d3498e2b-aa63-4e96-b45a-827c36dcd17c"
+                  },
+                  "title": "P1 & P2 Alerts by Count",
+                  "description": "Shows a focused view of Priority 1 and Priority 2 alerts, ensuring critical issues are prioritized.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sort_desc(sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_priority=~\"(P1|P2)\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) by (alert_def_name,alert_def_priority)) "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 20,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "alert_def_name",
+                          "width": 699
+                        },
+                        {
+                          "field": "alert_def_priority",
+                          "width": 132
+                        },
+                        {
+                          "field": "#value",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ca790cc7-dceb-4d9b-927d-bfe5f258e634"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f3d650c4-96eb-411a-824e-874f6084ad5d"
+                  },
+                  "title": "All Alert Count",
+                  "description": "Summarizes all alerts across all priority levels for a comprehensive security overview.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sort_desc(sum(sum_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) by (alert_def_name,alert_def_priority)) "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "alert_def_name",
+                          "width": 703
+                        },
+                        {
+                          "field": "alert_def_priority",
+                          "width": 137
+                        },
+                        {
+                          "field": "#value",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "536cc552-c8aa-421a-99cd-76b0721a908c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "215e4e1c-3cba-451e-9dec-04393859f3fd"
+                  },
+                  "title": "No Log Alerts",
+                  "description": "Identifies security alerts generated without corresponding log entries, indicating potential misconfigurations or anomalies.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sort_desc(count(count_over_time((cx_alerts{alert_def_label_alert_type=\"security\",alert_def_name =~ \".+No Logs.+\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}]))) by (alert_def_name,alert_def_priority)) "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "alert_def_name",
+                          "width": 693
+                        },
+                        {
+                          "field": "alert_def_priority",
+                          "width": 143
+                        },
+                        {
+                          "field": "#value",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "735a709f-21a3-4589-b19b-ae161c7dd6f7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "835fa628-1927-4a0c-897f-1a6fc7d008b2"
+                  },
+                  "title": "Top  Alerted Source IPs",
+                  "description": "Lists the source IP addresses associated with the highest number of security alerts.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(cx_alerts{alert_def_label_alert_type=~\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_source_ip=~\"{{alert_def_group_by_cx_security_source_ip}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}])) by (alert_def_group_by_cx_security_source_ip)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "alert_def_group_by_cx_security_source_ip"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "dcd853b4-773a-4288-9dc7-b2b862fed313"
+                  },
+                  "title": "Top Alerted Emails",
+                  "description": "Displays the email addresses most frequently involved in security alerts, aiding in user-based investigations.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count_over_time(cx_alerts{alert_def_label_alert_type=~\"security\",alert_def_name!~\"building block\",alert_def_name!~\"null\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\",alert_def_group_by_cx_security_email=~\"{{alert_def_group_by_cx_security_email}}\"}[${__range}])) by (alert_def_group_by_cx_security_email)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "alert_def_group_by_cx_security_email"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "alert_def_group_by_cx_security_source_ip",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "cx_alerts"
+                        },
+                        "labelName": {
+                          "stringValue": "alert_def_group_by_cx_security_source_ip"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "SourceIP",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "alert_def_group_by_cx_security_email",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "cx_alerts"
+                        },
+                        "labelName": {
+                          "stringValue": "alert_def_group_by_cx_security_email"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "UserEmail",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "86400s",
+    "folderId": {
+      "value": "7ce8c807-5730-4d7d-9c14-51620ce2b5b0"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Security Alerts Summary"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "unknown",
+  "name": "Collect Function Dashboard",
+  "exported_at": "2025-12-18T05:48:28.559668",
+  "data": {
+    "id": "c8i5Egn9vnSFI0KrVG8OA",
+    "name": "Collect Function Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "d57ce863-1a21-43c1-82fa-39d8fe6d80db"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "45eb505d-a7e8-4a5b-9121-3238090b6365"
+              },
+              "appearance": {
+                "height": 22
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a815c2d9-bfbe-4cdd-86ab-f4e233e9d957"
+                  },
+                  "title": "sourceIPAddress collection and total count per awsRegion",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs last 10m\n| filter contains(awsRegion, '')\n| groupby awsRegion aggregate collect(sourceIPAddress) as sourceIPAddresses, (count()-1) as totalCount\n| orderby totalCount desc"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.awsRegion",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.sourceIPAddresses",
+                          "width": 720
+                        },
+                        {
+                          "field": "$d.totalCount",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1dc8c562-127f-487e-975e-f3d8f7f8bddc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "bbc0471e-39a5-4a90-9f2c-9412599dd8e9"
+                  },
+                  "title": "DataPrime",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter contains(key, '/var/log/remote/') && contains(key, 'dhcp') && contains(key, 'DHCPOFFER')\n| extract message into helper_data using regexp(e=/via (?<helper>\\d+\\.\\d+\\.\\d+\\.\\d+)/)\n| extract message into dhcp_data using regexp(e=/DHCPOFFER on (?<OfferedAddress>\\d+\\.\\d+\\.\\d+\\.\\d+) to (?<MACAddress>[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2}:[0-9a-f]{2})\\s+\\((?<Hostname>\\S+)\\)/)\n| groupby dhcp_data.OfferedAddress aggregate collect(dhcp_data.Hostname) as Hostnames, collect(dhcp_data.MACAddress) as MACAddresses"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.dhcp_data.OfferedAddress",
+                          "width": 222
+                        },
+                        {
+                          "field": "$d.Hostnames",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.MACAddresses",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "a1cd7477-696e-462a-9bda-fe2354ec54f5"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Jas"
+  }
+}

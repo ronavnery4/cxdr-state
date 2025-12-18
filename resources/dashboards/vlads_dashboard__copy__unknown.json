@@ -1,0 +1,320 @@
+{
+  "id": "unknown",
+  "name": "vlads_dashboard (copy)",
+  "exported_at": "2025-12-18T05:48:28.823258",
+  "data": {
+    "id": "5EEg2avzKFZV5Mmy480gx",
+    "name": "vlads_dashboard (copy)",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "aafd5655-f2fe-4f6a-8f0c-066eeedae669"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "1fd33470-94e4-454f-a698-653446ee3116"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "06fafbf5-24de-4971-af22-4075371ee2f3"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f6f8d3ed-1711-4537-ab4d-b55745193f3b",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "c860dd3c-ad37-4ff2-832d-b9a752939954"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "3162b499-9699-4852-9026-24490b2a8ac0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "156661e3-c768-44cd-ae53-d5cee133b2c6"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(up) by (job)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "job",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "d7b88f85-f2bf-411a-b905-659ec38f04f8"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "9aeae1d3-5808-43ea-8cee-d9674460cde5"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9c4b2629-0db7-4a04-97b1-a7ca24cd19f7"
+                  },
+                  "title": "New Vertical Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "cx_subsystem_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "bf5fe7e0-ede8-4057-bb5b-aba6501d4fe0"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "test_folder"
+  }
+}

@@ -1,0 +1,590 @@
+{
+  "id": "unknown",
+  "name": "NGINX Overview",
+  "exported_at": "2025-12-18T05:48:28.668935",
+  "data": {
+    "id": "xgClTtLgLv3dzyJYzRKY5",
+    "name": "NGINX Overview",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "183218b1-3e63-47a8-a957-44fddd6555b0"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "fdcca0af-3a85-4c87-90d4-ebc24ff7b134"
+              },
+              "appearance": {
+                "height": 21
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e1d35f86-6ff1-414c-bb28-365954b72198"
+                  },
+                  "title": "NGINX - Events over time",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "68c97b12-4904-d6b9-c7ac-1a8f7a251ab0",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(nginx_metrics_cx_docs_total)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "03c0ebc4-4187-4a7b-ba53-306192d26147"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e62db299-6c67-469b-bbb8-b00b4a8a0bda"
+                  },
+                  "title": "NGINX - Status",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{status!=\"cx_null\"}[${__range}]))by (status)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "status"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ba18a39f-21dc-4f29-a144-b09630a59733"
+                  },
+                  "title": "NGINX - Server name",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{server_name!=\"cx_null\"}[${__range}]))by (server_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "server_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 8,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d7eb5f90-2987-4cb0-a697-cd48b26bee13"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a3e34170-00af-4fe9-8b2d-3ce73d7789c0"
+                  },
+                  "title": "NGINX - request methods over time",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{request_method!=\"cx_null\",status!=\"cx_null\"}[${__range}]))by (request_method)"
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": "request_method",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 6
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "da089588-04aa-4f9e-8b7a-8f4964df1228"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b63ad480-e967-4788-b067-376bc61fb63d"
+                  },
+                  "title": "NGINX - Top Source IPs",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{remote_addr!=\"cx_null\"}[${__range}]))by (remote_addr)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "remote_addr"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 10,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "07501bef-5d1d-48fc-a7f4-74a6a362ef97"
+                  },
+                  "title": "NGINX - Top hosts",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{host!=\"cx_null\"}[${__range}]))by (host)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "host"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c634d09b-4ccd-4fa5-8450-1a8384ebe5a9"
+                  },
+                  "title": "NGINX - Top request methods",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{request_method!=\"cx_null\"}[${__range}]))by (request_method)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "request_method"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3aa0526c-0651-4977-aa62-a1a051d951c2"
+              },
+              "appearance": {
+                "height": 24
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3e2ee1e9-a979-48ee-9cb2-3521a9babcdc"
+                  },
+                  "title": "NGINX - Top request methods by status",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(nginx_metrics_cx_docs_total{request_method!=\"cx_null\",status!=\"cx_null\"}[${__range}]))by (status,request_method)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "request_method",
+                            "status"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 8,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": {
+                    "width": 0
+                  },
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": null
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "3600s",
+    "annotations": [],
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

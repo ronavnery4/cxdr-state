@@ -1,0 +1,3292 @@
+{
+  "id": "unknown",
+  "name": "Test-CP",
+  "exported_at": "2025-12-18T05:48:28.773002",
+  "data": {
+    "id": "b5qnKDqqzEzv0BZNxmly3",
+    "name": "Test-CP",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "9bb7d030-7024-404f-a0c1-b891759b96d5"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "3fac16c9-9e0d-4822-a499-c2f4b2be2845"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "800e495d-7f5f-45b5-9769-b26fbfc6624c"
+                  },
+                  "title": "Original Labels",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_SUM",
+                          "LEGEND_COLUMN_AVG",
+                          "LEGEND_COLUMN_LAST"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_BOTTOM"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ced54374-b2e3-46a3-a04c-67878200afab",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(duration_ms{service=~\".*service\"}) by (service)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3e82ce57-08aa-4fe6-9f27-91ea4f2f7e29"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7b3ac936-7463-4e4f-b314-090c3132b2b0"
+                  },
+                  "title": "Renamed Labels with offset",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_BOTTOM"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "aab4ee35-b594-4c2e-a327-be6ed47f0c91",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg by (new_service) (label_replace(duration_ms{service=~\".*service\"} offset 1w,\"new_service\",\"$1\",\"service\",\"(.*)service\"))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "25638ff0-7d90-4b12-af3e-f6f63a3c03b7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg by (new_service) (label_replace(duration_ms{service=~\".*service\"} offset 1w,\"new_service\",\"$1-1w\",\"service\",\"(.*)service\"))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c17a1bd1-da78-49f8-be1f-ba57589e76c3"
+                  },
+                  "title": "Renamed Labels",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_BOTTOM"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "54dfb715-636c-4733-b508-2f8ba190f01f",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(label_replace(duration_ms{service=~\".*service\"},\"new_service\",\"$1\",\"service\",\"(.*)service\")) by (new_service)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "657f4269-e6d7-4c6e-a4d6-ac108f700ed4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "831a3113-648f-412e-a934-5cf1131dee83"
+                  },
+                  "title": "Post-Label_Replace_Filter",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_BOTTOM"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1babcaf2-828f-4761-9992-e3e7a8167cb2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(label_replace(duration_ms{service=~\".*service\"},\"new_service\",\"$1\",\"service\",\"(.*)service\")) by (new_service)\nand\non(new_service)\n  label_replace(\n    duration_ms{service=~\".*service\"},\n    \"new_service\", \"$1\", \"service\", \"(.*{{new_service}}.*)service\"\n  )\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c3184b44-b0da-4cf8-b78c-c21f7006a531"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8a4cbfdc-130c-4c93-9fc6-1302817e7380"
+                  },
+                  "title": "Difference",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_BOTTOM"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4871da67-9d7e-4270-aab0-6af6c033507d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg_over_time (sum by (service) (duration_ms{service=~\".*service\"}[${__range}]) - sum by (service)(duration_ms{service=~\".*service\"}[${__range}] offset 2w) [${__range}])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Labels",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "5c747d4c-a9c9-4c91-bada-8c2459a41644"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "0d649f6e-8a46-4157-be7a-e61bbc85d455"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "910a709e-3ce0-4f8d-a68b-29f6dee6942f"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $d.severity:string == $p.Severity:string\n| choose $m.timestamp.formatTimestamp() as Time, $d.message as message"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$m.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.subsystemname",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "b5dd15ee-27bb-4d2d-b590-cdcab2378943"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "aeddbbca-b603-4708-b491-7770984b274f"
+                  },
+                  "title": "k8s_container_memory_request_By",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "92c10b56-8692-4a95-a547-507445c7b20b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "k8s_container_memory_request_By"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "eb9b8577-d939-4222-b592-406580c5b555"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "266cf823-c395-4cc7-99e7-e70c5238ca1c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f50746e9-ab2f-4683-8eee-60f65ecb1379"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $d.tags != null\n#| filter arrayContains($d.tags,'beats_input_codec_plain_applied')\n| choose $d.tags, $m.severity, $m.priorityclass\n| groupby ($m.timestamp / 10m).formatTimestamp() as timestamp agg count_if($m.priorityclass==$p.priority:string  && ( $m.severity == INFO || arrayContains($d.tags, $p.tag:string))) as count"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.count",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "98cdbe0b-c8a4-45d1-b052-d7fca6a1481b"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:coralogix.timestamp"
+                          },
+                          "filters": [],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "coralogix.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.text",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.applicationName",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.subsystemName",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Aggregate",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "c1e9da79-b14c-4045-8cce-47ef23e39250"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "57588ae4-e204-4e9c-a046-f4794a2c325d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6c1bf201-4995-4357-8bb7-43a4ea19665e"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dde5f66e-867e-4c2d-a012-8620ab44a404",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(duration_ms{service=~\".*service\"}) by (service)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_RELATIVE",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "3d5ec2f8-1c3d-40cb-8701-464fac557083"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "70f19197-eace-4a56-862d-b07c4980663e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4435a31f-80db-4fa4-96b8-0ccb36947325"
+                  },
+                  "title": "Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "calls_total_total{service_name=\"adservice\", status_code=\"STATUS_CODE_ERROR\"}"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_node_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_subsystem_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_container_name",
+                          "width": null
+                        },
+                        {
+                          "field": "status_code",
+                          "width": null
+                        },
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "operation",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_namespace_name",
+                          "width": null
+                        },
+                        {
+                          "field": "span_kind",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "84121241-1697-4bdc-98cc-c8240485051e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "78e70d99-2140-4873-af1b-01b9c74fc124"
+                  },
+                  "title": "Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "calls_total_total{service_name=\"adservice\", status_code=\"STATUS_CODE_ERROR\"}"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_node_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_subsystem_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_container_name",
+                          "width": null
+                        },
+                        {
+                          "field": "status_code",
+                          "width": null
+                        },
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "operation",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_namespace_name",
+                          "width": null
+                        },
+                        {
+                          "field": "span_kind",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5bb6b703-5a20-4806-b1e5-c18c39f94291"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ccce7734-d259-436b-b8af-9c718812c4c5"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(calls_total_total{service_name=\"adservice\", status_code=\"STATUS_CODE_ERROR\"})"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "a267e4a2-7212-4574-bcd7-406ca85be1e9"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a8ec3e73-2524-4a5d-b01e-0f2fb6e4845f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ae5c5fec-e901-463d-a96b-07b42109be72"
+                  },
+                  "title": "cx_data_usage_units",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units{application_name=~\".+\"}) by (application_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "application_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "761b50ca-32c4-4f05-92a8-28441c74390e"
+                  },
+                  "title": "sort_desc cx_data_usage_units",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sort_desc(sum(cx_data_usage_units{application_name=~\".+\"}) by (application_name))"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "application_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ea2d9022-c682-4567-887d-842780685cb1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "eb1ae191-591b-48f7-8725-64ef680acaf4"
+                  },
+                  "title": "sort_desc cx_data_usage_units",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sort_desc(sum(cx_data_usage_units{application_name=~\".+\"}) by (application_name) / 1000)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "application_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#value",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Metric Sort",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "4a499aa0-49e8-4ee3-9fb1-7d9fc42f5897"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "85087f25-71d4-4b3c-9879-42555ea27d45"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "50b8a3fb-827a-4144-8f8c-f0ed4a52ddd6"
+                  },
+                  "title": "7d OK",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "(\n    1-(\n        sum_over_time(\n            sum(\n                http_response_http_response_code{\n                    status_code=~\"2..|3..\"\n                }\n            )[7d:1m]\n        )\n        /\n        sum_over_time(\n            sum(\n                http_response_http_response_code{\n                    status_code=~\".+\"\n                }\n            )[7d:1m]\n        )\n        *(1-99/100)\n    )\n)*100"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": false,
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 95,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 1,
+                      "thresholdType": "THRESHOLD_TYPE_ABSOLUTE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a7440a7e-0234-4f0d-b4c5-bf19e60f72e5"
+                  },
+                  "title": "28d OK",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "(\n    1-(\n        sum_over_time(\n            sum(\n                http_response_http_response_code{\n                    status_code=~\"2..|3..\"\n                }\n            )[28d:1m]\n        )\n        /\n        sum_over_time(\n            sum(\n                http_response_http_response_code{\n                    status_code=~\".+\"\n                }\n            )[28d:1m]\n        )\n        *(1-99/100)\n    )\n)*100"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": false,
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 95,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 1,
+                      "thresholdType": "THRESHOLD_TYPE_ABSOLUTE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "SLO",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "afd5ae9d-fa00-45aa-ab6d-ff2785811b19"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "2b3ef1ca-5817-484a-ba45-5d8d95a38d9d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c35de2e5-34a6-4ab8-b215-4b53737a4d16"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "7c64b8a1-d110-4642-b660-bc2b63bfb988",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)\n-\nsum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"} offset 7d) by (subsystem_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d27817b7-d17f-4e06-b4e8-ed39760753ac"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cba1df48-7b40-4ca2-ab77-b941e9cc7ce2"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": "subsystem_name",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": "60s",
+                          "bucketsPresented": null
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "00f56da0-b4d1-45e8-9cb3-2e29ee1f7447"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1f58eae8-77c1-4cb4-9123-64e4b2cd29df"
+                  },
+                  "title": "New heatmap",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": null,
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "heatmap": {
+                          "valueField": {
+                            "keypath": [
+                              "value"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA"
+                          },
+                          "xAxisFields": [
+                            {
+                              "keypath": [
+                                "cx_application_name"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "yAxisFields": [
+                            {
+                              "keypath": [
+                                "cx_subsystem_name"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "showNumbers": false,
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "allowAbbreviation": true,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimalPrecision": 1,
+                          "colorAxisMin": null,
+                          "colorAxisMax": null,
+                          "tooltip": {
+                            "messageTemplate": null,
+                            "labels": []
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d07ca5ac-4885-4d8c-90bc-2dd5a1d36ec4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "0c969bd3-385d-4f62-a511-7a88b7d492b7"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "group by (cx_application_name,cx_subsystem_name) (otelcol_process_cpu_seconds_total)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_subsystem_name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f17fb651-41e3-4c85-90e1-b0baee5b56ef"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d8ebb030-b7ee-4f43-a97e-054feac26d1e"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count by (k8s_namespace_name, k8s_pod_name, k8s_container_name, k8s_cluster_name) (\n100 *\n    sum by (k8s_namespace_name, k8s_pod_name, k8s_container_name, k8s_cluster_name) (\n        rate(\n            container_cpu_time_s_total{}\n        [5m])\n    )\n    /\n    sum by (k8s_namespace_name, k8s_pod_name, k8s_container_name, k8s_cluster_name) (\n        k8s_container_cpu_request__cpu_{}\n    ) > 90\n) "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 50,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_cluster_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_container_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_namespace_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_pod_name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "2365ec24-a00c-4c67-82d6-3d16ad8ff81f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "de6852a2-2122-4f6c-85a5-ba8c68a96ee2"
+                  },
+                  "title": "New Gauge",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "\n            sum(\n                http_response_http_response_code{\n                    status_code=~\"2..\"\n                }\n            )"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 800,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 801,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_ABSOLUTE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "36e2d5f0-b505-42ee-b52c-50631421fc47"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d4351893-50bf-458f-9ab5-dca2db6d2076"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9c6881d5-18bc-42a0-b36e-2411c008862e",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs\n| filter $p.applicationName.arrayContains($l.applicationname)\n| groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp, $l.applicationname as application agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3e6ab94e-e6e2-4768-868a-f379a1031a9f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5e8f495f-56a7-4c1d-98c2-e176848165f1"
+                  },
+                  "title": "New Pie Chart",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| groupby $l.subsystemname agg count() as count"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystemname"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": false,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "44692e1e-6d64-436c-b6df-a17f0e4c2064"
+              },
+              "appearance": {
+                "height": 20
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "85c6dd6f-fdb5-4a75-a874-d888abe3790d"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $m.timestamp != null\n| groupby roundTime($m.timestamp,10m).formatTimestamp('%FT%H:%M',tz='utc') as timestamp agg count() as count"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "timestamp"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Test",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "19e2f06e-0f5f-4353-840a-229955955912"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "64dae048-760f-43be-9b9f-2b41f2a4d0b4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7d3b75c8-d361-4842-86d6-85bc850dad18"
+                  },
+                  "title": "p99",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0d36d16d-28f4-497e-a4b3-864aa445db37",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs | groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "86c92327-bca6-428f-9450-ec7c622918d9"
+              },
+              "appearance": {
+                "height": 23
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e4a5c385-7704-4b34-8de8-d6338d370ddb"
+                  },
+                  "title": "Percentiles",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MIN",
+                          "LEGEND_COLUMN_MAX",
+                          "LEGEND_COLUMN_SUM",
+                          "LEGEND_COLUMN_AVG",
+                          "LEGEND_COLUMN_LAST"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c3f61f68-5f78-4086-8a1c-1ba26bfcca77",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "histogram_quantile(0.99, sum(increase(latency_ms_bucket{})) by (le, service_name)) or on () vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": "p99 {{service_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "P99",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": true,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        },
+                        {
+                          "id": "2fc96379-23eb-45f4-97e3-d304c91f802e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "histogram_quantile(0.95, sum(increase(latency_ms_bucket{})) by (le, service_name)) or on () vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": "p95 {{service_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "P95",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        },
+                        {
+                          "id": "af272fae-268a-4417-91d6-61852ec36f01",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "histogram_quantile(0.75, sum(increase(latency_ms_bucket{})) by (le, service_name)) or on () vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": "p75 {{service_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "P75",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        },
+                        {
+                          "id": "0840be04-6487-4bab-b17a-a6dab2c6e4f2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum by (service_name) (increase(sum_over_time(latency_ms_bucket{}) or on () vector(0))) / sum by (service_name) (increase(sum_over_time(latency_ms_bucket{})))) or on () vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": "avg - {{service_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "AVG",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "90f9140b-d9fb-4669-8fdf-0fd0abd4db86"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "968ecc44-229c-4568-960c-12af1aa5a646"
+                  },
+                  "title": "p99",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "histogram_quantile(0.99, sum by(le, service_name) (rate(latency_ms_bucket[5m])))"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "le",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": "{{service_name}}",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": true,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "389c1b1d-b37b-440d-b001-16bbd94de2e1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "30e99ec5-9768-4748-beda-975282197a42"
+                  },
+                  "title": "p99",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "histogram_quantile(0.99, sum by(le, service_name) (rate(latency_ms_bucket[5m])))"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "le",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": "{{service_name}}",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": true,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ec41bb08-da00-43a9-ae3f-6322b8ec4210"
+              },
+              "appearance": {
+                "height": 26
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "06c1b491-05da-461d-8a6e-b9df4d6f87af"
+                  },
+                  "title": "Quantile",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "histogram_quantile(${quantile}, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}])))"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "le",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": "{{service_name}}",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": true,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ceeb0799-20ec-4b49-b3c8-e871490fa2e4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "54694b77-4c5d-4d44-a627-184476277a29"
+                  },
+                  "title": "Quantile",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "label_replace(histogram_quantile(0.99, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p99\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.95, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p95\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.75, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p75\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.50, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p50\",\"\",\"\")\n"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "le",
+                            "quantile",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": "{{quantile}} - {{service_name}}",
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_NAME",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": true,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "8e014a73-f5d2-40cb-b8d6-b4578ea75413"
+              },
+              "appearance": {
+                "height": 31
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c01a3455-508d-4fbe-9559-5de32176b963"
+                  },
+                  "title": "Quantile",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "label_replace(histogram_quantile(0.99, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p99\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.95, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p95\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.75, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p75\",\"\",\"\")\nor\nlabel_replace(histogram_quantile(0.50, sum by(le, service_name) (rate(latency_ms_bucket{service_name=~${service_name}}[${__rate_interval}]))),\"quantile\",\"p50\",\"\",\"\")\n"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "quantile",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "443b81cd-eb11-4d55-ae5e-f846818cc5c2"
+              },
+              "appearance": {
+                "height": 38
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f7a2bb49-13b9-4ca5-8f27-a967d0172ae6"
+                  },
+                  "title": "Quantile",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "label_replace(quantile_over_time(0.99, sum by (cx_application_name) (system_cpu_utilization_1[${__rate_interval}])),\"quantile\",\"p99\",\"\",\"\")\nor\nlabel_replace(quantile_over_time(0.95, sum by (cx_application_name) (system_cpu_utilization_1[${__rate_interval}])),\"quantile\",\"p95\",\"\",\"\")\nor\nlabel_replace(avg_over_time(sum by (cx_application_name) (system_cpu_utilization_1[${__rate_interval}])),\"quantile\",\"average\",\"\",\"\")\nor\nlabel_replace(max_over_time(sum by (cx_application_name) (system_cpu_utilization_1[${__rate_interval}])),\"quantile\",\"max\",\"\",\"\")\nor\nlabel_replace(min_over_time(sum by (cx_application_name) (system_cpu_utilization_1[${__rate_interval}])),\"quantile\",\"max\",\"\",\"\")"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 50,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        },
+                        {
+                          "field": "quantile",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Hist",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "6929f2e0-b2d7-4432-97ea-81573e2dc786"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "32e2f59d-671e-4ae0-abf2-c44a8a12cc4a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "0fbdfe81-a860-44b9-8a8e-128b6eb27bd4"
+                  },
+                  "title": "cx_data_usage_units",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "815a122b-9cda-40da-afe5-490cdc0b182d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "100 *\nsum by (subsystem_name) (\n    cx_data_usage_units{\n        subsystem_name=~\".+\"\n    }\n)\n/\nsum (\n    cx_data_plan_units_per_day{\n    }\n)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Data Usage",
+              "description": null,
+              "collapsed": true,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "761d6a66-248f-4177-9328-e90cb678fedf"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a16386bb-eb25-445e-8e2a-ab04d9541c52"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a01c1345-c297-45f0-a158-3616c00dfe4a"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": null,
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "stat": {
+                          "valueField": null,
+                          "categoryFields": [
+                            {
+                              "keypath": [
+                                "severity"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "min": 217,
+                          "max": 139434,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                          "thresholds": [
+                            {
+                              "from": 0,
+                              "color": "var(--c-severity-log-verbose)",
+                              "label": null
+                            }
+                          ],
+                          "legend": {
+                            "isVisible": true,
+                            "columns": [],
+                            "groupByQuery": true,
+                            "placement": "LEGEND_PLACEMENT_AUTO"
+                          },
+                          "legendBy": "LEGEND_BY_GROUPS",
+                          "decimalPrecision": 2,
+                          "allowAbbreviation": true,
+                          "displaySeriesName": true,
+                          "thresholdBy": "THRESHOLD_BY_VALUE",
+                          "valueFields": [
+                            {
+                              "keypath": [
+                                "count_0"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "df6fe6d0-71c4-40d2-bda8-0128bb03483a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9cb9707a-3018-47dc-a9e0-64021378b056"
+                  },
+                  "title": "New Gauge",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $m.severity != null\n| groupby $m.severity as $d['severity'] agg count() as $d['count']"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Dynamic Widget test",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "Severity",
+        "displayName": "Severity",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "severity"
+                    ],
+                    "scope": "DATASET_SCOPE_USER_DATA"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "tag",
+        "displayName": "tag",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "static": {
+            "values": [
+              {
+                "value": "beats_input_codec_plain_applied",
+                "label": "beats_input_codec_plain_applied"
+              },
+              {
+                "value": "beats_input_codec_plain_not_applied",
+                "label": "beats_input_codec_plain_not_applied"
+              }
+            ],
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "priority",
+        "displayName": "priority",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "static": {
+            "values": [
+              {
+                "value": "high",
+                "label": "high"
+              },
+              {
+                "value": "medium",
+                "label": "medium"
+              },
+              {
+                "value": "low",
+                "label": "low"
+              }
+            ],
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "list": {
+              "values": [
+                {
+                  "value": {
+                    "value": "high",
+                    "label": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "service",
+        "displayName": "service",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "duration_ms"
+                  },
+                  "labelName": {
+                    "stringValue": "service"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": "(.*)-faas",
+              "labelRegex": "(.*)Function-faas"
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "new_service",
+        "displayName": "new_service",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "duration_ms"
+                  },
+                  "labelName": {
+                    "stringValue": "service"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": "(.*)service",
+              "labelRegex": "(.*)service"
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "quantile",
+        "displayName": "quantile",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "static": {
+            "values": [
+              {
+                "value": "0.99",
+                "label": "0.99",
+                "isDefault": true
+              },
+              {
+                "value": "0.95",
+                "label": "0.95"
+              },
+              {
+                "value": "0.75",
+                "label": "0.75"
+              },
+              {
+                "value": "0.50",
+                "label": "0.50"
+              }
+            ],
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "allOption": {
+              "includeAll": false,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "singleNumeric": {
+            "value": {
+              "value": 0.99,
+              "label": "0.99"
+            }
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "service_name",
+        "displayName": "service_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "latency_ms_bucket"
+                  },
+                  "labelName": {
+                    "stringValue": "service_name"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "applicationName",
+        "displayName": "applicationName",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "applicationname"
+                    ],
+                    "scope": "DATASET_SCOPE_LABEL"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": [
+      {
+        "id": "d39581b8-8a18-4dc7-91bc-4241ab5c86a6",
+        "name": "SameWithFilter",
+        "shouldOpenInNewWindow": true,
+        "widgetId": "c35de2e5-34a6-4ab8-b215-4b53737a4d16",
+        "definition": {
+          "customAction": {
+            "url": "https://onlineboutique.coralogix.com/#/dashboards/b5qnKDqqzEzv0BZNxmly3?var-new_service={{subsystem_name}}"
+          }
+        },
+        "dataSource": "ACTION_DATA_SOURCE_TYPE_METRICS"
+      },
+      {
+        "id": "740dc56d-0d82-4e42-a324-69bc61ff8071",
+        "name": "SameWithFilter",
+        "shouldOpenInNewWindow": true,
+        "widgetId": "e52e6ed5-c8f8-493f-842b-da5091e4c360",
+        "definition": {
+          "customAction": {
+            "url": "https://onlineboutique.coralogix.com/#/dashboards/b5qnKDqqzEzv0BZNxmly3?var-new_service={{subsystem_name}}"
+          }
+        },
+        "dataSource": "ACTION_DATA_SOURCE_TYPE_METRICS"
+      },
+      {
+        "id": "f10bdda1-e086-4bb8-a406-5a3e52b446cb",
+        "name": "SameWithFilter",
+        "shouldOpenInNewWindow": true,
+        "widgetId": "e0ef4c9a-4dbe-4ccc-9fe7-9851fbfe6bad",
+        "definition": {
+          "customAction": {
+            "url": "https://onlineboutique.coralogix.com/#/dashboards/b5qnKDqqzEzv0BZNxmly3?var-new_service={{subsystem_name}}"
+          }
+        },
+        "dataSource": "ACTION_DATA_SOURCE_TYPE_METRICS"
+      },
+      {
+        "id": "e885074f-0edc-4e0f-b975-ac30dcb762c6",
+        "name": "Test",
+        "shouldOpenInNewWindow": true,
+        "widgetId": "0fbdfe81-a860-44b9-8a8e-128b6eb27bd4",
+        "definition": {
+          "customAction": {
+            "url": "https://onlineboutique.coralogix.com/#/dashboards/b5qnKDqqzEzv0BZNxmly3?var-service_name={{subsystem_name}}"
+          }
+        },
+        "dataSource": "ACTION_DATA_SOURCE_TYPE_METRICS"
+      }
+    ]
+  }
+}

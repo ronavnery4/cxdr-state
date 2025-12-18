@@ -1,0 +1,578 @@
+{
+  "id": "unknown",
+  "name": "Unqork Latency and Resource Correlation",
+  "exported_at": "2025-12-18T05:48:28.786702",
+  "data": {
+    "id": "q4ipwOqTTCXOdDnLXydbL",
+    "name": "Unqork Latency and Resource Correlation",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "178d0428-42f0-42ba-9ce7-8ea28fd60069"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "c1362127-e3ee-486b-986d-fc08083152fc"
+              },
+              "appearance": {
+                "height": 13
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "195e6fc9-6ada-4c81-ad83-24d40f1acf7c"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "![](https://www.unqork.com/wp-content/uploads/2023/12/unqork_logo_footer.svg) \n### **Custom Span / Resource Metrics Dashboard**\nInfinite customizations based on PromQL metrics\nBased on span metrics + resource metrics",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "69002f00-d375-4314-a325-d41cb5dd9b66"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a4ae214b-f37c-4566-89cd-fb0044ab4e7d"
+                  },
+                  "title": "300s Delta Variable CPU Pod",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "bb11bd98-16b3-4ee6-81c5-2acdc704767f",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(\n  (\n    k8s_pod_cpu_utilization_1{k8s_pod_name=~\"{{k8s_pod_name}}\"} \n    - k8s_pod_cpu_utilization_1{k8s_pod_name=~\"{{k8s_pod_name}}\"} offset 300s\n  ) \n  / k8s_pod_cpu_utilization_1{k8s_pod_name=~\"{{k8s_pod_name}}\"} offset 300s \n  * 100\n)) by (k8s_pod_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "45fe668d-a90c-482d-9525-25a9131ab11e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cd9e2865-9ef6-4512-84af-b25055021321"
+                  },
+                  "title": "300s Delta Variable CPU Node",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "606ecde1-9862-475a-9855-4bddb4618400",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(\n  (\n    k8s_node_cpu_utilization_1{k8s_node_name=~\"{{k8s_node_name}}\"} \n    - k8s_node_cpu_utilization_1{k8s_node_name=~\"{{k8s_node_name}}\"} offset 300s\n  ) \n  / k8s_node_cpu_utilization_1{k8s_node_name=~\"{{k8s_node_name}}\"} offset 300s \n  * 100\n)) by (k8s_node_name) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "598b5970-e3c4-40f3-993d-a08c72b2b975"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b430937f-73c5-4214-812e-27a6a16e477d"
+                  },
+                  "title": "FrontEnd CPU in Mcores",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ade4fbf3-47e6-47bb-b2ca-0b2f5f815670",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "k8s_pod_cpu_utilization_1{k8s_pod_name =~ 'frontend-69d989d8dd-2mp6n|frontend-69d989d8dd-9t6mz|frontend-69d989d8dd-tnwxc'}"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9ec0d1d2-3333-4857-abe9-5a1b4d46253c"
+                  },
+                  "title": "300s Delta Frontend CPU",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "57d97b27-4617-4df5-bf08-f17730765798",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(\n  k8s_pod_cpu_utilization_1{k8s_pod_name =~ 'frontend-69d989d8dd-2mp6n|frontend-69d989d8dd-9t6mz|frontend-69d989d8dd-tnwxc'}\n  - \n  k8s_pod_cpu_utilization_1{k8s_pod_name =~ 'frontend-69d989d8dd-2mp6n|frontend-69d989d8dd-9t6mz|frontend-69d989d8dd-tnwxc'} offset 300s\n) / k8s_pod_cpu_utilization_1{k8s_pod_name =~ 'frontend-69d989d8dd-2mp6n|frontend-69d989d8dd-9t6mz|frontend-69d989d8dd-tnwxc'} offset 300s * 100"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_CUSTOM",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1a1bffb0-dbaf-4f5e-b35a-accd01ed89c2"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f7c2b758-b568-47dd-a0d5-119e0b909771"
+                  },
+                  "title": "Frontend Spans",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": null,
+                          "filters": [
+                            {
+                              "field": {
+                                "metadataField": "METADATA_FIELD_SUBSYSTEM_NAME"
+                              },
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "frontend"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": null
+                            }
+                          ],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "startTime",
+                          "width": 200
+                        },
+                        {
+                          "field": "operationName",
+                          "width": null
+                        },
+                        {
+                          "field": "serviceName",
+                          "width": 160
+                        },
+                        {
+                          "field": "duration",
+                          "width": 100
+                        },
+                        {
+                          "field": "isError",
+                          "width": 75
+                        },
+                        {
+                          "field": "applicationName",
+                          "width": 160
+                        },
+                        {
+                          "field": "subsystemName",
+                          "width": 150
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "baded153-671b-4640-854f-ef2dee0afbdc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2d22ef47-d441-4a52-81e6-6df262e671d4"
+                  },
+                  "title": "Frontend Logs",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": null,
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "frontend"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "subsystemname"
+                                ],
+                                "scope": "DATASET_SCOPE_LABEL"
+                              }
+                            }
+                          ],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "coralogix.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.text",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.applicationName",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.subsystemName",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "k8s_pod_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "resource",
+                            "attributes",
+                            "k8s_pod_name"
+                          ],
+                          "scope": "DATASET_SCOPE_USER_DATA"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "k8s_pod_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "k8s_node_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "resource",
+                            "attributes",
+                            "k8s_node_name"
+                          ],
+                          "scope": "DATASET_SCOPE_USER_DATA"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "k8s_node_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "e1d70073-2fde-4884-90cd-7c9e3403e2a7"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "JAM Demo"
+  }
+}

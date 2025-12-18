@@ -1,0 +1,522 @@
+{
+  "id": "unknown",
+  "name": "Dynamic widgets",
+  "exported_at": "2025-12-18T05:48:28.596278",
+  "data": {
+    "id": "sFWAQsiU8ZRhwq5djP1sd",
+    "name": "Dynamic widgets",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "0fbed632-3a67-4289-89d8-6387bbd8e759"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "e845af1e-1d81-46e6-bbf9-e430fbb0b6eb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "62f7f161-d67c-47e6-bcc4-ede880e5de18"
+                  },
+                  "title": "Logs table dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby 'harel':string, $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count|filter count >=300000"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "timeSeriesBars": {
+                          "temporalField": {
+                            "keypath": [
+                              "timestamp"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA"
+                          },
+                          "valueFields": [
+                            {
+                              "keypath": [
+                                "count"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "categoryFields": [
+                            {
+                              "keypath": [
+                                "_expr0"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "legend": {
+                            "isVisible": true,
+                            "columns": [],
+                            "groupByQuery": true,
+                            "placement": "LEGEND_PLACEMENT_SIDE"
+                          },
+                          "tooltip": {
+                            "showAllSeries": true,
+                            "showLabels": false
+                          },
+                          "seriesNameTemplate": null,
+                          "maxSlicesPerBar": 7,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "colorScheme": "classic",
+                          "hashColors": false,
+                          "decimalPrecision": 2,
+                          "allowAbbreviation": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                          "sortBy": "SORT_BY_TYPE_VALUE"
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "8f7e3b38-6c0f-4b1e-9f88-fb9db42e9b5b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ba43ffaa-7b4d-4ff3-a300-1281699457bd"
+                  },
+                  "title": "DP table dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": ""
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [],
+                          "rules": []
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c698cc87-5a5a-4eea-9d66-97a9eb0491e7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "678b352a-6464-48d5-8559-a2f1fa00e927"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [
+                            {
+                              "keypath": [
+                                "severity"
+                              ],
+                              "scope": "DATASET_SCOPE_METADATA"
+                            },
+                            {
+                              "keypath": [
+                                "applicationname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "aggregation": [
+                            {
+                              "count": {}
+                            }
+                          ]
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [],
+                          "rules": []
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        },
+        {
+          "id": {
+            "value": "48727f14-278c-4357-b5c2-ef9a51b55369"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "6c7af0f0-f2a7-4d2c-a42b-77fd3b04c9a5"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7216aab9-6787-4754-8635-99e985e54d4c"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0407299f-c199-4479-8480-95bad69bdd8f",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs | groupby severity, $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "aa40ef34-cc6e-4af3-9aa9-ed8391b87daf"
+                  },
+                  "title": "why table is default",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby severity, $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [],
+                          "rules": []
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_BLUE"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "70f9bf89-ee65-4746-8095-987e89702520"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "c250b09c-048b-4629-b8b0-ed4a95abef5d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "87fbfc57-a9ce-4cb0-b5ef-45f2f555306f"
+                  },
+                  "title": "New heatmap",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [
+                            {
+                              "keypath": [
+                                "applicationname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            },
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "aggregation": [
+                            {
+                              "count": {}
+                            }
+                          ]
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "heatmap": {
+                          "valueField": {
+                            "keypath": [
+                              "count_0"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA"
+                          },
+                          "xAxisFields": [
+                            {
+                              "keypath": [
+                                "applicationname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "yAxisFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "showNumbers": true,
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "preset": "HEATMAP_COLOR_PRESET_BLUE",
+                          "allowAbbreviation": false,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimalPrecision": 1,
+                          "colorAxisMin": null,
+                          "colorAxisMax": null,
+                          "tooltip": null
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3f870985-cfcd-4117-8084-ee7ca2279544"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2ee4ae1d-7b67-4ab3-8938-c342b68ea3d2"
+                  },
+                  "title": "New heatmap",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [
+                            {
+                              "keypath": [
+                                "applicationname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            },
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "aggregation": [
+                            {
+                              "count": {}
+                            }
+                          ]
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "heatmap": {
+                          "valueField": {
+                            "keypath": [
+                              "count_0"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA"
+                          },
+                          "xAxisFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "yAxisFields": [
+                            {
+                              "keypath": [
+                                "applicationname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "showNumbers": true,
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "preset": "HEATMAP_COLOR_PRESET_BLUE",
+                          "allowAbbreviation": false,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimalPrecision": 1,
+                          "colorAxisMin": null,
+                          "colorAxisMax": null,
+                          "tooltip": null
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "7200s",
+    "folderId": {
+      "value": "435bad47-2e76-414b-ae05-27cb475f63e9"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Aviv"
+  }
+}

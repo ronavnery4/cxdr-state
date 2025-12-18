@@ -1,0 +1,125 @@
+{
+  "id": "unknown",
+  "name": "DataPrime- Spans drill down",
+  "exported_at": "2025-12-18T05:48:28.591044",
+  "data": {
+    "id": "rTqPlyNNaKLR6PXptifaQ",
+    "name": "DataPrime- Spans drill down",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "6d3c98cb-cd37-4fb0-a4da-0cb369383ffb"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "53ff2b99-f169-4ade-b1cb-0b497644bafb"
+              },
+              "appearance": {
+                "height": 34
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ef132075-f734-40eb-bca4-7de11b75450d"
+                  },
+                  "title": "DataPrime",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans\n| filter traceID==$p.trace_id || $p.trace_id==null\n| choose traceID as Trace, \n         spanID as Span, \n         $l.operationName as Action, \n         round($m.duration / 1000, 2) as Duration_ms\n// Join with a subquery that calculates rich statistics for each action\n| join inner  (\n    source spans\n    | groupby $l.operationName as Action\n        // Core statistics (converted to ms)\n        round(avg($m.duration) / 1000, 2) as Avg_Duration\n  ) using Action into Stats\n// Create new fields based on the joined statistics\n| create Pct from round(100 * Duration_ms / Stats.Avg_Duration, 3) // Pct tells you how long an individual span took compared to the \u201cnormal\u201d\n| create Delta_from_Avg from round(Duration_ms - Stats.Avg_Duration, 2)\n| create Performance_Rating \n    from case {\n                Pct <= 50     -> 'Very Fast',\n                Pct <= 100    -> 'Fast',\n                Pct <= 150    -> 'Slightly Slow',\n                Pct <= 200    -> 'Slow',\n                Pct > 200     -> 'Very Slow'\n            }\n// Select and rename fields for a clean final output\n| choose Trace,\n         Span,\n         Action,\n         Duration_ms,\n         Stats.Avg_Duration as Avg_Duration_ms,\n         Delta_from_Avg,\n         Performance_Rating\n| orderby $m.timestamp "
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_LIST",
+                      "columns": [
+                        {
+                          "field": "$d.Trace",
+                          "width": 333
+                        },
+                        {
+                          "field": "$d.Span",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Action",
+                          "width": 350
+                        },
+                        {
+                          "field": "$d.Duration_ms",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Avg_Duration_ms",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Delta_from_Avg",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Performance_Rating",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "0b413384-432c-44fc-98f0-fbbc41b90cb9"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "trace_id",
+        "displayName": "trace_id",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "textbox": {
+            "defaultValue": {
+              "defaultStringValue": {
+                "value": null
+              }
+            }
+          }
+        },
+        "value": {
+          "singleString": {
+            "value": null
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": [],
+    "_source_folder_name": "Amit N"
+  }
+}

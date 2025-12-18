@@ -1,0 +1,421 @@
+{
+  "id": "unknown",
+  "name": "AI Dashboard (LLM)",
+  "exported_at": "2025-12-18T05:48:28.506972",
+  "data": {
+    "id": "6HME5x15Gc6Qn7TQ45psd",
+    "name": "AI Dashboard (LLM)",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "9a2c8f73-7444-47d6-a4df-a695a95a4fe7"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "470116e6-5fa8-43cb-9fc1-bbb2531005b1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a3d53b07-2f35-48d2-b004-acad6486d736"
+                  },
+                  "title": "Most Popular Models",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans\n| groupby $d.tags['gen_ai.request.model'] as model agg count() as count\n| filter model != null"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "model"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": null,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "eb26d1db-33a8-458d-88bb-8d57275f1df4"
+                  },
+                  "title": "Costs",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans \n| filter $l.subsystemName == 'customer-support-ai'\n| groupby $l.serviceName aggregate sum(tags['gen_ai.total_price']:num) as totalPrice, sum(tags['gen_ai.prompt_price']:num) as promptPrice, sum(tags['gen_ai.response_price']:num) as responsePrice"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.serviceName",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.totalPrice",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.promptPrice",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.responsePrice",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "b306cde0-b3fc-4bc8-a7b0-619c074d2394"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e9f56766-365c-45d4-993f-cabf3c27f61c"
+                  },
+                  "title": "Usage Input Tokens",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans\n| aggregate sum(tags['gen_ai.usage.input_tokens']:num) as usageInputTokens"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3b59991d-882b-431f-8a05-e582e737630e"
+                  },
+                  "title": "Request Max Tokens",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans\n| aggregate sum(tags['gen_ai.request.max_tokens']:num) as requestMaxTokens"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "4e6c1704-6b4f-4f7a-b790-70ddc31e6215"
+                  },
+                  "title": "Usage Output Tokens",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans\n| aggregate sum(tags['gen_ai.usage.output_tokens']:num) as usageOutputTokens"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5bc7e6f5-b930-4f27-8084-f4ec5a5e7343"
+                  },
+                  "title": "Costs",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans \n| filter $l.subsystemName == 'customer-support-ai'\n| groupby $l.serviceName aggregate sum(tags['gen_ai.total_price']:num) as totalPrice"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "serviceName"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": null,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e3813a0e-4648-40fc-be29-40c6eaf49ff6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1f8bec68-2962-4095-bac0-e187201453a7"
+                  },
+                  "title": "Spend by Model",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ef76450c-d37a-48bc-bce6-24ae3af5c061",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source spans\n| filter $l.serviceName == 'llm-assistant'\n| filter tags['gen_ai.streaming.request.user'] != null\n| multigroupby($m.timestamp / $p.timeRange.suggestedInterval as timestamp, tags['gen_ai.request.model'] as model) agg sum(tags['gen_ai.response_price']:num + tags['gen_ai.prompt_price']:num) as total_spend"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "{{model}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "3600s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

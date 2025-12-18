@@ -1,0 +1,327 @@
+{
+  "id": "unknown",
+  "name": "Aviv Variables",
+  "exported_at": "2025-12-18T05:48:28.546175",
+  "data": {
+    "id": "KS0Y12DwIqfpSsv9zr0mB",
+    "name": "Aviv Variables",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "94955d2e-4b52-4439-8e2a-a0d59d8f748a"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "046cede3-c608-40c0-a9ff-b4b742bf4799"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4a6518b4-52b9-4a05-aff5-5a9d1f7aa1c1"
+                  },
+                  "title": "Suggested Interval",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "87adee9b-bfb3-4afb-8f20-b9a2b97fed73",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs | groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "056b1337-31b0-4f83-abf8-bf9ec9f85e6b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "956e8561-6014-4dd9-89f1-3fd613ad4589"
+                  },
+                  "title": "Interval",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "85d5a65b-5728-4e66-863b-40f709491df6",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "last_over_time((avg_over_time((avg(k8s_node_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\"} / on (node_id) group_left () count(system_cpu_time_total{state=\"idle\", k8s_cluster_name=~\"onlineboutique\"}) by (node_id)) without (host_id, host_type))[900s:]) * on (k8s_node_name) group_left () max(container_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\", k8s_namespace_name=~\"default\"} > bool -1) by (k8s_node_name))[${__interval}])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7ff08a6c-edc3-4c78-b0ec-fe4246f9323e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "69579090-a2ad-4d48-bb1f-91fecc8ea1c8"
+                  },
+                  "title": "Rate Interval",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f80baa51-da60-446f-85ba-e7f16a05577a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": " rate(load_time_rate_5m[${__rate_interval}])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "Country",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "constantList": {
+                "values": [
+                  "US",
+                  "UK",
+                  "EU",
+                  "IL"
+                ]
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Country",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "City",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "constantList": {
+                "values": [
+                  "TLV",
+                  "NY",
+                  "LA",
+                  "SF",
+                  "JR"
+                ]
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "City",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "Continent",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "constantList": {
+                "values": [
+                  "America",
+                  "Africa",
+                  "Europe",
+                  "Asia"
+                ]
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Continent",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "7200s",
+    "folderId": {
+      "value": "435bad47-2e76-414b-ae05-27cb475f63e9"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Aviv"
+  }
+}

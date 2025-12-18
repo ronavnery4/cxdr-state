@@ -1,0 +1,474 @@
+{
+  "id": "unknown",
+  "name": "AD DP",
+  "exported_at": "2025-12-18T05:48:28.512251",
+  "data": {
+    "id": "JENhIY2TyavxNQeLgkYI8",
+    "name": "AD DP",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "ae032015-ae54-4f53-896d-4557f1a7fa02"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "69cf5f7e-1925-4737-8fa4-12ee44dbb70a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "03571244-6ff8-45bc-ba17-e9afea41fc0f"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source location_enrichment"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.owner",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.port",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "003dd727-138a-40aa-b4a0-37d6425f6d17"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7fc595a2-18a9-4885-a0ab-cf9d9d7eaa0d"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6448d135-1224-41f8-9055-a7a64ccf7abf",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs | groupby $m.timestamp / 1m as timestamp agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7dfcc2c9-312c-41de-a38f-135e8b94d1ea"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "afa0c8bc-af55-4cf4-b8c2-45779af5deb3"
+                  },
+                  "title": "New Horizontal Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f2688633-211a-4a1e-be10-22bbb650e216"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "11f42b88-a882-40fd-9c04-efe3f44efe2d"
+                  },
+                  "title": "New Vertical Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e1a5a7fa-add7-4acb-a958-fb5e9446b158"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7e9b7e9f-53f9-4faf-b790-2da98c03f189"
+                  },
+                  "title": "New Pie Chart",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": null,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f0927d16-1159-43fb-bc43-0f17a62340a8"
+                  },
+                  "title": "New Gauge",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": [
+                      "3"
+                    ]
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "severity"
+              ],
+              "scope": "DATASET_SCOPE_METADATA"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "ebee6dd5-078b-44ca-f901-ba9722b17d6e"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Tests - RnD Support"
+  }
+}

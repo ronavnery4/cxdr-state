@@ -1,0 +1,418 @@
+{
+  "id": "unknown",
+  "name": "mateusz1",
+  "exported_at": "2025-12-18T05:48:28.807281",
+  "data": {
+    "id": "EcxbvjwwbRLtBSbp21lDd",
+    "name": "mateusz1",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "424ac8b5-68a7-4bd2-8e5d-d87c23274d5e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "31075a99-b2d3-4206-b44a-e24535cd5332"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "dd13f9d3-1636-45ae-afaf-7f1c05f05536"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "59de4b22-6a27-44d2-b44c-3e73be54b57d",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "95d61391-62fc-4661-8832-ae6c2856d3d7"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": null,
+                          "filters": [],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "coralogix.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.text",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.applicationName",
+                          "width": null
+                        },
+                        {
+                          "field": "coralogix.metadata.subsystemName",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "2d97eaaf-4ace-4548-86f1-e1c1066e15c9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "0a633f48-1a97-42f3-a2a0-5425c9bbe175"
+                  },
+                  "title": "DataPrime",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$m.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.subsystemname",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3fdaaa04-4e24-4568-b0e4-41d2a0923839"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ec00d983-4a95-4a35-86f3-75440d793091"
+                  },
+                  "title": "New Gauge",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "12c2f875-0eda-4fe0-9171-2d5638993be4"
+                  },
+                  "title": "New Horizontal Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a8119bd7-f009-433d-8eea-9f6da52b2368"
+                  },
+                  "title": "New Vertical Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "9e8f9a5f-e399-dc2d-364a-2281b5350300"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Mateusz_dev_test"
+  }
+}

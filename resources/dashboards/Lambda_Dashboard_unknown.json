@@ -1,0 +1,431 @@
+{
+  "id": "unknown",
+  "name": "Lambda Dashboard",
+  "exported_at": "2025-12-18T05:48:28.650844",
+  "data": {
+    "id": "sjN6IUzpy56C9QWUQATj3",
+    "name": "Lambda Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "bd1803c4-d381-0605-ebe8-8114a65ba619"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a8cac1cd-59f4-ecda-de69-4e4a4bc22c41"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "abf46861-c2bf-25e8-656a-88f96d79720f"
+                  },
+                  "title": "Executions",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "coralogix.metadata.applicationName:\"074157727657\" AND cx_metadata.faas_name.keyword:\"{{faas}}\" AND cx_metadata.faas_execution:\"{{exec_id}}\""
+                          },
+                          "logsAggregation": {
+                            "countDistinct": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_metadata",
+                                  "faas_execution"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c3da76f2-63f0-df26-2755-96d90485fd5b"
+                  },
+                  "title": "Aggregation Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "coralogix.metadata.applicationName:\"074157727657\" AND cx_metadata.faas_name.keyword:\"{{faas}}\" AND cx_metadata.faas_execution:\"{{exec_id}}\""
+                          },
+                          "filters": [],
+                          "grouping": {
+                            "groupBy": [],
+                            "aggregations": [
+                              {
+                                "id": "8064ed8d-3390-58aa-47bc-fe3be1fe5ce7",
+                                "name": "Count",
+                                "isVisible": true,
+                                "aggregation": {
+                                  "count": {}
+                                }
+                              }
+                            ],
+                            "groupBys": [
+                              {
+                                "keypath": [
+                                  "cx_metadata",
+                                  "faas_execution"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            ]
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "GroupBy:cx_metadata.faas_execution",
+                          "width": 328
+                        },
+                        {
+                          "field": "Aggregation:8064ed8d-3390-58aa-47bc-fe3be1fe5ce7",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ec7677c1-5424-c81c-01d4-df5f0223fecf"
+                  },
+                  "title": "execution count chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8ce01f6a-6373-273b-e1d9-9a523fa03789",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "cx_metadata",
+                                    "faas_execution"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e0c639bb-83c0-4f16-7de3-91c3e6bf515f"
+              },
+              "appearance": {
+                "height": 81
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "11a04603-1ee3-45e9-9e9f-fdca405989b1"
+                  },
+                  "title": "LogViewer",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "coralogix.metadata.applicationName:\"074157727657\" AND cx_metadata.faas_name.keyword:\"{{faas}}\" AND cx_metadata.cloud_region:\"{{cloud_region}}\" AND cx_metadata.faas_execution:\"{{exec_id}}\""
+                          },
+                          "filters": [],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "coralogix.timestamp",
+                          "width": 164
+                        },
+                        {
+                          "field": "cx_metadata.faas_name",
+                          "width": 163
+                        },
+                        {
+                          "field": "cx_metadata.faas_execution",
+                          "width": 280
+                        },
+                        {
+                          "field": "cx_metadata.cloud_region",
+                          "width": 80
+                        },
+                        {
+                          "field": "message",
+                          "width": 983
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "faas",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "cx_metadata",
+                            "faas_name"
+                          ],
+                          "scope": "DATASET_SCOPE_USER_DATA"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Lambda Name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "exec_id",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "cx_metadata",
+                            "faas_execution"
+                          ],
+                          "scope": "DATASET_SCOPE_USER_DATA"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Execution ID",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "cloud_region",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "logsQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "observationField": {
+                          "keypath": [
+                            "cx_metadata",
+                            "cloud_region"
+                          ],
+                          "scope": "DATASET_SCOPE_USER_DATA"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "cloud_region",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "e5e55a49-d833-375b-520e-4b061db6b2a4"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix - Gold"
+  }
+}

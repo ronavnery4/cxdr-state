@@ -1,0 +1,1122 @@
+{
+  "id": "unknown",
+  "name": "Fortinet Fortigate Overview",
+  "exported_at": "2025-12-18T05:48:28.606789",
+  "data": {
+    "id": "dAczDv4jtN1bBysoCHBXG",
+    "name": "Fortinet Fortigate Overview",
+    "description": "",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "19b6055c-dc1e-45e9-93b3-ebb8741adbca"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "4a83416d-eaca-4417-8205-978463d00d18"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c6d35045-1501-44de-b2bd-757b5136e93d"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**This dashboard provides a comprehensive view of Fortigate firewall activity, covering traffic trends, security events, blocked connections, and geographic insights. It helps monitor firewall performance, identify security threats, and analyze event patterns.**\n**Dashboards Covered:**\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Event Trend Over Time</span>** \u2013 Tracks security event trends over time to detect activity spikes and anomalies.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Events by Level</span>** \u2013 Categorizes events by severity levels (critical, high, medium, low) to aid in prioritization.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Sources for Deny Traffic</span>** \u2013 Lists the most frequent source IPs generating denied traffic requests.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Appcat by Action</span>** \u2013 Groups traffic events by application category and associated firewall actions.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Actions Over Time</span>** \u2013 Highlights the most common security actions performed by the firewall over time.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Destination IP Requests Geolocations</span>** \u2013 Maps the geographic locations of destination IPs accessed through the firewall.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Source IP Requests Geolocations</span>** \u2013 Maps the locations of source IPs generating traffic.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Source IPs for Deny Traffic</span>** \u2013 Identifies the highest volume of blocked source IP addresses.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Action Performed</span>** \u2013 Lists the most frequent firewall actions (allow, deny, monitor, etc.).\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Type of Transferred Traffic</span>** \u2013 Classifies traffic by type (HTTP, HTTPS, FTP, etc.) for better visibility.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate Log Type</span>** \u2013 Displays different log categories (traffic, threat, system, UTM, etc.) for event tracking.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate -Attack Type</span>** \u2013 Groups events based on security categories such as malware, intrusion attempts, or unauthorized access.\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Events Count By Method</span>** \u2013 Shows the count of security events categorized by HTTP method (GET, POST, etc.)\n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Source IPs</span>**\u2013 Shows the event count from Top 10 source IP addresses \n\u2022<span class=\"Apple-tab-span\"> </span>**<span class=\"s1\">Fortigate - Top Destination IPs</span>**\u2013 Shows the event count from Top 10 destination IP addresses \n\n",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "4bc41fce-99b9-44a9-8320-975db6a8203b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f0cc885a-a41f-4a0f-b240-63c0320c7970"
+                  },
+                  "title": "Fortigate - Event Trend Over Time",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "18da0682-b219-4e24-b225-3a24ddbbc9d1",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "_exists_:Fortigate"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d0e1a398-3b27-468f-a70c-6049197d1608"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6153df98-6730-4e97-adc0-d66fa47997ba"
+                  },
+                  "title": "Fortigate Actions Over Time",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8ddb1398-b2a9-4459-a7ee-51a05055c710",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs |filter Fortigate.action != null\n| create ts from roundTime($m.timestamp, 1h)\n| groupby ts, Fortigate.action aggregate count() as count\n"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "{{Fortigate.action}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f0873c0d-deca-49f7-aec3-b9b3437e68c9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6631c287-9f00-4a2f-8cf4-85dbed1c9a4e"
+                  },
+                  "title": "Fortigate - Events by level",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "level"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d94404cb-9934-40d7-9ad0-2cae228193b6"
+                  },
+                  "title": "Fortigate - Events by Log Type",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "level"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            },
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "type"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "036b8891-9f50-4472-a22e-99e4581d7c79"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2bc358c1-c1dd-4f88-b256-cec00ae1ed8e"
+                  },
+                  "title": "Fortigate - Top source IPs for deny traffic",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "Fortigate.action:\"deny\""
+                          },
+                          "filters": [],
+                          "grouping": {
+                            "groupBy": [],
+                            "aggregations": [
+                              {
+                                "id": "e8aef382-7fe4-4227-b61e-4763af6489c3",
+                                "name": "Count",
+                                "isVisible": true,
+                                "aggregation": {
+                                  "count": {}
+                                }
+                              }
+                            ],
+                            "groupBys": [
+                              {
+                                "keypath": [
+                                  "Fortigate",
+                                  "srcip"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            ]
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "GroupBy:Fortigate.srcip",
+                          "width": null
+                        },
+                        {
+                          "field": "Aggregation:e8aef382-7fe4-4227-b61e-4763af6489c3",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b8fab78c-fd05-4d9b-a438-8840cfdc81f4"
+                  },
+                  "title": "Fortigate - Top Action Performed",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "action"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e4392e9d-bbca-4a1b-ac57-ee641088f54c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "402ba022-0b3d-40c6-aa6b-53d0ed1da140"
+                  },
+                  "title": "Fortigate - Attack Type",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "attack"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b8bd0028-d951-4072-9617-4eaf63ea27df"
+                  },
+                  "title": "Fortigate - Traffic By Service",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "service"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "blue",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "285b3a1a-1be5-41aa-9e15-048cf6e4fa60"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "af1103a4-3744-438e-a4b1-cdc71cc1f8b4"
+                  },
+                  "title": "Fortigate - Trafiic By Source IP\u00a0 Geolocation",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "cx_security",
+                                "source_ip_geoip",
+                                "country_name"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b6c9608d-ba64-4741-9331-9b7fefcf2f48"
+                  },
+                  "title": "Fortigate - Trafiic By Destination IP Geolocation",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "cx_security",
+                                "destination_ip_geoip",
+                                "country_name"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "severity",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "404904a7-0fb0-47a5-86c9-d9f6d9155555"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "440e3024-401f-4135-8fb9-4b3db4f8ecb2"
+                  },
+                  "title": "Fortigate - Trafiic By Destination Port",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "dstport"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "red",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f1ca538f-94fe-44ed-a0cd-c14601b8f107"
+                  },
+                  "title": "Fortigate - Trafiic By Subtype",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "subtype"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "47739fd2-5df6-48ce-af96-77b35ff558d5"
+                  },
+                  "title": "Fortigate - Trafiic By Source Port",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "Fortigate",
+                                "srcport"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "severity",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "db76dfa7-7143-4fdb-a80b-c1422997b0e9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4ffcb47f-9a35-450d-8e3c-e44ad99fae9d"
+                  },
+                  "title": "Fortigate - Top 10 Destination IPs",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs |filter $d.Fortigate.dstip!=null\n| groupby $d.Fortigate.dstip aggregate count() as $d.count | orderby $d.count desc | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "Fortigate.dstip"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "703a5e2c-7230-4841-a15a-4a8c1954971f"
+                  },
+                  "title": "Fortigate - Top 10 Source IPs",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs |filter $d.Fortigate.srcip!=null\n| groupby $d.Fortigate.srcip aggregate count() as $d.count | orderby $d.count desc | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "Fortigate.srcip"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "43200s",
+    "folderId": {
+      "value": "9ee3cc8f-e606-4abb-9acc-dabd399fdb48"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Fortinet Fortigate"
+  }
+}

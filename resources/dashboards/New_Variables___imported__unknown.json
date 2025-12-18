@@ -1,0 +1,423 @@
+{
+  "id": "unknown",
+  "name": "New Variables\u00a0 (imported)",
+  "exported_at": "2025-12-18T05:48:28.685446",
+  "data": {
+    "id": "2Tsx4CG0z4V22FcdAGejI",
+    "name": "New Variables\u00a0 (imported)",
+    "description": "show full variables capabilities",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "364f5da4-d282-4409-b643-49fa71ae7b4d"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "de0c9f41-d18a-4d2e-80f3-3090df2a347b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "da108814-0684-4c2d-8a57-df733eb52ec9"
+                  },
+                  "title": "New Vertical Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | lucene '${luc}' | groupby $l.subsystemname agg count() as count"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystemname"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b9e59a73-3bb7-44f9-9cbf-c3470890c385"
+                  },
+                  "title": "Error count line chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG",
+                          "LEGEND_COLUMN_LAST"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "tooltip": {
+                        "showLabels": true,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a932a3c1-f80c-4afe-b23e-ffcc2e36626b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "last_over_time((avg_over_time((avg(k8s_node_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\"} / on (node_id) group_left () count(system_cpu_time_total{state=\"idle\", k8s_cluster_name=~\"onlineboutique\"}) by (node_id)) without (host_id, host_type))[900s:]) * on (k8s_node_name) group_left () max(container_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\", k8s_namespace_name=~\"default\"} > bool -1) by (k8s_node_name))[15m])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": true
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "39321fca-e513-4ab3-a0fc-d6d65fe05e67"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d5b4600c-6cd1-475e-926b-a7dd66c141a0"
+                  },
+                  "title": "Time Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "${luc}"
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "applicationname"
+                            ],
+                            "scope": "DATASET_SCOPE_LABEL"
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 96
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 0,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6a7262d5-30e6-49ab-b16b-d9e4289f789e"
+                  },
+                  "title": "Count by severity Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c319f605-1353-428b-8b00-893346c67a8d",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "${luc}"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "severity"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 0,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "severity"
+              ],
+              "scope": "DATASET_SCOPE_METADATA"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": "My Severity Levels"
+      }
+    ],
+    "relativeTimeFrame": "21600s",
+    "folderId": {
+      "value": "2b9fe280-789a-4ce5-8d9f-006018becf34"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "luc",
+        "displayName": "Lucene Query",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "textbox": {
+            "defaultValue": {
+              "defaultLuceneValue": {
+                "value": "*",
+                "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+              }
+            }
+          }
+        },
+        "value": {
+          "lucene": {
+            "value": {
+              "value": "*",
+              "label": null
+            }
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "int",
+        "displayName": "Interval",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "static": {
+            "values": [
+              {
+                "value": "1m",
+                "label": "1m"
+              },
+              {
+                "value": "5m",
+                "label": "5m"
+              },
+              {
+                "value": "15m",
+                "label": "15m",
+                "isDefault": true
+              },
+              {
+                "value": "30m",
+                "label": "30m"
+              },
+              {
+                "value": "1h",
+                "label": "1h"
+              },
+              {
+                "value": "2h",
+                "label": "2h"
+              },
+              {
+                "value": "3h30m15s",
+                "label": "3h30m15s"
+              }
+            ],
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "allOption": {
+              "includeAll": false,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "interval": {
+            "value": {
+              "value": "5m",
+              "label": "5m"
+            }
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": [],
+    "_source_folder_name": "Demo2110"
+  }
+}

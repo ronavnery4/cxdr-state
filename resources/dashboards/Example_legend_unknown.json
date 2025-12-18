@@ -1,0 +1,182 @@
+{
+  "id": "unknown",
+  "name": "Example legend",
+  "exported_at": "2025-12-18T05:48:28.601024",
+  "data": {
+    "id": "F8Hla5YFy2J9GpFhPnEyY",
+    "name": "Example legend",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "c5fd6d4c-9483-4759-b30d-4e55aa87679e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b14d5b91-c8b8-4d11-bbe3-1bf0e46d6eae"
+              },
+              "appearance": {
+                "height": 38
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3b67c640-1716-4d3b-9a1e-865283a5c714"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_MAX"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "4f103833-3578-4415-a697-44c625f2b807",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "severity"
+                                  ],
+                                  "scope": "DATASET_SCOPE_METADATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        },
+                        {
+                          "id": "55898c61-7508-4edc-a053-5346782b9c93",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "applicationname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [
+      {
+        "id": "d9751318-6486-43ce-af6b-c44411d1d65e",
+        "name": "example",
+        "enabled": true,
+        "source": {
+          "metrics": {
+            "promqlQuery": {
+              "value": "time() * 1000 + 600 * 1000"
+            },
+            "strategy": {
+              "startTimeMetric": {}
+            },
+            "messageTemplate": "",
+            "labels": [],
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": null,
+        "scope": null,
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      }
+    ],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

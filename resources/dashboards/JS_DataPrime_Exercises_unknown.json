@@ -1,0 +1,97 @@
+{
+  "id": "unknown",
+  "name": "JS DataPrime Exercises",
+  "exported_at": "2025-12-18T05:48:28.625427",
+  "data": {
+    "id": "olClE9YGyu2oqTGs0rGTm",
+    "name": "JS DataPrime Exercises",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "fd8ea868-0f34-46d9-b7ba-bb45d8248686"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "04223025-0432-4f1a-b367-af8f2240984d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "76d72e14-414e-4c1b-af68-ff3743be8aaf"
+                  },
+                  "title": "Exercise 2",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "eda68249-c9d7-4a1c-b1ae-706172a46ae3",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs \n| lucene '_exists_: kubernetes.container.name' \n| filter $d.json.http_resp_status:number >= 400 \n| groupby $d.kubernetes.container.name, $m.timestamp / 1h aggregate count() as hourly_event_count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "7776000s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "unknown",
+  "name": "Example var in legend",
+  "exported_at": "2025-12-18T05:48:28.600825",
+  "data": {
+    "id": "klR5RXGq1ipztKTWO0PXh",
+    "name": "Example var in legend",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "1b48f227-bde4-4101-8e6a-e62b111e10b6"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "a4843ff0-6197-4a65-a8c8-da68539df62b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "17d399f9-9bf0-4766-a452-bf9b3a1359cc"
+                  },
+                  "title": "New Polystat",
+                  "description": null,
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby $p.test, $l.subsystemname as subsystem agg count() as count"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "test",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "constantList": {
+                "values": [
+                  "1",
+                  "2",
+                  "3",
+                  "4"
+                ]
+              }
+            },
+            "selection": {
+              "list": {
+                "values": [
+                  "1"
+                ],
+                "labels": [
+                  "1"
+                ]
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_SINGLE"
+            }
+          }
+        },
+        "displayName": "test",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "ebee6dd5-078b-44ca-f901-ba9722b17d6e"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Tests - RnD Support"
+  }
+}

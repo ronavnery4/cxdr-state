@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "Data Usage",
-  "exported_at": "2025-12-18T05:36:28.968547",
+  "exported_at": "2025-12-18T05:48:28.585904",
   "data": {
-    "id": "PI2oQlIkSFICR1fQooxVt",
+    "id": "4Bcbw7ubPXj-IZbsLZaXS",
     "name": "Data Usage",
     "description": "View and monitor your data usage",
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "b43eeea9-6609-445f-97d6-5e70597dac8c"
+            "value": "737aacee-220d-450f-9043-c604169fff2b"
           },
           "rows": [
             {
               "id": {
-                "value": "b863ed13-a262-4d83-8458-f600a78417b7"
+                "value": "9cc26791-53ec-4a5e-81a8-32d58b01bdce"
               },
               "appearance": {
                 "height": 12
@@ -23,7 +23,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "603e7bd6-2dd7-4e5b-bb50-f930d6d13003"
+                    "value": "778f39a6-8f85-4339-8a6c-12e9a05378e5"
                   },
                   "title": "New Markdown",
                   "description": null,
@@ -46,12 +46,12 @@
         },
         {
           "id": {
-            "value": "c12b77a5-f90a-4e3d-8958-7b28fc83c787"
+            "value": "956615c8-522f-4b98-ad65-6016369da49e"
           },
           "rows": [
             {
               "id": {
-                "value": "d4cc98c8-5dab-43da-b833-9aefd22c0b0b"
+                "value": "ecdc1812-05cd-4c0d-96cc-b0bdf0dd19c1"
               },
               "appearance": {
                 "height": 9
@@ -59,7 +59,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "bcf2b1aa-dcad-47ab-8c25-2dbef8b8c281"
+                    "value": "63180e3d-2194-40d0-8ac8-d2295a86c8f0"
                   },
                   "title": "Quota Used",
                   "description": null,
@@ -68,13 +68,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units) / max(cx_data_plan_units_per_day) * 100    "
+                            "value": "sum(cx_data_usage_units{pillar=~\"{{pillar}}\"}) / max(cx_data_plan_units_per_day) * 100    "
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -109,9 +109,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -121,7 +128,7 @@
                 },
                 {
                   "id": {
-                    "value": "5980755a-315c-466c-9883-107dbbe3d147"
+                    "value": "3beeb2f1-109d-4179-b087-c479d682522a"
                   },
                   "title": "Burn Rate",
                   "description": null,
@@ -130,13 +137,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "((sum(cx_data_usage_units) / max(cx_data_plan_units_per_day))  - ((time() % 86400) / 86400)) * 100 "
+                            "value": "((sum(cx_data_usage_units{pillar=~\"{{pillar}}\"}) / max(cx_data_plan_units_per_day))  - ((time() % 86400) / 86400)) * 100 "
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -161,9 +168,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -175,7 +189,7 @@
             },
             {
               "id": {
-                "value": "f5417fd0-d1dc-48b3-afac-95138a301637"
+                "value": "52aec4d7-8f1b-42d9-a0cc-e51a1865d355"
               },
               "appearance": {
                 "height": 8
@@ -183,7 +197,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "40da4042-e319-4fe3-83b7-aaf6e527484b"
+                    "value": "6840f221-8c44-4b54-b530-fb550b298b26"
                   },
                   "title": "Current Units",
                   "description": null,
@@ -192,13 +206,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units)"
+                            "value": "sum(cx_data_usage_units{pillar=~\"{{pillar}}\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -218,9 +232,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -230,7 +251,7 @@
                 },
                 {
                   "id": {
-                    "value": "ac14d5e7-11bc-4b13-93a6-1506a6a3ebdb"
+                    "value": "8c518d93-6176-4ffe-a953-54574e84ecd6"
                   },
                   "title": "Last Hour Increase",
                   "description": null,
@@ -239,13 +260,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "max(increase(cx_data_usage_units[1h]))"
+                            "value": "max(increase(cx_data_usage_units{pillar=~\"{{pillar}}\"}[1h]))"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -265,9 +286,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -277,7 +305,7 @@
                 },
                 {
                   "id": {
-                    "value": "7ac4c87b-175b-4e2b-93df-94c68b525933"
+                    "value": "f47626f8-6522-4565-9342-59a1de32d01a"
                   },
                   "title": "Today's Estimation",
                   "description": null,
@@ -286,13 +314,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units) +\nmax(increase(cx_data_usage_units[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
+                            "value": "sum(cx_data_usage_units{pillar=~\"{{pillar}}\"}) +\nmax(increase(cx_data_usage_units{pillar=~\"{{pillar}}\"}[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -312,9 +340,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -324,7 +359,7 @@
                 },
                 {
                   "id": {
-                    "value": "593ee53a-9b4f-4ec2-b390-d6f217d2a09b"
+                    "value": "33381ada-1600-4c0f-9521-f8ac6c280a90"
                   },
                   "title": "Estimated Daily Usage",
                   "description": null,
@@ -333,13 +368,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "max(increase(cx_data_usage_units[1h])) * 24\n"
+                            "value": "max(increase(cx_data_usage_units{pillar=~\"{{pillar}}\"}[1h])) * 24\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -359,9 +394,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -373,7 +415,7 @@
             },
             {
               "id": {
-                "value": "ef6e8609-c71f-45fc-932c-a1264e6b7f30"
+                "value": "cc3475fb-0721-4d9b-9892-8dc539debf91"
               },
               "appearance": {
                 "height": 9
@@ -381,7 +423,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "0b74c97a-e0e3-496a-9134-10321497a48e"
+                    "value": "3b6b275b-9181-4357-a29c-c3f64868481e"
                   },
                   "title": "Current Data",
                   "description": null,
@@ -390,13 +432,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_bytes_total)"
+                            "value": "sum(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -416,9 +458,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -428,7 +477,7 @@
                 },
                 {
                   "id": {
-                    "value": "595bc64c-8b09-44db-b8bc-22c8360be0ec"
+                    "value": "287df675-1e0e-4720-9ddf-8a0dbec0faf5"
                   },
                   "title": "Last Hour Increase",
                   "description": null,
@@ -437,13 +486,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "max(increase(cx_data_usage_bytes_total[1h]))"
+                            "value": "max(increase(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\"}[1h]))"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -463,9 +512,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -475,7 +531,7 @@
                 },
                 {
                   "id": {
-                    "value": "9f9fb722-0bca-4d3e-ac74-90edebc2e8bf"
+                    "value": "7a979b61-0276-4365-9ba4-9eb5060275a5"
                   },
                   "title": "Today's Estimation",
                   "description": null,
@@ -484,13 +540,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_bytes_total) +\nmax(increase(cx_data_usage_bytes_total[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
+                            "value": "sum(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\"}) +\nmax(increase(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\"}[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -510,9 +566,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -522,7 +585,7 @@
                 },
                 {
                   "id": {
-                    "value": "815075f7-5ac3-4db8-82aa-0ced86b1398a"
+                    "value": "1a54b46d-8927-4313-9c0c-4378b467233a"
                   },
                   "title": "Estimated Daily Usage",
                   "description": null,
@@ -531,13 +594,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "max(increase(cx_data_usage_bytes_total[1h])) * 24\n"
+                            "value": "max(increase(cx_data_usage_bytes_total{pillar=~\"{{pillar}}\"}[1h])) * 24\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -557,9 +620,16 @@
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": null,
-                      "legendBy": "LEGEND_BY_UNSPECIFIED",
-                      "displaySeriesName": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -584,12 +654,12 @@
         },
         {
           "id": {
-            "value": "7a080d0f-929f-4ddc-8a1f-09f94d0f68ad"
+            "value": "9448ce43-ddff-4269-98a4-1922137ac3db"
           },
           "rows": [
             {
               "id": {
-                "value": "a695c8cb-3243-4a19-9aab-b8a0ac560181"
+                "value": "1ad6f160-f528-4c18-8cba-e9e3388a2a96"
               },
               "appearance": {
                 "height": 19
@@ -597,7 +667,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "2a2ae9e0-0cc0-4494-ae24-c2c675fababe"
+                    "value": "dd98d24e-191e-45de-a2c2-baf8f029aa0c"
                   },
                   "title": "Units by Pillar",
                   "description": null,
@@ -607,7 +677,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -619,7 +689,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(cx_data_usage_units{}) by (pillar,priority)"
+                                "value": "sum(cx_data_usage_units{pillar=~\"{{pillar}}\"}) by (pillar,priority)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -657,7 +727,7 @@
                 },
                 {
                   "id": {
-                    "value": "494bb23b-0333-419d-a6c0-ab4f6b0a792c"
+                    "value": "d5a412cd-ff98-43b9-91a5-f91c3303f70e"
                   },
                   "title": "Units By Pillar",
                   "description": null,
@@ -666,7 +736,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units{}) by (pillar,priority)"
+                            "value": "sum(cx_data_usage_units{pillar=~\"{{pillar}}\"}) by (pillar,priority)"
                           },
                           "filters": [],
                           "groupNames": [
@@ -676,7 +746,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -700,7 +770,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -714,7 +791,7 @@
             },
             {
               "id": {
-                "value": "faa2b254-7689-43e9-9d62-23336d051bbf"
+                "value": "ae4d5fde-901f-4428-a8dc-22571c849c58"
               },
               "appearance": {
                 "height": 19
@@ -722,7 +799,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "334481de-23ae-4be3-8e99-4ff4d83e5637"
+                    "value": "6840047e-0f27-4f0d-a1b7-66625136cefc"
                   },
                   "title": "Units by Application",
                   "description": null,
@@ -732,7 +809,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -744,7 +821,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                                "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=~\"{{pillar}}\"}) by (application_name)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -782,7 +859,7 @@
                 },
                 {
                   "id": {
-                    "value": "f561503b-11eb-45dc-9188-894919f9d1a3"
+                    "value": "de85621b-991d-49b3-82e4-b57c909d7460"
                   },
                   "title": "Units By Application",
                   "description": null,
@@ -791,7 +868,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                            "value": "sum(cx_data_usage_units{application_name=~\".+\", pillar=~\"{{pillar}}\"}) by (application_name)"
                           },
                           "filters": [],
                           "groupNames": [
@@ -800,7 +877,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -824,7 +901,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -838,7 +922,7 @@
             },
             {
               "id": {
-                "value": "aafd5393-862b-451e-98cd-4834ae600973"
+                "value": "ca3c3062-836e-4655-a75e-2090fde50324"
               },
               "appearance": {
                 "height": 19
@@ -846,7 +930,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "e7cea5c9-0431-4f28-8a98-d3808331194d"
+                    "value": "e7252987-1487-4cb4-a6a0-58acf34ca4e5"
                   },
                   "title": "Units by Subsystem",
                   "description": null,
@@ -856,7 +940,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -868,7 +952,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                                "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=~\"{{pillar}}\"}) by (subsystem_name)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -906,7 +990,7 @@
                 },
                 {
                   "id": {
-                    "value": "0b0eed12-eec0-497e-b4f2-cb0409d8120b"
+                    "value": "8b8612b2-f33b-4e9c-8a99-2ad3c9c81bfd"
                   },
                   "title": "Units By Subsystem",
                   "description": null,
@@ -915,7 +999,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                            "value": "sum(cx_data_usage_units{subsystem_name=~\".+\", pillar=~\"{{pillar}}\"}) by (subsystem_name)"
                           },
                           "filters": [],
                           "groupNames": [
@@ -924,7 +1008,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -948,7 +1032,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -975,12 +1066,12 @@
         },
         {
           "id": {
-            "value": "cefe437c-3605-471c-827a-810af76c170c"
+            "value": "da5ae381-9bdb-4993-897c-249b5f5a644a"
           },
           "rows": [
             {
               "id": {
-                "value": "714f05b3-92ca-4bfe-baf4-94ddd01524b0"
+                "value": "b6890a2c-6c24-4c6c-97e5-7b5174cb0d10"
               },
               "appearance": {
                 "height": 19
@@ -988,7 +1079,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "672e62ab-fe70-49ad-b908-2703536a5f59"
+                    "value": "630c4585-7f85-400e-b429-7512f1020013"
                   },
                   "title": "Data Usage By Pillar",
                   "description": null,
@@ -998,7 +1089,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -1048,7 +1139,7 @@
                 },
                 {
                   "id": {
-                    "value": "7ac84d6c-3980-436f-8a7f-0ac5db61a3ed"
+                    "value": "4ab152c3-6114-48e4-89c4-ae07b5fc94a3"
                   },
                   "title": "Data Usage By Pillar",
                   "description": null,
@@ -1067,7 +1158,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -1091,7 +1182,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -1105,7 +1203,7 @@
             },
             {
               "id": {
-                "value": "63b76420-f937-479e-90e2-8558f6ba39ba"
+                "value": "7e77d14e-5355-405a-a48a-68e8440a7aa6"
               },
               "appearance": {
                 "height": 19
@@ -1113,7 +1211,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "a105342a-466c-4ff9-89c8-f603a4bea3e7"
+                    "value": "80cab1f6-31d9-4feb-b162-712914d5b004"
                   },
                   "title": "Data Usage By Application",
                   "description": null,
@@ -1123,7 +1221,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -1135,7 +1233,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                                "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\", pillar=~\"{{pillar}}\"}) by (application_name)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1145,7 +1243,7 @@
                           },
                           "seriesNameTemplate": null,
                           "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
+                          "unit": "UNIT_BYTES",
                           "scaleType": "SCALE_TYPE_LINEAR",
                           "name": "Query 1",
                           "isVisible": true,
@@ -1173,7 +1271,7 @@
                 },
                 {
                   "id": {
-                    "value": "d817ed7a-3994-4ee8-b2a4-664c34e3d67a"
+                    "value": "efec051e-e6b0-4a42-90e4-f65758f2c5c4"
                   },
                   "title": "Data Usage By Application",
                   "description": null,
@@ -1182,7 +1280,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\", pillar=\"logs\"}) by (application_name)"
+                            "value": "sum(cx_data_usage_bytes_total{application_name=~\".+\",pillar=~\"{{pillar}}\"}) by (application_name)"
                           },
                           "filters": [],
                           "groupNames": [
@@ -1191,7 +1289,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -1215,7 +1313,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -1229,7 +1334,7 @@
             },
             {
               "id": {
-                "value": "34c7b057-f9e7-47bc-9ee5-717aedf7077f"
+                "value": "b0224abb-9f62-438d-a594-e01cfbf2dff3"
               },
               "appearance": {
                 "height": 19
@@ -1237,7 +1342,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "247ab3f7-9cd2-432b-8740-2d128f2c5e34"
+                    "value": "d5e13513-93a6-4bdb-bd3f-de353d7c972d"
                   },
                   "title": "Data Usage By Subsystem",
                   "description": null,
@@ -1247,7 +1352,7 @@
                         "isVisible": true,
                         "columns": [],
                         "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_UNSPECIFIED"
+                        "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "tooltip": {
                         "showLabels": false,
@@ -1259,7 +1364,7 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                                "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\",pillar=~\"{{pillar}}\"}) by (subsystem_name)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
@@ -1269,7 +1374,7 @@
                           },
                           "seriesNameTemplate": null,
                           "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
+                          "unit": "UNIT_BYTES",
                           "scaleType": "SCALE_TYPE_LINEAR",
                           "name": "Query 1",
                           "isVisible": true,
@@ -1297,7 +1402,7 @@
                 },
                 {
                   "id": {
-                    "value": "2404e70f-3def-4d26-a061-101b888bafe7"
+                    "value": "c17218b7-3747-4228-b1fb-66b2b0678426"
                   },
                   "title": "Data Usage By Subsystem",
                   "description": null,
@@ -1306,7 +1411,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\", pillar=\"logs\"}) by (subsystem_name)"
+                            "value": "sum(cx_data_usage_bytes_total{subsystem_name=~\".+\", pillar=~\"{{pillar}}\"}) by (subsystem_name)"
                           },
                           "filters": [],
                           "groupNames": [
@@ -1315,7 +1420,7 @@
                           "stackedGroupName": null,
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED",
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
                           "aggregation": "AGGREGATION_UNSPECIFIED"
                         }
                       },
@@ -1339,7 +1444,14 @@
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                       "customUnit": "",
                       "decimal": null,
-                      "legend": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
                       "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
@@ -1366,13 +1478,55 @@
         }
       ]
     },
-    "variables": [],
+    "variables": [
+      {
+        "name": "pillar",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "cx_data_usage_units"
+                        },
+                        "labelName": {
+                          "stringValue": "pillar"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "pillar",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
     "filters": [],
     "relativeTimeFrame": "86400s",
     "folderId": {
-      "value": "d95e3baa-3c8b-4592-850e-394296331171"
+      "value": "ff6adc9b-d7c3-478b-9b35-33030780c53c"
     },
-    "folderPath": null,
     "annotations": [],
     "off": {},
     "slugName": null,

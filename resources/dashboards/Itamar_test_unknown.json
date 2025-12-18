@@ -1,0 +1,210 @@
+{
+  "id": "unknown",
+  "name": "Itamar test",
+  "exported_at": "2025-12-18T05:48:28.625636",
+  "data": {
+    "id": "pv1sX7LvN6f90KQZRH4Rb",
+    "name": "Itamar test",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "28cc4070-7292-46e0-81c0-1bf187c369c5"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "4264dd75-f254-4d46-b689-7543a8c264b6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "293b38d8-8fd4-4ca9-adf3-1478ae50d99a"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0f8e9dd3-8d5a-43ea-baf6-83b22c29bac2",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs\r\n| filter $l.subsystemname.inArray($p.subs)\r\n| groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d3e57183-1e5a-438d-809c-6091913c8113"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "998851a7-03bb-4da5-81be-562e1a802638"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n| filter $l.subsystemname.inArray($p.subs)"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$m.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.subsystemname",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "New Section",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": {
+                "name": "subs"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "subs",
+        "displayName": "subs",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "subsystemname"
+                    ],
+                    "scope": "DATASET_SCOPE_LABEL"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "list": {
+              "values": [
+                {
+                  "value": {
+                    "value": "checkoutservice",
+                    "label": "checkoutservice"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": []
+  }
+}

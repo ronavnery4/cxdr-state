@@ -1,0 +1,425 @@
+{
+  "id": "unknown",
+  "name": "Errors Count (Sessions / Template / Users / Errors)",
+  "exported_at": "2025-12-18T05:48:28.597133",
+  "data": {
+    "id": "ORqushKLUD7R0L4Phl5Sp",
+    "name": "Errors Count (Sessions / Template / Users / Errors)",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "aaa2aed9-11e8-4d53-9a87-771158822f16"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "8fdbb939-6283-402c-8a0d-8632c025b469"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "80dda682-d976-423c-939b-30540e144495"
+                  },
+                  "title": "Error Count",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8895663e-8fa2-47f1-bcc6-ca465ef50e7d",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "5"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "event_context",
+                                      "severity"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "66e2a0b9-976c-4edf-8372-2a429550e9e7"
+                  },
+                  "title": "Template Count",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dc741a00-8c1a-4551-b19f-dd110c857346",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "countDistinct": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "rum_template_id"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "5"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "event_context",
+                                      "severity"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "92f8e5e6-ebc9-427a-817c-1922dabfd7dc"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e28a52a8-a2ef-410b-a16a-157bb55b182b"
+                  },
+                  "title": "Users Count",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "68bd4ae4-74bc-4f8e-8c19-bf2d578caccd",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "countDistinct": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "session_context",
+                                        "user_email"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "5"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "event_context",
+                                      "severity"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5b1610f7-133c-4c11-a82a-02247135732f"
+                  },
+                  "title": "Sessions Count",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "02c84560-05d9-4357-af41-38e7a96610f0",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "countDistinct": {
+                                    "field": null,
+                                    "observationField": {
+                                      "keypath": [
+                                        "cx_rum",
+                                        "session_context",
+                                        "session_id"
+                                      ],
+                                      "scope": "DATASET_SCOPE_USER_DATA"
+                                    }
+                                  }
+                                }
+                              ],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "5"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "cx_rum",
+                                      "event_context",
+                                      "severity"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

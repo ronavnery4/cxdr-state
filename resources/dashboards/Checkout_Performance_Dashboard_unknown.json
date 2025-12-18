@@ -1,0 +1,806 @@
+{
+  "id": "unknown",
+  "name": "Checkout Performance Dashboard",
+  "exported_at": "2025-12-18T05:48:28.558906",
+  "data": {
+    "id": "EGFPM4FMUMkeXE9vhbvat",
+    "name": "Checkout Performance Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "201e0f03-6d8b-41f1-a503-88ffc6a0e7f2"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "dcd18cce-4495-4329-8367-086dd3d884e8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f413dbd5-e0bd-4f85-92f7-da2b981825fc"
+                  },
+                  "title": "Product Page Load Average Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 500000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NANOSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 0,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "57f4161e-2596-4f88-bf1a-d7fcd564da8d"
+                  },
+                  "title": "P95 Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 5000000000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NANOSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 90,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ecb2384e-9e72-42d0-84e4-3170808cdd7a"
+                  },
+                  "title": "P99 Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 300000000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NANOSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 60,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 6,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a98371cc-ca03-451e-ae33-a087a0216bd9"
+                  },
+                  "title": "AVG Session Duration",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "sum": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "cx_rum",
+                                  "resource_context",
+                                  "domainLookupEnd"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 500000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NANOSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 60,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "30f4fdce-2dc6-4218-be10-0e8c525b5f4e"
+                  },
+                  "title": "AVG Page Read Time",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 500000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MICROSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 60,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b92223ed-ebbd-40fe-9bd6-0240a2778721"
+                  },
+                  "title": "Network DNS Response Time",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "sum": {
+                              "field": null,
+                              "observationField": {
+                                "keypath": [
+                                  "stats",
+                                  "avg"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 500000,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NANOSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 60,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1d523afe-bd55-4d8e-b78a-9d144995dfd8"
+              },
+              "appearance": {
+                "height": 15
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6b184bf9-9da9-4624-8a9d-fe4311f22e38"
+                  },
+                  "title": "Checkout Errors",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1df18bc7-3bdc-4051-a9b1-622a83200297",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "coralogix.metadata.severity: 5"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Total Error Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "negative",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "402745ee-b73a-4e79-89db-d27e118f4ec8"
+                  },
+                  "title": "Product Activity Breakdown ",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby $l.subsystemname agg count() as count"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystemname"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "16cc6efa-d116-45d6-bf7c-0b058e86f84c"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8fdacbc2-ed34-4e3a-b43d-598472293dff"
+                  },
+                  "title": "Error Rates by Checkout Microservice",
+                  "description": null,
+                  "definition": {
+                    "hexagon": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupBy": [
+                            {
+                              "keypath": [
+                                "subsystemname"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL"
+                            }
+                          ],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "29ba5562-3ad7-4ea5-9995-1a82e01eebf8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3b33100d-af80-4eb4-8c6b-100f45529206"
+                  },
+                  "title": "Transactions / Second",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "productpageloadtime_cx_docs_total / 60"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_CUSTOM",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": "OK"
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": "PROBLEM"
+                        },
+                        {
+                          "from": 99,
+                          "color": "var(--c-severity-log-error)",
+                          "label": "ESCALATE"
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "TPS",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ecb652de-86a9-4236-b263-b20b614d0e36"
+                  },
+                  "title": "Log Activity by Severity",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "severity"
+                              ],
+                              "scope": "DATASET_SCOPE_METADATA"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "applicationname"
+                            ],
+                            "scope": "DATASET_SCOPE_LABEL"
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "604800s",
+    "folderId": {
+      "value": "ca104185-8209-450b-8ce9-11d0db79b285"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Stanley"
+  }
+}

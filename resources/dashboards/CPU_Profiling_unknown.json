@@ -1,0 +1,245 @@
+{
+  "id": "unknown",
+  "name": "CPU Profiling",
+  "exported_at": "2025-12-18T05:48:28.554027",
+  "data": {
+    "id": "kH4ZKo9uYh1sbYQwtVGGd",
+    "name": "CPU Profiling",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "771bae46-ea06-4900-af87-be0323e057a1"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "68570bc8-9f3b-4f18-bb45-ccd13b393257"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5c0cb67c-c744-4111-9764-1e5f013c73c3"
+                  },
+                  "title": "CPU Utilization",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1a16f774-a07e-492c-9306-c09f36bccf2c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "k8s_node_cpu_utilization_1"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        },
+        {
+          "id": {
+            "value": "c8b11e5a-8a67-4ec8-9a43-edfbaf8e92a7"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b138a956-7434-4c40-a994-0938216cf066"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1705e629-150d-4a81-ac96-346f9e1f6d50"
+                  },
+                  "title": "Profile Data",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "k8s_node_cpu_utilization_1"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#value",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_node_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_subsystem_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_platform",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_cluster_name",
+                          "width": null
+                        },
+                        {
+                          "field": "host_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_region",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_account_id",
+                          "width": null
+                        },
+                        {
+                          "field": "host_id",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_provider",
+                          "width": null
+                        },
+                        {
+                          "field": "os_type",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_availability_zone",
+                          "width": null
+                        },
+                        {
+                          "field": "host_image_id",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_otel_integration_name",
+                          "width": null
+                        },
+                        {
+                          "field": "host_type",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3ca1a416-6000-40bc-b2c4-f5cf03fffd9d"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "# <span style=\"color: var(--c-visualization-green-base)\">Flame Graph</span>",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Profile View",
+              "description": null,
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "c784d3b3-10ad-4e11-b511-f239bcbc5135"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Profiling Dashboards"
+  }
+}

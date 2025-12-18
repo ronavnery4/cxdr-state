@@ -1,0 +1,87 @@
+{
+  "id": "unknown",
+  "name": "Dataprime Jfrog Exercise",
+  "exported_at": "2025-12-18T05:48:28.595104",
+  "data": {
+    "id": "3Ggk3ZYwC3gmcVZD3O4rS",
+    "name": "Dataprime Jfrog Exercise",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "cca2357c-f767-4d45-8956-15438bae54fa"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "20b4513a-f746-474e-a77d-87fdda1610a8"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8a39d013-d3a6-4dbb-af8e-59c36e439df8"
+                  },
+                  "title": "DataPrime",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs \n| filter $m.severity == ERROR | groupby $d.kubernetes.container.name as kube, timestamp aggregate count() as $d.log_count\n| orderby $d.log_count desc\n| choose  log_count, timestamp, kube"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.log_count",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.kube",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "604800s",
+    "folderId": {
+      "value": "1e5b96d5-6294-4078-9989-5a3973e08a10"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Brett"
+  }
+}

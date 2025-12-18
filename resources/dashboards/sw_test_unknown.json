@@ -1,0 +1,103 @@
+{
+  "id": "unknown",
+  "name": "sw_test",
+  "exported_at": "2025-12-18T05:48:28.815864",
+  "data": {
+    "id": "y6uZW1TC7sC9anBWy9sb5",
+    "name": "sw_test",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "48b2e503-e4ea-4df5-8e2a-2197bc2caa93"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "7312a3fd-65a7-4721-8d11-b9f74e09a52a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a079e8dd-523d-4a37-b9e3-f2ba2d7c32b4"
+                  },
+                  "title": "DataPrime",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs \r\n| groupby $l.applicationname agg count(),\r\n    count_if(cx_rum.event_context.severity > 0 && cx_rum.event_context.severity <= 1) as sev_01,\r\n    count_if(cx_rum.event_context.severity <= 2) as sev_le_2,\r\n    count_if(cx_rum.event_context.severity <= 3) as sev_le_3,\r\n    count_if(cx_rum.event_context.severity <= 4) as sev_le_4,\r\n    count_if(cx_rum.event_context.severity <= 5) as sev_le_5,\r\n    count_if(cx_rum.event_context.severity <= 6) as sev_le_6"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$d._count0",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_01",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_le_2",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_le_3",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_le_4",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_le_5",
+                          "width": null
+                        },
+                        {
+                          "field": "$d.sev_le_6",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "86400s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

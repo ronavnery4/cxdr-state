@@ -1,0 +1,252 @@
+{
+  "id": "unknown",
+  "name": "Anomaly Methods",
+  "exported_at": "2025-12-18T05:48:28.539981",
+  "data": {
+    "id": "kFPT1cHSLLVrI2d6R17sy",
+    "name": "Anomaly Methods",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "4b4bd81a-8800-427c-9b3a-a0e391a8dbb9"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b1aaaaa2-b5c8-400e-9309-20ba3e633113"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d10b19bc-9f57-411d-930a-b61e755037a1"
+                  },
+                  "title": "method 1",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "752877d5-933b-4b08-84c8-6786f7b382d1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "clamp_min(\n  (\n    abs(cpu_usage_system - avg_over_time(cpu_usage_system[30m]))\n    /\n    clamp_min(stddev_over_time(cpu_usage_system[30m]), 1e-6)\n  ) - 1.5,\n  0\n)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ed65024b-ca89-4cc5-bd56-1e58318249d9"
+                  },
+                  "title": "method 2",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "3a007c59-a861-4ed8-b1ad-5d072fdca9bf",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "clamp_min(cpu_usage_system - quantile_over_time(0.95, cpu_usage_system[30m]), 0)\n+\nclamp_min(quantile_over_time(0.05, cpu_usage_system[30m]) - cpu_usage_system, 0)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2bb1be1a-f17f-495d-8a06-55e4fd46dbe5"
+                  },
+                  "title": "method 3",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "79787be7-22d9-480d-b595-6fda3c78de68",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(\n  abs(cpu_usage_system - avg_over_time(cpu_usage_system[30m]))\n  /\n  clamp_min(stddev_over_time(cpu_usage_system[30m]), 1e-6)\n) > bool 1.5\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ac1f23bd-d464-437e-b4a4-5b87d8539271"
+              },
+              "appearance": {
+                "height": 30
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7afa670f-adaa-409d-a8fc-cfa233be9b0c"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "### \ud83d\udd0d CPU Anomaly Detection Methods\n\n### **Method 1 \u2014 Z-Score Spike (Standard Deviation)**\n\n* **Use it when:** You want normalized \"spike height\" showing how unusual the value is.\n* **Tuning:** Adjust sensitivity (e.g., 1.5 = normal, lower = more sensitive).\n* **Alert idea:** Trigger when result > 0 for at least 5 minutes.\n\n***\n\n### **Method 2 \u2014 Percentile Envelope**\n\n* **Use it when:** You prefer intuitive percentile limits (e.g., top/bottom 5%).\n* **Tuning:** Modify 0.95/0.05 for tighter or looser anomaly bands.\n* **Alert idea:** Trigger when result > 0 for sustained period (e.g., 5m).\n\n***\n\n### **Method 3 \u2014 Boolean Z-Score**\n\n* **Use it when:** You only need a binary anomaly indicator (on/off).\n* **Tuning:** Adjust deviation threshold (e.g., 1.0\u20132.0 standard deviations).\n* **Alert idea:** Trigger when value equals 1 (true) for >5 minutes.\n\n\\`",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "432000s",
+    "folderId": {
+      "value": "b40e8995-5597-4799-8d17-8ac1c707d6b1"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Steve Lerner Demo"
+  }
+}

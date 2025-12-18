@@ -1,0 +1,476 @@
+{
+  "id": "unknown",
+  "name": "Multirules dynamic table",
+  "exported_at": "2025-12-18T05:48:28.666422",
+  "data": {
+    "id": "ftsMT4PiQDmcZK8FU8Fjk",
+    "name": "Multirules dynamic table",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "486dc9d0-9184-41bc-9c2a-c57a0d0a7631"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "25af8f1f-66b8-43b9-aebc-dc036da5c5d6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d31c1fd8-35e6-4870-a25a-6a8248e14590"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source spans | filter $d.process.tags['process.pid'] != null"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "process",
+                                  "tags",
+                                  "process.pid"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "id": {
+                                "value": "49737a7c-3c89-4b76-b92f-38a5d170f7f5"
+                              },
+                              "name": "New rule spans",
+                              "description": "",
+                              "ruleScope": {
+                                "regex": "process"
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "3cf242a4-8dfe-4a89-aacd-9a1a97248bb8"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 0,
+                                      "max": 1,
+                                      "unit": "UNIT_CUSTOM",
+                                      "customUnit": "pid",
+                                      "decimalPrecision": 0,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d5e8971a-127c-402b-832c-6871dd23f7d4"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "98d7b2e4-100d-46a3-83cc-6936944aa35f"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:http_resp_bytes"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "aggregation": []
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "id": {
+                                "value": "ffad41f1-52ba-4441-ba31-f2286f934649"
+                              },
+                              "name": "New rule",
+                              "description": "",
+                              "ruleScope": {
+                                "fieldType": "FIELD_DATA_TYPE_NUMBER"
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "bb5851ca-f88f-4792-82e3-ab66cb764e40"
+                                  },
+                                  "definition": {
+                                    "thresholds": {
+                                      "values": [
+                                        {
+                                          "from": 0,
+                                          "color": "var(--c-severity-log-verbose)",
+                                          "label": null
+                                        },
+                                        {
+                                          "from": 50,
+                                          "color": "var(--c-severity-log-warning)",
+                                          "label": null
+                                        },
+                                        {
+                                          "from": 90,
+                                          "color": "var(--c-severity-log-error)",
+                                          "label": null
+                                        }
+                                      ],
+                                      "type": "THRESHOLD_TYPE_RELATIVE",
+                                      "min": 0,
+                                      "max": 10000
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": {
+                                    "value": "2ec4b462-ada3-4c4b-81a0-a1620d23b06d"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 0,
+                                      "max": 100,
+                                      "unit": "UNIT_CUSTOM",
+                                      "customUnit": "D",
+                                      "decimalPrecision": 2,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": {
+                                "value": "cd345b37-2c99-4e1f-b582-8c75e535e700"
+                              },
+                              "name": "New rule2",
+                              "description": "",
+                              "ruleScope": {
+                                "field": {
+                                  "keypath": [
+                                    "http_resp_took_ms"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "33e8f3d5-bef7-4fc3-985b-71b2915658cc"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 0,
+                                      "max": 100,
+                                      "unit": "UNIT_MILLISECONDS",
+                                      "customUnit": null,
+                                      "decimalPrecision": 2,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7d250ba5-5a8b-4c12-9fb0-00ffbb37f072"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "355f1f6d-e83f-4563-9124-2ec07d30c99a"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "up"
+                          },
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [
+                                  "value"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "os_type"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cx_application_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_availability_zone"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "server_address"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_image_id"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_region"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "service_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cx_otel_integration_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_type"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "net_host_port"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "http_scheme"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "net_host_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_node_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_pod_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_namespace_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_daemonset_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "id": {
+                                "value": "3848bb5b-1ee4-44dd-be65-240f10f61722"
+                              },
+                              "name": "New rule",
+                              "description": "",
+                              "ruleScope": {
+                                "field": {
+                                  "keypath": [
+                                    "value"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "0397b19e-6378-4f7a-956e-e2dfe0a8e16e"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 0,
+                                      "max": 100000,
+                                      "unit": "UNIT_PERCENT",
+                                      "customUnit": null,
+                                      "decimalPrecision": 3,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": {
+                                    "value": "5de8fea0-fb59-4b7d-bd7b-7a0c0ebe2089"
+                                  },
+                                  "definition": {
+                                    "alignment": "TEXT_ALIGNMENT_RIGHT"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

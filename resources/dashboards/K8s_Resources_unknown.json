@@ -1,0 +1,721 @@
+{
+  "id": "unknown",
+  "name": "K8s Resources",
+  "exported_at": "2025-12-18T05:48:28.633106",
+  "data": {
+    "id": "ri72vAbCivqB3jILMmQpG",
+    "name": "K8s Resources",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "c2915d18-6950-96ab-1406-fef59ec58360"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "f13b3d77-7f6f-bae8-68ca-9609aa3d6975"
+              },
+              "appearance": {
+                "height": 8
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "de657b09-f133-597e-cac1-9eec17e4155c"
+                  },
+                  "title": "Nodes",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(k8s_pod_cpu_time_total{k8s_node_name!=\"\"}) by (k8s_node_name))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "92e1d887-ea46-1aab-01cf-4b7577f65e5f"
+                  },
+                  "title": "Deployments",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(k8s_pod_cpu_time_total{k8s_deployment_name!=\"\"}) by (k8s_deployment_name))"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c9953502-e640-3644-e2d5-0642b42f5034"
+                  },
+                  "title": "Pods",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(k8s_pod_cpu_time_total{k8s_pod_name!=\"\"}) by (k8s_pod_name))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ab599698-e40f-baaa-be1e-5c56ffe67f01"
+                  },
+                  "title": "Spot Interruptions",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "SpotInterruptionKind"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "reason"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6d194a4e-1e37-9b45-f377-c5f561857e89"
+                  },
+                  "title": "Unhealthy pods",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:reason AND _exists_: \"regarding.name\""
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f18697af-c190-9e25-6c04-5c4fb480af1d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b04964e0-5fe9-a2de-3247-c6cce1cefde2"
+                  },
+                  "title": "Deployment Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "20621af2-7b71-48bd-0030-6e287a9d11a1",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(avg(k8s_pod_memory_usage_By{}) by (k8s_deployment_name) / avg(k8s_container_memory_limit_By{}) by (k8s_deployment_name))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "381d6f96-c67b-451c-5366-b001fda02912"
+                  },
+                  "title": "Deployment CPU",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "dfdb0056-cf84-9732-317b-281a2ece338d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(k8s_pod_cpu_utilization_1{}) by (k8s_pod_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c5ccf80a-6449-bc33-e567-7ee8f07dc12a"
+              },
+              "appearance": {
+                "height": 28
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9c04f95e-0e48-281b-2f1f-e17874cdb3e2"
+                  },
+                  "title": "CPU Utilization",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "k8s_pod_cpu_utilization_1{}* 100 "
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": 200
+                        },
+                        {
+                          "field": "#last",
+                          "width": 68
+                        },
+                        {
+                          "field": "#min",
+                          "width": 68
+                        },
+                        {
+                          "field": "#max",
+                          "width": 68
+                        },
+                        {
+                          "field": "#avg",
+                          "width": 68
+                        },
+                        {
+                          "field": "#sum",
+                          "width": 82
+                        },
+                        {
+                          "field": "app_label_component",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_subsystem_name",
+                          "width": null
+                        },
+                        {
+                          "field": "__aws_region",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_platform",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_pod_uid",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_cluster_name",
+                          "width": null
+                        },
+                        {
+                          "field": "host_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_pod_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_account_id",
+                          "width": null
+                        },
+                        {
+                          "field": "__meta_applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_namespace_name",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_deployment_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_provider",
+                          "width": null
+                        },
+                        {
+                          "field": "os_type",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_application_name",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_availability_zone",
+                          "width": null
+                        },
+                        {
+                          "field": "host_image_id",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_node_name",
+                          "width": null
+                        },
+                        {
+                          "field": "__meta_subsystem",
+                          "width": null
+                        },
+                        {
+                          "field": "cloud_region",
+                          "width": null
+                        },
+                        {
+                          "field": "cx_otel_integration_name",
+                          "width": null
+                        },
+                        {
+                          "field": "host_type",
+                          "width": null
+                        },
+                        {
+                          "field": "account_id",
+                          "width": null
+                        },
+                        {
+                          "field": "host_id",
+                          "width": null
+                        },
+                        {
+                          "field": "k8s_daemonset_name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "k8s_cluster_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "all": {}
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "k8s_namespace_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "all": {}
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "metrics": {
+            "metric": null,
+            "label": "k8s_deployment_name",
+            "operator": {
+              "equals": {
+                "selection": {
+                  "all": {}
+                }
+              }
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "86400s",
+    "folderId": {
+      "value": "e5e55a49-d833-375b-520e-4b061db6b2a4"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix - Gold"
+  }
+}

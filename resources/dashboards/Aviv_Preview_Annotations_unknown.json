@@ -1,0 +1,542 @@
+{
+  "id": "unknown",
+  "name": "Aviv Preview Annotations",
+  "exported_at": "2025-12-18T05:48:28.545104",
+  "data": {
+    "id": "LqO46V0vUipDVIdRZFC9e",
+    "name": "Aviv Preview Annotations",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "d965b0ae-1650-4a14-a617-7ec2a5afc2fe"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "54737a32-c83e-48ae-a2f2-8cc1e5c9f41a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f736bf59-1756-46e6-9c9d-e1ec7386c74c"
+                  },
+                  "title": "Error by time",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c95b0271-2f64-43d8-b300-53cf51cf543c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(up)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e3a1d8f1-d985-40b7-a88d-f876848db6cb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7fcbc64f-ef38-4f92-9aea-34a93aaba401"
+                  },
+                  "title": "Time buckets",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "severity"
+                            ],
+                            "scope": "DATASET_SCOPE_METADATA"
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 60
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "severity",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a8a41148-ee25-4df9-95ab-1cbbe5446df9"
+                  },
+                  "title": "Vertical 1",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(load_time) by (category)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "category"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "7776000s",
+    "folderId": {
+      "value": "435bad47-2e76-414b-ae05-27cb475f63e9"
+    },
+    "annotations": [
+      {
+        "id": "fe73b3eb-a460-4098-9f85-b81bc02f481a",
+        "name": "Upgrade",
+        "enabled": false,
+        "source": {
+          "eventRecurrence": {
+            "recurrence": {
+              "weekly": {
+                "daysOfWeek": [
+                  "WEEKDAY_SUNDAY"
+                ]
+              }
+            },
+            "strategy": {
+              "duration": {
+                "startTimeHour": 8,
+                "duration": "86400s"
+              }
+            },
+            "messageTemplate": "Upgrade window - BE Team"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "f736bf59-1756-46e6-9c9d-e1ec7386c74c"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_MAGENTA"
+      },
+      {
+        "id": "331b0c21-153a-47ae-9506-eb455aca2e57",
+        "name": "Weekend",
+        "enabled": false,
+        "source": {
+          "eventRecurrence": {
+            "recurrence": {
+              "weekly": {
+                "daysOfWeek": [
+                  "WEEKDAY_FRIDAY"
+                ]
+              }
+            },
+            "strategy": {
+              "duration": {
+                "startTimeHour": 12,
+                "duration": "122400s"
+              }
+            },
+            "messageTemplate": "Weekend period"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "f736bf59-1756-46e6-9c9d-e1ec7386c74c",
+              "7fcbc64f-ef38-4f92-9aea-34a93aaba401"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_RED"
+      },
+      {
+        "id": "e6bb4a4a-fbe6-439e-8fe0-659fe4f6e690",
+        "name": "High Watermark",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_UNSPECIFIED",
+                "value": 14000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "a8a41148-ee25-4df9-95ab-1cbbe5446df9"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_RED"
+      },
+      {
+        "id": "bf20eb93-7a61-4352-9cca-2ec6bca3eb1d",
+        "name": "Low Watermark",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_UNSPECIFIED",
+                "value": 2000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "a8a41148-ee25-4df9-95ab-1cbbe5446df9",
+              "f736bf59-1756-46e6-9c9d-e1ec7386c74c"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_GREEN"
+      },
+      {
+        "id": "b890651c-6066-4043-beea-30775490c0f6",
+        "name": "Fair Watermark",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_UNSPECIFIED",
+                "startValue": 5000,
+                "endValue": 10000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "a8a41148-ee25-4df9-95ab-1cbbe5446df9",
+              "f736bf59-1756-46e6-9c9d-e1ec7386c74c"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_PURPLE"
+      },
+      {
+        "id": "8e5bbd94-e517-4514-a136-206e688b38a7",
+        "name": "Manual",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_MILLISECONDS",
+                "value": 1761177600000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_DEFAULT"
+      },
+      {
+        "id": "52c28c81-5d59-4051-a548-03c30ad05648",
+        "name": "manual range",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_MILLISECONDS",
+                "startValue": 1758614400000,
+                "endValue": 1759244400000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_DEFAULT"
+      },
+      {
+        "id": "617fbc42-ae90-4680-8c42-15a9536f35a8",
+        "name": "Metric",
+        "enabled": false,
+        "source": {
+          "metrics": {
+            "promqlQuery": {
+              "value": "25"
+            },
+            "strategy": {},
+            "messageTemplate": "",
+            "labels": [],
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "f736bf59-1756-46e6-9c9d-e1ec7386c74c"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_PURPLE"
+      },
+      {
+        "id": "f9fc740c-f30a-44ac-b5be-f8fb49277a5c",
+        "name": "lucene",
+        "enabled": false,
+        "source": {
+          "logs": {
+            "luceneQuery": {
+              "value": "_exists_:trace_id"
+            },
+            "strategy": {
+              "instant": {
+                "timestampField": {
+                  "keypath": [
+                    "timestamp"
+                  ],
+                  "scope": "DATASET_SCOPE_METADATA"
+                }
+              }
+            },
+            "messageTemplate": "",
+            "labelFields": [],
+            "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_ORANGE"
+      }
+    ],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "Aviv",
+        "displayName": "Aviv",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "static": {
+            "values": [
+              {
+                "value": "1",
+                "label": "1",
+                "isDefault": true
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              }
+            ],
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "list": {
+              "values": [
+                {
+                  "value": {
+                    "value": "1",
+                    "label": "1"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": [],
+    "_source_folder_name": "Aviv"
+  }
+}

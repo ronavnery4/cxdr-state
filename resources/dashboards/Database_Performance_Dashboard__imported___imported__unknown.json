@@ -1,0 +1,887 @@
+{
+  "id": "unknown",
+  "name": "Database Performance Dashboard (imported) (imported)",
+  "exported_at": "2025-12-18T05:48:28.593407",
+  "data": {
+    "id": "rXxH4GLbdQvEI8FiH5svL",
+    "name": "Database Performance Dashboard (imported) (imported)",
+    "description": "Dashboard that shows visibility into Sizer DB's performance - an APM perspective",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "23fbd031-601d-3ff1-e4ac-eefcd59e5e97"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "3d9f1268-e42a-d746-ac7f-178ca8dd1adb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "35e97d26-adca-e66b-1281-da8dfc760c40"
+                  },
+                  "title": "DB Performance",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "spansAggregation": {
+                            "metricAggregation": {
+                              "metricField": "METRIC_FIELD_DURATION",
+                              "aggregationType": "METRIC_AGGREGATION_TYPE_PERCENTILE_50"
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null,
+                          "groupBys": []
+                        }
+                      },
+                      "min": 0,
+                      "max": 6000,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "0d73d8d1-3052-cd1d-603f-db48cd3a33e0"
+                  },
+                  "title": "Database system Breakdown by DBMS",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "db.system"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 0,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": null,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "22a428ba-6572-94e9-dff1-ccfc52c2812c"
+                  },
+                  "title": "DB Operations ",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "db.operation"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": null,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3ab3005c-1e4b-4808-96e4-cc5558fc9cca"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e585a577-2cb6-49ff-bc53-cf1cd2d481a2"
+                  },
+                  "title": "DB Users ",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "db.user"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": null,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8d94d25e-355c-48b5-a698-177b96228303"
+                  },
+                  "title": "DB Operations ",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "db.operation"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": null,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c10243b3-d359-a5c6-f98e-2cb39d00b84e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ccd70657-83ef-4ff5-8533-fe9c8515fcc6"
+                  },
+                  "title": "Database Performance By Query Statement",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "2bfb937c-5118-4c4e-9879-11f47daa8330",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_PERCENTILE_99"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "tags",
+                                    "db.statement"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "10",
+                          "unit": "UNIT_NANOSECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "99th Percentile",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c644b76e-849f-80d8-00dd-e78044676ab6"
+                  },
+                  "title": "DB system and their operations",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "db.system"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "db.statement"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 10,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c74d8227-a630-4eac-9049-a9aae2f12bc9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3a1cc6f8-4a05-4783-a297-bb84499ab96f"
+                  },
+                  "title": "Database Queries",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": null,
+                          "filters": [],
+                          "grouping": {
+                            "groupBy": [],
+                            "aggregations": [
+                              {
+                                "id": "4f224372-bb21-4160-af3f-0a892151c875",
+                                "name": "P99 Latency",
+                                "isVisible": true,
+                                "aggregation": {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_PERCENTILE_99"
+                                  }
+                                }
+                              }
+                            ],
+                            "groupBys": [
+                              {
+                                "keypath": [
+                                  "tags",
+                                  "db.statement"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA",
+                                "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                              }
+                            ]
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "GroupBy:db.statement",
+                          "width": 1243
+                        },
+                        {
+                          "field": "Aggregation:4f224372-bb21-4160-af3f-0a892151c875",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "10c5e71d-7642-f5a5-a543-f67e9857546b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8e916465-a60e-4828-9514-c7e12bfb1f7e"
+                  },
+                  "title": "DBMS Query Count By Service",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0d5594ea-9138-5166-3ee8-505293df8ad2",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "tags",
+                                    "db.statement"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "5",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Databases",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "81a97bd5-3076-4a7d-ebdd-10cb3849e6c0",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "servicename"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Services",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "97c206e4-609a-1995-3693-6696be6afd9d"
+                  },
+                  "title": "DB Statement Count",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "003bd2b4-e05b-9aa5-a670-b00fb237b563",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "dimensionAggregation": {
+                                    "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                                    "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "tags",
+                                    "db.statement"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "spans": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "all": {}
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "tags",
+                "db.name"
+              ],
+              "scope": "DATASET_SCOPE_USER_DATA",
+              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": true,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "7200s",
+    "folderId": {
+      "value": "7c62c370-8f5d-41d3-be09-ff4917603aeb"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Sid's"
+  }
+}

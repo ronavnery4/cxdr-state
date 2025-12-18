@@ -1,0 +1,360 @@
+{
+  "id": "unknown",
+  "name": "Annotations (copy) DZ",
+  "exported_at": "2025-12-18T05:48:28.539008",
+  "data": {
+    "id": "830cwOZlNkQaNYMWsTfmd",
+    "name": "Annotations (copy) DZ",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "12ad4e97-0357-4015-a2f1-96b9b1f7f849"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "d07437db-e3ee-4b7b-8238-b9e7ec8c5c12"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "63f3c00a-28d8-42fe-bd00-b109c1e2bedc"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "9fd9a9f2-5939-4ef4-959b-1aa8c9d35874",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(load_time) by (country)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5c7ef985-c08d-4d0d-a4f5-f32d5fadaf87"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c52845e0-e6d1-4e04-bfe9-4584dc5b11d0"
+                  },
+                  "title": "New Vertical Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "avg(load_time) by (country)"
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 6
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "2592000s",
+    "annotations": [
+      {
+        "id": "3a3f41ce-450b-44d4-bc69-1abb8fae6a3b",
+        "name": "weekly deployment window",
+        "enabled": true,
+        "source": {
+          "eventRecurrence": {
+            "recurrence": {
+              "weekly": {
+                "daysOfWeek": [
+                  "WEEKDAY_SUNDAY"
+                ]
+              }
+            },
+            "strategy": {
+              "duration": {
+                "startTimeHour": 4,
+                "duration": "18000s"
+              }
+            },
+            "messageTemplate": ""
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_CYAN"
+      },
+      {
+        "id": "0c1c8e66-40f1-4e5f-af51-8211df0aa7b2",
+        "name": "Weekend",
+        "enabled": true,
+        "source": {
+          "eventRecurrence": {
+            "recurrence": {
+              "weekly": {
+                "daysOfWeek": [
+                  "WEEKDAY_FRIDAY"
+                ]
+              }
+            },
+            "strategy": {
+              "duration": {
+                "startTimeHour": 9,
+                "duration": "126000s"
+              }
+            },
+            "messageTemplate": ""
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_MAGENTA"
+      },
+      {
+        "id": "a7dc5cdc-2a54-4c97-a081-711ce271b1d0",
+        "name": "Max allowed",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_UNSPECIFIED",
+                "value": 120000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "Max number of errors threshold",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "63f3c00a-28d8-42fe-bd00-b109c1e2bedc"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_RED"
+      },
+      {
+        "id": "994a47b2-8309-49fa-8c4e-c0feb5499940",
+        "name": "Fair Range",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_UNSPECIFIED",
+                "startValue": 50000,
+                "endValue": 100000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "63f3c00a-28d8-42fe-bd00-b109c1e2bedc"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_BLUE"
+      },
+      {
+        "id": "697b5aef-ce6e-4ec1-a3ea-20e4a4a4c23a",
+        "name": "Feature Flag Enabled",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_MILLISECONDS",
+                "value": 1761645600000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "this is when we opened the feature to all customers on production",
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_ORANGE"
+      },
+      {
+        "id": "af36c2ba-4972-48db-ad3e-73c036577a2b",
+        "name": "foo",
+        "enabled": true,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_UNSPECIFIED",
+                "startValue": 1500,
+                "endValue": 2500,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "c52845e0-e6d1-4e04-bfe9-4584dc5b11d0"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_CYAN"
+      },
+      {
+        "id": "e550de24-9e55-4242-ad24-210551d13067",
+        "name": "bar",
+        "enabled": true,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_UNSPECIFIED",
+                "startValue": 1761130800000,
+                "endValue": 1761220800000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": "",
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_DEFAULT"
+      }
+    ],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

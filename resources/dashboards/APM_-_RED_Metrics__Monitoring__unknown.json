@@ -1,0 +1,1162 @@
+{
+  "id": "unknown",
+  "name": "APM - RED Metrics (Monitoring)",
+  "exported_at": "2025-12-18T05:48:28.517688",
+  "data": {
+    "id": "kfKwbfrDJijWtY87lwDse",
+    "name": "APM - RED Metrics (Monitoring)",
+    "description": "Dashboard that shows how the applications are performing",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "f4fb6085-c424-3eb0-c929-91905dafa3cb"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "12992f82-a99b-90af-45b8-5cf9d714eae7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "34c75544-cdc3-f968-1401-3bfa1c78a393"
+                  },
+                  "title": "Service Requests",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "spansAggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null,
+                          "groupBys": []
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d3feacfa-b5b0-de1d-3cec-d45574083e9c"
+                  },
+                  "title": "Service Errors",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "spansAggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "301",
+                                        "403",
+                                        "404"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "tags",
+                                  "http.status_code"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA",
+                                "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                              }
+                            }
+                          ],
+                          "groupBy": [],
+                          "timeFrame": null,
+                          "groupBys": []
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e1a21f32-3f2b-3d0f-ea1c-e5edc457c34f"
+                  },
+                  "title": "Service Duration",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "spansAggregation": {
+                            "metricAggregation": {
+                              "metricField": "METRIC_FIELD_DURATION",
+                              "aggregationType": "METRIC_AGGREGATION_TYPE_AVERAGE"
+                            }
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null,
+                          "groupBys": []
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MICROSECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "e86c2af8-7b7b-1991-58c2-e5d11e0a90b2"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "34994b1b-6725-aef3-5dc4-ca932844d3f6"
+                  },
+                  "title": "Duration - P99",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "66fb6269-29c3-0d13-e0b5-a94de72ede21",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": {
+                                "value": "serviceName:${servicename}"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_PERCENTILE_99"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "servicename"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": "P95",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MICROSECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9e8d1974-14d3-cedd-3874-820fbbf9ff77"
+                  },
+                  "title": "Duration - P50",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c0f8eb5a-2ea0-61fa-523c-2c6f3b90fa2a",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": {
+                                "value": "serviceName:${servicename}"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_PERCENTILE_50"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "servicename"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": "P95",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MICROSECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "711d9836-21aa-3670-947d-63fb7f389ea3"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7f0e1528-c35f-969c-3f7e-dbbdd1db8fe9"
+                  },
+                  "title": "Error codes by Service",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "servicename"
+                              ],
+                              "scope": "DATASET_SCOPE_LABEL",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "http.status_code"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "75c979a9-20d9-6398-b8c9-6dde7f1f7450"
+                  },
+                  "title": "Error codes by Routes",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "http.route"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "http.status_code"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5dfd6838-81a5-fa3c-49d5-e894168d7c7e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cea38438-2e11-b216-dc4e-4afbb13de18c"
+                  },
+                  "title": "Error codes by Http operations",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "http.method"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "http.status_code"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "50bca02c-4cac-7230-261c-8c83ac61d4fe"
+                  },
+                  "title": "Error codes by Http URLs",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "tags",
+                                "http.url"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA",
+                              "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                            }
+                          ],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "http.status_code"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f2f421be-d01a-e1fa-a418-265af9cd8392"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "80593338-54bc-196d-a26d-9b96671f5543"
+                  },
+                  "title": "Duration per Http URL",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "3a22aad9-5907-42f3-0783-b0453d923ec2",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": {
+                                "value": "serviceName:${servicename}"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_AVERAGE"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "tags",
+                                    "http.url"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MICROSECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "514f80ee-00e1-0e19-3e41-268b5dce7c9a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "65f75fbc-b096-ca69-62d1-da7524090cda"
+                  },
+                  "title": "Errored Transactions",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": "serviceName:${servicename}"
+                          },
+                          "filters": [
+                            {
+                              "field": null,
+                              "operator": {
+                                "equals": {
+                                  "selection": {
+                                    "list": {
+                                      "values": [
+                                        "301",
+                                        "403",
+                                        "404"
+                                      ]
+                                    }
+                                  }
+                                }
+                              },
+                              "observationField": {
+                                "keypath": [
+                                  "tags",
+                                  "http.status_code"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA",
+                                "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                              }
+                            }
+                          ],
+                          "grouping": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "startTime",
+                          "width": 200
+                        },
+                        {
+                          "field": "operationName",
+                          "width": null
+                        },
+                        {
+                          "field": "serviceName",
+                          "width": 160
+                        },
+                        {
+                          "field": "tags.http.status_code",
+                          "width": null
+                        },
+                        {
+                          "field": "duration",
+                          "width": 100
+                        },
+                        {
+                          "field": "applicationName",
+                          "width": 160
+                        },
+                        {
+                          "field": "subsystemName",
+                          "width": 150
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dbc1f992-4a9f-4612-8ae0-8de4fddd7aa3"
+              },
+              "appearance": {
+                "height": 27
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7079bd06-12e0-ecf4-b14a-2b6ce3daa0df"
+                  },
+                  "title": "Errors - Duration - Pod CPU",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "009d5ff7-f492-a2ce-3b2f-dc7f9962714c",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "coralogix.metadata.severity:[5 TO 6]"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Number of Errors",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "23e108e9-74d8-38e3-c753-f7b2d0f7fd41",
+                          "query": {
+                            "spans": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "metricAggregation": {
+                                    "metricField": "METRIC_FIELD_DURATION",
+                                    "aggregationType": "METRIC_AGGREGATION_TYPE_AVERAGE"
+                                  }
+                                }
+                              ],
+                              "filters": [],
+                              "timeFrame": null,
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "servicename"
+                                  ],
+                                  "scope": "DATASET_SCOPE_LABEL",
+                                  "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                                }
+                              ]
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MICROSECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "ca7dabbe-15b5-88f1-ffb2-34bf5d50c9ea",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "k8s_pod_cpu_utilization_1"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "10",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "servicename",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "spansQuery": {
+                    "type": {
+                      "fieldValue": {
+                        "value": null,
+                        "observationField": {
+                          "keypath": [
+                            "servicename"
+                          ],
+                          "scope": "DATASET_SCOPE_LABEL"
+                        }
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "servicename",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "86400s",
+    "folderId": {
+      "value": "7c62c370-8f5d-41d3-be09-ff4917603aeb"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Sid's"
+  }
+}

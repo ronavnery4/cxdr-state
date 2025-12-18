@@ -1,0 +1,249 @@
+{
+  "id": "unknown",
+  "name": "Ryan Var Test",
+  "exported_at": "2025-12-18T05:48:28.748448",
+  "data": {
+    "id": "S1655giaNqLmgsLJ5jAHL",
+    "name": "Ryan Var Test",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "69ad1e89-0bee-4d24-b3bc-8950d436b05f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "4bfd9b6b-3350-4c08-95f3-3f8cc6eeee28"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cad1bcf7-05a4-4424-9c20-e069090c6283"
+                  },
+                  "title": "New Gauge",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "((histogram_quantile(0.99, sum(rate(price_cx_bucket[5m])) by (le)))) * ${factor}"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "app",
+        "displayName": "Application",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "applicationname"
+                    ],
+                    "scope": "DATASET_SCOPE_LABEL"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": false,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "singleString": {
+            "value": {
+              "value": "Azure",
+              "label": "Azure"
+            }
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "subsystem",
+        "displayName": "Subsystem",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "dataprimeQuery": {
+              "type": {
+                "queryText": {
+                  "query": {
+                    "text": "source logs | filter $l.applicationname == $p.app | groupby $l.subsystemname"
+                  },
+                  "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "kubeVars",
+        "displayName": "k8 Variables",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "dataprimeQuery": {
+              "type": {
+                "queryText": {
+                  "query": {
+                    "text": "source logs | groupby $l.subsystemname"
+                  },
+                  "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": ".*kube.*",
+              "labelRegex": "kube-(\\w+)"
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "list": {
+              "values": [
+                {
+                  "value": {
+                    "value": "kube-proxy",
+                    "label": "proxy"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "factor",
+        "displayName": "factor",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "textbox": {
+            "defaultValue": {
+              "singleNumeric": 1
+            }
+          }
+        },
+        "value": {
+          "singleNumeric": {
+            "value": {
+              "value": 1,
+              "label": null
+            }
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": []
+  }
+}

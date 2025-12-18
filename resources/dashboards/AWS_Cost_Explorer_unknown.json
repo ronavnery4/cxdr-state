@@ -1,0 +1,450 @@
+{
+  "id": "unknown",
+  "name": "AWS Cost Explorer",
+  "exported_at": "2025-12-18T05:48:28.515809",
+  "data": {
+    "id": "jJJX1L8DfNxXdSesreMHC",
+    "name": "AWS Cost Explorer",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "1b4b5ade-bc05-77d3-5088-5a7b520e7b89"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "2325a5ee-6c3a-91ce-192d-a24536a182af"
+              },
+              "appearance": {
+                "height": 21
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "28c92075-a6fb-b4eb-7173-69f706cd2bc7"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "![](https://i.ibb.co/KsyMkhg/1690179246103-1.png) \nThis dashboard provides key insights into AWS spending patterns, helping to identify cost drivers and areas for optimization.\n\n* <strong>Total Cost Gauge -</strong> Shows the total AWS cost for the selected period.\n* <strong>Top 10 Services by Cost -</strong> Identifies the highest-cost AWS services.\n* <strong>Top 10 Regions by Cost -</strong> Highlights the most expensive AWS regions.\n* <strong>Top 10 Linked Accounts by Cost -</strong> Displays costs for the top linked accounts.\n* <strong>Top 10 Usage Types by Cost -</strong> Shows costs for the most significant usage types.\n* <strong>Service and Region Cost Breakdown -</strong> Provides detailed costs by service and region.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "54cb87a1-72fb-30c4-3c8c-7f582555b4dd"
+                  },
+                  "title": "Total Cost by Linked Account",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A'&& LinkedAccount != null\r\n  | groupby $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 1"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_USD",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "433cd7cc-60c3-b855-0bb5-de463a236d7f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "680f6ada-17b4-985c-980c-84093baee3a1"
+                  },
+                  "title": "Total Cost by Region",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.Region != 'N/A' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A' && LinkedAccount != null\r\n  | groupby $d.Region, $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "Region",
+                            "LinkedAccount"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 5,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_USD",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "84acbf69-bf81-6d80-cce6-b76f2e4ff36a"
+                  },
+                  "title": "Total Cost by Service",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.Service != 'N/A' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A' && LinkedAccount != null\r\n  | groupby $d.Service, $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "Service",
+                            "LinkedAccount"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_USD",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "blue",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c96eb31e-6158-b24f-fd70-7cb0436a80aa"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e3f018e2-908f-da0c-66bf-358e13110317"
+                  },
+                  "title": "Total Cost by Usage Type",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.UsageType != 'N/A' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A' && $d.LinkedAccount != null && $d.UsageType != null\r\n  | groupby $d.UsageType, $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "UsageType",
+                            "LinkedAccount"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_USD",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "99c6d8ed-a4d2-5c91-adf1-7e1ab80504bf"
+                  },
+                  "title": "Total Cost by Service and Region",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.Service != 'N/A' && $d.Region != 'N/A' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A' && LinkedAccount != null && $d.Region != null && $d.Service != null\r\n  | groupby $d.Service, $d.Region, $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "Service",
+                            "LinkedAccount"
+                          ],
+                          "stackedGroupName": "Region",
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 30,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_USD",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "blue",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "47073e5f-f478-70f8-b179-9dbfadb93ac0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c2fc5587-7152-445b-e352-b3f043e32c17"
+                  },
+                  "title": "Total Cost by Usage Type and Linked Account",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\r\n  | filter $d.Granularity == 'Daily' && $d.UsageType != 'N/A' && $d.LinkedAccount != 'N/A' && $d.ScanID != 'N/A'\r\n  | groupby $d.UsageType, $d.LinkedAccount aggregate sum($d.CostUsd:number/1000000) as total_cost\r\n  | sortby total_cost desc\r\n  | limit 10"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "UsageType",
+                            "LinkedAccount"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_USD",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null
+      }
+    ],
+    "relativeTimeFrame": "86400s",
+    "folderId": {
+      "value": "e5e55a49-d833-375b-520e-4b061db6b2a4"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix - Gold"
+  }
+}

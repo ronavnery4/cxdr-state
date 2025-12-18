@@ -1,0 +1,485 @@
+{
+  "id": "unknown",
+  "name": "E2M Cardinality Dashboard",
+  "exported_at": "2025-12-18T05:48:28.597781",
+  "data": {
+    "id": "pgr8vnUAxeXfzvYoIUOqR",
+    "name": "E2M Cardinality Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "4d8d4c4a-f852-fd5e-e99b-c11efea62e5c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "52c5463d-4bbc-8a5d-374d-34a045c946fc"
+              },
+              "appearance": {
+                "height": 13
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "efbf47a3-7bb1-c76d-f2d8-9ff00d328705"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "This dashboard provides an overview of span tags converted to labels in the E2M configuration, including both mandatory tags as also commonly used tags like `host` and `version`.\nIt highlights three recurring issues:\n\n1. Cardinality of each of the mandatory tags, by service.\n2. Services missing the `span.kind` tag.\n3. The number of buckets in use, which impacts cardinality.\n\nYou can download this dashboard and import to your customer POC environments for a quick RCA",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "022507e9-9628-416b-1694-71daf8625cc1"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "40d86ba3-c62b-d1d5-8f5b-adf563424189"
+                  },
+                  "title": "Identify Services with Missing span.kind",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(calls_total{span_kind =~ \"SPAN_KIND_UNSPECIFIED|cx_null\"}) by (span_kind, service_name)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "span_kind",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7830856a-67aa-b640-3f48-e12ae97fdb18"
+                  },
+                  "title": "Buckets List",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count by (le) (cx_service_catalog_service_duration_cx_bucket)) by (le)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "le",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "68d05332-880b-f15a-4b99-274bfe78ef65"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "05b9abec-c123-aee5-4436-cd768101c9ab"
+                  },
+                  "title": "span_name by Service",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count by (operation, service_name) (calls_total_total)) by (service_name)\n"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": 216
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "cc8478f3-7527-e5f0-1d88-969fdbc62a83"
+                  },
+                  "title": "Versions by Service",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count by (service_version, service_name) (calls_total_total)) by (service_name)\n"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e0704f69-1ffd-3176-4c3e-080c0e41e56a"
+                  },
+                  "title": "Host Names by Service",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(calls_total) by (service_name, host_name)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f0f4d0e6-dd9f-966a-dd62-c3462b17663e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "638ac457-8cf6-8956-7f05-60c523491e39"
+                  },
+                  "title": "cx_db_name for db_calls_total",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(db_calls_total) by (service_name,cx_db_name)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "aac5da84-0a95-1833-1f0f-beee504cb798"
+                  },
+                  "title": "span_name for db_calls_total",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(db_calls_total) by (service_name, span_name)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "550e7201-37ca-f98d-4d77-fb7f5f6d5d63"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9063b858-2aa7-6bbe-fedf-ac55a9af1ba1"
+                  },
+                  "title": "cx_db_dataset for db_calls_total",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(db_calls_total) by (service_name, cx_db_dataset)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3c5205f3-dce3-5944-2365-ffdc7dae9633"
+                  },
+                  "title": "cx_db_operation for db_calls_total",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count(db_calls_total) by (service_name, cx_db_operation)) by (service_name)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "service_name",
+                          "width": null
+                        },
+                        {
+                          "field": "#chartValue",
+                          "width": null
+                        },
+                        {
+                          "field": "#chart",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "e5e55a49-d833-375b-520e-4b061db6b2a4"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix - Gold"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "unknown",
+  "name": "Adam's Dashboard",
+  "exported_at": "2025-12-18T05:48:28.524451",
+  "data": {
+    "id": "UveE4bAwfaQ00le0hAEnY",
+    "name": "Adam's Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "98ff2751-bd29-4d91-a60c-b850eb5c8067"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "880c7c5a-83a9-4756-b2d1-8664eeff91b0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f63f0552-5534-4ae7-a654-031e42c92d57"
+                  },
+                  "title": "Error %",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs \n| filter $l.subsystemname == 'cx_rum' \n| block $d.cx_rum.version_metadata.app_name.in('') | filter $d.cx_rum.session_context.session_id != null\n| aggregate count() as session_count\n| create join from 'join'\n| join ( filter $l.subsystemname == 'cx_rum' | block $d.cx_rum.version_metadata.app_name.in('') | filter $d.cx_rum.session_context.session_id != null |filter $d.cx_rum.event_context.severity == 5| count into errors_count | create join from 'join' ) \non left=>join == right=>join into joined_data\n| create $d.percentage from round(joined_data.errors_count / session_count *100,2)\n| choose percentage"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a9140b09-9fca-4ef4-bbf0-554e2bc24a63"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a91254e9-6488-4d74-b3f1-61ec4f6541dd"
+                  },
+                  "title": "RUM - Percentage rate of error sessions",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "41abca2b-a51b-4d25-87d3-81fe7c931759",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs \n| groupby $m.timestamp / 6h as date, $d.cx_rum.session_context.session_id,cx_rum.version_metadata.app_version aggregate count() as session_count  | countby date, cx_rum.version_metadata.app_version as app_version into session_count |create join from concat(app_version, '_', date)\n| join ( filter $l.subsystemname == 'cx_rum' | block $d.cx_rum.version_metadata.app_name.in('') | filter $d.cx_rum.session_context.session_id != null | groupby $m.timestamp / 6h as date, cx_rum.version_metadata.app_version as app_version, $d.cx_rum.session_context.session_id count_if($d.cx_rum.event_context.severity == 5) as errors_count | where errors_count > 0 | countby date, app_version into error_session_count | create join from concat(app_version, '_', date) ) \non left=>join == right=>join into joined_data\n| filter joined_data.error_session_count > 0\n| create $d.percentage from round(joined_data.error_session_count / session_count *100,2)\n| choose date, app_version, percentage"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "{{app_version}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "86400s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

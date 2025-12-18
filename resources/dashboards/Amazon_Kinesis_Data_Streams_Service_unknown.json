@@ -1,0 +1,2076 @@
+{
+  "id": "unknown",
+  "name": "Amazon Kinesis Data Streams Service",
+  "exported_at": "2025-12-18T05:48:28.536430",
+  "data": {
+    "id": "8tgWv9x5zLJQdtW_zcXBT",
+    "name": "Amazon Kinesis Data Streams Service",
+    "description": "View of key metrics relating to the health and performance of deployed Amazon Kinesis Data Streams Service.",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "e3d837de-1a66-4e46-a647-07465ee148fe"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "27b8cb3a-11b6-4af6-a9ab-b2c61ac65140"
+              },
+              "appearance": {
+                "height": 20
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "e7dd4011-9354-4307-b981-297d3ebc710e"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Amazon Kinesis Data Streams**\n![Amazon Kinesis Data Streams Service](https://icon.icepanel.io/AWS/svg/Analytics/Kinesis-Data-Streams.svg)\nAmazon Kinesis makes it easy to collect, process, and analyse video and data streams in real time.\n\nYou can use Amazon Kinesis Data Streams to collect and process large streams of data records in real time. A typical Kinesis Data Streams application reads data from a data stream as data records. You can send the processed records to dashboards, use them to generate alerts, dynamically change pricing and advertising strategies, or send data to a variety of other AWS services.\n\nAmazon Kinesis Data Streams is part of the Amazon Kinesis streaming data platform, along with Amazon Firehose, Amazon Kinesis Video Streams, and Managed Service for Apache Flink.\n\n<span style=\"color: rgb(255, 255, 255); font-family: 'Nunito Sans'; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: break-spaces; background-color: rgb(14, 20, 29); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">This dashboard is part of the out-of-box Amazon Kinesis Data Streams extension providing visibility to and alerting on key performance metrics.</span>\n\n<strong>Details of integrations to bring in Amazon Kinesis metrics</strong> [here](https://coralogix.com/docs/cloudwatch-metricstreams-kinesis-data-firehose/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d7347787-5555-42c5-828b-e791ee761545"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Use Cases Covered**\n\n* Get Records Success (number of successful GetRecord operations per Kinesis stream measured over the specified time period)\n* Get Records Throttled (number of records rejected due to throttling in a GetRecords operation on a Kinesis stream, measured over a specified time period)\n* Get Records Latency (time taken per GetRecords operation, measured over the specified time period)\n* Get Records Average Iterator Age (age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period. Age is the difference between the current time and when the last record of the GetRecords call was written to the stream)\n* Get Record Bytes (number of bytes retrieved from the Kinesis stream using the GetRecord operation measured over the specified time period)\n* Put Records Success (number of successful PutRecord operations per Kinesis stream measured over the specified time period)\n* Put Records Latency (time taken per PutRecords operation, measured over the specified time period)\n* Put Records Throttled (number of records rejected due to throttling in a PutRecords operation per Kinesis stream, measured over a specified time period)\n* Put Record Bytes (number of bytes put to the Kinesis stream using the PutRecord operation measured over the specified time period)\n* Read Provisioned Throughput Exceeded (number of GetRecords calls throttled for the steam over the specified time period)\n* Write Provisioned Throughput Exceeded (number of records rejected due to throttling for the stream over the specified time period. This metric includes throttling from PutRecord and PutRecords operations)\n* Subscribe To Shard Success (records whether the SubscribeToSHard subscription was successfully established. The subscription only lives for at most 5 minutes. Therefore, this metric gets emitted at least once every 5 minutes)\n* Subscribe To Shard Event Success (emitted every time an event is published successfully)\n* Subscribe To Shard Event Bytes (number of bytes received from the shard, measured over the specified time period)\n* Subscribe To Shard Event Records (number of records received from the shard, measured over the specified time period)\n* Subscribe To Shard Rate Exceeded (metrics emitted when a new subscription attempt fails because there already is an active subscription by the same consumer or if you exceed the number of calls per second allowed for this operation)\n* Subscribe To Shard Event Millis Behind Latest (difference between the current time and when the last record of the SubscribeToShard event was written to the stream)\n\n**More about performance monitoring of Amazon Kinesis Data Streams** [here](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dd2ce2c9-8572-42f7-8712-b9cd2a428a04"
+              },
+              "appearance": {
+                "height": 17
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ec10f824-9a15-4430-8765-708171d32e9e"
+                  },
+                  "title": "Total GetRecords Success",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Success_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}] offset 2m))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 1,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3d407b62-04f7-417b-a7aa-3b46168a74e8"
+                  },
+                  "title": "Total GetRecords Success (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f5cfba8e-bcb0-6f61-8f52-92f23abe39fe",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Success_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d15277c2-4f9e-4186-9201-a9eed6130088"
+              },
+              "appearance": {
+                "height": 17
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "1287edda-7225-4d36-a402-9e66cf4b53b2"
+                  },
+                  "title": "Total GetRecords Throttled \t",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_ReadProvisionedThroughputExceeded_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}] offset 2m)) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 1,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3d23bfd4-98ac-4c1b-b255-0f9a3d32ede2"
+                  },
+                  "title": "Total GetRecords Throttled (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c494c971-4166-6b0b-7bac-ad0b42775be6",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_ReadProvisionedThroughputExceeded_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0d37e7f5-ee94-411a-bbe8-63242cc203c2"
+              },
+              "appearance": {
+                "height": 17
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b5c463a2-ff97-4530-9eed-81b3a9ccf448"
+                  },
+                  "title": "Avg. GetRecords Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Latency_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}])) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Latency_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 20,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "091a3dbc-e2a5-479c-bc80-71c17b7d524b"
+                  },
+                  "title": "Avg. GetRecords Latency (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "867bade8-6961-dce8-9d0d-5d99939bf8a4",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Latency_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Latency_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "6f2f2c6e-e5ed-472c-921f-292f19644169"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d8b0ec09-b561-4fcc-8ce5-b5088c66c8e9"
+                  },
+                  "title": "Avg. GetRecords Iterator Age",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_IteratorAgeMilliseconds_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}])) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_IteratorAgeMilliseconds_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c667f0b3-645b-4a38-bbdb-01d75032fe2c"
+                  },
+                  "title": "Avg. GetRecords Iterator Age (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8a65351b-5499-d129-ef7f-098fc6696bff",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_IteratorAgeMilliseconds_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_IteratorAgeMilliseconds_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "57327531-d10d-459e-923f-7564e8cb5e69"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "dc39db30-fdf4-436f-89d1-c8b6097258b2"
+                  },
+                  "title": "GetRecords Bytes (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "10fa3f25-8936-b00b-e73c-7fb358eb0e31",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Bytes_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) / sum(sum_over_time(amazonaws_com_AWS_Kinesis_GetRecords_Bytes_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dbc0ca43-3030-481f-8e3f-19cee0725f7b"
+              },
+              "appearance": {
+                "height": 10
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a02ff429-73ad-43d7-a795-60e3bf6c31d3"
+                  },
+                  "title": "Total PutRecords ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_TotalRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}] offset 2m)) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-info)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "58718597-2849-4474-90e3-44dd10ef21f1"
+              },
+              "appearance": {
+                "height": 10
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ab93d05e-b935-4ee1-b5bf-13a095454b10"
+                  },
+                  "title": "Total PutRecords Success",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_SuccessfulRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}] offset 2m)) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 1,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "95a4659c-78b5-437b-8f1e-13baa9141782"
+              },
+              "appearance": {
+                "height": 17
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b955c135-b2b3-4d22-afb7-277495228d1d"
+                  },
+                  "title": "Total PutRecords Failed",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_FailedRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\" ,StreamName!=\"\"}[${__range}] )) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 1,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "78b80aef-30e9-4eb2-8294-5e44956ed2ce"
+                  },
+                  "title": "Total PutRecords Failed (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "1d25caa5-5bf4-fc3c-a6e8-4dc4bcc6af0a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_FailedRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "34756233-6b8a-4458-aa2e-450972178206"
+              },
+              "appearance": {
+                "height": 16
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "0ad9a0e3-6032-4fc8-a177-b2fe83c58f8e"
+                  },
+                  "title": "Total PutRecords Throttled ",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_ThrottledRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}] offset 2m)) "
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 1,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e6291319-df6f-4993-af97-045b857a0d90"
+                  },
+                  "title": "Total PutRecords Throttled (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6a5fc308-35b5-672c-0920-4b40379fa133",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_ThrottledRecords_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "8fc5ae9f-d659-4e85-a0d2-8fc848b3b0f5"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8e1fd340-1d67-4a42-9f4d-c819b9168e34"
+                  },
+                  "title": "Avg. PutRecords Latency",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_Latency_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}])) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_Latency_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[${__range}]))"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_MILLISECONDS",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": true,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e99c1259-fbc0-4e85-88c6-85b860daa441"
+                  },
+                  "title": "Avg. PutRecords Latency (By Stream Name)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f2871a58-7bd6-2848-993b-268577dfaed2",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_Latency_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_PutRecords_Latency_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "c0ec360f-369f-4da9-8e71-1713ac029eb6"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "a0070bdc-af6f-40a9-8655-8971a201489e"
+                  },
+                  "title": "PutRecords Bytes (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "78ae2015-b93d-55ce-1ec5-a30728eb87ef",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_IncomingBytes_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName) / sum(sum_over_time(amazonaws_com_AWS_Kinesis_IncomingBytes_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "392ce9b8-8154-403f-b67e-c8c0ece17d48"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d2398e9a-4eec-4696-a39a-a9403d97620d"
+                  },
+                  "title": "Read & Write Provisioned Throughput Exceedances (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "219bd81d-81df-818b-a3c1-174f26da3727",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_WriteProvisionedThroughputExceeded_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "WriteProvisionedThroughputExceeded\t",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "5a962977-d503-a7b5-0d0b-08a76f0f6701",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_ReadProvisionedThroughputExceeded_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "ReadProvisionedThroughputExceeded",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 60
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "aa994f0a-1b1c-4587-a6f8-53ef50a9bfad"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "9468a8d4-0569-4a3d-bb5b-390e7e610e4d"
+                  },
+                  "title": "Write Provisioned Throughput Exceedances (By StreamName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "93abbbd8-5f72-bd50-b8e4-85960f34b498",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_WriteProvisionedThroughputExceeded_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "de55d68d-eea1-42d0-b5bc-e94e150ead2e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "70a0fb65-c11e-4da3-84d6-a30e7ac9c875"
+                  },
+                  "title": "SubscribeToShard Rate Limit Exceedances (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "7be853ae-c51a-e6df-4118-712902cb61c8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShard_RateExceeded{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b33a969c-2ccf-448c-8d97-a817e7d4a87f"
+                  },
+                  "title": "SubscribeToShard Success (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "40e44c27-46d9-4958-e672-12a6ff34ead7",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShard_Success_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dbd403fe-c803-46c7-8a73-2fc87ec02950"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "937863c2-e77a-4fbc-84c0-7229d8fcf166"
+                  },
+                  "title": "SubscribeToShard Event Records (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fc93bd75-2df9-023d-2e02-03be624b4846",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_Records_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "64c02e19-7e4b-4417-9b73-dbcc5f23eab9"
+                  },
+                  "title": "SubscribeToShard Event Success (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "651736d3-a32c-afc0-6ecd-6fd57b630264",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_Success_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5652c7e5-4449-490c-b11c-f865b22ff877"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "81031c31-3aa7-499c-856e-f37c7e8c4cdf"
+                  },
+                  "title": "SubscribeToShard Event Millis Behind Latest (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "56db78c1-31eb-f877-3357-32fc2731c3d8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_MillisBehindLatest_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_MillisBehindLatest_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_MILLISECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "1c4fefe1-ce92-43ed-9cae-42294c0227b0"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "250add1d-71b9-4e37-844d-d9ad39edbf64"
+                  },
+                  "title": "SubscribeToShard Event Data Volume (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "629c35b2-0c19-e383-9e85-c9d2dd0a8cde",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_Bytes_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (ConsumerName,StreamName) /sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_Bytes_count{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (ConsumerName,StreamName) "
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "95b42bdd-884a-40a3-90ff-028ebae6d7a7"
+              },
+              "appearance": {
+                "height": 18
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "7211da65-b8c6-4ef6-8dcd-cf74b0602ae6"
+                  },
+                  "title": "SubscribeToShard Event Success (By StreamName,ConsumerName)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "5085faf6-afe6-e233-90fa-a159e6212ee9",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(amazonaws_com_AWS_Kinesis_SubscribeToShardEvent_Success_sum{cloud_account_id=~\"{{cloud_account_id}}\",cloud_region=~\"{{cloud_region}}\",Application=~\"{{Application}}\",StreamName=~\"{{StreamName}}\"}[1m])) by (StreamName,ConsumerName)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "{{StreamName}} : {{ConsumerName}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "cloud_account_id",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "amazonaws_com_AWS_Kinesis_GetRecords_Latency"
+                        },
+                        "labelName": {
+                          "stringValue": "cloud_account_id"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "cloud_account_id",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "Application",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "amazonaws_com_AWS_Kinesis_GetRecords_Latency"
+                        },
+                        "labelName": {
+                          "stringValue": "Application"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "Application",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "cloud_region",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "amazonaws_com_AWS_Kinesis_GetRecords_Latency"
+                        },
+                        "labelName": {
+                          "stringValue": "cloud_region"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "cloud_region",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "StreamName",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "amazonaws_com_AWS_Kinesis_GetRecords_Latency"
+                        },
+                        "labelName": {
+                          "stringValue": "StreamName"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "StreamName",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      }
+    ],
+    "filters": [],
+    "relativeTimeFrame": "21600s",
+    "annotations": [],
+    "twoMinutes": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

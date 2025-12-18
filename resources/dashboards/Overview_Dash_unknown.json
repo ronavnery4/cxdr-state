@@ -1,0 +1,357 @@
+{
+  "id": "unknown",
+  "name": "Overview Dash",
+  "exported_at": "2025-12-18T05:48:28.705039",
+  "data": {
+    "id": "3nVViAJNBHUFdzgL1XAty",
+    "name": "Overview Dash",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "1d4b25a9-e3e9-48b1-abea-a254b33e1d06"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "e3092dd3-3832-4f93-9f07-8ec92961f0f7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "17c3d32b-ad34-441f-8157-97ee11a3d948"
+                  },
+                  "title": "Container memory page faults",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "eaadc7e6-0982-43ff-bc13-fa6e9ede538a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg(container_memory_page_faults_1{k8s_pod_name = 'adservice-558db469dc-8cgkz'}) by (k8s_container_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "dfd02668-f4ba-4120-9d43-b924917dda1f"
+                  },
+                  "title": "Top logs by severity",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ee308c96-94dd-4a36-8485-507d78c729d7",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "kubernetes.pod.name:\"adservice-558db469dc-8cgkz\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "severity"
+                                  ],
+                                  "scope": "DATASET_SCOPE_METADATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "severity",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "542e7fb8-9fc7-4a01-a533-1fd6db0f50d5"
+              },
+              "appearance": {
+                "height": 26
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "42814696-46c3-4b8b-bd55-9a44ed0a2793"
+                  },
+                  "title": "Logs Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs| filter kubernetes.pod.name == 'adservice-558db469dc-8cgkz'"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$m.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.subsystemname",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6664dceb-7557-45d5-8c7c-045301c3ec8c"
+                  },
+                  "title": "Errored spans by error type",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "spans": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "dimensionAggregation": {
+                              "dimensionField": "DIMENSION_FIELD_TRACE_ID",
+                              "aggregationType": "DIMENSION_AGGREGATION_TYPE_UNIQUE_COUNT"
+                            }
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "timeFrame": null,
+                          "groupNamesFields": [],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "tags",
+                              "error.type"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA",
+                            "relationType": "SPAN_RELATION_TYPE_NONE_UNSPECIFIED"
+                          }
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 40
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "74155349-aa12-42ac-80a7-5fff26bd67b4"
+    },
+    "annotations": [
+      {
+        "id": "0f4dc780-3dfb-4efe-b24f-e05a151bfee9",
+        "name": "Failed Test",
+        "enabled": false,
+        "source": {
+          "spans": {
+            "luceneQuery": {
+              "value": "serviceName:\"checkly\""
+            },
+            "strategy": {
+              "instant": {
+                "timestampField": {
+                  "keypath": [
+                    "startTime"
+                  ],
+                  "scope": "DATASET_SCOPE_USER_DATA"
+                }
+              }
+            },
+            "messageTemplate": "Test for subsystem = {{subsystemname}}",
+            "labelFields": [
+              {
+                "keypath": [
+                  "tags",
+                  "checkly.check.status"
+                ],
+                "scope": "DATASET_SCOPE_USER_DATA"
+              },
+              {
+                "keypath": [
+                  "tags",
+                  "checkly.check.type"
+                ],
+                "scope": "DATASET_SCOPE_USER_DATA"
+              },
+              {
+                "keypath": [
+                  "tags",
+                  "checkly.check.name"
+                ],
+                "scope": "DATASET_SCOPE_USER_DATA"
+              }
+            ],
+            "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+          }
+        },
+        "description": null,
+        "scope": null,
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      }
+    ],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": " A Webinar"
+  }
+}

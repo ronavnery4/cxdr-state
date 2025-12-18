@@ -1,0 +1,83 @@
+{
+  "id": "unknown",
+  "name": "Collect Function 2 Dashboard",
+  "exported_at": "2025-12-18T05:48:28.563106",
+  "data": {
+    "id": "7Ibz2dmGd1b7EvGsKxSvH",
+    "name": "Collect Function 2 Dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "b01bbf44-9562-47ea-8067-3b6ee65e0269"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "37570096-0dfa-4d3b-9f0b-c77b7ea89197"
+              },
+              "appearance": {
+                "height": 37
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "eeba5471-fb78-44f2-aecc-8b82f7ab2f64"
+                  },
+                  "title": "Query #1",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs last 10m\n| filter contains(awsRegion, '')\n| groupby awsRegion aggregate collect(sourceIPAddress) as sourceIPAddresses"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.awsRegion",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.sourceIPAddresses",
+                          "width": 1248
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": {
+      "value": "a1cd7477-696e-462a-9bda-fe2354ec54f5"
+    },
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Jas"
+  }
+}

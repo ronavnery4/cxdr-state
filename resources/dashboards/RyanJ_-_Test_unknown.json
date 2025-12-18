@@ -1,0 +1,102 @@
+{
+  "id": "unknown",
+  "name": "RyanJ - Test",
+  "exported_at": "2025-12-18T05:48:28.746478",
+  "data": {
+    "id": "xUoDQ3NI6GP557xT3J1gZ",
+    "name": "RyanJ - Test",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "01a641f3-0e0d-475e-8317-8eadc59123ad"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "457634c7-902a-4455-9b82-e26a12af308c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b92c53f0-7832-46d5-80e1-ebca8ee6d11b"
+                  },
+                  "title": "New Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "21c983f3-a828-4604-8e07-defdda57cdd5",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "avg by (subsystem_name, application_name) (\nrate(cx_data_usage_units{pillar=\"logs\", priority!=\"high\"}[1d])) * 86400"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "120s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

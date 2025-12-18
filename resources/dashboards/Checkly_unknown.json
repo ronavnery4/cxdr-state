@@ -1,0 +1,1250 @@
+{
+  "id": "unknown",
+  "name": "Checkly",
+  "exported_at": "2025-12-18T05:48:28.559959",
+  "data": {
+    "id": "AMK4RFNtW7w2pungUL-j-",
+    "name": "Checkly",
+    "description": "View of key metrics relating to the health and performance of Checkly.",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "688e46fc-1c84-486a-826d-6a24d7010b5f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "9193f132-b856-4bb5-8d40-bdb6ef2f32dd"
+              },
+              "appearance": {
+                "height": 17
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "5b441c5f-d937-45d2-ba24-903c4e122523"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Checkly**\n\n![Checkly](https://www.checklyhq.com/images/text_racoon_logo.afa37391.svg)  \n\nCheckly gives you code-first synthetic monitoring for modern DevOps. Monitor your APIs, service connectivity and apps at a fraction of the price of legacy providers. Powered by Monitoring as Code and Playwright. \n\n**Details of integrations to bring in Checkly -** [Checkly](https://www.checklyhq.com/docs/integrations/coralogix/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "56fc52af-4e4b-4ee8-a19e-7d1b76e0652b"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "**Use Cases Covered**\n* Total Checks - Passed/Degraded/Failed\n* Failing Checks \n* Browser Session Error\n* Web Vitals Duration\n* Total Duration (Includes All Pages Visited & Any Waits)\n* API Response Time \n* Response Time(Includes All Requests Done & Any Waits)\n* Days Remaining For SSL Certificate Expiry (By Domain) \n   \n**More about performance monitoring of  Checkly** [here](https://www.checklyhq.com/docs/integrations/prometheus-v2/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3ae8de33-40b5-4e10-869e-b5d32f5bb82a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3dd8146d-3352-410c-b179-466d2d2a2ed8"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"passing\"}[${__range}])) by (name)/ sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (name) * 100"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#chart",
+                          "width": null
+                        },
+                        {
+                          "field": "#last",
+                          "width": null
+                        },
+                        {
+                          "field": "#min",
+                          "width": null
+                        },
+                        {
+                          "field": "#max",
+                          "width": null
+                        },
+                        {
+                          "field": "#avg",
+                          "width": null
+                        },
+                        {
+                          "field": "#sum",
+                          "width": null
+                        },
+                        {
+                          "field": "name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "10d22e08-b2e3-433e-ae6f-f67989371303"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "883299c1-a209-4048-9939-0ab0c5d19412"
+                  },
+                  "title": "Total Checks Passing\n\n",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",status=\"passing\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",name != 'OTel - Always Fail'} [${__range}])) / count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",name != 'OTel - Always Fail'}[${__range}])) * 100"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        },
+                        {
+                          "from": 50,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 70,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "63d7c8f0-ae76-40d1-81a3-e0000cabfab2"
+                  },
+                  "title": "Total Checks Degraded",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"degraded\"} [${__range}])) / count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) * 100"
+                          },
+                          "aggregation": "AGGREGATION_LAST",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c6ec4c3c-610a-4970-a1be-50e96dcf2571"
+                  },
+                  "title": "Total Checks Failing",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"failing\"} [${__range}])) / count(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) * 100"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": true,
+                      "showOuterArc": true,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": false,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "688e6e2d-e611-44f5-8035-404558797ce2"
+                  },
+                  "title": "Failing Checks\n\n",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "count(count_over_time(checkly_check_status{status!=\"passing\",check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (check_name,group,activated,muted)"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "group",
+                          "width": null
+                        },
+                        {
+                          "field": "activated",
+                          "width": null
+                        },
+                        {
+                          "field": "muted",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "552fa0b9-6116-4f8b-a7ff-76736b0b8426"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3d2d32a0-4b92-4014-ad00-7005275ca74e"
+                  },
+                  "title": "Total Checks Passing (By Name)",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"passing\"}[${__range}])) by (name)/ sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (name) * 100"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "2609e944-07fd-43ae-bcb6-4133d09c697c"
+                  },
+                  "title": "Total Checks Degraded (By Name)",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"passing\"}[${__range}])) by (name)/ sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (name) * 100"
+                          },
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "resultsPerPage": 10,
+                      "rowStyle": "ROW_STYLE_UNSPECIFIED",
+                      "columns": [
+                        {
+                          "field": "#value",
+                          "width": null
+                        },
+                        {
+                          "field": "name",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "3578cfe8-6de1-41bf-87fb-12fa65a86a84"
+                  },
+                  "title": "Total Checks Failing (By Name)",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\",status=\"failing\"} [${__range}])) by (name)/ sum(increase(checkly_check_result_total_total{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (name)* 100"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "negative",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3537359b-2f80-4354-b26f-a88495bba82a"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d16a058b-8a36-4f53-9344-720b16ad9bbb"
+                  },
+                  "title": "Browser Session Error",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(increase(checkly_browser_check_errors_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])) by (name,type)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "name",
+                            "type"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
+                          "aggregation": "AGGREGATION_LAST"
+                        }
+                      },
+                      "maxSlicesPerChart": 50,
+                      "minSlicePercentage": 0,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 50,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": null,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "64019064-8fd2-4f38-8a8c-8f288dbce1b1"
+                  },
+                  "title": "Browser Session Error Trend",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "8a1f94d3-c20f-4f9e-a27f-00a76e92304e",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(increase(checkly_browser_check_errors_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name,type) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "0c0e3e6e-5cbb-4140-b1f0-949284332f14"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "73da3cf6-3891-4484-b1ec-1be4307e91b3"
+                  },
+                  "title": "Average Web Vitals Duration",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e53f7109-9d5d-40bd-9a22-c9af359a69f8",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(checkly_browser_check_web_vitals_seconds_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) / sum(sum_over_time(checkly_browser_check_web_vitals_seconds_count{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "cbb12927-51c9-41c2-9ae7-bd738a0a1523"
+                  },
+                  "title": "Browser Check Duration (Includes All Pages Visited & Any Waits)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0a6af2c2-30fb-4201-beb5-ed7db0229f62",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(checkly_browser_check_duration_seconds_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) / sum(sum_over_time(checkly_browser_check_duration_seconds_count{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "819fb1ef-64f6-4e48-be64-df0fd75c741c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "49afbc4f-c2d2-4fc8-8437-5a5600d725dd"
+                  },
+                  "title": "Average API Response Time (By Name)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0c214832-8a44-4123-a830-cef53184539d",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(checkly_api_check_timing_seconds_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) / sum(sum_over_time(checkly_api_check_timing_seconds_count{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "e2718a01-9d84-4bb0-a361-b954ef83c262"
+                  },
+                  "title": "Average API Response Time (By Group)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "257f05cb-daf6-45dd-b70c-c24a6e0cdabd",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(checkly_api_check_timing_seconds_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (group) / sum(sum_over_time(checkly_api_check_timing_seconds_count{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (group) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ad3ded5f-ce89-4b18-9ab7-6f6ae93bc5c3"
+                  },
+                  "title": "Response Time(Includes All Requests Done & Any Waits)",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a1100a62-70c5-4d03-9f51-ff7562727115",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(sum_over_time(checkly_multistep_check_duration_seconds_sum{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) / sum(sum_over_time(checkly_multistep_check_duration_seconds_count{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[5m])) by (name) or on() vector(0)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "721d2189-9fc1-46ca-bd85-f57e8846a931"
+              },
+              "appearance": {
+                "height": 24
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8354ce2b-f795-4f78-974a-c020fb4b8980"
+                  },
+                  "title": "Days Remaining For\u00a0SSL Certificate Expiry (By Domain)",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "(max(last_over_time(checkly_time_to_ssl_expiry_seconds{check_type=~\"{{check_type}}\",group=~\"{{group}}\",activated=~\"{{activated}}\",muted=~\"{{muted}}\"}[${__range}])/(24*60*60)) by (domain)) "
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "domain"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": {
+                            "relativeTimeFrame": "86400s"
+                          },
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "aggregation": {}
+                      },
+                      "unit": "UNIT_CUSTOM",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "Days",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "86400s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [
+      {
+        "name": "check_type",
+        "displayName": "check_type",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "checkly_check_status"
+                  },
+                  "labelName": {
+                    "stringValue": "check_type"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "group",
+        "displayName": "group",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "checkly_check_status"
+                  },
+                  "labelName": {
+                    "stringValue": "group"
+                  },
+                  "labelFilters": [
+                    {
+                      "metric": null,
+                      "label": {
+                        "stringValue": "check_type"
+                      },
+                      "operator": {
+                        "equals": {
+                          "selection": {
+                            "list": {
+                              "values": [
+                                {
+                                  "variableName": "check_type"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "activated",
+        "displayName": "activated",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "checkly_check_status"
+                  },
+                  "labelName": {
+                    "stringValue": "activated"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      },
+      {
+        "name": "muted",
+        "displayName": "muted",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "metricsQuery": {
+              "type": {
+                "labelValue": {
+                  "metricName": {
+                    "stringValue": "checkly_check_status"
+                  },
+                  "labelName": {
+                    "stringValue": "muted"
+                  },
+                  "labelFilters": []
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false
+      }
+    ],
+    "actions": []
+  }
+}

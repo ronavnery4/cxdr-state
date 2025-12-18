@@ -1,0 +1,440 @@
+{
+  "id": "unknown",
+  "name": "New Annotations",
+  "exported_at": "2025-12-18T05:48:28.669777",
+  "data": {
+    "id": "GiRhz8tKCEL9Yh0d3PLWu",
+    "name": "New Annotations",
+    "description": "show full variables capabilities",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "364f5da4-d282-4409-b643-49fa71ae7b4d"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "de0c9f41-d18a-4d2e-80f3-3090df2a347b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "bd97217e-ac4d-4f41-81ae-bc403efe6d7d"
+                  },
+                  "title": "Subsystems Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby $l.subsystemname agg count() as count"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "subsystemname"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b9e59a73-3bb7-44f9-9cbf-c3470890c385"
+                  },
+                  "title": "Error count line chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": true,
+                        "type": "TOOLTIP_TYPE_SINGLE"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "a932a3c1-f80c-4afe-b23e-ffcc2e36626b",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "last_over_time((avg_over_time((avg(k8s_node_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\"} / on (node_id) group_left () count(system_cpu_time_total{state=\"idle\", k8s_cluster_name=~\"onlineboutique\"}) by (node_id)) without (host_id, host_type))[900s:]) * on (k8s_node_name) group_left () max(container_cpu_utilization_1{ k8s_cluster_name=~\"onlineboutique\", k8s_namespace_name=~\"default\"} > bool -1) by (k8s_node_name))[15m])"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": true
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "39321fca-e513-4ab3-a0fc-d6d65fe05e67"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d5b4600c-6cd1-475e-926b-a7dd66c141a0"
+                  },
+                  "title": "Time Bar Chart",
+                  "description": null,
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [],
+                          "stackedGroupNameField": {
+                            "keypath": [
+                              "applicationname"
+                            ],
+                            "scope": "DATASET_SCOPE_LABEL"
+                          },
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "stack": {}
+                      },
+                      "xAxis": {
+                        "time": {
+                          "interval": null,
+                          "bucketsPresented": 15
+                        }
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": 0,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6a7262d5-30e6-49ab-b16b-d9e4289f789e"
+                  },
+                  "title": "Count by severity Line Chart",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_SINGLE"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "c319f605-1353-428b-8b00-893346c67a8d",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": null,
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "severity"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 0,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "1800s",
+    "folderId": {
+      "value": "2b9fe280-789a-4ce5-8d9f-006018becf34"
+    },
+    "annotations": [
+      {
+        "id": "bc65158f-1e7d-41dc-afc9-a155d0889792",
+        "name": "Rum session recorded",
+        "enabled": false,
+        "source": {
+          "dataprime": {
+            "query": {
+              "text": "source logs|filter cx_rum.session_context.hasRecording == true"
+            },
+            "strategy": {
+              "instant": {
+                "timestampField": {
+                  "keypath": [
+                    "timestamp"
+                  ],
+                  "scope": "DATASET_SCOPE_METADATA"
+                }
+              }
+            },
+            "messageTemplate": "",
+            "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+            "labelFields": [
+              {
+                "keypath": [
+                  "cx_rum",
+                  "session_context",
+                  "browser"
+                ],
+                "scope": "DATASET_SCOPE_USER_DATA"
+              },
+              {
+                "keypath": [
+                  "cx_rum",
+                  "session_context",
+                  "device"
+                ],
+                "scope": "DATASET_SCOPE_USER_DATA"
+              }
+            ],
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": null,
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      },
+      {
+        "id": "37b77351-c30a-47a2-be1e-92f8cf7b1e76",
+        "name": "Avg",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_UNSPECIFIED",
+                "value": 3000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": null,
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "bd97217e-ac4d-4f41-81ae-bc403efe6d7d",
+              "d5b4600c-6cd1-475e-926b-a7dd66c141a0",
+              "6a7262d5-30e6-49ab-b16b-d9e4289f789e"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      },
+      {
+        "id": "bccee0eb-583e-468c-bfde-95a1a5a9ccd0",
+        "name": "Range",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "range": {
+                "unit": "UNIT_UNSPECIFIED",
+                "startValue": 30,
+                "endValue": 120,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "This is the allowed norm of values for this query",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": null,
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "6a7262d5-30e6-49ab-b16b-d9e4289f789e"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      },
+      {
+        "id": "d8f64125-ebe5-4122-8c36-2949d82ed3fc",
+        "name": "Feature Flag On",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_MILLISECONDS",
+                "value": 1761058200000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "",
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
+          }
+        },
+        "description": null,
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+      }
+    ],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Demo2110"
+  }
+}

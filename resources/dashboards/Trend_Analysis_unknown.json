@@ -1,0 +1,369 @@
+{
+  "id": "unknown",
+  "name": "Trend Analysis",
+  "exported_at": "2025-12-18T05:48:28.784670",
+  "data": {
+    "id": "qLjZJCdKnV663Ajoqn2Cb",
+    "name": "Trend Analysis",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "9876f5e4-239c-467f-80e4-f6740bf54ff0"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "3198e16d-0d72-4aee-bb8b-057f4c8c65db"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "91c3b218-04b8-4426-aadd-98e20dc9d4f4"
+                  },
+                  "title": "Yesterday - Total Transactions[5m] by Currency vs avg. CPU load on k8s node",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "104bc618-4dab-4922-9f92-95108fe54e03",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs last 24h\n| filter pay_transaction.amount > '0.0' \n| groupby $m.timestamp / 5m as time, pay_transaction.currency as currency aggregate count() as trans_count"
+                              },
+                              "filters": [],
+                              "timeFrame": {
+                                "relativeTimeFrame": "172800s"
+                              }
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Total Transactions",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "e58c51df-7800-4337-9dd9-6376722e872a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "(sum(k8s_node_cpu_utilization_1 offset 1d) by (k8s_node_name))* 100"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": {
+                                "relativeTimeFrame": "172800s"
+                              },
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Avg CPU Load",
+                          "isVisible": true,
+                          "colorScheme": "red",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "b0a0fa24-706c-4ee4-be51-61affebc8257"
+                  },
+                  "title": "January 5th - Total Transactions[5m] by Currency",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b9538683-870a-4352-aeb1-88a41a979269",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs between @'2025-02-05T00:00:00' and @'2025-02-06T00:00:00' \n| filter pay_transaction.amount > '0.0' \n| groupby $m.timestamp / 5m as time, pay_transaction.currency as currency aggregate count() as pre_count\n| create trans_count from pre_count * 77\n| remove pre_count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "JANUARY",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "7b4d1c65-d2c7-4e52-84ff-a40bc88c0e1c"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "dd67531f-cb39-4114-9bb3-dcba7fb7d987"
+                  },
+                  "title": "Total Transactions[1d] by Currency over a 3 month Period",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e622d6ee-dac6-42e8-ba84-1fa473b23b31",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs last 90d\n| filter pay_transaction.amount > '0.0' \n| groupby $m.timestamp / 1d as time, pay_transaction.currency as currency aggregate count() as trans_count"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "JANUARY",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "91573a2a-1536-49cb-9557-7e13c016f233"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f7caec03-af71-4135-9611-83a40e146513"
+                  },
+                  "title": "Website Access by Country in the last 3 months",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs last 90d\n| groupby $d.json.http_req_ip_geoip.country_name agg count() as january_country_website_access\n| convert january_country_website_access:number\n| filter json.http_req_ip_geoip.country_name != null"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "json.http_req_ip_geoip.country_name"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "057bb38f-da05-4571-abab-f9107c862c2b"
+                  },
+                  "title": "Purchases by Product Category",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs between @'2025-01-01T00:00:00' and @'2025-01-30T23:59:59'\n| groupby $d.product_id_enriched.category agg count() as january_purchases_count\n| filter product_id_enriched.category != null\n| join (\n\tsource logs last 30d\n\t| groupby $d.product_id_enriched.category agg count() as last_month\n\t| filter product_id_enriched.category != null\n\t) using $d.product_id_enriched.category into comparison\n| create difference from (january_purchases_count - comparison.last_month)\n| remove comparison.product_id_enriched.category\n| orderby difference desc "
+                          },
+                          "filters": [],
+                          "timeFrame": {
+                            "relativeTimeFrame": "7776000s"
+                          }
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.product_id_enriched.category",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.comparison.last_month",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.january_purchases_count",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.difference",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": {
+                        "field": "$d.difference",
+                        "orderDirection": "ORDER_DIRECTION_DESC"
+                      },
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

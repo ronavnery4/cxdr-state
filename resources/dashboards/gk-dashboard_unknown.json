@@ -1,0 +1,87 @@
+{
+  "id": "unknown",
+  "name": "gk-dashboard",
+  "exported_at": "2025-12-18T05:48:28.804453",
+  "data": {
+    "id": "miDi3oE4ZMN0DrCJto5K5",
+    "name": "gk-dashboard",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "f25644be-9c46-41d1-8b3c-7ea06061923f"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "9f90b12b-ae98-4a70-b8a1-0a743493fe2b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "335f476a-3d33-45de-8518-27db74cd9b0f"
+                  },
+                  "title": "New Data Table",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter json.trace_id != null\n| groupby json.trace_id as Trace agg count() as Logs\n| join (source spans\n| groupby traceID as Trace agg count() as Spans) using Trace into APM\n| choose Trace, Logs, APM.Spans as Spans, `{round(100*Logs/APM.Spans,2)}%` as Ratio"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.Trace",
+                          "width": 376
+                        },
+                        {
+                          "field": "$d.Logs",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Spans",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Ratio",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

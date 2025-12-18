@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "Mapping Exceptions",
-  "exported_at": "2025-12-18T05:48:28.662719",
+  "exported_at": "2025-12-18T06:30:15.909255",
   "data": {
-    "id": "_K_dr__xa5r5PuTPRfhAr",
+    "id": "ntePdo5rPLp3Vvln4wG1P",
     "name": "Mapping Exceptions",
     "description": "View and monitor your frequent search logs mapping exceptions",
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "3dfb0542-c04e-446b-8bc3-db1cc851c171"
+            "value": "93b4b64d-4318-439c-9408-b040a9b34119"
           },
           "rows": [
             {
               "id": {
-                "value": "b4159856-5c6b-48c4-bbb1-06e87f4ff524"
+                "value": "c0c129e6-432d-494a-acd1-7d34b0bd2c09"
               },
               "appearance": {
                 "height": 19
@@ -23,7 +23,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "2958fbc9-04ce-4500-9f42-53df9aedb3ec"
+                    "value": "ff859fe0-818e-4dbe-8819-1e2aefbfcc44"
                   },
                   "title": "New Markdown",
                   "description": null,
@@ -39,7 +39,7 @@
                 },
                 {
                   "id": {
-                    "value": "41ea938d-817f-49b2-9e4a-46605a8814d6"
+                    "value": "2eb2c233-eeab-4594-a94f-9dbbb57fbf7a"
                   },
                   "title": "Number of Mapping Exceptions",
                   "description": null,
@@ -48,7 +48,7 @@
                       "query": {
                         "logs": {
                           "luceneQuery": {
-                            "value": "_exists_:coralogix.failed_reason"
+                            "value": "_exists_: coralogix.failed_reason"
                           },
                           "logsAggregation": {
                             "count": {}
@@ -98,7 +98,7 @@
                 },
                 {
                   "id": {
-                    "value": "f61b6466-a53b-42ad-9bbe-1cfd1b6b9921"
+                    "value": "646bc7d3-698b-4282-a06b-7e9d10b1bb33"
                   },
                   "title": "Mapping Exceptions Failed Reasons",
                   "description": null,
@@ -107,11 +107,11 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs | filter $m.failed_reason != null | countby $m.failed_reason"
+                            "text": "source logs| countby coralogix.failed_reason | lucene '_exists_: coralogix.failed_reason'"
                           },
                           "filters": [],
                           "groupNames": [
-                            "failed_reason"
+                            "coralogix.failed_reason"
                           ],
                           "stackedGroupName": null,
                           "timeFrame": null
@@ -151,7 +151,7 @@
             },
             {
               "id": {
-                "value": "63bec37a-b48a-4bc5-991c-1467f41527af"
+                "value": "1ec18aab-4c60-41d4-84ac-3b073a4be635"
               },
               "appearance": {
                 "height": 19
@@ -159,7 +159,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "165f5e01-5bbf-49ca-a45b-1e0daeccbdb0"
+                    "value": "83756c4f-e01d-4fb1-a91f-f676341757dd"
                   },
                   "title": "Mapping Exceptions Failed Reasons",
                   "description": null,
@@ -168,7 +168,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs | filter $m.failed_reason != null | countby $m.failed_reason"
+                            "text": "source logs| countby coralogix.failed_reason | lucene '_exists_: coralogix.failed_reason'"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -178,7 +178,7 @@
                       "rowStyle": "ROW_STYLE_ONE_LINE",
                       "columns": [
                         {
-                          "field": "$d.failed_reason",
+                          "field": "$d.coralogix.failed_reason",
                           "width": 1146
                         },
                         {
@@ -198,7 +198,7 @@
             },
             {
               "id": {
-                "value": "40097139-d3ac-4db5-83f5-30dc501a6e8b"
+                "value": "4a28ff8c-719b-4c1f-b4b5-481015e7d97d"
               },
               "appearance": {
                 "height": 58
@@ -206,7 +206,7 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "0d4ac8d2-12f9-4a83-b857-7cf3ffebc369"
+                    "value": "d6ccdfab-1c42-45c5-8b3c-5749a8a29946"
                   },
                   "title": "Logs with Mapping Exceptions",
                   "description": null,
@@ -215,7 +215,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs | filter $m.failed_reason != null"
+                            "text": "source logs| lucene '_exists_: coralogix.failed_reason'"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -283,7 +283,8 @@
         },
         "enabled": true,
         "collapsed": false,
-        "displayName": null
+        "displayName": null,
+        "id": null
       },
       {
         "source": {
@@ -308,13 +309,15 @@
         },
         "enabled": true,
         "collapsed": false,
-        "displayName": null
+        "displayName": null,
+        "id": null
       }
     ],
     "relativeTimeFrame": "21600s",
     "folderId": {
-      "value": "ff6adc9b-d7c3-478b-9b35-33030780c53c"
+      "value": "d95e3baa-3c8b-4592-850e-394296331171"
     },
+    "folderPath": null,
     "annotations": [],
     "off": {},
     "slugName": null,

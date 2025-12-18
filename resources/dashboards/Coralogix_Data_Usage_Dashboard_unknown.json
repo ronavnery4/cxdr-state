@@ -1,9 +1,9 @@
 {
   "id": "unknown",
   "name": "Coralogix Data Usage Dashboard",
-  "exported_at": "2025-12-18T05:48:28.568180",
+  "exported_at": "2025-12-18T06:30:15.870066",
   "data": {
-    "id": "rvI01ZUGm9RBTXQeAHJqY",
+    "id": "B79Cgad0ZXrBH1fxihfbZ",
     "name": "Coralogix Data Usage Dashboard",
     "description": null,
     "layout": {
@@ -78,11 +78,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -137,11 +137,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -201,11 +201,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -255,11 +255,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -269,16 +269,16 @@
                 },
                 {
                   "id": {
-                    "value": "1e6e286a-804a-f1e6-034b-19a0be9b3092"
+                    "value": "b667eef3-3ad8-39b3-5a82-73689b95ea7a"
                   },
-                  "title": "Estimated Daily Usage",
+                  "title": "Today's Estimation",
                   "description": null,
                   "definition": {
                     "gauge": {
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_units) * (24 / (hour(time()) + minute(time()) / 60))"
+                            "value": "sum(cx_data_usage_units) +\nmax(increase(cx_data_usage_units[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -297,15 +297,59 @@
                           "from": 0,
                           "color": "var(--c-severity-log-verbose)",
                           "label": null
-                        },
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1e6e286a-804a-f1e6-034b-19a0be9b3092"
+                  },
+                  "title": "Estimated Daily Usage",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_units[1h])) * 24\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
                         {
-                          "from": 33,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 66,
-                          "color": "var(--c-severity-log-error)",
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
                           "label": null
                         }
                       ],
@@ -316,12 +360,14 @@
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                       "legend": {
                         "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -336,7 +382,7 @@
                 "value": "b8c8064c-8a7f-b2ae-273e-c1261d171952"
               },
               "appearance": {
-                "height": 16
+                "height": 9
               },
               "widgets": [
                 {
@@ -381,11 +427,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -435,11 +481,11 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -449,16 +495,16 @@
                 },
                 {
                   "id": {
-                    "value": "0f33e741-9727-ffde-e17d-763c60c148be"
+                    "value": "1df1c395-16b9-26eb-541b-74b6d7ac1a1a"
                   },
-                  "title": "Estimated Daily Usage",
+                  "title": "Today's Estimation",
                   "description": null,
                   "definition": {
                     "gauge": {
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(cx_data_usage_bytes_total) * (24 / (hour(time()) + minute(time()) / 60))"
+                            "value": "sum(cx_data_usage_bytes_total) +\nmax(increase(cx_data_usage_bytes_total[1h])) * ((24 - ceil((time() % 86400) / 3600)) % 24)\n"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -489,11 +535,65 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "0f33e741-9727-ffde-e17d-763c60c148be"
+                  },
+                  "title": "Estimated Daily Usage",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "max(increase(cx_data_usage_bytes_total[1h])) * 24\n"
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_BYTES_IEC",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "legendBy": "LEGEND_BY_GROUPS",
+                      "displaySeriesName": null,
                       "decimalPrecision": null
                     }
                   },
@@ -575,7 +675,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -642,7 +742,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -707,7 +807,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -773,7 +873,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -838,7 +938,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -904,7 +1004,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -987,7 +1087,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1054,7 +1154,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -1119,7 +1219,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1185,7 +1285,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -1250,7 +1350,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": null,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1316,7 +1416,7 @@
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
-                      "hashColors": false,
+                      "hashColors": null,
                       "decimalPrecision": null,
                       "showTotal": null
                     }
@@ -1367,7 +1467,8 @@
         },
         "enabled": true,
         "collapsed": false,
-        "displayName": null
+        "displayName": null,
+        "id": null
       },
       {
         "source": {
@@ -1392,18 +1493,17 @@
         },
         "enabled": true,
         "collapsed": false,
-        "displayName": null
+        "displayName": null,
+        "id": null
       }
     ],
     "relativeTimeFrame": "86400s",
-    "folderId": {
-      "value": "98475778-d4bc-4860-976d-0d2e1ab92bb7"
-    },
+    "folderId": null,
+    "folderPath": null,
     "annotations": [],
     "off": {},
     "slugName": null,
     "variablesV2": [],
-    "actions": [],
-    "_source_folder_name": "Shaynis"
+    "actions": []
   }
 }

@@ -1,0 +1,39 @@
+{
+  "id": "unknown",
+  "name": "shipping_Latency_P95_38ms",
+  "exported_at": "2025-12-18T14:10:29.055437",
+  "data": {
+    "id": "e0ef5ef1-8af8-41b3-ba3a-f8b56f53d52d",
+    "name": "shipping_Latency_P95_38ms",
+    "description": "shipping: Latency SLO - P95 < 38ms. Based on historical P99 (38ms). Current P95: 10ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "shipping",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:43.353Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:43.353Z",
+    "updateTime": "2025-10-21T01:16:43.354Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"shipping\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 38.3,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

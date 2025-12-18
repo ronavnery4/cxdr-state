@@ -1,0 +1,38 @@
+{
+  "id": "unknown",
+  "name": "quote_Traffic_Presence_9rpm",
+  "exported_at": "2025-12-18T14:10:29.064811",
+  "data": {
+    "id": "88fb7d8f-b5f0-4a5a-8563-506640881eca",
+    "name": "quote_Traffic_Presence_9rpm",
+    "description": "quote: Traffic Presence SLO - Must have > 9 req/min. Average traffic: 19 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "quote",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:22:32.352Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:22:32.352Z",
+    "updateTime": "2025-10-21T01:22:32.353Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"quote\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 9.73,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

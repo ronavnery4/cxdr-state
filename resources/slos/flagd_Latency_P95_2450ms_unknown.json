@@ -1,0 +1,39 @@
+{
+  "id": "unknown",
+  "name": "flagd_Latency_P95_2450ms",
+  "exported_at": "2025-12-18T14:10:29.053009",
+  "data": {
+    "id": "8da23cc0-0bed-43fb-a2c5-53a9b9d5546d",
+    "name": "flagd_Latency_P95_2450ms",
+    "description": "flagd: Latency SLO - P95 < 2450ms. Based on historical P99 (2450ms). Current P95: 0ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "flagd",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:08.790Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:08.790Z",
+    "updateTime": "2025-10-21T01:16:08.801Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"flagd\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 2450,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

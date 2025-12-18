@@ -1,0 +1,32 @@
+{
+  "id": "unknown",
+  "name": "Payment Service Error SLO",
+  "exported_at": "2025-12-18T14:10:29.044759",
+  "data": {
+    "id": "daed0794-f965-4932-ac54-2a902c228c79",
+    "name": "Payment Service Error SLO",
+    "description": "",
+    "creator": "george.boddey@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-09-19T09:29:15.528Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-09-19T09:29:15.528Z",
+    "updateTime": "2025-09-19T09:29:15.546Z",
+    "targetThresholdPercentage": 95,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR', service_name=\"payment\"})"
+      },
+      "totalEvents": {
+        "query": "sum(calls_total{ service_name=\"payment\"})"
+      }
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

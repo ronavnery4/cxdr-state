@@ -1,0 +1,39 @@
+{
+  "id": "unknown",
+  "name": "frontend-proxy_Latency_P95_138ms",
+  "exported_at": "2025-12-18T14:10:29.054273",
+  "data": {
+    "id": "cd16bb2d-2f75-4b16-a05b-8e3411062434",
+    "name": "frontend-proxy_Latency_P95_138ms",
+    "description": "frontend-proxy: Latency SLO - P95 < 138ms. Based on historical P99 (138ms). Current P95: 44ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "frontend-proxy",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:20.548Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:20.548Z",
+    "updateTime": "2025-10-21T01:16:20.549Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"frontend-proxy\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 138,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

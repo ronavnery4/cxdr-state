@@ -1,0 +1,38 @@
+{
+  "id": "unknown",
+  "name": "shipping_Traffic_Presence_5rpm",
+  "exported_at": "2025-12-18T14:10:29.063927",
+  "data": {
+    "id": "ef99f118-1216-4985-b3b9-4a064ebd11cb",
+    "name": "shipping_Traffic_Presence_5rpm",
+    "description": "shipping: Traffic Presence SLO - Must have > 5 req/min. Average traffic: 10 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "shipping",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:22:39.971Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:22:39.971Z",
+    "updateTime": "2025-10-21T01:22:39.972Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"shipping\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 5.37,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

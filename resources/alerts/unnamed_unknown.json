@@ -1,18 +1,15 @@
 {
   "id": "unknown",
   "name": "unnamed",
-  "exported_at": "2025-12-17T14:44:16.318700",
+  "exported_at": "2025-12-18T14:10:31.736958",
   "data": {
     "alertDefProperties": {
-      "name": "OpenTelemetry Collector Refusing Spans",
-      "description": "OpenTelemetry Collector is refusing spans due to memory limits, please check the logs of the Kubernetes Pod and increase resources.",
+      "name": "Frontend Issue related to Backend Services (Not Infra)",
+      "description": "",
       "enabled": true,
-      "priority": "ALERT_DEF_PRIORITY_P3",
-      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
-      "groupByKeys": [
-        "k8s_pod_name",
-        "receiver"
-      ],
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_FLOW",
+      "groupByKeys": [],
       "incidentsSettings": {
         "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
         "minutes": 10
@@ -25,38 +22,96 @@
       "entityLabels": {},
       "phantomMode": false,
       "deleted": false,
-      "metricThreshold": {
-        "metricFilter": {
-          "promql": "sum(rate(otelcol_receiver_refused_spans_total{}[5m])) by (receiver, k8s_pod_name)"
-        },
-        "rules": [
+      "flow": {
+        "stages": [
           {
-            "condition": {
-              "threshold": 0,
-              "forOverPct": 100,
-              "ofTheLast": {
-                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
-              },
-              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
-            },
-            "override": {
-              "priority": "ALERT_DEF_PRIORITY_P3"
+            "timeframeMs": "0",
+            "timeframeType": "TIMEFRAME_TYPE_UP_TO",
+            "flowStagesGroups": {
+              "groups": [
+                {
+                  "alertDefs": [
+                    {
+                      "id": "cbc70801-6d92-4cab-8d42-382130ad5ff7",
+                      "not": false
+                    }
+                  ],
+                  "nextOp": "NEXT_OP_OR",
+                  "alertsOp": "ALERTS_OP_AND_OR_UNSPECIFIED"
+                },
+                {
+                  "alertDefs": [
+                    {
+                      "id": "5aaaa35a-7240-4296-9cf2-5367c3f59fe5",
+                      "not": false
+                    }
+                  ],
+                  "nextOp": "NEXT_OP_AND_OR_UNSPECIFIED",
+                  "alertsOp": "ALERTS_OP_AND_OR_UNSPECIFIED"
+                }
+              ]
+            }
+          },
+          {
+            "timeframeMs": "1200000",
+            "timeframeType": "TIMEFRAME_TYPE_UP_TO",
+            "flowStagesGroups": {
+              "groups": [
+                {
+                  "alertDefs": [
+                    {
+                      "id": "41bf71b3-7758-4b34-8094-b44a2ae26e80",
+                      "not": false
+                    },
+                    {
+                      "id": "a0c0bfd6-e8de-4ceb-a67a-39cf0c8751d9",
+                      "not": false
+                    }
+                  ],
+                  "nextOp": "NEXT_OP_AND_OR_UNSPECIFIED",
+                  "alertsOp": "ALERTS_OP_OR"
+                }
+              ]
+            }
+          },
+          {
+            "timeframeMs": "600000",
+            "timeframeType": "TIMEFRAME_TYPE_UP_TO",
+            "flowStagesGroups": {
+              "groups": [
+                {
+                  "alertDefs": [
+                    {
+                      "id": "c22e84b4-9151-4e41-ba50-b9a150aac8f5",
+                      "not": true
+                    }
+                  ],
+                  "nextOp": "NEXT_OP_AND_OR_UNSPECIFIED",
+                  "alertsOp": "ALERTS_OP_AND_OR_UNSPECIFIED"
+                },
+                {
+                  "alertDefs": [
+                    {
+                      "id": "23adf87c-2151-4c22-9a89-c2f7f0ef134c",
+                      "not": true
+                    }
+                  ],
+                  "nextOp": "NEXT_OP_AND_OR_UNSPECIFIED",
+                  "alertsOp": "ALERTS_OP_AND_OR_UNSPECIFIED"
+                }
+              ]
             }
           }
         ],
-        "undetectedValuesManagement": null,
-        "missingValues": {
-          "minNonNullValuesPct": 0
-        },
-        "evaluationDelayMs": null
+        "enforceSuppression": false
       },
       "notificationGroupExcess": []
     },
-    "id": "b06806cf-6fd1-497e-b04f-008de0ce57dc",
-    "createdTime": "2025-03-18T09:26:51Z",
-    "updatedTime": "2025-03-18T09:26:52Z",
+    "id": "39ee993f-5522-49ec-9574-c066074a7769",
+    "createdTime": "2025-09-30T11:00:23Z",
+    "updatedTime": "2025-09-30T11:00:23Z",
     "lastTriggeredTime": null,
-    "status": "ALERT_DEF_STATUS_OK",
-    "alertVersionId": "fcaa2bbb-db51-466c-9caf-94da88083f8a"
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "ff9bd826-7d36-42af-8052-3e2c71f60ade"
   }
 }

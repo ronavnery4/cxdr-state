@@ -1,0 +1,39 @@
+{
+  "id": "unknown",
+  "name": "currency_Latency_P95_17ms",
+  "exported_at": "2025-12-18T14:10:29.059910",
+  "data": {
+    "id": "b20e4e7c-42ac-4711-adf4-6d29d952b8ff",
+    "name": "currency_Latency_P95_17ms",
+    "description": "currency: Latency SLO - P95 < 17ms. Based on historical P99 (17ms). Current P95: 9ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "currency",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:51.810Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:51.810Z",
+    "updateTime": "2025-10-21T01:21:51.820Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"currency\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 17.64,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

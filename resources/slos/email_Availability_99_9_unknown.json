@@ -1,0 +1,37 @@
+{
+  "id": "unknown",
+  "name": "email_Availability_99_9",
+  "exported_at": "2025-12-18T14:10:29.060402",
+  "data": {
+    "id": "8f9860a7-3165-4335-81ce-772f9d9dda10",
+    "name": "email_Availability_99_9",
+    "description": "email: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "email",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:54.745Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:54.745Z",
+    "updateTime": "2025-10-21T01:21:54.747Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"email\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"email\"}[5m]))"
+      }
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

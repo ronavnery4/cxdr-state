@@ -1,0 +1,36 @@
+{
+  "id": "unknown",
+  "name": "Calls Success Total",
+  "exported_at": "2025-12-18T14:10:29.050478",
+  "data": {
+    "id": "132b8964-12a4-4ad7-b433-2b4ae505e68a",
+    "name": "Calls Success Total",
+    "description": "",
+    "creator": "prabhjyot.kang@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 2,
+      "updateTime": "2025-10-20T21:57:22.444Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name",
+        "k8s_namespace_name"
+      ]
+    },
+    "createTime": "2025-09-23T14:30:54.592Z",
+    "updateTime": "2025-10-20T21:57:22.447Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR'})by(service_name,k8s_namespace_name)"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN_OR_EQUALS",
+      "threshold": 0,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

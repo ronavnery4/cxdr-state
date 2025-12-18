@@ -1,0 +1,37 @@
+{
+  "id": "unknown",
+  "name": "payment_Availability_99_9",
+  "exported_at": "2025-12-18T14:10:29.061964",
+  "data": {
+    "id": "21023909-a804-437b-bed0-2b5ad401de8a",
+    "name": "payment_Availability_99_9",
+    "description": "payment: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "payment",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:22:23.607Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:22:23.607Z",
+    "updateTime": "2025-10-21T01:22:23.608Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"payment\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"payment\"}[5m]))"
+      }
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

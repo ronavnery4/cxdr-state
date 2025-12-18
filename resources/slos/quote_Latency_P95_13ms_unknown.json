@@ -1,0 +1,39 @@
+{
+  "id": "unknown",
+  "name": "quote_Latency_P95_13ms",
+  "exported_at": "2025-12-18T14:10:29.056403",
+  "data": {
+    "id": "ce886ab5-dcfa-4c6d-b35d-4036a014f2c6",
+    "name": "quote_Latency_P95_13ms",
+    "description": "quote: Latency SLO - P95 < 13ms. Based on historical P99 (13ms). Current P95: 2ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "quote",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:36.579Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:36.579Z",
+    "updateTime": "2025-10-21T01:16:36.580Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"quote\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 13.2,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "SLO_TYPE_REQUEST"
+  }
+}

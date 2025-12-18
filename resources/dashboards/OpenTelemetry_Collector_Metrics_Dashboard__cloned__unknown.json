@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "OpenTelemetry Collector Metrics Dashboard (cloned)",
-  "exported_at": "2025-12-18T05:18:15.316624",
+  "exported_at": "2025-12-18T05:26:30.708697",
   "data": {
-    "id": "TmWOvplntwYUu1tatIAIC",
+    "id": "Uq52Zitb6P6v6ZyYGjPdW",
     "name": "OpenTelemetry Collector Metrics Dashboard (cloned)",
     "description": "Default dashboard to visualize metrics for the OpenTelemetry Collector.\n\nNote: To view these metrics, enable the Prometheus receiver in the collector configuration, as shown in [this example](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/6946b963820d391325254cb9cc6bb34ae12907a0/exporter/datadogexporter/examples/collector.yaml#L37).\n\nNote the 2 sections `Datadog Exporter: Traffic Sent` and `Datadog Connector: Stats Sent` have the `equiv_otel` function in some graphs. If you need to use `equiv_otel` in other queries, monitors or alerts, please opt in to the [Preview](http://docs.datadoghq.com/opentelemetry/guide/combining_otel_and_datadog_metrics/). (cloned)",
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "0677d0cd-90e8-4e13-bed4-7f89abe3a24b"
+            "value": "e4fc0bc3-fe5d-44b2-9111-f7af4bfdb561"
           },
           "rows": [
             {
               "id": {
-                "value": "0bc13ab6-fcc7-4e29-94d8-7b4143fb8f27"
+                "value": "849690b8-07c7-4481-9a12-cc551555d18b"
               },
               "appearance": {
                 "height": 19
@@ -70,12 +70,12 @@
         },
         {
           "id": {
-            "value": "f4720b36-bb8a-40e5-ae39-65a4ce8810b8"
+            "value": "9c9686cd-c040-4c01-9e56-5992ba8914ed"
           },
           "rows": [
             {
               "id": {
-                "value": "76062d44-194c-4c79-8ff7-33fc351cc120"
+                "value": "55f0ead9-069d-4ce8-ab83-6a0e8014b926"
               },
               "appearance": {
                 "height": 19
@@ -101,11 +101,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "64be2c8f-02a5-402a-b41f-13491ce617a1",
+                          "id": "5fa7c9b6-4c71-4fb6-a3b6-58b40cec2a93",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_process_uptime{host=${host},service=${service}}) by (service_version)"
+                                "value": "sum(otelcol_process_uptime) by (service_version)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -113,7 +113,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -161,11 +161,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "05b950c7-ac4b-415b-b3c2-80449427114e",
+                          "id": "750c75c1-639e-4e6e-a355-64f9ff494e35",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_process_cpu_seconds{host=${host},service=${service}}) by (service_version)"
+                                "value": "sum(otelcol_process_cpu_seconds) by (service_version)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -173,7 +173,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -221,11 +221,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "6aae1768-282b-4627-b5f8-a5e11179fd31",
+                          "id": "d825d8a2-97b4-422b-acb2-f5bd8f348d70",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes{host=${host},service=${service}})"
+                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -233,7 +233,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -265,7 +265,7 @@
             },
             {
               "id": {
-                "value": "601b152f-648e-4696-af0c-30d120637960"
+                "value": "309ff4a1-99f1-47f6-8010-eaa2fcf6727b"
               },
               "appearance": {
                 "height": 19
@@ -291,11 +291,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f4125cd9-7ae3-41b2-8d28-08191740d68f",
+                          "id": "6cb7bcbf-a7ce-4b76-ab56-29834ae42eba",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_spans{host=${host},service=${service}}) by (service_version)"
+                                "value": "sum(otelcol_exporter_sent_spans) by (service_version)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -303,7 +303,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -351,11 +351,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "3e59afcf-5b26-47ff-b492-0d973a47a251",
+                          "id": "ac0632f7-c694-4015-980f-0059d15bab4a",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_metric_points{host=${host},service=${service}}) by (service_version)"
+                                "value": "sum(otelcol_exporter_sent_metric_points) by (service_version)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -363,7 +363,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -408,12 +408,12 @@
         },
         {
           "id": {
-            "value": "84a8f4bf-c9d3-4ac3-96f1-e9ba12a61706"
+            "value": "52e01de2-6d2d-4aae-a41e-8a7eebcdbaee"
           },
           "rows": [
             {
               "id": {
-                "value": "6800b0c0-634c-4652-ad26-27988e960a68"
+                "value": "270e040a-5f54-4b22-bd18-3393249c1ba2"
               },
               "appearance": {
                 "height": 19
@@ -430,7 +430,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_receiver_accepted_metric_points{service=${service}}) by (service,receiver)"
+                            "value": "sum(otelcol_receiver_accepted_metric_points) by (service,receiver)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -481,7 +481,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_receiver_accepted_spans{host=${host},service=${service}}) by (receiver)"
+                            "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -525,7 +525,7 @@
             },
             {
               "id": {
-                "value": "ad8b9ec0-b3fe-4f14-84df-0183314fe0b8"
+                "value": "439febbd-b7cb-4589-ab3f-7da94c39f1ab"
               },
               "appearance": {
                 "height": 19
@@ -551,11 +551,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "a8e2b945-d02a-4083-9099-239f98c4b1a4",
+                          "id": "6b63fdee-1708-4a18-bbf2-88ebfaa99cdf",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_accepted_metric_points{host=${host},service=${service}}) by (receiver)"
+                                "value": "sum(otelcol_receiver_accepted_metric_points) by (receiver)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -563,7 +563,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -611,11 +611,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "49735997-3161-4a07-96d7-12aaa11f2ee3",
+                          "id": "c03e234d-190a-456b-8ef2-cab9c4e62cca",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_accepted_spans{host=${host},service=${service}}) by (receiver)"
+                                "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -623,7 +623,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -655,7 +655,7 @@
             },
             {
               "id": {
-                "value": "99d9570a-aafa-410b-8fdf-f1dfff1129d3"
+                "value": "2d285c01-54f0-4fe3-9e0d-dd2867b7f300"
               },
               "appearance": {
                 "height": 19
@@ -681,11 +681,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "c60f64d3-8a99-4695-9929-03e1d1e4aeed",
+                          "id": "5ac1ef15-7156-4711-8783-3cdd62849bf4",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_accepted_metric_points{host=${host},service=${service}}) by (receiver)"
+                                "value": "sum(otelcol_receiver_accepted_metric_points) by (receiver)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -693,7 +693,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -741,11 +741,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5fc54163-9de9-4992-9efe-76aea871a460",
+                          "id": "76278515-6ca4-4272-aff7-308b53cc5ced",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_accepted_spans{host=${host},service=${service}}) by (receiver)"
+                                "value": "sum(otelcol_receiver_accepted_spans) by (receiver)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -753,7 +753,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -785,7 +785,7 @@
             },
             {
               "id": {
-                "value": "67be163d-d43e-4c42-afaa-35cfd207e0b2"
+                "value": "bc343402-402d-48dc-a96e-8ed0b6ead3ea"
               },
               "appearance": {
                 "height": 19
@@ -811,11 +811,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "993b3f66-b8e9-4e27-8d12-b60fe9c426c1",
+                          "id": "59e871a8-23f9-4b18-b917-fa5b584fcedf",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_refused_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_receiver_refused_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -823,7 +823,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -871,11 +871,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "63c52380-b9b5-4150-8cbc-f28874d1c822",
+                          "id": "17c25846-a5b4-46b0-887f-a27a1f2cc1c5",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_receiver_refused_spans{host=${host},service=${service}})"
+                                "value": "sum(otelcol_receiver_refused_spans)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -883,7 +883,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -915,7 +915,7 @@
             },
             {
               "id": {
-                "value": "74b929ee-cc0c-4db9-8927-9f5d1aaf9554"
+                "value": "b1e81340-8941-4c58-8677-da466a681b82"
               },
               "appearance": {
                 "height": 19
@@ -941,11 +941,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "85d0250a-cfdd-4405-89d0-1e54f5949247",
+                          "id": "5b834a4d-3203-4d72-ae69-c07e05555517",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_scraper_scraped_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_scraper_scraped_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -953,7 +953,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1001,11 +1001,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "bfca8685-1e4a-47b3-87f0-20ffeec887bc",
+                          "id": "f494ce7b-f340-48b3-a809-a8eac39fa484",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_scraper_scraped_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_scraper_scraped_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1013,7 +1013,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1061,11 +1061,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "65618603-99ec-4adb-a225-c24482750f0d",
+                          "id": "dc9d1bc4-1605-47e3-a70f-9c5d5a5524f9",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_scraper_errored_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_scraper_errored_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1073,7 +1073,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1118,12 +1118,12 @@
         },
         {
           "id": {
-            "value": "57a44e06-9d47-48a1-af90-c2b2631cdcc6"
+            "value": "b2e43313-e13f-48e1-b226-0d1aceb5ae7e"
           },
           "rows": [
             {
               "id": {
-                "value": "1e32bd90-f096-4b72-90d2-b9b35b52b64a"
+                "value": "a5d06b15-2611-4118-a463-dcc932387fe6"
               },
               "appearance": {
                 "height": 19
@@ -1140,7 +1140,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "avg(otelcol_processor_batch_batch_send_size{host=${host},service=${service}}) by (service,processor)"
+                            "value": "avg(otelcol_processor_batch_batch_send_size) by (service,processor)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -1191,7 +1191,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_processor_batch_batch_size_trigger_send{host=${host},service=${service}}) by (service,processor)"
+                            "value": "sum(otelcol_processor_batch_batch_size_trigger_send) by (service,processor)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -1235,7 +1235,7 @@
             },
             {
               "id": {
-                "value": "5845e499-de9c-457a-abc7-cf7ac5c01d88"
+                "value": "0c6e6626-7e27-48bf-a839-11ca587b9c41"
               },
               "appearance": {
                 "height": 19
@@ -1261,11 +1261,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "7a9fc8ab-7bc6-4ba0-982e-699d80fc02d1",
+                          "id": "6d6b424d-6989-4018-a584-7b96850c45bb",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_processor_batch_batch_send_size{host=${host},service=${service}})"
+                                "value": "avg(otelcol_processor_batch_batch_send_size)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1273,7 +1273,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1321,11 +1321,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "282f57f7-75d7-4b2b-a86b-7cc729f07129",
+                          "id": "dec9c05d-e9dd-474d-9dca-e4881f225e30",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_processor_batch_batch_size_trigger_send{host=${host},service=${service}})"
+                                "value": "sum(otelcol_processor_batch_batch_size_trigger_send)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1333,7 +1333,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1365,7 +1365,7 @@
             },
             {
               "id": {
-                "value": "20105903-21e1-4a45-a482-065374bad0f7"
+                "value": "23acd4f1-7188-4634-b145-211b0e0966cc"
               },
               "appearance": {
                 "height": 19
@@ -1391,11 +1391,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "1be83b9a-0476-4e47-bb1e-edb7c43027dc",
+                          "id": "1b9df68d-f96c-4bc4-a470-c84913790f8d",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_processor_batch_batch_send_size{host=${host},service=${service}})"
+                                "value": "avg(otelcol_processor_batch_batch_send_size)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1403,7 +1403,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1451,11 +1451,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5fac97fa-09a3-4a5e-9355-04e54c9beecd",
+                          "id": "b883d755-3a4c-40ea-a238-20e41f7e18ca",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_processor_batch_timeout_trigger_send{host=${host},service=${service}})"
+                                "value": "sum(otelcol_processor_batch_timeout_trigger_send)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1463,7 +1463,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1508,12 +1508,12 @@
         },
         {
           "id": {
-            "value": "219aa0e2-d66d-4581-bb4d-e9af67ab77a3"
+            "value": "1de2a0f3-1648-4dca-98d0-50fae59277bc"
           },
           "rows": [
             {
               "id": {
-                "value": "5d3fcff2-2f1b-45c7-9c31-68b3da4c5dc2"
+                "value": "17d791d4-0995-4dd3-92f0-c985485a19f3"
               },
               "appearance": {
                 "height": 19
@@ -1530,7 +1530,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_exporter_sent_metric_points{host=${host},service=${service}}) by (service,exporter)"
+                            "value": "sum(otelcol_exporter_sent_metric_points) by (service,exporter)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -1581,7 +1581,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_exporter_sent_spans{host=${host},service=${service}}) by (service,exporter)"
+                            "value": "sum(otelcol_exporter_sent_spans) by (service,exporter)"
                           },
                           "filters": [],
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
@@ -1625,7 +1625,7 @@
             },
             {
               "id": {
-                "value": "dd4f579c-de2c-4c5a-885b-5aafacadc0a1"
+                "value": "63ac8341-3f09-47de-9beb-8a105585c86e"
               },
               "appearance": {
                 "height": 19
@@ -1651,11 +1651,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "81389b76-cfe6-402d-bb8d-2aea220afd1a",
+                          "id": "9e7df40d-9ad4-4dc5-b9af-4e1f9bc98c5c",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_sent_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1663,7 +1663,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1711,11 +1711,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f90c462b-9a07-4263-b073-70e31e851134",
+                          "id": "7b1c31ed-6487-47f4-8b57-c4afe775d9c7",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_spans{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_sent_spans)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1723,7 +1723,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1755,7 +1755,7 @@
             },
             {
               "id": {
-                "value": "7e15074e-b025-4574-a372-dc8712ee21b7"
+                "value": "6ec97d21-c0ef-4b02-ba14-6fb9f8d2cdef"
               },
               "appearance": {
                 "height": 19
@@ -1781,11 +1781,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "fcd222f0-1edb-40d5-985a-316082ea6122",
+                          "id": "4356b32a-3958-4bba-8955-d4066078ea87",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_metric_points{host=${host},service=${service}}) by (exporter)"
+                                "value": "sum(otelcol_exporter_sent_metric_points) by (exporter)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1793,7 +1793,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1841,11 +1841,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "668f62e8-c7c3-4058-89b6-f2a6d7cbe1c9",
+                          "id": "17158828-d6ab-4fe2-aa4b-ca80594b8dd5",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_sent_spans{host=${host},service=${service}}) by (exporter)"
+                                "value": "sum(otelcol_exporter_sent_spans) by (exporter)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1853,7 +1853,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1885,7 +1885,7 @@
             },
             {
               "id": {
-                "value": "9393e6a8-60d7-4324-80e3-5a77b8fdb734"
+                "value": "dcd4067a-764f-459f-9042-02b2bbe674d1"
               },
               "appearance": {
                 "height": 19
@@ -1911,11 +1911,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "b35aacca-3130-49ff-b085-1513178c895d",
+                          "id": "8de8e956-095b-4aa5-8947-6cad9ea1a528",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_exporter_queue_size{host=${host},service=${service}})"
+                                "value": "avg(otelcol_exporter_queue_size)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1923,7 +1923,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -1971,11 +1971,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ef868d77-4b35-4fbf-856d-1fa8f741e4dc",
+                          "id": "6b98f3bf-f52b-460b-b8ce-da78add42722",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_send_failed_spans{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_send_failed_spans)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -1983,7 +1983,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2015,7 +2015,7 @@
             },
             {
               "id": {
-                "value": "b1dc65ce-6418-4ee8-a122-9fa167564942"
+                "value": "c2429dd2-359b-4004-8192-4a9bcd0443ad"
               },
               "appearance": {
                 "height": 19
@@ -2041,11 +2041,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "101beeb3-cb1b-4543-903f-8116c7bf8429",
+                          "id": "24a8413e-0867-4c48-9127-a13fa85bb3cf",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_enqueue_failed_log_records{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_enqueue_failed_log_records)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2053,7 +2053,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2101,11 +2101,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5fb2d4b7-183a-4eb2-88f4-0e589b719630",
+                          "id": "6d6755e0-7bb9-4d4c-a66b-f99df1a5a34b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_enqueue_failed_metric_points{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_enqueue_failed_metric_points)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2113,7 +2113,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2161,11 +2161,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "32188690-2364-4548-a7a3-128b73ef36f3",
+                          "id": "00bb1dea-0bce-4f84-9343-40be9ad0baec",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_exporter_enqueue_failed_spans{host=${host},service=${service}})"
+                                "value": "sum(otelcol_exporter_enqueue_failed_spans)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2173,7 +2173,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2218,12 +2218,12 @@
         },
         {
           "id": {
-            "value": "dfc806d5-716b-4396-9dda-71014706a78d"
+            "value": "31ee46e1-4407-4950-95ca-aba33eadb32b"
           },
           "rows": [
             {
               "id": {
-                "value": "98e99253-7485-43b0-af2e-9f595eb719a7"
+                "value": "d462655d-b248-4dd3-81a0-c9e76fb5cd81"
               },
               "appearance": {
                 "height": 19
@@ -2249,11 +2249,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "e749489d-9e17-43bb-8837-1df012ffbdb8",
+                          "id": "3ff014f5-25c3-42e1-b8a4-8be33c67cf4a",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_process_uptime{host=${host},service=${service}})"
+                                "value": "sum(otelcol_process_uptime)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2261,7 +2261,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2309,11 +2309,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "96aadd22-ef69-4bc5-ba14-dc47ef48e319",
+                          "id": "17ea5cce-ab81-46f0-95d2-5a268d75341c",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_process_cpu_seconds{host=${host},service=${service}})"
+                                "value": "sum(otelcol_process_cpu_seconds)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2321,7 +2321,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2369,11 +2369,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "078acea2-a1fe-46a5-9b49-53c5b8919476",
+                          "id": "5de6342e-7836-4bb0-9ba1-cec1c89bfcb6",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_process_memory_rss{host=${host},service=${service}})"
+                                "value": "avg(otelcol_process_memory_rss)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2381,7 +2381,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2413,7 +2413,7 @@
             },
             {
               "id": {
-                "value": "31ae2264-f3d0-400a-b39b-44a4833d87b4"
+                "value": "0e58fe70-548c-4b23-bb7e-92a459d05285"
               },
               "appearance": {
                 "height": 19
@@ -2439,11 +2439,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "09770c67-403d-4402-929f-820fd24cebb9",
+                          "id": "debb2c76-5c56-426b-9daf-43f203dfa17a",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_process_runtime_heap_alloc_bytes{host=${host},service=${service}})"
+                                "value": "avg(otelcol_process_runtime_heap_alloc_bytes)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2451,7 +2451,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2499,11 +2499,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "b0bb54c5-a449-45b3-8e64-c6d321777a1a",
+                          "id": "8ca6b92f-54cd-4075-8b22-53517b00b797",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_process_runtime_total_alloc_bytes{host=${host},service=${service}})"
+                                "value": "sum(otelcol_process_runtime_total_alloc_bytes)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2511,7 +2511,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2559,11 +2559,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "bc9e924f-22a6-4881-a0c7-9e12c243feab",
+                          "id": "7cda1931-6e39-4d41-82c1-eda3370e7c25",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes{host=${host},service=${service}})"
+                                "value": "avg(otelcol_process_runtime_total_sys_memory_bytes)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2571,7 +2571,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2616,12 +2616,12 @@
         },
         {
           "id": {
-            "value": "6369f49a-a365-4e92-a868-1ac605b3d2a0"
+            "value": "53ca774b-7ea3-482d-ae91-97d64089a95e"
           },
           "rows": [
             {
               "id": {
-                "value": "78a33faa-dc8a-466e-9c28-5e728438842a"
+                "value": "c0f4212e-77e4-4a8f-afd1-f17767261214"
               },
               "appearance": {
                 "height": 19
@@ -2647,11 +2647,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "6c573951-4772-4baf-a814-cfd06aee071c",
+                          "id": "0bba39c3-d330-43d2-a6d3-9d68b300b695",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_traces{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_traces{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2659,7 +2659,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2707,11 +2707,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "badaa651-aa65-4ea7-a2c2-a5a92cfa2457",
+                          "id": "cb144a34-c133-45f3-9c84-1b06f5bd6b43",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_spans{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_spans{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2719,7 +2719,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2783,11 +2783,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ecc4e436-6613-4fac-9c5c-97e822f2ebf2",
+                          "id": "5e9ca014-b202-47ab-85e7-12544ec92bd7",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(otelcol_datadog_trace_agent_trace_writer_flush_duration_max{source=\"datadogexporter\",service=${service}})"
+                                "value": "max(otelcol_datadog_trace_agent_trace_writer_flush_duration_max{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2795,7 +2795,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2827,7 +2827,7 @@
             },
             {
               "id": {
-                "value": "a5653e65-767f-4867-a449-29b74689ba2c"
+                "value": "6099e18b-a3d7-40c1-ab68-d8c5cda4e42c"
               },
               "appearance": {
                 "height": 19
@@ -2853,11 +2853,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "127e3cd7-d0da-4465-af6b-1df178c41410",
+                          "id": "c492e6a2-37c7-4eae-9256-d3dd77120d48",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_bytes{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_bytes{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2865,7 +2865,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2913,11 +2913,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "1752514e-3045-42b5-8610-63801e56606e",
+                          "id": "18be6194-9c74-4aa7-91a8-9b584803a3e4",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_payloads{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_payloads{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -2925,7 +2925,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -2989,11 +2989,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "c743bf24-6af1-4b03-8c0c-9e9cfac5ff37",
+                          "id": "13a7df1a-5caa-4acf-b9d8-32718c671990",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_errors{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_errors{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3001,7 +3001,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3033,7 +3033,7 @@
             },
             {
               "id": {
-                "value": "f74434a3-4732-453b-9c0d-ac2e5cea12c6"
+                "value": "8444e7b5-0084-4852-b76d-c5a6c4cdabc2"
               },
               "appearance": {
                 "height": 19
@@ -3075,11 +3075,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "9625b857-26f2-4d60-84ed-1b4ad938b040",
+                          "id": "194f2f02-f1b9-4293-ad87-9d999a4cc38a",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3087,7 +3087,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3135,11 +3135,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "75d73ca2-518b-4756-812a-4d9d475ae997",
+                          "id": "4dd39f2c-112d-4ac6-83b0-bbe39ce3a6b1",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3147,7 +3147,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3211,11 +3211,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ba9b8ef5-e8a6-4324-8485-e149bde31058",
+                          "id": "ce39d0dc-a920-40d4-98a5-0413124e9431",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_retries{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_trace_writer_retries{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3223,7 +3223,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3268,12 +3268,12 @@
         },
         {
           "id": {
-            "value": "5a6cffde-b6b3-40a4-8365-867247ae9f4b"
+            "value": "9bb0519b-9e69-4b11-9591-6f333175fe2c"
           },
           "rows": [
             {
               "id": {
-                "value": "e22e16c4-ac92-44d6-8413-d670284c1163"
+                "value": "8fb3ea49-77cb-4dda-9096-9ae0439c7c42"
               },
               "appearance": {
                 "height": 19
@@ -3290,7 +3290,7 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\",service=${service}})"
+                            "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\"})"
                           },
                           "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
@@ -3393,11 +3393,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ae67abbc-e216-4eb8-b3da-9fa1bc66fbb9",
+                          "id": "693566ba-fb2a-4240-a25a-f3b3c2768aa8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogconnector\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_traces{source=\"datadogconnector\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3405,7 +3405,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3453,11 +3453,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "fa24785f-1e19-41a6-aea7-4c009ebe49a6",
+                          "id": "c3936a8b-2660-4e98-a269-1300658af237",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogconnector\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_otlp_spans{source=\"datadogconnector\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3465,7 +3465,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3497,7 +3497,7 @@
             },
             {
               "id": {
-                "value": "e9ead62c-1c26-4441-905c-4026c7d75fe6"
+                "value": "90958d96-8e8c-4770-9fce-651d216fdf8a"
               },
               "appearance": {
                 "height": 19
@@ -3523,11 +3523,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "cc777bbd-40c8-48f7-891d-1c35f0ec159a",
+                          "id": "79d288c4-dc0c-4abb-ab1b-b7e9d54a6d04",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_payloads{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_payloads{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3535,7 +3535,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3583,11 +3583,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "42556107-8371-4828-a26c-0b0681332c41",
+                          "id": "761710af-c369-4895-8acb-cfbbccb261b8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_bytes{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_bytes{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3595,7 +3595,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3659,11 +3659,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "4eedb5ab-c26a-47a9-99ed-a5a03f960f1f",
+                          "id": "f189eeb4-87e8-41a5-8f36-83ec4e8d3fe0",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_retries{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_retries{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3671,7 +3671,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3703,7 +3703,7 @@
             },
             {
               "id": {
-                "value": "368562bb-9ee6-41ae-957a-8a6ed53b3cd6"
+                "value": "7df8147f-f848-456d-987e-4c186bb3fab8"
               },
               "appearance": {
                 "height": 19
@@ -3729,11 +3729,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "9ee8259e-935e-431c-a465-49c0da5ca155",
+                          "id": "2a7c3594-371d-4875-9c7d-a71c8d3732d1",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_entries{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3741,7 +3741,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3789,11 +3789,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "856aa99a-bc7a-4781-9914-3f8be7d19cb3",
+                          "id": "15d0c202-ac63-432e-9c6a-3117115b87b1",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_buckets{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_stats_buckets{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3801,7 +3801,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -3865,11 +3865,11 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "dc2bf19d-1787-4b4c-8c48-9a38ee5e6beb",
+                          "id": "fd35a378-1577-466e-b4c2-8856929057ca",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_errors{source=\"datadogexporter\",service=${service}})"
+                                "value": "sum(otelcol_datadog_trace_agent_stats_writer_errors{source=\"datadogexporter\"})"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
@@ -3877,7 +3877,7 @@
                               "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
-                          "seriesNameTemplate": null,
+                          "seriesNameTemplate": "Query 1",
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",

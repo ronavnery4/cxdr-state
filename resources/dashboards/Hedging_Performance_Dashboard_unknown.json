@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "Hedging Performance Dashboard",
-  "exported_at": "2025-12-18T05:18:15.285884",
+  "exported_at": "2025-12-18T05:26:30.676691",
   "data": {
-    "id": "tCZwHnqy1eWSV3PGgj404",
+    "id": "axJz2fTNOQAZfk2wExXCz",
     "name": "Hedging Performance Dashboard",
     "description": "[[suggested_dashboards]]",
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "89513717-1804-4533-bb8a-b74fca9b0298"
+            "value": "39f7ba17-dfaf-4358-b1e3-04a2041711f7"
           },
           "rows": [
             {
               "id": {
-                "value": "d2912adf-d3cd-4dff-9166-15eadd2cbfbe"
+                "value": "9e22a169-4ee4-4f13-8788-2d1c69025b14"
               },
               "appearance": {
                 "height": 19
@@ -34,11 +34,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"cep-api\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -96,11 +96,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"cep-api\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -144,17 +144,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "b01d9fda-f4c8-4cfc-aff5-ca19f6f0e53e"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "3885172303115170"
@@ -175,16 +165,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "76518d19-8835-4e4a-a3d7-5c2be66a6a59",
+                          "id": "e0e64e0e-13fd-4ac8-9ef5-965c0c39eb82",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"cep-api\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"cep-api\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -207,7 +197,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "13a74af4-fbee-4b65-b281-a9b4cbafd795",
+                          "id": "772f01a1-4cda-4392-80fa-9e7cac2d86dd",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -265,16 +255,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "1f5672ab-c5c3-4754-aa27-19f1c7d95115",
+                          "id": "4fe8e672-726e-4972-9419-69b422afd5b4",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"cep-api\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"cep-api\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -297,7 +287,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "ccb085f0-5ce3-4266-8592-f085390824cb",
+                          "id": "c820c541-a853-4c00-9769-03d9ebc1a7bf",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -352,12 +342,12 @@
         },
         {
           "id": {
-            "value": "4fb34a86-60fb-4763-8065-f22b266f0d14"
+            "value": "7a31fcbb-cc9d-4c3d-a1e5-c5219935e98e"
           },
           "rows": [
             {
               "id": {
-                "value": "945dc0f0-8ffa-4634-b097-0d50f7c5fa45"
+                "value": "d6d9c171-d471-4b22-8c72-ca7546e348bb"
               },
               "appearance": {
                 "height": 19
@@ -376,11 +366,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"erm-service\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -438,11 +428,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"erm-service\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -486,17 +476,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "858e6253-3aad-4e61-8e21-768f736eb668"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "1198432234544875"
@@ -517,16 +497,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "253e553a-6a47-417d-8499-ac0abb0e6378",
+                          "id": "863b1b76-7dfc-41fc-9dbb-061b95db371f",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"erm-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"erm-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -549,7 +529,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "d24e75f6-019c-4f8b-bda2-96ce10b8b86f",
+                          "id": "27b205f5-fc49-4677-b6ec-46438a5fcd2a",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -591,7 +571,7 @@
             },
             {
               "id": {
-                "value": "dadce4c2-ff89-41f3-856d-655d8d895540"
+                "value": "f9528190-107f-4ebc-8967-22f5eb7b1ed6"
               },
               "appearance": {
                 "height": 19
@@ -617,16 +597,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5e61a730-ec43-4301-98e5-31816f0c13d4",
+                          "id": "c306f4dd-63a3-4770-8302-6794826857af",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"erm-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"erm-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -649,7 +629,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "49f779fe-6acb-4622-bd64-8fb3d2fe70e4",
+                          "id": "cd8dd91f-07e4-495e-8052-1413b96d9962",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -704,12 +684,12 @@
         },
         {
           "id": {
-            "value": "dcd4898b-5edb-47cb-86c7-8c9c0b29ee79"
+            "value": "18d81318-bb76-45bb-b208-eb8b51622e2a"
           },
           "rows": [
             {
               "id": {
-                "value": "22c4df79-2f80-4757-bb3f-51e990a60ee9"
+                "value": "1c1fd1b5-0687-4a0e-b06e-7e1888872d48"
               },
               "appearance": {
                 "height": 19
@@ -726,13 +706,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(system_uptime_total{environment=\"production\",technology=\"vm\",servicename=\"ces\",!aks-managed-consolidated-additional-properties=\"0e42cf4b-7ffd-11ef-8949-522373fcf3a0\",!host=\"R-Sec-CES-RMQ01\"}) by (host_name)"
+                            "value": "sum(system_uptime{environment=\"production\",technology=\"vm\",servicename=\"ces\",!aks-managed-consolidated-additional-properties=\"0e42cf4b-7ffd-11ef-8949-522373fcf3a0\",!host=\"R-Sec-CES-RMQ01\"}) by (host)"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -797,16 +777,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f88a3be6-40b5-49b0-ac9b-95b37e1fabda",
+                          "id": "928d8534-d410-4797-8f8b-2061f2a4f909",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{servicename=\"ces\",environment=\"production\",technology=\"vm\",!host=\"R-Sec-CES-RMQ01\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{servicename=\"ces\",environment=\"production\",technology=\"vm\",!host=\"R-Sec-CES-RMQ01\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -857,7 +837,7 @@
             },
             {
               "id": {
-                "value": "35acb414-7273-4a81-8a7b-e665fffe3b5d"
+                "value": "e3a6fa69-7606-43b7-b83a-fcd512910e43"
               },
               "appearance": {
                 "height": 19
@@ -896,7 +876,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -933,7 +913,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -957,7 +937,7 @@
             },
             {
               "id": {
-                "value": "4eaf0336-c737-41e9-9f5c-59dc532fab58"
+                "value": "eb0c6b79-d377-4be5-b098-a39a1e59baf4"
               },
               "appearance": {
                 "height": 19
@@ -983,16 +963,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f461d0b1-82d3-4dc4-8e95-02843f7df3f8",
+                          "id": "fc0a532d-b1b9-4196-8f05-b2345042c488",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{servicename=\"ces\",environment=\"production\",technology=\"vm\",!host=\"R-Sec-CES-RMQ01\"}) by (host_name)"
+                                "value": "avg(system_mem_used{servicename=\"ces\",environment=\"production\",technology=\"vm\",!host=\"R-Sec-CES-RMQ01\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1043,16 +1023,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "674424e9-afbd-4033-b85f-00ce8323b475",
+                          "id": "82073331-9c2a-429d-ac54-8e51c88671d2",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_filesystem_usage_By{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:ces AND environment:production AND technology:vm AND NOT host:R-Sec-CES-RMQ01\"}) by (host_name, device)"
+                                "value": "avg(system_disk_used{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:ces AND environment:production AND technology:vm AND NOT host:R-Sec-CES-RMQ01\"}) by (host,device)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1100,7 +1080,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -1119,17 +1099,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "c826fabb-bf74-4952-8ac6-afcc01277f67"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "6227869915455232"
@@ -1147,7 +1117,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -1184,12 +1154,12 @@
         },
         {
           "id": {
-            "value": "d1b04add-ce03-4e3c-b929-a68e09e89292"
+            "value": "2d87adb7-646d-4545-bc54-b66613cbba72"
           },
           "rows": [
             {
               "id": {
-                "value": "2f35d64c-2d5a-4d42-9142-ae392aed8994"
+                "value": "b9f1de3f-521b-4a20-ba99-41b2cb861691"
               },
               "appearance": {
                 "height": 19
@@ -1208,11 +1178,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"portfolio-exposureservice\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -1270,11 +1240,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"portfolio-exposureservice\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -1318,17 +1288,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "b1fd723e-9787-407c-aa8b-ea8739be03d3"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "2588897788937036"
@@ -1349,16 +1309,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "0cd3d112-62f2-447e-8506-64389b64488f",
+                          "id": "b4366de3-20ce-4c68-a578-40a262354612",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"portfolio-exposureservice\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"portfolio-exposureservice\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1381,7 +1341,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "2760b143-9472-40c0-a2b9-e71ac84bed70",
+                          "id": "6f805eab-d8a8-4b9b-b5eb-9a4f0420ac80",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -1423,7 +1383,7 @@
             },
             {
               "id": {
-                "value": "a0a3cedb-11a9-41c9-94c6-c8c93bf523cf"
+                "value": "3d35568b-df81-4847-9a1c-c05b014b1a62"
               },
               "appearance": {
                 "height": 19
@@ -1449,16 +1409,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "937e0f7d-e9bd-4fb0-a280-52a8a96e1402",
+                          "id": "b636b571-c562-4c3c-af2f-80538dc96a02",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"portfolio-exposureservice\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"portfolio-exposureservice\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1481,7 +1441,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "5b35e75d-58ed-48bb-aa96-14fe26a2414d",
+                          "id": "61955b46-4609-4756-8d3e-97efd618559d",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -1536,12 +1496,12 @@
         },
         {
           "id": {
-            "value": "c8140ee3-5c64-4387-bb59-521f5fbf8561"
+            "value": "bd61b40e-e79f-4653-9d49-9678c4be4ca1"
           },
           "rows": [
             {
               "id": {
-                "value": "b5201a49-2533-4769-92f2-5fdfda0e4114"
+                "value": "97b8fd9b-35b4-4f89-a8d1-4f28af1d2dab"
               },
               "appearance": {
                 "height": 19
@@ -1560,11 +1520,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"major-exposureservice\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -1622,11 +1582,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"major-exposureservice\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -1670,17 +1630,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "0c9a25ec-8522-47f4-999c-308c8f51963a"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "1794274542445994"
@@ -1701,16 +1651,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "7df069d7-40d5-4fa3-8982-f7e89347ef4a",
+                          "id": "8b2a781a-6807-479f-bb28-f5cf42107a2b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"major-exposureservice\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"major-exposureservice\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1733,7 +1683,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "c4f4a473-1c2b-4ce6-9eb6-b032d3a3a252",
+                          "id": "48472716-1ba6-486e-beab-f3365d4dd98a",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -1775,7 +1725,7 @@
             },
             {
               "id": {
-                "value": "926a9c19-9d38-4ab7-96d0-abd09b7bf7ad"
+                "value": "f9bfe7eb-845f-47ee-bf44-86bff073bfa0"
               },
               "appearance": {
                 "height": 19
@@ -1801,16 +1751,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "3b8ea2ff-62fc-4966-812d-565a992355bd",
+                          "id": "aec6e59e-10f9-4fac-9222-194031415018",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"major-exposureservice\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"major-exposureservice\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -1833,7 +1783,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "c55830fe-9652-40c5-aec6-b1d3c3a02f08",
+                          "id": "884c7e76-5eb8-465a-8e34-81040fc440ff",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -1888,12 +1838,12 @@
         },
         {
           "id": {
-            "value": "f1e4a6c8-925b-44fd-88cf-6ac8fa255a6e"
+            "value": "87525ed2-df3d-4fae-95cf-9bf130a73845"
           },
           "rows": [
             {
               "id": {
-                "value": "cde142b0-5ef0-4cc0-a373-a186341c73fd"
+                "value": "6d07182a-cf13-43ab-bd1a-71916e329a5c"
               },
               "appearance": {
                 "height": 19
@@ -1912,11 +1862,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"exposure-hedge-service\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -1974,11 +1924,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"exposure-hedge-service\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -2022,17 +1972,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "a0478a8a-ede2-4e70-8af7-68ba6aff0953"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "1314213896650435"
@@ -2053,16 +1993,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "99cc0333-d10c-4a19-9614-1d23c5febc24",
+                          "id": "68d2d40d-c7b9-41c6-a2f1-6a0032af5758",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"exposure-hedge-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"exposure-hedge-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2085,7 +2025,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "16d4d316-78be-49a6-8c2a-3f628faff9a7",
+                          "id": "a8fb1e71-0d70-4856-be38-c1dbb554edd7",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -2127,7 +2067,7 @@
             },
             {
               "id": {
-                "value": "1ff57295-a3a7-4078-94d1-6ada7d501967"
+                "value": "361f0767-793f-4422-9138-bf23e2fc83e4"
               },
               "appearance": {
                 "height": 19
@@ -2153,16 +2093,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ef4e61a7-7f9d-4f23-beb7-94547880d186",
+                          "id": "5bcd2ba9-fd1e-451a-88f9-782c8daae4e8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"exposure-hedge-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"exposure-hedge-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2185,7 +2125,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "12fb62b2-4c0a-4369-98c3-d0f0f0448d75",
+                          "id": "f4b9aa8c-b480-4206-957a-17b96471e078",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -2240,12 +2180,12 @@
         },
         {
           "id": {
-            "value": "41e8e634-d17d-4aae-be88-079de3165094"
+            "value": "36f852e2-3d20-4825-bb55-fd1b02d54145"
           },
           "rows": [
             {
               "id": {
-                "value": "2a59b567-1e2d-411b-b35d-cfcef07e7b42"
+                "value": "0fd19889-a3a5-4faa-9dcf-16fa6147cebb"
               },
               "appearance": {
                 "height": 19
@@ -2271,16 +2211,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "682eac9b-4ceb-4bda-8204-1ac747401564",
+                          "id": "29b52c6c-02e2-4eaf-a338-8257c75f00f9",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2331,16 +2271,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "45345f09-78b9-487f-a16c-e0116b9f3a37",
+                          "id": "bdc3d996-f3a9-4d52-948b-93e313c04fa8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_filesystem_usage_By{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:provider_executer AND environment:production AND technology:vm\"}) by (host_name, device)"
+                                "value": "avg(system_disk_used{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:provider_executer AND environment:production AND technology:vm\"}) by (host,device)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2375,7 +2315,7 @@
             },
             {
               "id": {
-                "value": "22ae1547-3d8b-44cd-9120-ff4fae87f55f"
+                "value": "1e50de93-dc3a-4111-8644-948b6790f672"
               },
               "appearance": {
                 "height": 19
@@ -2401,16 +2341,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "a1accec3-783a-4e21-8639-2f53196b0745",
+                          "id": "43e2d569-f581-41e9-b70b-9a500c76f2a5",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "avg(system_mem_used{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2468,13 +2408,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(system_uptime_total{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                            "value": "sum(system_uptime{servicename=\"provider_executer\",environment=\"production\",technology=\"vm\"}) by (host)"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -2523,7 +2463,7 @@
             },
             {
               "id": {
-                "value": "c377ffd5-f285-4bb2-a9d0-6033b8fea753"
+                "value": "776295da-9b21-42ee-8d5e-0f3c80f4d78b"
               },
               "appearance": {
                 "height": 19
@@ -2546,7 +2486,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2583,7 +2523,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2620,7 +2560,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2639,17 +2579,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "559cd7a1-9591-4e57-91f7-06494384ca13"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "5767093140398860"
@@ -2667,7 +2597,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2704,7 +2634,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2741,7 +2671,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -2765,7 +2695,7 @@
             },
             {
               "id": {
-                "value": "16c3701a-8ad5-4523-bce0-627eac527111"
+                "value": "9196bfbe-25da-408c-b831-63dc412bd04e"
               },
               "appearance": {
                 "height": 19
@@ -2784,11 +2714,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"provider-executor-service\",environment=\"production\",region=\"northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -2832,17 +2762,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "d53e250c-cfa7-416b-b574-1050059de0c3"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "7894028285994958"
@@ -2863,16 +2783,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "00ce9214-32eb-411c-ad9b-b530df1837f7",
+                          "id": "c7e1559e-63ac-4773-912b-0b1b1d6f09a0",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"provider-executor-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"provider-executor-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -2895,7 +2815,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "7edd3aff-004c-497f-9371-dda1d35ec847",
+                          "id": "93967582-c1b2-4629-a727-38c6e83f78a7",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -2937,7 +2857,7 @@
             },
             {
               "id": {
-                "value": "b3843012-737f-4d26-b66c-e8776a689253"
+                "value": "8db49074-7ecc-499c-8fd9-e8dc59996f8f"
               },
               "appearance": {
                 "height": 19
@@ -2956,11 +2876,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{service-name=\"provider-executor-service\",environment=\"production\",region=\"westeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -3009,7 +2929,7 @@
             },
             {
               "id": {
-                "value": "531df549-74bd-435e-94a8-6a4881ff2428"
+                "value": "a226e786-0d50-4604-9429-9421d1e8b375"
               },
               "appearance": {
                 "height": 19
@@ -3035,16 +2955,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "8aaca63f-7dc9-4929-b7a3-e7d9f7f23595",
+                          "id": "1a61d3a4-2c10-4227-982d-2b9c62fd80f0",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"provider-executor-service\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"provider-executor-service\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3067,7 +2987,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "a8a95bf5-c0a0-43d1-913e-002d6c49cf9e",
+                          "id": "8d71e0e3-bf71-44c2-82b0-7ca6a3bd342f",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -3122,12 +3042,12 @@
         },
         {
           "id": {
-            "value": "bfee1882-d064-4b8b-9b60-f4d0055446ae"
+            "value": "e3bc26d4-1bf2-4ca8-b800-b9fd092e7f25"
           },
           "rows": [
             {
               "id": {
-                "value": "d27b637a-6e76-47dd-9594-025d08cde432"
+                "value": "76cd94aa-ca0c-480b-b889-7b5a8df47fc0"
               },
               "appearance": {
                 "height": 19
@@ -3144,13 +3064,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(system_uptime_total{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                            "value": "sum(system_uptime{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host)"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -3215,16 +3135,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f0bc09ed-577e-4789-bc9e-7c99cc75b4bb",
+                          "id": "d8f6e147-5d9d-48c9-9c3c-4efcd3876c89",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3275,16 +3195,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "f60674fe-1bed-41bf-9478-fe1bdd00d7a0",
+                          "id": "0afb1164-3692-4bf5-aefb-691f6f9b8786",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_filesystem_usage_By{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:ehs AND environment:production AND technology:vm\"}) by (host_name, device)"
+                                "value": "avg(system_disk_used{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:ehs AND environment:production AND technology:vm\"}) by (host,device)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3314,17 +3234,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "f672f0b7-3062-46c6-8f74-e781b70157d8"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "5929284455333674"
@@ -3345,7 +3255,7 @@
             },
             {
               "id": {
-                "value": "2c196e58-c32a-463d-9c29-740ed83b13da"
+                "value": "3de25c01-6541-4c83-b8aa-ac00fda28521"
               },
               "appearance": {
                 "height": 19
@@ -3368,7 +3278,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -3405,7 +3315,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -3429,7 +3339,7 @@
             },
             {
               "id": {
-                "value": "c2d839e6-fcf2-4395-abc7-375b7a85453f"
+                "value": "528feb0d-b090-41ea-b638-df1372cc9d54"
               },
               "appearance": {
                 "height": 19
@@ -3455,16 +3365,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "838233a8-24d9-4fbf-a83d-44808a75eb04",
+                          "id": "d98f7676-4874-4b5a-ad1a-fd035a0fa28e",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "avg(system_mem_used{servicename=\"ehs\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3512,12 +3422,12 @@
         },
         {
           "id": {
-            "value": "0f203f31-9891-4036-a8e1-3054c643a81c"
+            "value": "7b4138c9-04bf-4391-ab1f-04d3730e4f57"
           },
           "rows": [
             {
               "id": {
-                "value": "bce789db-431c-4af8-b050-3d7794306097"
+                "value": "9919c5da-ca97-4f08-b53d-250ba5001ee4"
               },
               "appearance": {
                 "height": 19
@@ -3534,13 +3444,13 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "sum(system_uptime_total{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                            "value": "sum(system_uptime{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host)"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -3605,16 +3515,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "e05868a0-ce0a-4845-b8b8-de1638894de4",
+                          "id": "95bea645-4690-420b-9389-ee3dde8b384f",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3665,16 +3575,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "7432a814-991d-4e63-a1e7-1f3156f8bf1c",
+                          "id": "96dcc1ec-8bd5-473c-8a64-7c85c32f6472",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host_name)"
+                                "value": "avg(system_mem_used{servicename=\"hph\",environment=\"production\",technology=\"vm\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3704,17 +3614,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "26004d35-e54f-4f37-a518-1fbbf4408c95"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "6508768502636012"
@@ -3735,7 +3635,7 @@
             },
             {
               "id": {
-                "value": "cf328200-e131-4554-981f-349513321a5b"
+                "value": "c0205c1b-5630-483f-b499-7fb0acf37321"
               },
               "appearance": {
                 "height": 19
@@ -3758,7 +3658,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -3795,7 +3695,7 @@
                           "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                           "timeFrame": null,
                           "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
                         }
                       },
                       "min": 0,
@@ -3819,7 +3719,7 @@
             },
             {
               "id": {
-                "value": "6dbf6656-dc61-4b47-9798-516e32b9d964"
+                "value": "1c8978ae-e868-4446-8707-24fae4e42c84"
               },
               "appearance": {
                 "height": 19
@@ -3845,16 +3745,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "7071a9c0-efcb-4a79-bb0d-75f805634849",
+                          "id": "bbf7d368-ec68-43c8-83f2-53a9d42d39bf",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_filesystem_usage_By{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:hph AND environment:production AND technology:vm\"}) by (host_name, device)"
+                                "value": "avg(system_disk_used{(device=\"c: OR device:/dev/sda1 OR device:/dev/sda2) AND servicename:hph AND environment:production AND technology:vm\"}) by (host,device)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -3889,7 +3789,7 @@
             },
             {
               "id": {
-                "value": "ab3039bb-6630-41aa-9038-3b4fffd52318"
+                "value": "b844e994-1a1c-4c84-a150-9f7db3a512e4"
               },
               "appearance": {
                 "height": 19
@@ -3915,7 +3815,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "4a0a3b4b-e167-43aa-8e0d-8f1b1dc16c11",
+                          "id": "b58c935e-a2ea-4733-955a-cc919b5a9af7",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -3973,7 +3873,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "15ce4023-5af6-4e16-a327-48f0cf523ff4",
+                          "id": "43f72e99-2373-46c5-bc16-828a7a082bea",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4015,7 +3915,7 @@
             },
             {
               "id": {
-                "value": "eeb95712-c1f3-43cc-bce2-9704028da27c"
+                "value": "5c92c3fd-9ebb-46fd-aa68-aac38befde31"
               },
               "appearance": {
                 "height": 19
@@ -4041,7 +3941,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5e3648de-1b10-4995-b9d2-c3d7d6e02a06",
+                          "id": "7a4f9430-7c36-4a2f-82ff-1bc5cdcb2031",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4099,7 +3999,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "273f7cdb-5ffe-4e00-96d1-7c0ffcaa468d",
+                          "id": "477c7f77-f5b2-443c-ad14-f3ab7d1ccdc7",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4141,7 +4041,7 @@
             },
             {
               "id": {
-                "value": "30c37fe7-3654-4091-b131-34b66a89bf1b"
+                "value": "bdb0c76c-ab90-41f3-bc8c-0f2f4933abb9"
               },
               "appearance": {
                 "height": 19
@@ -4167,7 +4067,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "1379d670-8912-4cd9-92aa-583f04c454c7",
+                          "id": "e8a39f03-c77b-4c71-a06d-564419404a01",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4225,7 +4125,7 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "e0cd277e-102f-4b80-a043-8f469cd047c4",
+                          "id": "6b6554e7-6188-4b17-8fde-afc62433e5e9",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4280,12 +4180,12 @@
         },
         {
           "id": {
-            "value": "a6deef38-6c6a-47c1-b3d0-e15c38402060"
+            "value": "db9b7050-ec2a-4a69-90ad-e23e35848daf"
           },
           "rows": [
             {
               "id": {
-                "value": "46a73d43-8530-4fed-b64e-66538302b5c4"
+                "value": "8bef6819-bb01-4f72-8d8f-14eb2e5f97fe"
               },
               "appearance": {
                 "height": 19
@@ -4304,11 +4204,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{(service-name=\"scheduler ) AND environment:production AND region:westeurope AND kube_namespace:dealingexec\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -4366,11 +4266,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{(service-name=\"scheduler ) AND environment:production AND kube_namespace:dealingexec AND region:northeurope\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -4435,16 +4335,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "8606f816-3a52-4247-82e2-b8987c7b995b",
+                          "id": "cdd9426b-3738-4b07-9c09-437d43c244de",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"scheduler\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"scheduler\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -4467,7 +4367,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "797341f9-6fd9-4759-b34f-459ab415c6d5",
+                          "id": "cbb43bc6-9a69-421c-a45a-f12f6feaf424",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4504,17 +4404,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "c0a344da-e82c-4111-99b1-8c91d13ffbc3"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "5970764575436356"
@@ -4535,16 +4425,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "a6749e87-4bcc-4bbf-ac3c-c7225d6872b8",
+                          "id": "fb75b7d5-6c5d-4446-a544-04c5923c93d2",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"scheduler\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"scheduler\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -4567,7 +4457,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "a64a6dce-482c-4d7c-9a8a-c1d66250d3c8",
+                          "id": "d133e9c0-2d1d-4e67-8f2a-9572a0a424d2",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4609,7 +4499,7 @@
             },
             {
               "id": {
-                "value": "85e1897b-f619-4200-a65a-97b1a7f1e5f6"
+                "value": "a950062f-b3f6-4b9e-99fb-4f93d59739eb"
               },
               "appearance": {
                 "height": 19
@@ -4628,11 +4518,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{(service-name=\"market-orders-scheduler ) AND environment:production AND region:westeurope AND kube_namespace:dealingexec\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -4690,11 +4580,11 @@
                           "promqlQuery": {
                             "value": "sum(kubernetes_containers_running{(service-name=\"market-orders-scheduler ) AND environment:production AND region:northeurope AND kube_namespace:dealingexec\"})"
                           },
-                          "aggregation": "AGGREGATION_LAST",
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_UNSPECIFIED"
                         }
                       },
                       "min": 0,
@@ -4759,16 +4649,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "982ac2c6-5711-4a00-b683-5547f2ca8b77",
+                          "id": "8432565c-3092-4663-bdd6-a66c38dc40a1",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(k8s_pod_cpu_time_total{environment=\"production\",service-name=\"market-orders-scheduler\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_cpu_usage_total{environment=\"production\",service-name=\"market-orders-scheduler\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -4791,7 +4681,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "c4ab8f34-1091-4e5d-b9d7-503afb907f2d",
+                          "id": "c630b749-363e-433f-b9bb-105511066389",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4828,17 +4718,7 @@
                   "appearance": null,
                   "createdAt": null,
                   "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "06bb42c8-b8d0-4ccc-b18c-a691b7630788"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
+                },
                 {
                   "id": {
                     "value": "999575333421524"
@@ -4859,16 +4739,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "5b7ff9f0-519f-4f47-b256-3d99eb7ee845",
+                          "id": "826a5411-a55a-4def-b9d0-caf9ea2eb5a9",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"market-orders-scheduler\"}) by (k8s_pod_name, k8s_namespace_name, k8s_cluster_name)"
+                                "value": "max(kubernetes_memory_working_set{environment=\"production\",service-name=\"market-orders-scheduler\"}) by (pod_name,kube_namespace,kube_cluster_name)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -4891,7 +4771,7 @@
                           "decimalPrecision": null
                         },
                         {
-                          "id": "72c7ad97-1c38-4406-a825-1854aeb16f4b",
+                          "id": "3b38239b-be91-47be-bd1f-d3ae34fafd19",
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
@@ -4946,12 +4826,12 @@
         },
         {
           "id": {
-            "value": "37737176-5500-41e2-ba61-b9abf35054d7"
+            "value": "d7bcc57e-a075-464d-99f2-855de7469913"
           },
           "rows": [
             {
               "id": {
-                "value": "e36aa1d9-a047-4838-b8dc-552a3731e442"
+                "value": "16b1754b-4240-4f8b-8e4c-78866eadc3a7"
               },
               "appearance": {
                 "height": 19
@@ -4977,16 +4857,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "59887786-e1a1-44f2-8a16-ad057f504ee1",
+                          "id": "cff729da-358c-4092-befa-a6aa9f2daab8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rabbitmq_queue_messages{host_name=\"LON-R-EMS-RMQ1\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue, host_name, rabbitmq_node)"
+                                "value": "sum(rabbitmq_queue_messages{host=\"LON-R-EMS-RMQ1\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue,host,rabbitmq_node)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5037,16 +4917,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "668a8241-08da-4087-b96d-ea563a9f1809",
+                          "id": "e307842b-02fb-449d-8002-8317c67daaaa",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"LON-R-EMS-RMQ1\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"LON-R-EMS-RMQ1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5097,16 +4977,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "0faf9c01-87a8-4d40-939a-aebac65b75e1",
+                          "id": "43ce2dc5-fd3d-420f-a565-ab0d1eaa6c88",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"LON-R-EMS-RMQ1\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"LON-R-EMS-RMQ1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5141,7 +5021,7 @@
             },
             {
               "id": {
-                "value": "b0f3d5b1-db1f-43b9-b0f9-a479314cf288"
+                "value": "971fcf41-578d-4d87-a1fa-a59dd7791c1e"
               },
               "appearance": {
                 "height": 19
@@ -5167,16 +5047,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "131319ea-c869-45fe-b7ac-04c338b2b1fa",
+                          "id": "877a7f72-c3a2-464a-ba22-e9bcc25ac468",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rabbitmq_queue_messages{host_name=\"R-Hedge-RMQ01\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue, host_name, rabbitmq_node)"
+                                "value": "sum(rabbitmq_queue_messages{host=\"R-Hedge-RMQ01\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue,host,rabbitmq_node)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5227,16 +5107,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "85724bd3-0010-42db-8183-01192c87fb06",
+                          "id": "916d1dcd-8b5f-4818-a818-638fd52da1d3",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"R-Hedge-RMQ01\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"R-Hedge-RMQ01\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5287,16 +5167,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "317ca4b9-7d51-4f35-b438-e517c6d44bc9",
+                          "id": "a870ecc3-6048-47d6-a58f-bb968113130b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"LON-R-EMS-RMQ1\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"LON-R-EMS-RMQ1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5331,7 +5211,7 @@
             },
             {
               "id": {
-                "value": "77a13f3b-876f-4553-8a8f-e757152e21f4"
+                "value": "441fed17-6884-401d-80f3-76794bf0b6b1"
               },
               "appearance": {
                 "height": 19
@@ -5357,16 +5237,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "a1ef55d4-d366-484b-9056-46a2cdc2900a",
+                          "id": "7b60741f-cdbb-4095-972f-8c2c83644791",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rabbitmq_queue_messages{host_name=\"lon-dd-rmq-2\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue, host_name, rabbitmq_node)"
+                                "value": "sum(rabbitmq_queue_messages{host=\"lon-dd-rmq-2\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue,host,rabbitmq_node)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5417,16 +5297,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ad9d71be-12bb-44c3-810e-0a3a6d0606cf",
+                          "id": "1bc4657c-5075-43cc-a6d0-824c3bc1309b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-dd-rmq-2\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-dd-rmq-2\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5477,16 +5357,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "1368b572-589a-4951-a47b-dedfa19307ce",
+                          "id": "45ee3f6d-1f0d-433e-9111-372c9c177139",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-dd-rmq-2\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-dd-rmq-2\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5521,7 +5401,7 @@
             },
             {
               "id": {
-                "value": "0826b8b3-2e9e-4edd-aa2c-996229941530"
+                "value": "97013258-79fb-423e-a317-409cab76460f"
               },
               "appearance": {
                 "height": 19
@@ -5547,16 +5427,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "d1b0937f-fd88-4243-be3e-cdad703cee14",
+                          "id": "b684c396-5744-4162-bf08-aac8261d0009",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(rabbitmq_queue_messages{host_name=\"lon-dd-rmq-3\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue, host_name, rabbitmq_node)"
+                                "value": "sum(rabbitmq_queue_messages{host=\"lon-dd-rmq-3\",environment=\"production\",! rabbitmq_queue=\"shovel*\"}) by (rabbitmq_queue,host,rabbitmq_node)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5607,16 +5487,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "70c2ef4d-587b-4056-845f-82943c39da2e",
+                          "id": "476d70f6-2e62-4c77-8d4c-cd1246fc8586",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-dd-rmq-3\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-dd-rmq-3\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5667,16 +5547,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "c1d07c7e-040b-4410-a75e-0904f36d16d1",
+                          "id": "718ab0d6-a3d3-4975-b13f-b4b1642151af",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-dd-rmq-3\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-dd-rmq-3\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5724,12 +5604,12 @@
         },
         {
           "id": {
-            "value": "40914df8-c4df-469e-b55f-f48979e2b5c0"
+            "value": "52985613-b6d3-4223-afc1-ba303786b680"
           },
           "rows": [
             {
               "id": {
-                "value": "fda0df12-1e85-4ba7-990f-4b1341d4a960"
+                "value": "ecfb9489-5805-49e7-bbcb-7de87bb23df5"
               },
               "appearance": {
                 "height": 19
@@ -5755,16 +5635,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "8eb3e325-3c16-4f3f-b784-0da7e9e32886",
+                          "id": "ef9fc849-7439-47d8-b2c2-d6dbf2844d83",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(redis_info_latency_ms{environment=\"production\",host_name=\"lon-hdg-r-rds-1\"}) by (host_name, team)"
+                                "value": "avg(redis_info_latency_ms{environment=\"production\",host=\"lon-hdg-r-rds-1\"}) by (host,team)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5815,16 +5695,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "d324fc0d-a971-4981-bbd2-a76bcf2dee94",
+                          "id": "9884932e-68f5-4f6b-ae76-cb9bb524f974",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-hdg-r-rds-1\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-hdg-r-rds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5875,16 +5755,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "6cc9f33d-a01b-4fc2-afb4-d40cb76ce057",
+                          "id": "3bd7235f-33a2-4db4-9ab8-68a3368c7815",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-hdg-r-rds-1\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-hdg-r-rds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -5919,7 +5799,7 @@
             },
             {
               "id": {
-                "value": "6abfe811-623c-4b66-8583-17975cfc57a2"
+                "value": "0db13645-e8ee-4fb4-b24a-9f708f3a4569"
               },
               "appearance": {
                 "height": 19
@@ -5945,16 +5825,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "7232444d-9726-4ed0-a92e-78aa71390aa6",
+                          "id": "93677365-b2e9-404e-9c62-af94bbd650f7",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(redis_info_latency_ms{environment=\"production\",host_name=\"lon-ems-r-rds-1\"}) by (host_name, team)"
+                                "value": "avg(redis_info_latency_ms{environment=\"production\",host=\"lon-ems-r-rds-1\"}) by (host,team)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6005,16 +5885,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "478a0127-c26e-4bee-8a41-2efca0573fb7",
+                          "id": "b74cc11b-1874-4b7a-8936-72ab473326a8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-ems-r-rds-1\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-ems-r-rds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6065,16 +5945,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "938a3b48-7180-49b5-a990-c3b4d92ee9d9",
+                          "id": "df39e8df-8d28-463c-bc16-34093d78b16d",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-ems-r-rds-1\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-ems-r-rds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6109,7 +5989,7 @@
             },
             {
               "id": {
-                "value": "7b4d43cf-42fd-4e89-b6c1-5c859ef23ec5"
+                "value": "b252d537-5592-4925-8225-38c2664889ff"
               },
               "appearance": {
                 "height": 19
@@ -6135,16 +6015,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "ca464e4a-89dc-4453-a1d9-38c6c6ffb8ff",
+                          "id": "fcac5a67-6540-4960-ba6b-e9fa39eccc9b",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(redis_info_latency_ms{environment=\"production\",host_name=\"lon-perds-1\"}) by (host_name, team)"
+                                "value": "avg(redis_info_latency_ms{environment=\"production\",host=\"lon-perds-1\"}) by (host,team)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6195,16 +6075,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "743e52b1-e687-464f-9b66-ab37777a4ab3",
+                          "id": "32fbae40-5c25-4238-a2f6-eec994e10a38",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-perds-1\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-perds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6255,16 +6135,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "fd543196-a70e-496c-8eb8-0a123bce6205",
+                          "id": "f36aeaf3-a8e1-461c-8a26-e2a7cca386e5",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-perds-1\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-perds-1\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6299,7 +6179,7 @@
             },
             {
               "id": {
-                "value": "a2997f1f-3e9d-4244-a112-e02fbf37ee4e"
+                "value": "e33c3975-214a-445e-b0d8-eb54795d676c"
               },
               "appearance": {
                 "height": 19
@@ -6325,16 +6205,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "956a0270-4a03-4530-ac14-43cf24e72742",
+                          "id": "53ae0b06-d985-4c62-b980-6a60cecfef61",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(redis_info_latency_ms{environment=\"production\",host_name=\"lon-prc-rd*\"}) by (host_name, team)"
+                                "value": "avg(redis_info_latency_ms{environment=\"production\",host=\"lon-prc-rd*\"}) by (host,team)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6385,16 +6265,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "929d3bdb-0178-4144-9182-1777fe75c500",
+                          "id": "8924f4e1-d56e-4021-b2f9-aa76751ef1f8",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(system_cpu_utilization_1{environment=\"production\",technology=\"vm\",host_name=\"lon-prc-rd*\"}) by (host_name)"
+                                "value": "sum(system_cpu_system{environment=\"production\",technology=\"vm\",host=\"lon-prc-rd*\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6445,16 +6325,16 @@
                       },
                       "queryDefinitions": [
                         {
-                          "id": "3d8a9e19-abb6-4a05-8629-0fdf1a3bea43",
+                          "id": "ba63e04a-4b29-4fd3-9aa5-4dfb3bb0b82e",
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "avg(system_memory_usage_By{environment=\"production\",technology=\"vm\",host_name=\"lon-prc-rd*\"}) by (host_name)"
+                                "value": "avg(system_mem_used{environment=\"production\",technology=\"vm\",host=\"lon-prc-rd*\"}) by (host)"
                               },
                               "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_UNSPECIFIED",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -6502,12 +6382,12 @@
         },
         {
           "id": {
-            "value": "a23196bd-7e7a-46de-a792-480598169fd5"
+            "value": "6541f776-dd39-48be-a76c-d2a06a323fb6"
           },
           "rows": [
             {
               "id": {
-                "value": "aeff7bc7-6ff9-41db-933e-6164be028bf8"
+                "value": "aec6591c-aa79-4650-8ed8-37d849687051"
               },
               "appearance": {
                 "height": 19
@@ -6524,12 +6404,12 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "max(kubernetes_state_hpa_max_replicas{environment=\"production AND kube_namespace:dealingexec AND (horizontalpodautoscaler:erm-service OR horizontalpodautoscaler:cep-api OR horizontalpodautoscaler:scheduler OR horizontalpodautoscaler:market-orders-scheduler OR horizontalpodautoscaler:exposure-hedge-service OR horizontalpodautoscaler:portfolio-exposureservice OR horizontalpodautoscaler:major-exposureservice)\"}) by (horizontalpodautoscaler, k8s_namespace_name, k8s_cluster_name, region)"
+                            "value": "max(kubernetes_state_hpa_max_replicas{environment=\"production AND kube_namespace:dealingexec AND (horizontalpodautoscaler:erm-service OR horizontalpodautoscaler:cep-api OR horizontalpodautoscaler:scheduler OR horizontalpodautoscaler:market-orders-scheduler OR horizontalpodautoscaler:exposure-hedge-service OR horizontalpodautoscaler:portfolio-exposureservice OR horizontalpodautoscaler:major-exposureservice)\"}) by (horizontalpodautoscaler,kube_namespace,kube_cluster_name,region)"
                           },
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
                         }
                       },
                       "resultsPerPage": 10,
@@ -6568,7 +6448,7 @@
             },
             {
               "id": {
-                "value": "1fa54244-c9ad-4805-8968-333ab7a7b68f"
+                "value": "88322ce5-3e9b-4120-b742-005be9632048"
               },
               "appearance": {
                 "height": 19
@@ -6585,12 +6465,12 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "avg(kubernetes_memory_working_set{NOT cost-environment=\"development AND environment:production AND (service-name:erm-service OR service-name:cep-api OR short_image:scheduler OR service-name:market-orders-scheduler OR service-name:exposure-hedge-service OR service-name:portfolio-exposureservice OR service-name:major-exposureservice)\"}) by (k8s_cluster_name, service-name, team, region)"
+                            "value": "avg(kubernetes_memory_working_set{NOT cost-environment=\"development AND environment:production AND (service-name:erm-service OR service-name:cep-api OR short_image:scheduler OR service-name:market-orders-scheduler OR service-name:exposure-hedge-service OR service-name:portfolio-exposureservice OR service-name:major-exposureservice)\"}) by (kube_cluster_name,service-name,team,region)"
                           },
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
                         }
                       },
                       "resultsPerPage": 10,
@@ -6629,7 +6509,7 @@
             },
             {
               "id": {
-                "value": "db5ff11c-1034-434a-8980-64d648dd1568"
+                "value": "20bbd490-9bd8-41e1-b681-6cf501dc180a"
               },
               "appearance": {
                 "height": 19
@@ -6646,12 +6526,12 @@
                       "query": {
                         "metrics": {
                           "promqlQuery": {
-                            "value": "avg(k8s_pod_cpu_time_total{NOT cost-environment=\"development AND environment:production AND (service-name:erm-service OR service-name:cep-api OR short_image:scheduler OR service-name:market-orders-scheduler OR service-name:exposure-hedge-service OR service-name:portfolio-exposureservice OR service-name:major-exposureservice)\"}) by (k8s_cluster_name, service-name, team, region)"
+                            "value": "avg(kubernetes_cpu_usage_total{NOT cost-environment=\"development AND environment:production AND (service-name:erm-service OR service-name:cep-api OR short_image:scheduler OR service-name:market-orders-scheduler OR service-name:exposure-hedge-service OR service-name:portfolio-exposureservice OR service-name:major-exposureservice)\"}) by (kube_cluster_name,service-name,team,region)"
                           },
                           "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
                           "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
                         }
                       },
                       "resultsPerPage": 10,
@@ -6707,7 +6587,7 @@
     "filters": [],
     "relativeTimeFrame": "300s",
     "folderId": {
-      "value": "863591c1-e957-4e98-95a3-6b6165b8112d"
+      "value": "ca87a97e-4a79-4d96-be82-5577c21026bd"
     },
     "folderPath": null,
     "annotations": [],
@@ -6715,6 +6595,6 @@
     "slugName": null,
     "variablesV2": [],
     "actions": [],
-    "_source_folder_name": "Migrated from Datadog10"
+    "_source_folder_name": "Migrated from Datadog4"
   }
 }

@@ -1,9 +1,9 @@
 {
   "id": "unknown",
   "name": "eCommerce Maturity Example",
-  "exported_at": "2025-12-18T07:21:37.867692",
+  "exported_at": "2025-12-18T12:06:30.460465",
   "data": {
-    "id": "qZjp5eIDxE4M7M7LT9JBa",
+    "id": "EqTG1MaRseDGX9TYbfTEv",
     "name": "eCommerce Maturity Example",
     "description": null,
     "layout": {
@@ -45,7 +45,7 @@
                           "query": {
                             "logs": {
                               "luceneQuery": {
-                                "value": "_exists_: product_id_enriched.price_in_currency AND kubernetes.node.hostname: ${node}"
+                                "value": "_exists_: productId_enriched.price_in_currency AND resource.attributes.k8s_node_name: ${node}"
                               },
                               "groupBy": [],
                               "aggregations": [
@@ -54,7 +54,7 @@
                                     "field": null,
                                     "observationField": {
                                       "keypath": [
-                                        "product_id_enriched",
+                                        "productId_enriched",
                                         "price_in_currency"
                                       ],
                                       "scope": "DATASET_SCOPE_USER_DATA"
@@ -62,11 +62,37 @@
                                   }
                                 }
                               ],
-                              "filters": [],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "accessories",
+                                            "clothing",
+                                            "footwear",
+                                            "hair",
+                                            "living room"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "productId_enriched",
+                                      "category"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
                               "groupBys": [
                                 {
                                   "keypath": [
-                                    "product_id_enriched",
+                                    "productId_enriched",
                                     "category"
                                   ],
                                   "scope": "DATASET_SCOPE_USER_DATA"
@@ -107,41 +133,20 @@
                   "id": {
                     "value": "a3fa3ec3-89b5-4c74-b269-6f5425e89f2e"
                   },
-                  "title": "Revenue by Country",
+                  "title": "Revenue by SKU",
                   "description": null,
                   "definition": {
                     "pieChart": {
                       "query": {
-                        "logs": {
-                          "luceneQuery": {
-                            "value": "_exists_: product_id AND kubernetes.node.hostname: ${node}"
-                          },
-                          "aggregation": {
-                            "sum": {
-                              "field": null,
-                              "observationField": {
-                                "keypath": [
-                                  "product_id_enriched",
-                                  "price_in_currency"
-                                ],
-                                "scope": "DATASET_SCOPE_USER_DATA"
-                              }
-                            }
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| lucene '_exists_: productId AND resource.attributes.k8s_node_name: ${node}'\n| filter $d.productId_enriched.price_in_currency != null\n| filter $d.productId_enriched.sku != null\n| groupby $d.productId_enriched.sku agg sum($d.productId_enriched.price_in_currency: number) as $d['sum_productId_enriched.price_in_currency']"
                           },
                           "filters": [],
-                          "groupNames": [],
-                          "stackedGroupName": null,
-                          "groupNamesFields": [
-                            {
-                              "keypath": [
-                                "json",
-                                "http_req_ip_geoip",
-                                "city_name"
-                              ],
-                              "scope": "DATASET_SCOPE_USER_DATA"
-                            }
+                          "groupNames": [
+                            "productId_enriched.sku"
                           ],
-                          "stackedGroupNameField": null,
+                          "stackedGroupName": null,
                           "timeFrame": null
                         }
                       },
@@ -184,69 +189,6 @@
             },
             {
               "id": {
-                "value": "2bb49068-150d-45dc-9291-44cb458a8451"
-              },
-              "appearance": {
-                "height": 16
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "39c1a4cc-9d0c-4194-9c07-d5fb681a411c"
-                  },
-                  "title": "Products Not Selling Due to Errors",
-                  "description": null,
-                  "definition": {
-                    "dataTable": {
-                      "query": {
-                        "dataprime": {
-                          "dataprimeQuery": {
-                            "text": "source logs \n| filter $d.message.contains('product') && severity == 'error'\n| filter $p.node == null || $p.node.arrayContains($d.kubernetes.node.hostname)\n| extract $d.message into $d.product_info using regexp(/.*ID (?<product_id>.*)/)\n| join (source product_details_cc) on left=>$d.product_info.product_id == right=>id into enriched_product_data\n| choose message, product_info.product_id, enriched_product_data\n| groupby \n    product_info.product_id as $d['Product ID'], \n    enriched_product_data.sku as $d['SKU'], \n    enriched_product_data.category as Category, \n    enriched_product_data.product_name as $d['Product Name'] \nagg \n    count() as $d['Failed Purchase Attempts'], \n    `${sum(enriched_product_data.price_in_currency:num)}` as $d['Lost Revenue']\n| replace $d['Product ID'] with if($d['Product ID'] == null, 'UNKNOWN', $d['Product ID'])\n| replace $d['SKU'] with if($d['SKU'] == null, 'UNKNOWN', $d['SKU'])\n| replace $d['Category'] with if($d['Category'] == null, 'UNKNOWN', $d['Category'])\n| replace $d['Product Name'] with if($d['Product Name'] == null, 'UNKNOWN', $d['Product Name'])\n| replace $d['Lost Revenue'] with if($d['Lost Revenue'] == '$', '$0', $d['Lost Revenue'])\n| orderby $d['Lost Revenue'] desc "
-                          },
-                          "filters": [],
-                          "timeFrame": null
-                        }
-                      },
-                      "resultsPerPage": 100,
-                      "rowStyle": "ROW_STYLE_ONE_LINE",
-                      "columns": [
-                        {
-                          "field": "$d.Failed Purchase Attempts",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.Product ID",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.SKU",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.Category",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.Product Name",
-                          "width": null
-                        },
-                        {
-                          "field": "$d.Lost Revenue",
-                          "width": null
-                        }
-                      ],
-                      "orderBy": null,
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
                 "value": "49e276b3-3a2c-4b5f-92ba-6ebefcf3904d"
               },
               "appearance": {
@@ -277,7 +219,7 @@
                           "query": {
                             "logs": {
                               "luceneQuery": {
-                                "value": "_exists_: product_id_enriched.price_in_currency AND kubernetes.node.hostname: ${node} "
+                                "value": "_exists_: productId_enriched.price_in_currency AND resource.attributes.k8s_node_name: ${node} "
                               },
                               "groupBy": [],
                               "aggregations": [
@@ -285,11 +227,39 @@
                                   "count": {}
                                 }
                               ],
-                              "filters": [],
+                              "filters": [
+                                {
+                                  "field": null,
+                                  "operator": {
+                                    "equals": {
+                                      "selection": {
+                                        "list": {
+                                          "values": [
+                                            "accessories",
+                                            "clothing",
+                                            "footwear",
+                                            "hair",
+                                            "home",
+                                            "kitchen",
+                                            "living room"
+                                          ]
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "observationField": {
+                                    "keypath": [
+                                      "productId_enriched",
+                                      "category"
+                                    ],
+                                    "scope": "DATASET_SCOPE_USER_DATA"
+                                  }
+                                }
+                              ],
                               "groupBys": [
                                 {
                                   "keypath": [
-                                    "product_id_enriched",
+                                    "productId_enriched",
                                     "category"
                                   ],
                                   "scope": "DATASET_SCOPE_USER_DATA"
@@ -337,7 +307,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs\n| filter $p.node == null || $p.node.arrayContains($d.kubernetes.node.hostname)\n| filter product_id_enriched.price_in_currency != null\n| groupby true sum(product_id_enriched.price_in_currency:num) as total_revenue\n| create rate from total_revenue / $p.timeRange.endTime.diffTime($p.timeRange.startTime).toTimeUnit('m')\n| choose rate"
+                            "text": "source logs\n| filter $p.node == null || $p.node.arrayContains($d.resource.attributes.k8s_node_name)\n| filter productId_enriched.price_in_currency != null\n| groupby true sum(productId_enriched.price_in_currency:num) as total_revenue\n| create rate from total_revenue / $p.timeRange.endTime.diffTime($p.timeRange.startTime).toTimeUnit('m')\n| choose rate"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -396,7 +366,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs\n| filter $p.node == null || $p.node.arrayContains($d.kubernetes.node.hostname)\n| filter product_id_enriched.price_in_currency != null\n| groupby true sum(product_id_enriched.price_in_currency:num) as total_revenue"
+                            "text": "source logs\n| filter $p.node == null || $p.node.arrayContains($d.resource.attributes.k8s_node_name)\n| filter productId_enriched.price_in_currency != null\n| groupby true sum(productId_enriched.price_in_currency:num) as total_revenue"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -459,7 +429,7 @@
                 "value": "41dbfc3e-0cbd-4dd3-bbda-929dd17c6c46"
               },
               "appearance": {
-                "height": 19
+                "height": 10
               },
               "widgets": [
                 {
@@ -473,7 +443,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans \n| filter $p.node == null || $p.node.arrayContains($d.process.tags['k8s.node.name'])\n| filter $l.serviceName == 'frontend'\n| groupby true count_if(tags.error == true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']"
+                            "text": "source spans \n| filter $l.serviceName == 'frontend'\n| convert tags.error:bool\n| groupby true count_if(tags.error==true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -532,7 +502,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans \n| filter $p.node == null || $p.node.arrayContains($d.process.tags['k8s.node.name'])\n| filter $l.serviceName == 'productcatalogservice'\n| groupby true count_if(tags.error == true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']\n| replace $d['SLA Compliance'] with if($d['SLA Compliance'] == null, 0, $d['SLA Compliance'])"
+                            "text": "source spans \n| filter $l.serviceName == 'product-catalog'\n| convert tags.error:bool\n| groupby true count_if(tags.error == true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']\n| replace $d['SLA Compliance'] with if($d['SLA Compliance'] == null, 0, $d['SLA Compliance'])"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -591,7 +561,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans \n| filter $p.node == null || $p.node.arrayContains($d.process.tags['k8s.node.name'])\n| filter $l.serviceName == 'paymentservice'\n| groupby true count_if(tags.error == true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']\n| replace $d['SLA Compliance'] with if($d['SLA Compliance'] == null, 0, $d['SLA Compliance'])"
+                            "text": "source spans \n| filter $l.serviceName == 'payment'\n| convert tags.error:bool\n| groupby true count_if(tags.error == true) as error_count, count() as total_count\n| choose (100 - error_count / total_count) as $d['SLA Compliance']\n| replace $d['SLA Compliance'] with if($d['SLA Compliance'] == null, 0, $d['SLA Compliance'])"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -640,138 +610,6 @@
                   "updatedAt": null
                 }
               ]
-            },
-            {
-              "id": {
-                "value": "5867c50a-cac2-44ba-b1a1-38a6233f4681"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "4591e9f5-fe0e-4f95-8198-27c0567a9f06"
-                  },
-                  "title": "AWS Cloud Spend Breakdown",
-                  "description": null,
-                  "definition": {
-                    "barChart": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "sum(sum_over_time(cx_aws_billing_daily_costs_USD[${__range}] * 100)) by (service)"
-                          },
-                          "filters": [],
-                          "groupNames": [
-                            "service"
-                          ],
-                          "stackedGroupName": null,
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE",
-                          "aggregation": "AGGREGATION_SUM"
-                        }
-                      },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 7,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "groupBy": {}
-                      },
-                      "xAxis": {
-                        "value": {}
-                      },
-                      "unit": "UNIT_USD",
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_SIDE"
-                      },
-                      "hashColors": false,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "60e0f664-b427-4241-9943-f81bb4034aab"
-                  },
-                  "title": "AWS Cloud Spend",
-                  "description": null,
-                  "definition": {
-                    "gauge": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "sum_over_time(sum(cx_aws_billing_daily_costs_USD)[${__range}])"
-                          },
-                          "aggregation": "AGGREGATION_SUM",
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_RANGE"
-                        }
-                      },
-                      "min": 0,
-                      "max": 1000000,
-                      "showInnerArc": false,
-                      "showOuterArc": false,
-                      "unit": "UNIT_USD",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": "Good"
-                        },
-                        {
-                          "from": 33,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": "Warn"
-                        },
-                        {
-                          "from": 66,
-                          "color": "var(--c-severity-log-error)",
-                          "label": "High Spend"
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "thresholdBy": "THRESHOLD_BY_BACKGROUND",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": false,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
             }
           ],
           "options": {
@@ -796,7 +634,7 @@
                 "value": "07a8bcf4-aed8-4a8a-92ea-5191858fea9c"
               },
               "appearance": {
-                "height": 19
+                "height": 10
               },
               "widgets": [
                 {
@@ -869,7 +707,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans \n| filter $p.node == null || $p.node.arrayContains($d.process.tags['k8s.node.name'])\n| filter $l.serviceName == 'paymentservice'\n| groupby true count_if(duration > 1000) as slow, count() as total\n| choose (100 - (slow / total)) as $d['SLO Compliance']"
+                            "text": "source spans \n| filter $l.serviceName == 'payment'\n| groupby true count_if(duration > 1000) as slow, count() as total\n| choose (100 - (slow / total)) as $d['SLO Compliance']"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -1097,7 +935,7 @@
                           "query": {
                             "dataprime": {
                               "dataprimeQuery": {
-                                "text": "source logs \n| filter $p.node == null || $p.node.arrayContains($d.kubernetes.node.hostname)\n| filter $m.severity == ERROR \n| groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
+                                "text": "source logs \n| filter $p.node == null || $p.node.arrayContains($d.resource.attributes.k8s_node_name)\n| filter $m.severity == ERROR \n| groupby $m.timestamp / $p.timeRange.suggestedInterval as timestamp agg count() as count"
                               },
                               "filters": [],
                               "timeFrame": null
@@ -1233,27 +1071,15 @@
                   "definition": {
                     "pieChart": {
                       "query": {
-                        "logs": {
-                          "luceneQuery": {
-                            "value": "_exists_: product_id AND kubernetes.node.hostname: ${node}"
-                          },
-                          "aggregation": {
-                            "count": {}
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $d.cx_rum.session_context.ip_geoip.city_name != null\n| groupby $d.cx_rum.session_context.ip_geoip.city_name as $d['cx_rum.session_context.ip_geoip.city_name'] agg count() as $d['count']"
                           },
                           "filters": [],
-                          "groupNames": [],
-                          "stackedGroupName": null,
-                          "groupNamesFields": [
-                            {
-                              "keypath": [
-                                "json",
-                                "http_req_ip_geoip",
-                                "city_name"
-                              ],
-                              "scope": "DATASET_SCOPE_USER_DATA"
-                            }
+                          "groupNames": [
+                            "cx_rum.session_context.ip_geoip.city_name"
                           ],
-                          "stackedGroupNameField": null,
+                          "stackedGroupName": null,
                           "timeFrame": null
                         }
                       },
@@ -1294,80 +1120,6 @@
                 },
                 {
                   "id": {
-                    "value": "a0d0439b-4f1c-4dc8-bfe4-19032f60ba87"
-                  },
-                  "title": "Requests by Country",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "b18b9839-e060-4698-b872-8adb9fb572a7",
-                          "query": {
-                            "logs": {
-                              "luceneQuery": {
-                                "value": "_exists_: product_id AND kubernetes.node.hostname: ${node}"
-                              },
-                              "groupBy": [],
-                              "aggregations": [
-                                {
-                                  "count": {}
-                                }
-                              ],
-                              "filters": [],
-                              "groupBys": [
-                                {
-                                  "keypath": [
-                                    "json",
-                                    "http_req_ip_geoip",
-                                    "city_name"
-                                  ],
-                                  "scope": "DATASET_SCOPE_USER_DATA"
-                                }
-                              ],
-                              "timeFrame": null
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": null,
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": true,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
                     "value": "d47f8945-96e3-479d-9e77-c3c0fd769142"
                   },
                   "title": "Application Version Traffic Rates",
@@ -1390,7 +1142,7 @@
                           "query": {
                             "logs": {
                               "luceneQuery": {
-                                "value": "_exists_: cx_rum.browser_sdk.version "
+                                "value": "_exists_: cx_rum.browser_sdk.version"
                               },
                               "groupBy": [],
                               "aggregations": [
@@ -1434,74 +1186,6 @@
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
                       "connectNulls": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "90a00ab7-8f72-49c3-be00-7725ec3a490e"
-              },
-              "appearance": {
-                "height": 29
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "80c519c6-49c5-4c54-b354-4fddcf04179a"
-                  },
-                  "title": "Latency By City",
-                  "description": null,
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "avg(product_latency_by_country) by (city)"
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 500,
-                      "unit": "UNIT_MILLISECONDS",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": "OK"
-                        },
-                        {
-                          "from": 33,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": "WARNING"
-                        },
-                        {
-                          "from": 66,
-                          "color": "var(--c-severity-log-error)",
-                          "label": "SLO BREACH"
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
                     }
                   },
                   "appearance": null,
@@ -1582,7 +1266,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "cores",
                           "decimal": 4,
-                          "hashColors": true,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": false
@@ -1642,7 +1326,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": true,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": false
@@ -1702,7 +1386,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": true,
+                          "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": false
@@ -1782,7 +1466,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source logs \n| filter $p.node == null || $p.node.arrayContains($d.kubernetes.node.hostname)\n| filter severity == 'error' \n| filter $d.message.contains('product')"
+                            "text": "source logs \n| filter $d.error.contains('product')"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -1809,7 +1493,7 @@
                         }
                       ],
                       "orderBy": null,
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
                     }
                   },
                   "appearance": null,
@@ -1834,35 +1518,68 @@
       ]
     },
     "variables": [],
-    "filters": [
+    "filters": [],
+    "relativeTimeFrame": "21600s",
+    "folderId": {
+      "value": "9629a9a2-ac90-46c7-8c07-e4adb730f412"
+    },
+    "folderPath": null,
+    "annotations": [
       {
+        "id": "3d935f7e-b212-43bf-9faa-67e1f0bc50d6",
+        "name": "cpu_spikes",
+        "enabled": true,
         "source": {
           "metrics": {
-            "metric": null,
-            "label": "city",
-            "operator": {
-              "notEquals": {
-                "selection": {
-                  "list": {
-                    "values": [
-                      "cx_null"
-                    ]
-                  }
-                }
-              }
-            }
+            "promqlQuery": {
+              "value": "k8s_pod_cpu_utilization_1{k8s_node_name =~ ${node}} > 0.5"
+            },
+            "strategy": {},
+            "messageTemplate": "CPU utilisation at this period exceeded the recommended threshold",
+            "labels": [
+              "k8s_node_name"
+            ],
+            "orientation": "ANNOTATION_ORIENTATION_VERTICAL_UNSPECIFIED"
           }
         },
-        "enabled": true,
-        "collapsed": false,
-        "displayName": null
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "fdc619f0-5524-4520-b1c9-379dd7cbcb0c"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_RED"
+      },
+      {
+        "id": "d85c0cf7-fb7d-4161-8954-047ee8ce3811",
+        "name": "Memory Usage Limit",
+        "enabled": false,
+        "source": {
+          "manual": {
+            "strategy": {
+              "instant": {
+                "unit": "UNIT_MIBYTES",
+                "value": 2000000000,
+                "customUnit": null
+              }
+            },
+            "messageTemplate": "Memory Limit",
+            "orientation": "ANNOTATION_ORIENTATION_HORIZONTAL"
+          }
+        },
+        "description": "",
+        "scope": {
+          "specificWidgets": {
+            "widgetIds": [
+              "226878d4-f6c9-4a09-9d31-9fe13184290f"
+            ]
+          }
+        },
+        "color": "ANNOTATION_COLOR_RED"
       }
     ],
-    "relativeTimeFrame": "86400s",
-    "folderId": {
-      "value": "90266e8f-b8e7-4fd0-bfe6-c8581216e9ee"
-    },
-    "annotations": [],
     "off": {},
     "slugName": null,
     "variablesV2": [
@@ -1915,7 +1632,7 @@
         "widgetId": "1e5cc510-310b-45b4-beab-c3e7f5e4ab84",
         "definition": {
           "customAction": {
-            "url": "https://groceries.morrisons.com/search?q={{$d.product_id_enriched.category}}"
+            "url": "https://groceries.morrisons.com/search?q={{$d.productId_enriched.category}}"
           }
         },
         "dataSource": "ACTION_DATA_SOURCE_TYPE_LOGS"
@@ -1927,7 +1644,7 @@
         "widgetId": "fdc619f0-5524-4520-b1c9-379dd7cbcb0c",
         "definition": {
           "customAction": {
-            "url": "https://groceries.morrisons.com/search?q={{$d.product_id_enriched.category}}"
+            "url": "https://groceries.morrisons.com/search?q={{$d.productId_enriched.category}}"
           }
         },
         "dataSource": "ACTION_DATA_SOURCE_TYPE_LOGS"
@@ -2005,6 +1722,6 @@
         "dataSource": "ACTION_DATA_SOURCE_TYPE_SPANS"
       }
     ],
-    "_source_folder_name": " Ian"
+    "_source_folder_name": "Coralogix Gold"
   }
 }

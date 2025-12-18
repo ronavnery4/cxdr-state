@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "JVM",
-  "exported_at": "2025-12-18T07:21:37.711314",
+  "exported_at": "2025-12-18T12:06:30.436472",
   "data": {
-    "id": "s_qpU4vcEULlOhMNvLNfV",
+    "id": "gQyUOXFVZQJNkYsXuuXNM",
     "name": "JVM",
-    "description": "View of key metrics relating to the health and performance of Java Virtual machine.",
+    "description": "View of key metrics relating to the health and performance of Java Virtual machine running on AWS EC2 instance.",
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "0204754e-92f7-4ef5-80d0-a55459e3bfa1"
+            "value": "9e4e43b2-1a40-46c1-87b4-91c27d06ac7d"
           },
           "rows": [
             {
               "id": {
-                "value": "36a6c2b1-1a88-4959-9fc6-bc200cd42086"
+                "value": "6e96f733-deae-49e7-bd6f-4ec644078ceb"
               },
               "appearance": {
                 "height": 19
@@ -23,13 +23,13 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "9c95adbe-a6bc-4c82-955a-507145ed025f"
+                    "value": "b2423f9d-8dc6-4c1a-908d-effe1e94bec1"
                   },
                   "title": "New Markdown",
                   "description": null,
                   "definition": {
                     "markdown": {
-                      "markdownText": "**JVM**\n\nThe Java Virtual Machine (JVM)is the runtime environment that enables Java applications to execute. JVMs are widely used across a range of applications, from web services to enterprise software, making it essential to monitor their performance and resource usage to ensure smooth operations. Proper JVM monitoring helps in identifying performance bottlenecks, optimizing resource utilization, and preventing potential issues that can impact application stability and responsiveness.\n\nThis dashboard is part of the out-of-box extension and provides visibility to and alerting on key performance metrics. ",
+                      "markdownText": "**JVM**\n\nThe Java Virtual Machine (JVM)is the runtime environment that enables Java applications to execute. JVMs are widely used across a range of applications, from web services to enterprise software, making it essential to monitor their performance and resource usage to ensure smooth operations. Proper JVM monitoring helps in identifying performance bottlenecks, optimizing resource utilization, and preventing potential issues that can impact application stability and responsiveness.\n\nThis dashboard is part of the out-of-box AWS extension and provides visibility to and alerting on key performance metrics. ",
                       "tooltipText": null
                     }
                   },
@@ -39,14 +39,1385 @@
                 },
                 {
                   "id": {
-                    "value": "52a64018-eb9c-4ca8-b34a-85564a8a6baf"
+                    "value": "b0862573-f784-48b9-962a-47c8596be8a2"
                   },
                   "title": "New Markdown",
                   "description": null,
                   "definition": {
                     "markdown": {
-                      "markdownText": "**Use Cases Covered**\n\n* Memory\n* CPU\n* Garbage Collection\n* Threads\n* JVM Classes\n* Buffers & Codes\n    **More about performance monitoring of JVM workload** [ here](https://opentelemetry.io/docs/specs/semconv/runtime/jvm-metrics/)",
+                      "markdownText": "**Use Cases Covered**\n\n* JVM CPU utilisation\n* JVM CPU time in seconds\n* Heap Memory used/committed/max\n* Non Heap Memory used/committed/max\n* Number of executing thread by JVM thread daemon/State\n    JVM garbage Collection Duration\n* JVM Memory\n* JVM Classes Loaded/Unloaded Count\n    **More about performance monitoring of JVM workload on Amazon EC2** [ here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Solution-JVM-On-EC2.html)",
                       "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "da394354-32a9-48cb-9cd6-0af1a940e86d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f98c5d52-0f39-4669-b082-2ea97b1b0af5"
+                  },
+                  "title": "Top 10 JVM CPU Utilisation",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(jvm_cpu_recent_utilization_1{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[${__range}] or on () vector(0) ))  by (service_name,k8s_pod_name) * 100\n"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "k8s_pod_name",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 10,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "6b8103c2-c9f3-4eeb-969f-f4d23273004f"
+                  },
+                  "title": " JVM CPU Utilisation",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e080fabf-24b5-6155-1766-c917ac4a0ded",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_cpu_recent_utilization_1{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"} or on () vector(0) )   \n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_PERCENT_ZERO_ONE",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5ab2794e-9263-40a0-8a9c-3a9b5afa2ffc"
+                  },
+                  "title": "Total JVM CPU time in seconds",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e020a55f-4c07-e771-0600-c13551383528",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (irate(jvm_cpu_time_s_total{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"} or on () vector(0) ))"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "d57c0cac-86be-473f-8d1e-5bb2c149cff7"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "d9b6db1b-468c-44f3-b75c-6f510957059d"
+                  },
+                  "title": "Top 10 JVM Heap Memory Used",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum by (service_name,k8s_pod_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "k8s_pod_name",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 10,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_BYTES_IEC",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "638fb8f1-8285-403b-b270-56137c12821c"
+                  },
+                  "title": "Top 10 JVM Non Heap Memory Used",
+                  "description": null,
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum by (service_name,k8s_pod_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "k8s_pod_name",
+                            "service_name"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxBarsPerChart": 10,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 10,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_BYTES_IEC",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a8c60b66-dd8e-47aa-83d1-f5f0de6d1cc9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "8ea7dc80-e7c1-4186-83ef-492ea68b0e60"
+                  },
+                  "title": "Used Heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6d439e17-8e3f-f6d5-c93e-6e9ea6269b8a",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "7d2ad0fe-c58f-476d-88b9-199e7414ebd4"
+                  },
+                  "title": "Committed Heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "b426cc5f-25c7-461f-8976-4a131b1f1e41",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_committed_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "a9250425-84a0-443a-aa1b-a19fcb17b5fe"
+                  },
+                  "title": "Max Heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "64fe9c96-8689-4f84-ae86-c037a5230240",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "03be0f35-e760-4eb4-ada4-c4d5fb18f32c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_committed_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "948ff3d4-5384-416e-a716-abb79b8a6871",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_limit_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "dba18c58-c38b-4101-99ec-3846e3b07373"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "dfc42515-3e51-4b68-bf76-87785fd53d54"
+                  },
+                  "title": "Used Non Heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e645c254-208e-4f12-8fb1-1b10c41b4a11",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "1d1385ee-754a-4bf6-932b-ee40a96b57fa"
+                  },
+                  "title": "Committed Non Heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "eb31cce9-571a-4ac5-9ea8-3c5e6f9f10bc",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_committed_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=\"non_heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "9bbf3313-6480-46c7-b386-54caff63c3de"
+                  },
+                  "title": "Max Non heap Memory",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "210b9a27-dde8-4dd8-af13-f08f3f16ac10",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (service_name,k8s_pod_name) (jvm_memory_limit_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\",jvm_memory_type=~\"non_heap\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES_IEC",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "19706e06-74e2-4c32-8719-6ab97e3c4cae"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "99ce80c6-4dcf-4693-b0b6-704425523f9f"
+                  },
+                  "title": "Number Of Executing Thread By JVM Thread Daemon",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(jvm_thread_count__thread_{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[${__range}]))  by (jvm_thread_daemon)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "jvm_thread_daemon"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "bff67772-3ffd-4b7b-8884-db76950f0269"
+                  },
+                  "title": "Number Of Executing Thread By JVM Thread State",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "sum(sum_over_time(jvm_thread_count__thread_{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[${__range}])) by (jvm_thread_state)"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "jvm_thread_state"
+                          ],
+                          "stackedGroupName": null,
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                          "timeFrame": null,
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "aggregation": "AGGREGATION_UNSPECIFIED"
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 0,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 8,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "severity",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_NAME"
+                        ],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "05541b79-514c-49bb-acdc-9eb3f097fe27"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "acbded23-4b16-47c1-b6d8-20b6fd44888e"
+                  },
+                  "title": "JVM Garbage Collection Duration",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "bf021bc5-d515-79fb-235d-5f677446fd20",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(round(rate(jvm_gc_duration_s_count{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[${__range}]) * ${__range_ms}/ 1000)) by (job,le)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "f6ff1ccc-a86e-4c1f-9572-b8d20b5a8a21"
+                  },
+                  "title": "JVM Garbage Collection Duration - End Of Minor GC",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "e9ddbd97-3361-200c-eeaf-45117a7b871c",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(round(rate(jvm_gc_duration_s_bucket{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[${__range}]) * ${__range_ms}/ 1000)) by (job,le)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_SECONDS",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "34b46f22-4e46-498e-be6e-16a7ec25ab6f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "aae325ca-2cb0-4ee6-9730-627fe7cebd5e"
+                  },
+                  "title": "JVM Memory Used",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "6cdacaeb-805f-4dab-0b2d-c9d37dd54591",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (host_name) (jvm_memory_used_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}) \n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Memory used for  {{host_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "54e38f9d-6ac7-4f32-ae81-d98080bb0a90"
+                  },
+                  "title": "JVM Memory Commited",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "af3c20dd-edfc-40cf-9ee3-83a5437b3cc9",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (host_name) (jvm_memory_committed_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Mem Committed for {{host_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "670f478f-82d3-4851-9056-32e7f593a6ba"
+                  },
+                  "title": "JVM Memory Limited",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [
+                          "LEGEND_COLUMN_AVG"
+                        ],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "252db071-e4b6-4f47-9cfa-4965baa6e2ae",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum by (host_name) (jvm_memory_limit_By{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"})"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Mem Lim for {{host_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_BYTES",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "bafddd59-32fb-4815-a66a-338789f96909"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "24919e89-ca94-47b4-95ef-ed6247aaffbe"
+                  },
+                  "title": "JVM Class Loaded ",
+                  "description": "The jvm_class_loaded__class__total metric represents the total number of classes currently loaded by the Java Virtual Machine (JVM). This metric is typically used to monitor and understand the class-loading behavior of Java applications.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "153968b6-7757-8e3e-2ee3-e736261ce2dc",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(jvm_class_loaded__class__total{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[5m] or on () vector(0))) by (service_name,k8s_pod_name)\n"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "Loaded - {{service_name}} - {{k8s_pod_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "ee313d02-1caa-4ba4-802e-573570b95269"
+                  },
+                  "title": "JVM Class Unloaded",
+                  "description": "The jvm_class_loaded__class__total metric represents the total number of classes currently loaded by the Java Virtual Machine (JVM). This metric is typically used to monitor and understand the class-loading behavior of Java applications.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "0dd72946-ab45-48f0-ac3e-497a899db5bb",
+                          "query": {
+                            "metrics": {
+                              "promqlQuery": {
+                                "value": "sum(rate(jvm_class_unloaded__class__total{service_name=~\"{{service_name}}\",cloud_account_id=~\"{{cloud_account_id}}\",k8s_cluster_name=~\"{{k8s_cluster_name}}\",host_name=~\"{{host_name}}\",k8s_deployment_name=~\"{{k8s_deployment_name}}\"}[5m] or on () vector(0))) by (service_name,k8s_pod_name)"
+                              },
+                              "filters": [],
+                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
+                              "timeFrame": null,
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                            }
+                          },
+                          "seriesNameTemplate": "UnLoaded - {{service_name}} - {{k8s_pod_name}}",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": "",
+                          "decimal": null,
+                          "hashColors": null,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": null
                     }
                   },
                   "appearance": null,
@@ -59,2585 +1430,311 @@
           "options": {
             "internal": {}
           }
-        },
-        {
-          "id": {
-            "value": "dd8c8014-a34f-4321-9fcd-a00883577724"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "bae620e1-0941-4fb8-9bbf-10e08fee7c36"
-              },
-              "appearance": {
-                "height": 16
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "39c5a922-5695-4aea-8f54-a24d74301388"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# Memory - Heap/Non-Heap\n1.  Allocation Efficiency - used / committed - Allocation efficiency looks at how much of the committed memory is actually in use. \n2. OutOfMemoryError - used / limit - How close you are to the max allowed memory for that pool. \n3. After GC Baseline Usage - (memory usage after last gc / limit or committed) - Evaluates GC effectiveness at freeing space. A consistently high baseline after GC (>80\u201390%) suggests long-lived object retention or potential memory leaks, increasing the risk of OutOfMemoryError.",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "dcc85c63-3615-4362-93ea-34323b23bbf5"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "* **Heap/Non-Heap Memory Thresholds:**\n    * 0% - 70% \u2192 \ud83d\udfe2 Normal\n    * 70% - 90% \u2192 \ud83d\udfe0 Warning\n    * Above 90% \u2192 \ud83d\udd34 Critical\n\n**Note: Threshold values are configurable.**",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "e39af302-fda3-4a2e-98ca-ed5e1b4db1a0"
-              },
-              "appearance": {
-                "height": 18
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "01e7c07b-49d3-4992-a7c7-6911880db41c"
-                  },
-                  "title": "JVM Heap Memory Used (%) Per Pool -\u00a0 Allocation Efficiency",
-                  "description": "How much of the allocated (committed) memory is actually in use.",
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "(100 * avg(avg_over_time(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (pool)/ avg(avg_over_time(process_runtime_jvm_memory_committed_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (pool))"
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 100,
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": null
-                        },
-                        {
-                          "from": 70,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 90,
-                          "color": "var(--c-severity-log-error)",
-                          "label": null
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "9708fdae-0ae2-4e6c-a107-ca830d5e7093"
-                  },
-                  "title": "JVM Heap Memory Used (%) Per Pool - OutOfMemoryError\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "(100 * avg(avg_over_time(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (pool)/ avg(avg_over_time(process_runtime_jvm_memory_limit_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (pool)) "
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 100,
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": null
-                        },
-                        {
-                          "from": 70,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 90,
-                          "color": "var(--c-severity-log-error)",
-                          "label": null
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "40fd8314-2ef2-4608-8d63-5b19add70d6b"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "cc9a14b6-0053-4053-84dd-4f91734096d9"
-                  },
-                  "title": "\u00a0Min Heap Allocated\u00a0\u00a0",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "b21f13a2-0252-40c4-9285-c9b9446ed057",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(max(process_runtime_jvm_memory_init_By{ervice_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (type,pool,service_name)) by (type,service_name) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "fdcc1607-039a-4ca3-b618-e2432b9414e0"
-                  },
-                  "title": "Max heap Allocated",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "31cb46f5-41dd-49f7-94c0-0c275d90cfb6",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(max(process_runtime_jvm_memory_limit_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (type,pool,service_name)) by (type,service_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "df3e896b-6135-4ddf-8b61-8992d524bff8"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "c72c2fce-7613-4340-8d00-544d827683b6"
-                  },
-                  "title": "Heap Usage",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "c8da17d3-f7be-4477-81ed-226c8cb5ba3d",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(max(process_runtime_jvm_memory_limit_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (type,pool,service_name)) by (type,service_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "max - {{type}} {{service_name}}",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        },
-                        {
-                          "id": "2a5f4110-f900-40c0-b318-4473aad47c1c",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(max(process_runtime_jvm_memory_init_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (type,pool,service_name)) by (type,service_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "Min - {{type}} {{service_name}}",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": null,
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        },
-                        {
-                          "id": "6f8472bc-8629-4d9e-bc4e-d579cb176434",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "max(process_runtime_jvm_memory_usage_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (type,service_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "Used - {{type}} {{service_name}}",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES_IEC",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": null,
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "48c51b2a-612c-4ba6-9057-7a5a1df83b1f"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "7e53b452-d0a7-4440-a135-babbb69be16d"
-                  },
-                  "title": "JVM Heap Memory Used (%) - WRT Max Memory\u00a0\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "c3c5e9e4-e45d-4351-af79-68a29f8b84e8",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_limit_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)) or on() vector(0)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "dc1188dc-3c2f-4855-96a3-46d861d617d2"
-                  },
-                  "title": "Current JVM Heap Memory Used (%) - WRT Max Memory\u00a0\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "(100 * avg(avg_over_time(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[10m])) by (service_name,host_name)/ avg(avg_over_time(process_runtime_jvm_memory_limit_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[10m])) by (service_name,host_name)) "
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 100,
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": null
-                        },
-                        {
-                          "from": 70,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 90,
-                          "color": "var(--c-severity-log-error)",
-                          "label": null
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "fadd9747-625d-48b9-a64e-31d72ec65f5c"
-                  },
-                  "title": "Top Hosts With High Heap Memory Used (%) - WRT Max Memory\u00a0\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "horizontalBarChart": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "topk(10,(100 * avg(avg_over_time(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (host_name)/ avg(avg_over_time(process_runtime_jvm_memory_limit_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (host_name))) by (host_name) "
-                          },
-                          "filters": [],
-                          "groupNames": [
-                            "host_name"
-                          ],
-                          "stackedGroupName": null,
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
-                          "aggregation": "AGGREGATION_UNSPECIFIED"
-                        }
-                      },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 7,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "aggregation": {}
-                      },
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "displayOnBar": true,
-                      "yAxisViewBy": {
-                        "value": {}
-                      },
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "hashColors": false,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "b49e2fe6-11af-4635-a292-1c781ad16f49"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "feb37159-c31f-4a4e-8d2b-ae02b56c99d7"
-                  },
-                  "title": "JVM Non-Heap Memory Used (%) - WRT Max Memory\u00a0\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "3bdf8db7-ee32-4c52-9c11-5646d0ea7bb4",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_limit_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)) or on() vector(0)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "34b8336f-3ec5-480b-954d-522e428fda00"
-                  },
-                  "title": "JVM Non-Heap Memory Used (%) - WRT Max Memory\u00a0\u00a0",
-                  "description": "How close you are to the max allowed memory for that pool.",
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "(100 * avg(avg_over_time(process_runtime_jvm_memory_usage_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (service_name,host_name)/ avg(avg_over_time(process_runtime_jvm_memory_limit_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (service_name,host_name)) or on() vector(0)"
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 100,
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": null
-                        },
-                        {
-                          "from": 70,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 90,
-                          "color": "var(--c-severity-log-error)",
-                          "label": null
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "f94359f6-d53e-420d-91e1-6c3c6dc96bd1"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "a1e7a21f-4241-45db-bfe9-dc842bbf6ea9"
-                  },
-                  "title": "Heap % After GC - OutOfMemoryError\u00a0",
-                  "description": "Displays the percentage of heap memory still in use immediately after the most recent garbage collection, relative to the JVM\u2019s maximum heap size.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "11b0d832-e036-49da-91bd-1cee7412cc8b",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_after_last_gc_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_limit_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "efb5fdda-3ac4-4a25-a83a-7dc15db14a3a"
-                  },
-                  "title": "Heap % After GC - Allocation Efficiency",
-                  "description": "Shows the percentage of committed heap memory still in use immediately after the most recent garbage collection.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "7e93b56e-476e-45c4-ba2e-dda2d54f2858",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_after_last_gc_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_committed_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "b5f4aa0e-9637-4e64-8293-f31c79be5446"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "9630f616-0930-4fe3-85d9-c4dd7640f33b"
-                  },
-                  "title": "JVM Heap Memory Used (%) -\u00a0 Allocation Efficiency",
-                  "description": "How much of the allocated (committed) memory is actually in use.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "b45a7886-31a0-4a57-8a8f-01d87bcaf033",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_committed_By{ type=\"heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)) or on() vector(0)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "eecb5654-42ff-4da4-882a-6ff727e4425e"
-                  },
-                  "title": "JVM Non-Heap Memory Used (%) -\u00a0 Allocation Efficiency",
-                  "description": "How much of the allocated (committed) memory is actually in use.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "9a074772-3c1c-480c-8956-16c30022fba3",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)/ avg(process_runtime_jvm_memory_committed_By{ type=\"non_heap\",service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"{{pool}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name))"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "Memory",
-              "description": null,
-              "collapsed": false,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_GREEN"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "e771252d-127a-43bd-8720-e9a052aef8ce"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "49683651-6422-4764-b490-ea5e85478636"
-              },
-              "appearance": {
-                "height": 16
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "0dd225cb-d811-4911-be87-a573d3e8c9cc"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# CPU \n1. JVM CPU Utilization -  Fraction of CPU capacity used by the JVM process. High values mean the JVM is consuming significant CPU.",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "e0a5690b-b0e8-4959-beff-aea7606c99cf"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "* **CPU Thresholds:**\n    * 0% - 70% \u2192 \ud83d\udfe2 Normal\n    * 70% - 90% \u2192 \ud83d\udfe0 Warning\n    * Above 90% \u2192 \ud83d\udd34 Critical\n\n**Note: Threshold values are configurable.**",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "da8998c4-5ee3-42db-b8b8-0fafb19458cc"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "960dda93-15bc-4873-8ff3-7212d66f9ba6"
-                  },
-                  "title": "CPU Used (%)\u00a0 \u00a0",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "88c5a48c-b1a0-4a3a-8250-e20b4982fbf6",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "100 * avg(process_runtime_jvm_cpu_utilization_1{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "0ea4bc92-4f51-4aab-931d-55c1b87a2ae9"
-                  },
-                  "title": "CPU Used (%)\u00a0 \u00a0",
-                  "description": null,
-                  "definition": {
-                    "hexagon": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "100 * avg(avg_over_time(process_runtime_jvm_cpu_utilization_1{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (service_name,host_name)"
-                          },
-                          "filters": [],
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "aggregation": "AGGREGATION_UNSPECIFIED",
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT"
-                        }
-                      },
-                      "min": 0,
-                      "max": 100,
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "thresholds": [
-                        {
-                          "from": 0,
-                          "color": "var(--c-severity-log-verbose)",
-                          "label": null
-                        },
-                        {
-                          "from": 70,
-                          "color": "var(--c-severity-log-warning)",
-                          "label": null
-                        },
-                        {
-                          "from": 90,
-                          "color": "var(--c-severity-log-error)",
-                          "label": null
-                        }
-                      ],
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "legendBy": "LEGEND_BY_GROUPS",
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "9cfcbc3c-3eec-4007-aa80-8722cb7c463e"
-                  },
-                  "title": "Top Hosts With High CPU Used (%)\u00a0 \u00a0",
-                  "description": null,
-                  "definition": {
-                    "horizontalBarChart": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "topk(10,100 * avg(avg_over_time(process_runtime_jvm_cpu_utilization_1{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}[${__range}])) by (host_name)) by (host_name)"
-                          },
-                          "filters": [],
-                          "groupNames": [
-                            "host_name"
-                          ],
-                          "stackedGroupName": null,
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
-                          "aggregation": "AGGREGATION_UNSPECIFIED"
-                        }
-                      },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 7,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "aggregation": {}
-                      },
-                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                      "displayOnBar": true,
-                      "yAxisViewBy": {
-                        "value": {}
-                      },
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "hashColors": false,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "CPU",
-              "description": null,
-              "collapsed": false,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_CYAN"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "28f53b54-e4f4-41c1-ae41-1c50cb265361"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "3ecefc36-9498-47cc-8d6c-2be10e688960"
-              },
-              "appearance": {
-                "height": 13
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "c26a8624-0517-4cab-94fa-2dff1d6ea91c"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# GC - Garbage Collection\n1. GC Pause Efficiency (GC Duration) - Average time spent per garbage collection event. Short pauses = healthy GC; long pauses = possible tuning/memory issues. \n2. Time Pressure -  Percentage of total CPU time spent performing garbage collection. \n\n",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "41556176-45f5-49fd-b30f-4283e06fa559"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "6cb7cb95-06b6-4107-9138-0dfaa2623316"
-                  },
-                  "title": "Average GC Pause Efficiency\u00a0",
-                  "description": "What it means: Average time spent per garbage collection event.  Purpose: Measures how efficient each GC cycle is at reclaiming memory without long pauses. Short, stable pause durations indicate healthy GC behavior; longer or erratic pauses may signal memory pressure or suboptimal GC tuning.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "fe9f2a57-9f45-4c60-b93b-b64ecd404deb",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(process_runtime_jvm_gc_duration_sum{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name) / sum(process_runtime_jvm_gc_duration_count{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}) by (service_name,host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_SECONDS",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "37b036ad-2ed0-444f-9e35-21ca6fa036ec"
-                  },
-                  "title": "GC Frequency",
-                  "description": "how often GC runs",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "57c29d8e-1421-4007-8eb5-4915acf63674",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "avg(rate(process_runtime_jvm_gc_duration_count{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}[5m])) by (service_name,host_name) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "07fd9740-e4aa-4544-830f-2b8c592fe8fe"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "85fb90fd-b954-4a97-867b-7803c9cdff06"
-                  },
-                  "title": "Average GC Pause Efficiency\u00a0 - By Action",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "0fbceab1-00bb-4dc8-ba42-6f2fdfa2702b",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(process_runtime_jvm_gc_duration_sum{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}) by (service_name,action) / sum(process_runtime_jvm_gc_duration_count{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\"}) by (service_name,action)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_SECONDS",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "Garbage Collection",
-              "description": null,
-              "collapsed": false,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_BLUE"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "235a9baf-5050-4bbf-8691-6c9e47d718f0"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "2f94031e-c673-4de0-bd33-87868b894af7"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "c7977186-e880-4203-8a4e-8e3b67dcd90c"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# Threads \u2013 JVM\n1. Live Threads -  Total number of live JVM threads (daemon + non-daemon). Indicates current thread activity.\n2. Daemon Threads - Number of JVM daemon threads. Useful for monitoring background activity and resource usage.\n3. Peak Threads - Highest number of live threads observed since JVM start. Helps spot thread spikes and capacity issues. \n4. Threads by State - Breakdown of threads by state (RUNNABLE, WAITING, TIMED_WAITING, BLOCKED). Identifies contention, waiting patterns, and potential deadlocks.",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "0d8f6df2-4cc2-4884-ad68-e0ddc7ccdff0"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "2a3747f7-9402-4791-ba3c-d9fc897d05c4"
-                  },
-                  "title": "Live Threads",
-                  "description": "Number of executing platform threads.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "8bfad221-805e-4a7e-9648-4a27c29c8ca6",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(jvm_threads_live{ host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (service_name,host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "9653e61d-5a02-453c-a48e-4947e5e47ca6"
-                  },
-                  "title": "Daemon Threads",
-                  "description": "Number of JVM daemon threads. Useful for monitoring background activity and resource usage.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "265b3afa-7789-41e7-a67d-d9e59e9d4be4",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(jvm_threads_daemon{ host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (service_name,host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "667dc513-9c8a-4398-9847-f09c4b483154"
-                  },
-                  "title": "Peak Threads",
-                  "description": "ighest number of live threads observed since JVM start. Helps spot thread spikes and capacity issues.",
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "490b344f-ee2e-4944-a7ee-46b12d96d7f8",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(jvm_threads_peak{ host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (service_name,host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "f4ba4b1d-ddfe-43dd-ab0f-d1d2720831d8"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "a4015b96-0d76-4e07-99db-eb0ffbcc6700"
-                  },
-                  "title": "JVM Threads by State",
-                  "description": "Breakdown of threads by state (RUNNABLE, WAITING, TIMED_WAITING, BLOCKED). Identifies contention, waiting patterns, and potential deadlocks.",
-                  "definition": {
-                    "barChart": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "sum(jvm_threads_states{ host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (state)"
-                          },
-                          "filters": [],
-                          "groupNames": [
-                            "state"
-                          ],
-                          "stackedGroupName": null,
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
-                          "aggregation": "AGGREGATION_UNSPECIFIED"
-                        }
-                      },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 7,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "groupBy": {}
-                      },
-                      "xAxis": {
-                        "value": {}
-                      },
-                      "unit": "UNIT_UNSPECIFIED",
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_SIDE"
-                      },
-                      "hashColors": true,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "92f7ba00-fe3c-44c3-86f8-e51dd2ae414a"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "19b9758a-70d5-4cea-a74f-2967789edffd"
-                  },
-                  "title": "JVM Threads by State Per Host",
-                  "description": null,
-                  "definition": {
-                    "barChart": {
-                      "query": {
-                        "metrics": {
-                          "promqlQuery": {
-                            "value": "sum(jvm_threads_states{ host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (state,host_name)"
-                          },
-                          "filters": [],
-                          "groupNames": [
-                            "state"
-                          ],
-                          "stackedGroupName": "host_name",
-                          "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                          "timeFrame": null,
-                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
-                          "aggregation": "AGGREGATION_UNSPECIFIED"
-                        }
-                      },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 30,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "groupBy": {}
-                      },
-                      "xAxis": {
-                        "value": {}
-                      },
-                      "unit": "UNIT_UNSPECIFIED",
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
-                      "customUnit": "",
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_SIDE"
-                      },
-                      "hashColors": true,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "Threads",
-              "description": null,
-              "collapsed": false,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_PURPLE"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "5e7ad5a9-482f-4ba0-8288-344bd672b08b"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "bce4b8b2-144e-46f3-9eae-4b8dc61f72a3"
-              },
-              "appearance": {
-                "height": 12
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "d4471f82-a214-4591-8c57-2ad624ce96f5"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# JVM Classes\n1. Loaded Classes - Shows the current number of Java classes loaded in the JVM. \n2. Unloaded Classes - Shows the total number of Java classes unloaded since the JVM started. Healthy JVMs unload unused classes over time; a very low value alongside rising loaded classes may suggest a classloader leak.",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "7ed4caab-33d5-4bcf-9b23-136df2dd2d48"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "4c15ab00-48a7-4fa3-8dbe-e859f9a7e122"
-                  },
-                  "title": "Loaded Classes",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "fd555eb6-2fcd-489a-b5ca-002491d3c1da",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(increase(process_runtime_jvm_classes_loaded__class__total{host_name=~\"{{host_name}}\",service_name=~\"{{service_name}}\",host_id=~\"{{host_id}}\"}[1m])) by (host_name)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "684383d2-1918-4373-8601-c4a613bb23a1"
-                  },
-                  "title": "Unloaded Classes",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "2a89d36b-fde4-4e96-8908-196ddf85c4cf",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(increase(process_runtime_jvm_classes_unloaded__class__total{host_name=~\"{{host_name}}\",service_name=~\"{{service_name}}\",host_id=~\"{{host_id}}\"}[1m])) by (host_name) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "JVM Classes",
-              "description": null,
-              "collapsed": false,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_MAGENTA"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "1d11cbfd-864f-4784-823b-72e87c625762"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "e43d3eb6-d92d-4f2e-8915-ec112b313198"
-              },
-              "appearance": {
-                "height": 12
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "948957c7-5763-4ed2-a162-6a1c63058209"
-                  },
-                  "title": "New Markdown",
-                  "description": null,
-                  "definition": {
-                    "markdown": {
-                      "markdownText": "# Bufferes & Code \n1. Buffer Memory Used - Bytes of memory currently used by JVM buffers (direct and mapped). Sudden growth may indicate excessive direct buffer allocation. \n2. Code Usage - Bytes of JVM code cache in use. High or full code cache usage can trigger OutOfMemoryError: CodeCache is full and cause JIT compilation to stop. ",
-                      "tooltipText": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "7f0fbbc4-d73f-4f1b-9589-217cde7f0773"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "f2c0170a-c549-44d7-a384-053c8cafb7f2"
-                  },
-                  "title": "Direct/Buffer Memory Used",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "a5d4a191-6014-4ac7-9a05-f86afbd1fa48",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "sum(process_runtime_jvm_buffer_usage_By{host_name=~\"{{host_name}}\",host_id=~\"{{host_id}}\",service_name=~\"{{service_name}}\"}) by (pool) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_BYTES",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "e94e3f28-8dc3-4372-8f9f-4e2c7f7e9fed"
-                  },
-                  "title": "Code Usage\u00a0",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "9ef0d2df-2b0c-458e-b138-2a7917bb7814",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "(100 * avg(process_runtime_jvm_memory_usage_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"Code.+\",host_id=~\"{{host_id}}\",}) by (pool)/ avg(process_runtime_jvm_memory_committed_By{service_name=~\"{{service_name}}\",host_name=~\"{{host_name}}\",pool=~\"Code.+\",host_id=~\"{{host_id}}\"}) by (pool)) or on() vector(0)"
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "Buffers & Code",
-              "description": null,
-              "collapsed": true,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_PINK"
-              },
-              "repetitiveVar": null
-            }
-          }
-        },
-        {
-          "id": {
-            "value": "9220b5d6-7a7a-4859-bb64-9f2f50979b51"
-          },
-          "rows": [
-            {
-              "id": {
-                "value": "6babb9c2-eaca-42bd-9973-b7e3e91a88da"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "6d2fe857-4b27-4ea5-ba71-d334623cc3e9"
-                  },
-                  "title": "Hikari connection",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": false,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": true,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "7ba40dd7-579d-4a27-887d-a7aae8d7defb",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "max(hikaricp_connections_active{ pool=~\"{{pool}}\", host_name=~\"{{host_name}}\", host_id=~\"{{host_id}}\"}) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "Active",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        },
-                        {
-                          "id": "ac3d19fc-e446-414f-ae57-ee99d0e507b3",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "max(hikaricp_connections_idle{ pool=~\"{{pool}}\", host_name=~\"{{host_name}}\", host_id=~\"{{host_id}}\"}) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "Idle",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": null,
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        },
-                        {
-                          "id": "50bd96f5-e462-489c-b4fd-17ea0930f4ac",
-                          "query": {
-                            "metrics": {
-                              "promqlQuery": {
-                                "value": "max(hikaricp_connections_pending{ pool=~\"{{pool}}\", host_name=~\"{{host_name}}\", host_id=~\"{{host_id}}\"}) "
-                              },
-                              "filters": [],
-                              "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
-                              "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
-                            }
-                          },
-                          "seriesNameTemplate": "Pending",
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_UNSPECIFIED",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": null,
-                          "isVisible": true,
-                          "colorScheme": "classic",
-                          "resolution": {
-                            "interval": null,
-                            "bucketsPresented": 96
-                          },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": null,
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": false
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": true
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            }
-          ],
-          "options": {
-            "custom": {
-              "name": "Hikari",
-              "description": null,
-              "collapsed": true,
-              "color": {
-                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
-              },
-              "repetitiveVar": null
-            }
-          }
         }
       ]
     },
-    "variables": [],
-    "filters": [],
-    "relativeTimeFrame": "86400s",
-    "annotations": [],
-    "off": {},
-    "slugName": null,
-    "variablesV2": [
+    "variables": [
       {
-        "name": "service_name",
-        "displayName": "service_name",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
-        "source": {
-          "query": {
-            "metricsQuery": {
-              "type": {
-                "labelValue": {
-                  "metricName": {
-                    "stringValue": "process_runtime_jvm_cpu_utilization_1"
-                  },
-                  "labelName": {
-                    "stringValue": "service_name"
-                  },
-                  "labelFilters": []
+        "name": "cloud_account_id",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "cloud_account_id"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
                 }
               }
             },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-            "valueDisplayOptions": {
-              "valueRegex": null,
-              "labelRegex": null
+            "selection": {
+              "all": {}
             },
-            "allOption": {
-              "includeAll": true,
-              "label": null
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
             }
           }
         },
-        "value": {
-          "multiString": {
-            "all": {}
-          }
-        },
-        "displayFullRow": false
+        "displayName": "cloud_account_id",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
       },
       {
-        "name": "pool",
-        "displayName": "pool",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
-        "source": {
-          "query": {
-            "metricsQuery": {
-              "type": {
-                "labelValue": {
-                  "metricName": {
-                    "stringValue": "process_runtime_jvm_memory_usage_By"
-                  },
-                  "labelName": {
-                    "stringValue": "pool"
-                  },
-                  "labelFilters": []
+        "name": "cx_application_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "cx_application_name"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
                 }
               }
             },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-            "valueDisplayOptions": {
-              "valueRegex": null,
-              "labelRegex": null
+            "selection": {
+              "all": {}
             },
-            "allOption": {
-              "includeAll": true,
-              "label": null
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
             }
           }
         },
-        "value": {
-          "multiString": {
-            "all": {}
+        "displayName": "cx_application_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "service_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "service_name"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
           }
         },
-        "displayFullRow": false
+        "displayName": "service_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "k8s_cluster_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "k8s_cluster_name"
+                        },
+                        "labelFilters": []
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
+          }
+        },
+        "displayName": "k8s_cluster_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
       },
       {
         "name": "host_name",
-        "displayName": "host_name",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
-        "source": {
-          "query": {
-            "metricsQuery": {
-              "type": {
-                "labelValue": {
-                  "metricName": {
-                    "stringValue": "process_runtime_jvm_cpu_utilization_1"
-                  },
-                  "labelName": {
-                    "stringValue": "host_name"
-                  },
-                  "labelFilters": []
-                }
-              }
-            },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-            "valueDisplayOptions": {
-              "valueRegex": null,
-              "labelRegex": null
-            },
-            "allOption": {
-              "includeAll": true,
-              "label": null
-            }
-          }
-        },
-        "value": {
-          "multiString": {
-            "all": {}
-          }
-        },
-        "displayFullRow": false
-      },
-      {
-        "name": "host_id",
-        "displayName": "host_id",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
-        "source": {
-          "query": {
-            "metricsQuery": {
-              "type": {
-                "labelValue": {
-                  "metricName": {
-                    "stringValue": "process_runtime_jvm_cpu_utilization_1"
-                  },
-                  "labelName": {
-                    "stringValue": "host_id"
-                  },
-                  "labelFilters": [
-                    {
-                      "metric": null,
-                      "label": {
-                        "stringValue": "host_name"
-                      },
-                      "operator": {
-                        "equals": {
-                          "selection": {
-                            "list": {
-                              "values": [
-                                {
-                                  "variableName": "host_name"
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "host_name"
+                        },
+                        "labelFilters": [
+                          {
+                            "metric": null,
+                            "label": {
+                              "stringValue": "k8s_deployment_name"
+                            },
+                            "operator": {
+                              "equals": {
+                                "selection": {
+                                  "list": {
+                                    "values": [
+                                      {
+                                        "variableName": "k8s_deployment_name"
+                                      }
+                                    ]
+                                  }
                                 }
-                              ]
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
-                  ]
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
                 }
               }
             },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-            "valueDisplayOptions": {
-              "valueRegex": null,
-              "labelRegex": null
+            "selection": {
+              "all": {}
             },
-            "allOption": {
-              "includeAll": true,
-              "label": null
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
             }
           }
         },
-        "value": {
-          "multiString": {
-            "all": {}
+        "displayName": "host_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
+      },
+      {
+        "name": "k8s_deployment_name",
+        "definition": {
+          "multiSelect": {
+            "selected": [],
+            "source": {
+              "query": {
+                "query": {
+                  "metricsQuery": {
+                    "type": {
+                      "labelValue": {
+                        "metricName": {
+                          "stringValue": "jvm_cpu_recent_utilization_1"
+                        },
+                        "labelName": {
+                          "stringValue": "k8s_deployment_name"
+                        },
+                        "labelFilters": [
+                          {
+                            "metric": null,
+                            "label": {
+                              "stringValue": "k8s_cluster_name"
+                            },
+                            "operator": {
+                              "equals": {
+                                "selection": {
+                                  "list": {
+                                    "values": [
+                                      {
+                                        "variableName": "k8s_cluster_name"
+                                      }
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+                "valueDisplayOptions": {
+                  "valueRegex": null,
+                  "labelRegex": null
+                }
+              }
+            },
+            "selection": {
+              "all": {}
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "selectionOptions": {
+              "selectionType": "SELECTION_TYPE_MULTI_ALL"
+            }
           }
         },
-        "displayFullRow": false
+        "displayName": "k8s_deployment_name",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
       }
     ],
+    "filters": [],
+    "relativeTimeFrame": "3600s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
     "actions": []
   }
 }

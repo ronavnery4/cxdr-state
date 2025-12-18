@@ -1,9 +1,9 @@
 {
   "id": "unknown",
   "name": "\ud83d\udd34 APM - RED Metrics (Frequent Search)",
-  "exported_at": "2025-12-18T07:21:37.902590",
+  "exported_at": "2025-12-18T12:06:30.461930",
   "data": {
-    "id": "HuPNNeyYayrhOAawpxLcZ",
+    "id": "y9wFkSjhDtB7QrbLLc6z3",
     "name": "\ud83d\udd34 APM - RED Metrics (Frequent Search)",
     "description": "Dashboard that shows how the applications are performing",
     "layout": {
@@ -802,7 +802,7 @@
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans\n| filter arrayContains({{ service_name }}, $l.serviceName)\n| filter tags['http.status_code'] >= 402 && tags['http.status_code'] <= 499\n| sortby $m.timestamp desc\n\n// | lucene 'tags.http.status_code:(404 OR 403)'\n// | lucene 'serviceName.keyword:/.*/'\n\n// | filter $l.serviceName.contains('cartservice')\n// | filter tags['http.status_code'] ~ '403' || tags['http.status_code'] ~ '404' \n"
+                            "text": "source spans\n| filter arrayContains({{ service_name }}, $l.serviceName)\n| filter tags['http.status_code']:num >= 402 && tags['http.status_code']:num <= 499\n| sortby $m.timestamp desc\n\n// | lucene 'tags.http.status_code:(404 OR 403)'\n// | lucene 'serviceName.keyword:/.*/'\n\n// | filter $l.serviceName.contains('cartservice')\n// | filter tags['http.status_code'] ~ '403' || tags['http.status_code'] ~ '404' \n"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -812,32 +812,8 @@
                       "rowStyle": "ROW_STYLE_ONE_LINE",
                       "columns": [
                         {
-                          "field": "$m.timestamp",
-                          "width": 200
-                        },
-                        {
-                          "field": "$l.operationName",
-                          "width": 738
-                        },
-                        {
-                          "field": "$d.tags.http.status_code",
-                          "width": 200
-                        },
-                        {
-                          "field": "$m.duration",
-                          "width": 100
-                        },
-                        {
-                          "field": "$m.isError",
-                          "width": 95
-                        },
-                        {
-                          "field": "$l.applicationName",
-                          "width": 160
-                        },
-                        {
-                          "field": "$l.subsystemName",
-                          "width": 150
+                          "field": "$d",
+                          "width": null
                         }
                       ],
                       "orderBy": null,
@@ -1789,7 +1765,7 @@
           ],
           "options": {
             "custom": {
-              "name": "Latency",
+              "name": "Duration",
               "description": null,
               "collapsed": false,
               "color": {
@@ -1968,10 +1944,9 @@
     },
     "variables": [],
     "filters": [],
-    "relativeTimeFrame": "3600s",
-    "folderId": {
-      "value": "44d5ef1d-f8ab-b21d-ff5a-e93c45cea98a"
-    },
+    "relativeTimeFrame": "86400s",
+    "folderId": null,
+    "folderPath": null,
     "annotations": [],
     "off": {},
     "slugName": null,
@@ -2015,7 +1990,6 @@
         "displayFullRow": false
       }
     ],
-    "actions": [],
-    "_source_folder_name": "APM Dashboards"
+    "actions": []
   }
 }

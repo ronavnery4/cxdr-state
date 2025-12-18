@@ -1,54 +1,288 @@
 {
   "id": "unknown",
   "name": "New Dashboard",
-  "exported_at": "2025-12-18T07:04:08.880973",
+  "exported_at": "2025-12-18T07:15:42.533759",
   "data": {
-    "id": "vuYvslC9K0Bs6RFsQvwno",
+    "id": "tFCl2XuDOJajvnMSWtgjt",
     "name": "New Dashboard",
     "description": null,
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "293b037f-3509-4f28-9fc2-ea354d8f6dfe"
+            "value": "d5878d30-7b8d-437b-bde1-e86f9a87926a"
           },
           "rows": [
             {
               "id": {
-                "value": "8f2e659e-c8bc-4e4c-8a9b-a75cc8c7a11d"
+                "value": "fb982e90-d8f7-48a2-aa90-9aee0cb19300"
               },
               "appearance": {
-                "height": 33
+                "height": 19
               },
               "widgets": [
                 {
                   "id": {
-                    "value": "3571f2b5-5e24-48ee-b664-7d06150e76ab"
+                    "value": "8e04a617-eaad-4814-b943-ffec5d9e63ba"
                   },
-                  "title": "New Vertical Bar Chart",
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby $d.kubernetes.node.hostname agg count()"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [
+                                  "kubernetes",
+                                  "node",
+                                  "hostname"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "_count0"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "id": {
+                                "value": "f4df0e25-0387-489d-9031-f71251e693a3"
+                              },
+                              "name": "IP Format",
+                              "description": "",
+                              "ruleScope": {
+                                "field": {
+                                  "keypath": [
+                                    "kubernetes",
+                                    "node",
+                                    "hostname"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "4fbac61e-1991-4c30-9758-86082108fff8"
+                                  },
+                                  "definition": {
+                                    "regexExtract": "^ip-((?:\\d+-)*\\d+)\\."
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "5f21ae6f-940e-4464-9529-c73f20d609cb"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "2bdb3611-6771-424d-9be2-1c749f945fcc"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs\n| filter $m.severity == ERROR\n| groupby $m.timestamp / 10m as bucket.ts agg count() as bucket.count, max($d.http_resp_bytes) as bucket.maxBytes\n| groupby bucket.ts / 1d as day max_by(bucket.count, bucket) as bucket\n| choose day.formatTimestamp('%d-%m-%Y') as day,\n         bucket.count as count,\n         bucket.maxBytes as largestBytes,\n         bucket.ts.formatTimestamp('%d-%m-%Y %H:%M') as ts"
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                        }
+                      },
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [
+                                  "day"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "largestBytes"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "count"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "ts"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "id": {
+                                "value": "5589c9b8-0939-4ae8-ad55-f87694b1d98c"
+                              },
+                              "name": "Numbers",
+                              "description": "",
+                              "ruleScope": {
+                                "field": {
+                                  "keypath": [
+                                    "largestBytes"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "680180f8-4885-4870-af42-c6f1c0c491c1"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 0,
+                                      "max": 100,
+                                      "unit": "UNIT_PERCENT",
+                                      "customUnit": null,
+                                      "decimalPrecision": 1,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                },
+                                {
+                                  "id": {
+                                    "value": "bcda53a5-bdc4-482b-a6b5-d4f7b2c5cbd3"
+                                  },
+                                  "definition": {
+                                    "thresholds": {
+                                      "values": [
+                                        {
+                                          "from": 0,
+                                          "color": "var(--c-severity-log-verbose)",
+                                          "label": null
+                                        }
+                                      ],
+                                      "type": "THRESHOLD_TYPE_RELATIVE",
+                                      "min": 1000,
+                                      "max": 5000
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "id": {
+                                "value": "e1ca7daf-e44d-42f6-b0a3-6cbfecf150e2"
+                              },
+                              "name": "New rule",
+                              "description": "",
+                              "ruleScope": {
+                                "field": {
+                                  "keypath": [
+                                    "count"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              },
+                              "properties": [
+                                {
+                                  "id": {
+                                    "value": "07c2ce54-b8fd-4e3f-a3e2-ee353902af8b"
+                                  },
+                                  "definition": {
+                                    "units": {
+                                      "min": 1000,
+                                      "max": 10000,
+                                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
+                                      "customUnit": null,
+                                      "decimalPrecision": 2,
+                                      "allowAbbreviation": true
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "2862b354-9665-4167-ac69-76c9c2540b2d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c48d4049-ad2c-4ba5-be68-1f893a9bcc25"
+                  },
+                  "title": "New Data Table",
                   "description": null,
                   "definition": {
                     "barChart": {
                       "query": {
-                        "logs": {
-                          "luceneQuery": {
-                            "value": ""
-                          },
-                          "aggregation": {
-                            "count": {}
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | groupby $l.subsystemname agg count()"
                           },
                           "filters": [],
-                          "groupNames": [],
-                          "stackedGroupName": null,
-                          "groupNamesFields": [
-                            {
-                              "keypath": [
-                                "subsystemname"
-                              ],
-                              "scope": "DATASET_SCOPE_LABEL"
-                            }
+                          "groupNames": [
+                            "subsystemname"
                           ],
-                          "stackedGroupNameField": null,
+                          "stackedGroupName": null,
                           "timeFrame": null
                         }
                       },
@@ -65,7 +299,7 @@
                       "xAxis": {
                         "value": {}
                       },
-                      "unit": "UNIT_UNSPECIFIED",
+                      "unit": "UNIT_BYTES_IEC",
                       "sortBy": "SORT_BY_TYPE_VALUE",
                       "colorScheme": "classic",
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
@@ -99,7 +333,7 @@
     },
     "variables": [],
     "filters": [],
-    "relativeTimeFrame": "900s",
+    "relativeTimeFrame": "300s",
     "annotations": [],
     "off": {},
     "slugName": null,

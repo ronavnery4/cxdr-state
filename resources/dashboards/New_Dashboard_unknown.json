@@ -1,21 +1,21 @@
 {
   "id": "unknown",
   "name": "New Dashboard",
-  "exported_at": "2025-12-18T07:15:42.533759",
+  "exported_at": "2025-12-18T07:21:37.756720",
   "data": {
-    "id": "tFCl2XuDOJajvnMSWtgjt",
+    "id": "xZ73SSlWq5ipHlKUaqnoI",
     "name": "New Dashboard",
     "description": null,
     "layout": {
       "sections": [
         {
           "id": {
-            "value": "d5878d30-7b8d-437b-bde1-e86f9a87926a"
+            "value": "df96269a-c629-4938-93ce-a9c6947aa4f7"
           },
           "rows": [
             {
               "id": {
-                "value": "fb982e90-d8f7-48a2-aa90-9aee0cb19300"
+                "value": "e027e56c-b0ea-45e5-9518-2c02dec9ff7d"
               },
               "appearance": {
                 "height": 19
@@ -23,18 +23,20 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "8e04a617-eaad-4814-b943-ffec5d9e63ba"
+                    "value": "261714f8-34de-4d88-bd0e-5ebdb3a97130"
                   },
                   "title": "New dynamic widget",
                   "description": null,
                   "definition": {
                     "dynamic": {
                       "query": {
-                        "dataprime": {
-                          "dataprimeQuery": {
-                            "text": "source logs | groupby $d.kubernetes.node.hostname agg count()"
+                        "metrics": {
+                          "promqlQuery": {
+                            "value": "up"
                           },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                          "promqlQueryType": "PROM_QL_QUERY_TYPE_INSTANT",
+                          "editorMode": "METRICS_QUERY_EDITOR_MODE_BUILDER",
+                          "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
                         }
                       },
                       "timeFrame": null,
@@ -45,9 +47,7 @@
                             {
                               "field": {
                                 "keypath": [
-                                  "kubernetes",
-                                  "node",
-                                  "hostname"
+                                  "http_scheme"
                                 ],
                                 "scope": "DATASET_SCOPE_USER_DATA"
                               }
@@ -55,41 +55,205 @@
                             {
                               "field": {
                                 "keypath": [
-                                  "_count0"
+                                  "service_instance_id"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cx_application_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "net_host_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_node_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_platform"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_cluster_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "server_port"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_pod_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_account_id"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "url_scheme"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "service_version"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_namespace_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cx_agent_type"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_provider"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "os_type"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_availability_zone"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "server_address"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_image_id"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cloud_region"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "k8s_daemonset_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "cx_otel_integration_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_type"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "deployment_environment_name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "host_id"
                                 ],
                                 "scope": "DATASET_SCOPE_USER_DATA"
                               }
                             }
                           ],
-                          "rules": [
-                            {
-                              "id": {
-                                "value": "f4df0e25-0387-489d-9031-f71251e693a3"
-                              },
-                              "name": "IP Format",
-                              "description": "",
-                              "ruleScope": {
-                                "field": {
-                                  "keypath": [
-                                    "kubernetes",
-                                    "node",
-                                    "hostname"
-                                  ],
-                                  "scope": "DATASET_SCOPE_USER_DATA"
-                                }
-                              },
-                              "properties": [
-                                {
-                                  "id": {
-                                    "value": "4fbac61e-1991-4c30-9758-86082108fff8"
-                                  },
-                                  "definition": {
-                                    "regexExtract": "^ip-((?:\\d+-)*\\d+)\\."
-                                  }
-                                }
-                              ]
-                            }
-                          ]
+                          "rules": []
                         }
                       }
                     }
@@ -102,7 +266,7 @@
             },
             {
               "id": {
-                "value": "5f21ae6f-940e-4464-9529-c73f20d609cb"
+                "value": "bc32339a-df06-4f96-aa9a-28ec1d1037c0"
               },
               "appearance": {
                 "height": 19
@@ -110,212 +274,50 @@
               "widgets": [
                 {
                   "id": {
-                    "value": "2bdb3611-6771-424d-9be2-1c749f945fcc"
+                    "value": "40e5bf98-b6a4-4da7-b177-d7b4c6f6cfbf"
                   },
                   "title": "New dynamic widget",
                   "description": null,
                   "definition": {
                     "dynamic": {
                       "query": {
-                        "dataprime": {
-                          "dataprimeQuery": {
-                            "text": "source logs\n| filter $m.severity == ERROR\n| groupby $m.timestamp / 10m as bucket.ts agg count() as bucket.count, max($d.http_resp_bytes) as bucket.maxBytes\n| groupby bucket.ts / 1d as day max_by(bucket.count, bucket) as bucket\n| choose day.formatTimestamp('%d-%m-%Y') as day,\n         bucket.count as count,\n         bucket.maxBytes as largestBytes,\n         bucket.ts.formatTimestamp('%d-%m-%Y %H:%M') as ts"
+                        "logs": {
+                          "luceneQuery": {
+                            "value": ""
                           },
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
-                        }
-                      },
-                      "timeFrame": null,
-                      "interpretation": "INTERPRETATION_UNSPECIFIED",
-                      "visualization": {
-                        "table": {
-                          "columns": [
-                            {
-                              "field": {
-                                "keypath": [
-                                  "day"
-                                ],
-                                "scope": "DATASET_SCOPE_USER_DATA"
-                              }
-                            },
-                            {
-                              "field": {
-                                "keypath": [
-                                  "largestBytes"
-                                ],
-                                "scope": "DATASET_SCOPE_USER_DATA"
-                              }
-                            },
-                            {
-                              "field": {
-                                "keypath": [
-                                  "count"
-                                ],
-                                "scope": "DATASET_SCOPE_USER_DATA"
-                              }
-                            },
-                            {
-                              "field": {
-                                "keypath": [
-                                  "ts"
-                                ],
-                                "scope": "DATASET_SCOPE_USER_DATA"
-                              }
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "id": {
-                                "value": "5589c9b8-0939-4ae8-ad55-f87694b1d98c"
-                              },
-                              "name": "Numbers",
-                              "description": "",
-                              "ruleScope": {
-                                "field": {
-                                  "keypath": [
-                                    "largestBytes"
-                                  ],
-                                  "scope": "DATASET_SCOPE_USER_DATA"
-                                }
-                              },
-                              "properties": [
-                                {
-                                  "id": {
-                                    "value": "680180f8-4885-4870-af42-c6f1c0c491c1"
-                                  },
-                                  "definition": {
-                                    "units": {
-                                      "min": 0,
-                                      "max": 100,
-                                      "unit": "UNIT_PERCENT",
-                                      "customUnit": null,
-                                      "decimalPrecision": 1,
-                                      "allowAbbreviation": true
-                                    }
-                                  }
-                                },
-                                {
-                                  "id": {
-                                    "value": "bcda53a5-bdc4-482b-a6b5-d4f7b2c5cbd3"
-                                  },
-                                  "definition": {
-                                    "thresholds": {
-                                      "values": [
-                                        {
-                                          "from": 0,
-                                          "color": "var(--c-severity-log-verbose)",
-                                          "label": null
-                                        }
-                                      ],
-                                      "type": "THRESHOLD_TYPE_RELATIVE",
-                                      "min": 1000,
-                                      "max": 5000
-                                    }
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "id": {
-                                "value": "e1ca7daf-e44d-42f6-b0a3-6cbfecf150e2"
-                              },
-                              "name": "New rule",
-                              "description": "",
-                              "ruleScope": {
-                                "field": {
-                                  "keypath": [
-                                    "count"
-                                  ],
-                                  "scope": "DATASET_SCOPE_USER_DATA"
-                                }
-                              },
-                              "properties": [
-                                {
-                                  "id": {
-                                    "value": "07c2ce54-b8fd-4e3f-a3e2-ee353902af8b"
-                                  },
-                                  "definition": {
-                                    "units": {
-                                      "min": 1000,
-                                      "max": 10000,
-                                      "unit": "UNIT_PERCENT_ZERO_HUNDRED",
-                                      "customUnit": null,
-                                      "decimalPrecision": 2,
-                                      "allowAbbreviation": true
-                                    }
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                }
-              ]
-            },
-            {
-              "id": {
-                "value": "2862b354-9665-4167-ac69-76c9c2540b2d"
-              },
-              "appearance": {
-                "height": 19
-              },
-              "widgets": [
-                {
-                  "id": {
-                    "value": "c48d4049-ad2c-4ba5-be68-1f893a9bcc25"
-                  },
-                  "title": "New Data Table",
-                  "description": null,
-                  "definition": {
-                    "barChart": {
-                      "query": {
-                        "dataprime": {
-                          "dataprimeQuery": {
-                            "text": "source logs | groupby $l.subsystemname agg count()"
-                          },
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "filters": [],
-                          "groupNames": [
-                            "subsystemname"
-                          ],
-                          "stackedGroupName": null,
-                          "timeFrame": null
+                          "groupBy": [],
+                          "aggregation": []
                         }
                       },
-                      "maxBarsPerChart": 24,
-                      "groupNameTemplate": null,
-                      "stackDefinition": {
-                        "maxSlicesPerBar": 7,
-                        "stackNameTemplate": null
-                      },
-                      "scaleType": "SCALE_TYPE_LINEAR",
-                      "colorsBy": {
-                        "groupBy": {}
-                      },
-                      "xAxis": {
-                        "value": {}
-                      },
-                      "unit": "UNIT_BYTES_IEC",
-                      "sortBy": "SORT_BY_TYPE_VALUE",
-                      "colorScheme": "classic",
-                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
-                      "customUnit": null,
-                      "decimal": 2,
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_SIDE"
-                      },
-                      "hashColors": false,
-                      "yAxisMin": null,
-                      "yAxisMax": null,
-                      "decimalPrecision": false
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "table": {
+                          "columns": [
+                            {
+                              "field": {
+                                "keypath": [
+                                  "pid"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            },
+                            {
+                              "field": {
+                                "keypath": [
+                                  "responseObject",
+                                  "metadata",
+                                  "name"
+                                ],
+                                "scope": "DATASET_SCOPE_USER_DATA"
+                              }
+                            }
+                          ],
+                          "rules": []
+                        }
+                      }
                     }
                   },
                   "appearance": null,
@@ -333,7 +335,7 @@
     },
     "variables": [],
     "filters": [],
-    "relativeTimeFrame": "300s",
+    "relativeTimeFrame": "900s",
     "annotations": [],
     "off": {},
     "slugName": null,

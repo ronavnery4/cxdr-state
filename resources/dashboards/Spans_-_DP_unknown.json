@@ -1,9 +1,9 @@
 {
   "id": "unknown",
   "name": "Spans - DP",
-  "exported_at": "2025-12-18T05:48:28.764994",
+  "exported_at": "2025-12-18T07:04:08.957797",
   "data": {
-    "id": "a6ohEwv5N4M4yDDv0bDVT",
+    "id": "DoWxWgB0LnrN1dUnDAivY",
     "name": "Spans - DP",
     "description": null,
     "layout": {
@@ -125,16 +125,16 @@
                 },
                 {
                   "id": {
-                    "value": "f8f337aa-432c-4fd9-a296-fcaf2c0328d9"
+                    "value": "7751b7a9-ce89-4712-9100-c418c233d955"
                   },
-                  "title": "ERROR Spans %",
+                  "title": "ERROR Spans",
                   "description": null,
                   "definition": {
                     "gauge": {
                       "query": {
                         "dataprime": {
                           "dataprimeQuery": {
-                            "text": "source spans\n| agg count() as All, count_if($d.tags['otel.status_code'] == 'ERROR') as Err\n| create Pct from Err/All\n| choose Pct"
+                            "text": "source spans\n| agg count() as All, count_if(tags['otel.status_code'] == 'ERROR') as Err\n|create Pct from round(Err/All,5)\n|choose Pct\n#| filter $d.tags['otel.status_code'] == 'ERROR' \n#| count"
                           },
                           "filters": [],
                           "timeFrame": null
@@ -162,7 +162,7 @@
                         "columns": [
                           "LEGEND_COLUMN_NAME"
                         ],
-                        "groupByQuery": true,
+                        "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
@@ -286,7 +286,7 @@
                               "timeFrame": null
                             }
                           },
-                          "seriesNameTemplate": "{{namespace}}",
+                          "seriesNameTemplate": null,
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -297,7 +297,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -344,7 +344,7 @@
                               "timeFrame": null
                             }
                           },
-                          "seriesNameTemplate": "{{deployment}}",
+                          "seriesNameTemplate": null,
                           "seriesCountLimit": "20",
                           "unit": "UNIT_UNSPECIFIED",
                           "scaleType": "SCALE_TYPE_LINEAR",
@@ -355,7 +355,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -423,7 +423,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -481,7 +481,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -567,7 +567,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -620,76 +620,18 @@
                           "scaleType": "SCALE_TYPE_LINEAR",
                           "name": "Query 1",
                           "isVisible": true,
-                          "colorScheme": "negative",
+                          "colorScheme": "classic",
                           "resolution": null,
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_ABSOLUTE",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "0a17ff71-442f-4713-95dc-f20bdf2b4648"
-                  },
-                  "title": "Error Spans\u00a0 %by Service",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_LAST",
-                          "LEGEND_COLUMN_SUM"
-                        ],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "d3b0e5fb-6f15-44b4-9e9f-ad9879f6a68e",
-                          "query": {
-                            "dataprime": {
-                              "dataprimeQuery": {
-                                "text": "source spans \n| groupby $l.serviceName as Service, $m.timestamp / 10m as timestamp agg count() as All, count_if($d.tags['otel.status_code'] == 'ERROR') as Err \n| create Pct from Err/All\n| choose Service, timestamp, Pct"
-                              },
-                              "filters": [],
-                              "timeFrame": null
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_ONE",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "negative",
-                          "resolution": null,
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
                       "connectNulls": null
                     }
                   },
@@ -751,7 +693,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -804,76 +746,18 @@
                           "scaleType": "SCALE_TYPE_LINEAR",
                           "name": "Query 1",
                           "isVisible": true,
-                          "colorScheme": "negative",
+                          "colorScheme": "classic",
                           "resolution": null,
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_ABSOLUTE",
-                      "connectNulls": null
-                    }
-                  },
-                  "appearance": null,
-                  "createdAt": null,
-                  "updatedAt": null
-                },
-                {
-                  "id": {
-                    "value": "6d134218-0577-4e2f-b72e-99105e69a1bd"
-                  },
-                  "title": "Error Spans\u00a0 %by Action",
-                  "description": null,
-                  "definition": {
-                    "lineChart": {
-                      "legend": {
-                        "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_LAST",
-                          "LEGEND_COLUMN_SUM"
-                        ],
-                        "groupByQuery": true,
-                        "placement": "LEGEND_PLACEMENT_AUTO"
-                      },
-                      "tooltip": {
-                        "showLabels": false,
-                        "type": "TOOLTIP_TYPE_ALL"
-                      },
-                      "queryDefinitions": [
-                        {
-                          "id": "09f94d61-a6ad-4ec7-9b9c-4953ee584420",
-                          "query": {
-                            "dataprime": {
-                              "dataprimeQuery": {
-                                "text": "source spans \n| groupby $l.operationName as Action, $m.timestamp / 10m as timestamp agg count() as All, count_if($d.tags['otel.status_code'] == 'ERROR') as Err \n| create Pct from Err/All\n| choose Action, timestamp, Pct"
-                              },
-                              "filters": [],
-                              "timeFrame": null
-                            }
-                          },
-                          "seriesNameTemplate": null,
-                          "seriesCountLimit": "20",
-                          "unit": "UNIT_PERCENT_ZERO_ONE",
-                          "scaleType": "SCALE_TYPE_LINEAR",
-                          "name": "Query 1",
-                          "isVisible": true,
-                          "colorScheme": "negative",
-                          "resolution": null,
-                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                          "customUnit": "",
-                          "decimal": 2,
-                          "hashColors": false,
-                          "yAxisMin": null,
-                          "yAxisMax": null,
-                          "decimalPrecision": null
-                        }
-                      ],
-                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
                       "connectNulls": null
                     }
                   },
@@ -955,7 +839,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1025,7 +909,7 @@
                           "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
                           "customUnit": "",
                           "decimal": 2,
-                          "hashColors": false,
+                          "hashColors": null,
                           "yAxisMin": null,
                           "yAxisMax": null,
                           "decimalPrecision": null
@@ -1111,13 +995,13 @@
     ],
     "relativeTimeFrame": "86400s",
     "folderId": {
-      "value": "98475778-d4bc-4860-976d-0d2e1ab92bb7"
+      "value": "7c62c370-8f5d-41d3-be09-ff4917603aeb"
     },
     "annotations": [],
     "off": {},
     "slugName": null,
     "variablesV2": [],
     "actions": [],
-    "_source_folder_name": "Shaynis"
+    "_source_folder_name": "Sid's"
   }
 }

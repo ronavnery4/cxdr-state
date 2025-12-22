@@ -1,0 +1,44 @@
+{
+  "id": "49604",
+  "name": "DataPrime - Revenue over Time & Category",
+  "exported_at": "2025-12-22T14:52:01.363558",
+  "data": {
+    "id": 49604,
+    "name": "DataPrime - Revenue over Time & Category",
+    "searchQuery": {
+      "query": "source logs last 6h\n| filter $l.subsystemname == 'product-catalog' && productId_enriched.category!=''\n| filter productId_enriched.price_in_currency:num > 0\n| create Trans_usd from \n  case_equals {\n        productId_enriched.currency,\n        'USD'   -> productId_enriched.price_in_currency:num * 1,\n        'EUR'   -> productId_enriched.price_in_currency:num * 1.04,\n        'JPY'   -> productId_enriched.price_in_currency:num * 0.0066,\n        'CAD'   -> productId_enriched.price_in_currency:num * 0.69}\n| groupby $m.timestamp/1h as Time, productId_enriched.category as Categories agg \n    count() as Transactions, \n    `${round(sum(Trans_usd),2)}` as Total_Revenue,\n    `${round(avg(Trans_usd),2)}` as Avg_Revenue\n| orderby Time"
+    },
+    "timeSelection": {
+      "quickSelection": {
+        "caption": "Last 15 minutes",
+        "seconds": 900
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {}
+        }
+      ]
+    },
+    "folderId": null,
+    "isCompactMode": false
+  }
+}

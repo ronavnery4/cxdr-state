@@ -1,0 +1,44 @@
+{
+  "id": "54206",
+  "name": "DP8",
+  "exported_at": "2025-12-22T14:52:01.366401",
+  "data": {
+    "id": 54206,
+    "name": "DP8",
+    "searchQuery": {
+      "query": "source spans last 2h\n|filter tags['http.status_code'] != null && tags['http.status_code']:number > 399\n| choose $m.timestamp as Err_Time, $l.serviceName as Err_Service,$l.operationName as Failed_Action,traceID as Trace, tags['http.status_code'] as Status\n| join ( source spans last 3h\n        | choose $m.timestamp as Start_Time, traceID as Trace, $l.operationName as Action, $l.serviceName as Start_Service) using  Trace into Root\n| create Time_to_fail from Err_Time:timestamp - Root.Start_Time:timestamp \n| filter Time_to_fail:num > 0\n| join (source logs last 2h\n        | filter trace_id != null\n        | groupby trace_id as Trace aggregate count() as All_Logs, count_if($m.severity > INFO) as HighSev_Logs) using Trace into Logs\n| filter Logs.HighSev_Logs > 0\n|choose Trace, \n        Root.Start_Time:timestamp.formatTimestamp('auto')  as Started,\n        Time_to_fail as Failed_After, \n        Status as Err_Code, Root.Start_Service as Starting_Service, \n        Root.Action as Starting_Action, \n        Err_Service, \n        Failed_Action, \n        Logs.All_Logs as All_Logs,\n        Logs.HighSev_Logs as HighSev_Logs"
+    },
+    "timeSelection": {
+      "quickSelection": {
+        "caption": "Last 15 minutes",
+        "seconds": 900
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {}
+        }
+      ]
+    },
+    "folderId": "b5c60e9a-ef21-47f2-af12-6d25d14372be",
+    "isCompactMode": false
+  }
+}

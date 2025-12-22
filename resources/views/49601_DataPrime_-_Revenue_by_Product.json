@@ -1,0 +1,44 @@
+{
+  "id": "49601",
+  "name": "DataPrime - Revenue by Product",
+  "exported_at": "2025-12-22T14:52:01.362867",
+  "data": {
+    "id": 49601,
+    "name": "DataPrime - Revenue by Product",
+    "searchQuery": {
+      "query": "source logs\n| filter $l.applicationname=='astronomy-demo'\n| filter productId_enriched.category != null && productId_enriched.category != ''\n| groupby productId_enriched.category as product_category aggregate  `${sum(productId_enriched.price_in_currency:num)}` as total_price"
+    },
+    "timeSelection": {
+      "quickSelection": {
+        "caption": "Last 24 hours",
+        "seconds": 86400
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {}
+        }
+      ]
+    },
+    "folderId": null,
+    "isCompactMode": false
+  }
+}

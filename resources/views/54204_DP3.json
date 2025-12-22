@@ -1,0 +1,44 @@
+{
+  "id": "54204",
+  "name": "DP3",
+  "exported_at": "2025-12-22T14:52:01.365823",
+  "data": {
+    "id": 54204,
+    "name": "DP3",
+    "searchQuery": {
+      "query": "source logs last 6h\n| filter cx_rum.longtask_context.duration > 0\n| groupby  case_lessthan {\n    cx_rum.longtask_context.duration:num,\n    101 -> 'Good (0-100)',\n    201 -> 'Med (101-200)',\n    301 -> 'Bad (201-300)',\n    _ -> 'Investigate (301 - *)'} as Range agg count()"
+    },
+    "timeSelection": {
+      "customSelection": {
+        "fromTime": "2025-09-17T15:47:03.158Z",
+        "toTime": "2025-09-18T15:47:03.158Z"
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {}
+        }
+      ]
+    },
+    "folderId": "b5c60e9a-ef21-47f2-af12-6d25d14372be",
+    "isCompactMode": false
+  }
+}

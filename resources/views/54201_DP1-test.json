@@ -1,12 +1,12 @@
 {
-  "id": "54202",
-  "name": "DP2",
-  "exported_at": "2025-12-22T15:43:43.565939",
+  "id": "54201",
+  "name": "DP1-test",
+  "exported_at": "2025-12-22T15:43:43.565126",
   "data": {
-    "id": 54202,
-    "name": "DP2",
+    "id": 54201,
+    "name": "DP1-test",
     "searchQuery": {
-      "query": "source logs last 6h\n| groupby $l.applicationname as Application, $l.subsystemname as Subsystem agg \n\t\tcount() as Logs, \n\t\tcount_if($m.severity> INFO) as HS_Logs\n| filter HS_Logs > 0\n| create HS_Pct from `{round(100*HS_Logs/Logs,2)}%`\n| orderby HS_Logs desc"
+      "query": "source logs \n| filter trace_id != null\n| groupby trace_id as Trace agg count() as Logs\n| join (source spans\n    \t   | groupby traceID as Trace agg count() as Spans) using Trace into APM\n| choose Trace, Logs, APM.Spans as Spans, `{round(100*Logs/APM.Spans,2)}%` as Ratio"
     },
     "timeSelection": {
       "quickSelection": {

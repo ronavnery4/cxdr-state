@@ -1,12 +1,12 @@
 {
-  "id": "70035",
-  "name": "DataPrime - RUM Sessions",
-  "exported_at": "2025-12-22T14:55:34.031954",
+  "id": "54202",
+  "name": "DP2-test",
+  "exported_at": "2025-12-22T14:55:34.030812",
   "data": {
-    "id": 70035,
-    "name": "DataPrime - RUM Sessions",
+    "id": 54202,
+    "name": "DP2-test",
     "searchQuery": {
-      "query": "source logs \n| filter $l.subsystemname == 'cx_rum'\n| filter cx_rum.session_context.user_email != null\n| redact $d.cx_rum.session_context.user_email matching /@.*/ to '@xxxxxxxx.com'\n| countby $d.cx_rum.session_context.browser, $d.cx_rum.session_context.user_email, $d.cx_rum.network_request_context.url, $d.cx_rum.network_request_context.status_code\n| filter cx_rum.network_request_context.status_code:num > 399\n| orderby _count desc"
+      "query": "source logs last 6h\n| groupby $l.applicationname as Application, $l.subsystemname as Subsystem agg \n\t\tcount() as Logs, \n\t\tcount_if($m.severity> INFO) as HS_Logs\n| filter HS_Logs > 0\n| create HS_Pct from `{round(100*HS_Logs/Logs,2)}%`\n| orderby HS_Logs asc"
     },
     "timeSelection": {
       "quickSelection": {
@@ -38,7 +38,7 @@
         }
       ]
     },
-    "folderId": null,
+    "folderId": "b5c60e9a-ef21-47f2-af12-6d25d14372be",
     "isCompactMode": false
   }
 }

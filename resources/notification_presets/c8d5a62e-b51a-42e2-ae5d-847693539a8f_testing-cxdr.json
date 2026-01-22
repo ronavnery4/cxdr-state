@@ -1,0 +1,39 @@
+{
+  "id": "c8d5a62e-b51a-42e2-ae5d-847693539a8f",
+  "name": "testing-cxdr",
+  "exported_at": "2026-01-22T13:16:06.972526",
+  "data": {
+    "id": "c8d5a62e-b51a-42e2-ae5d-847693539a8f",
+    "connectorType": "GENERIC_HTTPS",
+    "configOverrides": [
+      {
+        "conditionType": {
+          "matchEntityType": {}
+        },
+        "payloadType": "generic_https_default",
+        "messageConfig": {
+          "fields": [
+            {
+              "fieldName": "body",
+              "template": "{\n  \"id\": \"{{ alertDef.id }}\",\n  \"url\": \"{{ alert.alertDataUrl | default(value = '') }}\",\n  \"name\": {{ alertDef.name | json_encode }},\n  \"type\": \"{{ alertDef.type }}\",\n  \"priority\": \"{{ alertDef.priority }}\",\n  \"status\": \"{{ alert.status }}\",\n  \"groupByKeys\": {{ alertDef.groupByKeys | json_encode }},\n  \"createdAt\": \"{{ alertDef.createdTime | epoch_seconds | date(format=\"%d/%m/%y - %H:%M:%S\") }}\",\n  \"updatedAt\": \"{{ alertDef.updatedTime | epoch_seconds | date(format=\"%d/%m/%y - %H:%M:%S\") }}\"\n}\n"
+            },
+            {
+              "fieldName": "headers",
+              "template": "{\"body\":\"testing\"}"
+            }
+          ]
+        }
+      }
+    ],
+    "name": "testing-cxdr",
+    "description": "",
+    "createTime": "2026-01-22T13:09:00.224271Z",
+    "updateTime": "2026-01-22T13:09:00.224271Z",
+    "presetType": "CUSTOM",
+    "entityType": "ALERTS",
+    "parentId": "preset_system_generic_https_alerts_empty",
+    "attachmentConfig": {
+      "policy": "AUTO"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "report_type": "sync",
+  "generated_at": "2026-01-22T07:32:51.561183",
+  "run_id": "20260122_073241",
+  "timestamp": "2026-01-22T07:32:51.559935+00:00",
+  "dry_run": false,
+  "duration_seconds": 9.74,
+  "source_region": "us2",
+  "target_region": "us2",
+  "totals": {
+    "created": 0,
+    "updated": 0,
+    "skipped": 4,
+    "deleted": 0,
+    "failed": 2
+  },
+  "by_resource": {
+    "enrichments": {
+      "resource_type": "enrichments",
+      "source_count": 5,
+      "target_count_before": 5,
+      "target_count_after": 5,
+      "created": 0,
+      "updated": 0,
+      "deleted": 0,
+      "skipped": 4,
+      "failed": 2,
+      "errors": [
+        "Custom enrichment ID 13591 not found in target account. Please sync custom enrichments first.",
+        "gRPC error: Error invoking method \"com.coralogix.enrichment.v1.EnrichmentService/DeleteEnrichments\":"
+      ],
+      "duration_seconds": 7.6
+    }
+  },
+  "details": {
+    "enrichments": [
+      {
+        "action": "skip",
+        "source_id": "35699",
+        "target_id": "103282",
+        "name": "productId -> productId_enriched (customEnrichment:26818)",
+        "success": true,
+        "message": "Unchanged",
+        "error": null
+      },
+      {
+        "action": "skip",
+        "source_id": "68185",
+        "target_id": "103281",
+        "name": "productId -> productId_enriched (customEnrichment:42772)",
+        "success": true,
+        "message": "Unchanged",
+        "error": null
+      },
+      {
+        "action": "skip",
+        "source_id": "72024",
+        "target_id": "103283",
+        "name": "productId -> productId_enriched (customEnrichment:44665)",
+        "success": true,
+        "message": "Unchanged",
+        "error": null
+      },
+      {
+        "action": "skip",
+        "source_id": "72025",
+        "target_id": "103280",
+        "name": "coralogix.metadata.IPAddress (suspiciousIp)",
+        "success": true,
+        "message": "Unchanged",
+        "error": null
+      },
+      {
+        "action": "create",
+        "source_id": "21341",
+        "target_id": null,
+        "name": "attributes.productId -> attributes.product_details (customEnrichment:13591)",
+        "success": false,
+        "message": "Failed",
+        "error": "Custom enrichment ID 13591 not found in target account. Please sync custom enrichments first."
+      },
+      {
+        "action": "delete",
+        "source_id": "103284",
+        "target_id": "103285",
+        "name": "CODE_FILE (geoIp:withAsn=False)",
+        "success": false,
+        "message": "Failed",
+        "error": "gRPC error: Error invoking method \"com.coralogix.enrichment.v1.EnrichmentService/DeleteEnrichments\": Error invoking method \"com.coralogix.enrichment.v1.EnrichmentService/DeleteEnrichments\": service \"com.coralogix.enrichment.v1.EnrichmentService\" does not include a method named \"DeleteEnrichments\"\n - Details: Error invoking method \"com.coralogix.enrichment.v1.EnrichmentService/DeleteEnrichments\": service \"com.coralogix.enrichment.v1.EnrichmentService\" does not include a method named \"DeleteEnrichments\"\n"
+      }
+    ]
+  }
+}

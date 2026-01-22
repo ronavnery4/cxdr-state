@@ -1,0 +1,56 @@
+{
+  "report_type": "sync",
+  "generated_at": "2026-01-22T12:46:03.211044",
+  "run_id": "20260122_124513",
+  "timestamp": "2026-01-22T12:46:03.207312+00:00",
+  "dry_run": false,
+  "duration_seconds": 50.02,
+  "source_region": "us2",
+  "target_region": "us2",
+  "totals": {
+    "created": 0,
+    "updated": 1,
+    "skipped": 0,
+    "deleted": 0,
+    "failed": 1
+  },
+  "by_resource": {
+    "webhooks": {
+      "resource_type": "webhooks",
+      "source_count": 2,
+      "target_count_before": 3,
+      "target_count_after": 3,
+      "created": 0,
+      "updated": 1,
+      "deleted": 0,
+      "skipped": 0,
+      "failed": 1,
+      "errors": [
+        "gRPC error: gRPC call timed out after 30s"
+      ],
+      "duration_seconds": 48.24
+    }
+  },
+  "details": {
+    "webhooks": [
+      {
+        "action": "update",
+        "source_id": "a5f900b2-9aaa-42fe-80e4-a8a09e9c3e09",
+        "target_id": "0795cb14-ca1e-4340-9b0d-1011eebf17cb",
+        "name": "se-row",
+        "success": true,
+        "message": "Updated",
+        "error": null
+      },
+      {
+        "action": "update",
+        "source_id": "6aa9c84c-5550-469f-9f8d-0743babe4bcf",
+        "target_id": "461739e1-3b22-4223-90cd-73ef8767364f",
+        "name": "internal-sorbet-alerts",
+        "success": false,
+        "message": "Failed",
+        "error": "gRPC error: gRPC call timed out after 30s"
+      }
+    ]
+  }
+}

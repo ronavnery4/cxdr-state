@@ -1,0 +1,44 @@
+{
+  "id": "b881b4fc-56e6-4077-8173-0a54a68a3f9e",
+  "name": "Slack test Resolve Notifications",
+  "exported_at": "2026-01-23T08:04:12.118780",
+  "data": {
+    "id": "b881b4fc-56e6-4077-8173-0a54a68a3f9e",
+    "type": "SLACK",
+    "teamId": 7001219,
+    "name": "Slack test Resolve Notifications",
+    "description": "",
+    "createTime": "2025-12-15T17:05:39.967476Z",
+    "updateTime": "2025-12-15T17:05:39.967476Z",
+    "configOverrides": [
+      {
+        "entityType": "ALERTS",
+        "fields": [
+          {
+            "fieldName": "channel",
+            "template": "{% if alertDef.entityLabels[\"team\"] is defined and alertDef.entityLabels[\"team\"] == \"apps\" %}\n   internal-sorbet-alerts\n{% else %}\ndefault-alerts-test\n{% endif %}"
+          }
+        ]
+      }
+    ],
+    "connectorConfig": {
+      "fields": [
+        {
+          "fieldName": "channel",
+          "value": "default-alerts-test"
+        },
+        {
+          "fieldName": "fallbackChannel",
+          "value": "default-alerts-test"
+        },
+        {
+          "fieldName": "integrationId",
+          "value": "05e5fa6f-ab2f-4d1e-b77a-f2472900fe76"
+        }
+      ]
+    },
+    "diagnostics": {
+      "delivery": "ERRORS_ONLY"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "7f3d8d37-9b11-4e23-a1d3-453b7209d98b",
+  "name": "span_duration",
+  "exported_at": "2026-01-23T09:45:50.359616",
+  "data": {
+    "id": "7f3d8d37-9b11-4e23-a1d3-453b7209d98b",
+    "name": "span_duration",
+    "description": "",
+    "createTime": "2025-09-23T14:56:18.000Z",
+    "updateTime": "2025-09-23T14:56:18.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "service",
+        "sourceField": "servicename"
+      },
+      {
+        "targetLabel": "action",
+        "sourceField": "operationname"
+      },
+      {
+        "targetLabel": "error",
+        "sourceField": "tags.otel.status_code"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "duration_ms",
+        "sourceField": "duration",
+        "aggregations": [
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                0
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_SPANS2METRICS",
+    "spansQuery": {
+      "lucene": "",
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "actionFilters": [],
+      "serviceFilters": []
+    },
+    "isInternal": false
+  }
+}

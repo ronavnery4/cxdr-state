@@ -1,0 +1,86 @@
+{
+  "id": "7a7addbe-9422-4e89-9abe-1362857a6f06",
+  "name": "RUM_Network_Request",
+  "exported_at": "2026-01-23T09:45:50.358923",
+  "data": {
+    "id": "7a7addbe-9422-4e89-9abe-1362857a6f06",
+    "name": "RUM_Network_Request",
+    "description": "Deployed via extension package to create metrics from RUM (Real User Monitoring) data.",
+    "createTime": "2025-06-05T15:37:46.000Z",
+    "updateTime": "2025-06-05T15:37:46.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "network_request",
+        "sourceField": "cx_rum.network_request_context.fragments"
+      },
+      {
+        "targetLabel": "status_code",
+        "sourceField": "cx_rum.network_request_context.status_code"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "rum_network_request_duration",
+        "sourceField": "cx_rum.network_request_context.duration",
+        "aggregations": [
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                0
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_LOGS2METRICS",
+    "logsQuery": {
+      "lucene": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.fragments",
+      "alias": null,
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [],
+      "severityFilters": []
+    },
+    "isInternal": false
+  }
+}

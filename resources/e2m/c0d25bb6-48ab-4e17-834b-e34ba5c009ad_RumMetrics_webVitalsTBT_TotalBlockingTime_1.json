@@ -1,0 +1,88 @@
+{
+  "id": "c0d25bb6-48ab-4e17-834b-e34ba5c009ad",
+  "name": "RumMetrics_webVitalsTBT_TotalBlockingTime_1",
+  "exported_at": "2026-01-23T09:45:50.363178",
+  "data": {
+    "id": "c0d25bb6-48ab-4e17-834b-e34ba5c009ad",
+    "name": "RumMetrics_webVitalsTBT_TotalBlockingTime_1",
+    "description": "Total Blocking Time metric",
+    "createTime": "2025-12-08T11:19:34.000Z",
+    "updateTime": "2025-12-08T11:19:33.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "Page_Fragments",
+        "sourceField": "cx_rum.page_context.page_fragments"
+      },
+      {
+        "targetLabel": "App_Version",
+        "sourceField": "cx_rum.version_metadata.app_version"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "RumMetrics_webVitalsTBT_TotalBlockingTime_1",
+        "sourceField": "cx_rum.web_vitals_context.value",
+        "aggregations": [
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                0
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_LOGS2METRICS",
+    "logsQuery": {
+      "lucene": "cx_rum.web_vitals_context.name: \"TBT\"",
+      "alias": null,
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [
+        "cx_rum"
+      ],
+      "severityFilters": []
+    },
+    "isInternal": false
+  }
+}

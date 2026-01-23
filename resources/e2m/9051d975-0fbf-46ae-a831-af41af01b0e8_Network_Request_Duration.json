@@ -1,0 +1,88 @@
+{
+  "id": "9051d975-0fbf-46ae-a831-af41af01b0e8",
+  "name": "Network_Request_Duration",
+  "exported_at": "2026-01-23T09:45:50.360642",
+  "data": {
+    "id": "9051d975-0fbf-46ae-a831-af41af01b0e8",
+    "name": "Network_Request_Duration",
+    "description": "",
+    "createTime": "2025-09-23T14:48:38.000Z",
+    "updateTime": "2025-09-23T14:48:37.000Z",
+    "permutations": {
+      "limit": 30000,
+      "hasExceededLimit": false
+    },
+    "metricLabels": [
+      {
+        "targetLabel": "network_fragment",
+        "sourceField": "cx_rum.network_request_context.fragments"
+      },
+      {
+        "targetLabel": "page_fragment",
+        "sourceField": "cx_rum.page_context.page_fragments"
+      }
+    ],
+    "metricFields": [
+      {
+        "targetBaseMetricName": "network_request_duration",
+        "sourceField": "cx_rum.network_request_context.duration",
+        "aggregations": [
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_AVG",
+            "targetMetricName": "cx_avg"
+          },
+          {
+            "enabled": false,
+            "aggType": "AGG_TYPE_HISTOGRAM",
+            "targetMetricName": "cx_bucket",
+            "histogram": {
+              "buckets": [
+                0
+              ]
+            }
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_COUNT",
+            "targetMetricName": "cx_count"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MAX",
+            "targetMetricName": "cx_max"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_MIN",
+            "targetMetricName": "cx_min"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SUM",
+            "targetMetricName": "cx_sum"
+          },
+          {
+            "enabled": true,
+            "aggType": "AGG_TYPE_SAMPLES",
+            "targetMetricName": "cx_value",
+            "samples": {
+              "sampleType": "SAMPLE_TYPE_MAX"
+            }
+          }
+        ]
+      }
+    ],
+    "type": "E2M_TYPE_LOGS2METRICS",
+    "logsQuery": {
+      "lucene": "cx_rum.event_context.type: \"network-request\"",
+      "alias": null,
+      "applicationnameFilters": [],
+      "subsystemnameFilters": [
+        "cx_rum"
+      ],
+      "severityFilters": []
+    },
+    "isInternal": false
+  }
+}

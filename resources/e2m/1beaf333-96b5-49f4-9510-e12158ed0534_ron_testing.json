@@ -1,31 +1,22 @@
 {
-  "id": "9051d975-0fbf-46ae-a831-af41af01b0e8",
-  "name": "Network_Request_Duration",
-  "exported_at": "2026-01-23T09:46:58.952468",
+  "id": "1beaf333-96b5-49f4-9510-e12158ed0534",
+  "name": "ron_testing",
+  "exported_at": "2026-01-23T09:46:58.951049",
   "data": {
-    "id": "9051d975-0fbf-46ae-a831-af41af01b0e8",
-    "name": "Network_Request_Duration",
+    "id": "1beaf333-96b5-49f4-9510-e12158ed0534",
+    "name": "ron_testing",
     "description": "",
-    "createTime": "2025-09-23T14:48:38.000Z",
-    "updateTime": "2025-09-23T14:48:37.000Z",
+    "createTime": "2026-01-23T09:46:41.000Z",
+    "updateTime": "2026-01-23T09:46:40.000Z",
     "permutations": {
       "limit": 30000,
       "hasExceededLimit": false
     },
-    "metricLabels": [
-      {
-        "targetLabel": "network_fragment",
-        "sourceField": "cx_rum.network_request_context.fragments"
-      },
-      {
-        "targetLabel": "page_fragment",
-        "sourceField": "cx_rum.page_context.page_fragments"
-      }
-    ],
+    "metricLabels": [],
     "metricFields": [
       {
-        "targetBaseMetricName": "network_request_duration",
-        "sourceField": "cx_rum.network_request_context.duration",
+        "targetBaseMetricName": "test",
+        "sourceField": "cur_mem_mib",
         "aggregations": [
           {
             "enabled": true,
@@ -75,12 +66,10 @@
     ],
     "type": "E2M_TYPE_LOGS2METRICS",
     "logsQuery": {
-      "lucene": "cx_rum.event_context.type: \"network-request\"",
+      "lucene": "_exists_:JOB_ID",
       "alias": null,
       "applicationnameFilters": [],
-      "subsystemnameFilters": [
-        "cx_rum"
-      ],
+      "subsystemnameFilters": [],
       "severityFilters": []
     },
     "isInternal": false

@@ -1,12 +1,12 @@
 {
-  "id": "70035",
-  "name": "DataPrime - RUM Sessions",
-  "exported_at": "2026-02-02T12:09:01.562016",
+  "id": "54201",
+  "name": "DP1-ron",
+  "exported_at": "2026-02-02T12:09:01.559971",
   "data": {
-    "id": 70035,
-    "name": "DataPrime - RUM Sessions",
+    "id": 54201,
+    "name": "DP1-ron",
     "searchQuery": {
-      "query": "source logs \n| filter $l.subsystemname == 'cx_rum'\n| filter cx_rum.session_context.user_email != null\n| redact $d.cx_rum.session_context.user_email matching /@.*/ to '@xxxxxxxx.com'\n| countby $d.cx_rum.session_context.browser, $d.cx_rum.session_context.user_email, $d.cx_rum.network_request_context.url, $d.cx_rum.network_request_context.status_code\n| filter cx_rum.network_request_context.status_code:num > 399\n| orderby _count desc",
+      "query": "source logs \n| filter trace_id != null\n| groupby trace_id as Trace agg count() as Logs\n| join (source spans\n    \t   | groupby traceID as Trace agg count() as Spans) using Trace into APM\n| choose Trace, Logs, APM.Spans as Spans, `{round(100*Logs/APM.Spans,2)}%` as Ratio",
       "syntaxType": "SYNTAX_TYPE_DATAPRIME"
     },
     "timeSelection": {
@@ -39,7 +39,8 @@
         }
       ]
     },
+    "folderId": "b5c60e9a-ef21-47f2-af12-6d25d14372be",
     "isCompactMode": false,
-    "viewType": "VIEW_TYPE_ARCHIVE_LOGS"
+    "viewType": "VIEW_TYPE_LOGS"
   }
 }

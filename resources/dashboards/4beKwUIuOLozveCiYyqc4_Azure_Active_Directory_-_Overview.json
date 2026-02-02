@@ -1,0 +1,1124 @@
+{
+  "id": "4beKwUIuOLozveCiYyqc4",
+  "name": "Azure Active Directory - Overview",
+  "exported_at": "2026-02-02T10:55:17.870630",
+  "data": {
+    "id": "4beKwUIuOLozveCiYyqc4",
+    "name": "Azure Active Directory - Overview",
+    "description": "This dashboard provides an overview of:  - Login/sign-in activities such as login trend, sign-in by top applications, login failure and the top countries the logins originating from. - Risks associated with the sign-in related activities. The risks can be of different levels, types and the panels also give overview of the current state of the risk associated. - Different activities performed by the users, the top users with the most activities performed and the overall trend of the user actions/activities performed over a time. - Password related trends over time and the success/failure ratio of the password reset activities.",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "441473ac-0a2b-4012-b663-a2393a1d533c"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "266232f7-21f6-404d-84eb-bbd8e4d9f886"
+              },
+              "appearance": {
+                "height": 21
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "f208dea9-5b9c-42d8-89c5-f53b86c498de"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "##### Azure Active Directory Overview - Dashboard\n\n\nThis dashboard provides an overview of:\n\n1\\. Authentication Activities\n \\- This section provides an overview of login/sign\\-in activities such as login trend\\, sign\\-in by top applications\\, login failure and the top countries the logins originating from\\.\n\n2\\. Sign\\-in Related Risk\n \\- This section provides an overview of risks associated with the sign\\-in related activities\\. The risks can be of different levels\\, types and the panels also give overview of the current state of the risk associated\\.\n\n3\\. User Activities\n \\- This section provides an overview of the different activities performed by the users\\, the top users with the most activities performed and the overall trend of the user actions/activities performed over a time\\.\n\n4\\. Password Related Activities\n \\- This section provides an overview of the password related trends over time and the success/failure ratio of the password reset activities\\.",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        },
+        {
+          "id": {
+            "value": "29266718-35a5-4fac-9e4d-f60ad4c9490e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "fbbb5c53-6327-4060-a909-218d8434fc57"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cc416fb2-5c1c-4995-b0a5-b2fa0a03aca8"
+                  },
+                  "title": "Trend Chart - Sign-in Events",
+                  "description": "Provides an overview of trend of sign-in events that have resulted in both successful and failure events.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "ff49d1ad-f6fb-4cbc-bab5-cba0874ae30a",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "_exists_:\"category\" AND operationName:\"Sign\\-in activity\" AND category:\"SignInLogs\" AND NOT properties.status_obj.errorCode:\"0\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Sign-in Failure Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "negative",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        },
+                        {
+                          "id": "de63fbe3-679d-4910-8f45-11d96b8f4c80",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "_exists_:\"category\" AND operationName:\"Sign\\-in activity\" AND category:\"SignInLogs\" AND properties.status_obj.errorCode:\"0\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Sign-in Successful Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": null,
+                          "isVisible": true,
+                          "colorScheme": "green",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_RELATIVE",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ae840637-78d8-4fd9-9c70-ad94833bb681"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "db90ffb2-1b24-499c-b5dd-37966deb53ac"
+                  },
+                  "title": "Sign-ins by Top Application",
+                  "description": "Provides an overview of sign-in events by top applications.",
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:\"category\" AND operationName:\"Sign\\-in activity\" AND category:\"SignInLogs\""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "appDisplayName"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "value": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "d4d69578-8264-4c4c-8b94-d159b3ff9391"
+                  },
+                  "title": "Top Country Codes by Sign-in Events",
+                  "description": "Provides an overview of top countries from where the sign-in attempts originated.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:\"category\" AND operationName:\"Sign\\-in activity\" AND category:\"SignInLogs\""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "location",
+                                "countryOrRegion"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LOGARITHMIC",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_INSIDE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ae67d663-e2ee-403d-838b-30dbb65ca1fa"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "3889db3d-cf69-480a-b3ba-24be29539f01"
+                  },
+                  "title": "Top Users with Sign-in Failure Attempts",
+                  "description": "Provides an overview of top users who had the failed sign-in attempts. The panel also provides the failure reason as well.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | lucene 'operationName:\"sign\\-in activity\" AND _exists_:\"properties.status_obj.failureReason\"' | countby $d.properties.signInIdentifier as $d.User_Name, $d.properties.status_obj.failureReason as $d.Failure_Reason | filter $d.User_Name != null | sortby $d._count desc"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.User_Name",
+                          "width": 333
+                        },
+                        {
+                          "field": "$d.Failure_Reason",
+                          "width": 637
+                        },
+                        {
+                          "field": "$d._count",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Authentication Activities",
+              "description": "This section provides an overview of login/sign-in activities such as login trend, sign-in by top applications, login failure and the top countries the logins originating from.",
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "0b9264af-261e-4d33-ba1e-ee1d4b56c942"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "48c8c0df-59fa-46cb-85c6-46cdca4f16d9"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "26581967-d281-41c3-9721-588bec9efe40"
+                  },
+                  "title": "Risky Sign-ins Trend",
+                  "description": "Provides an overview of sign-in trends based on their risk levels. The risk level can be high, medium or low.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "df8e7ab6-9627-47b1-a7e2-d6f76122bb77",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "operationName:\"sign\\-in activity\" AND NOT properties.riskLevelDuringSignIn:\"none\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [
+                                {
+                                  "keypath": [
+                                    "properties",
+                                    "riskLevelDuringSignIn"
+                                  ],
+                                  "scope": "DATASET_SCOPE_USER_DATA"
+                                }
+                              ],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "cold",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_ABSOLUTE",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "ee62df72-464d-41b7-ba54-0d6e4fda99c5"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ea0072da-1616-49f5-a6ce-9a336a8ef541"
+                  },
+                  "title": "Risky Sign-ins by Category",
+                  "description": "Provides an overview of count of risky sign-ins by each risk level.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "operationName:\"sign\\-in activity\" AND NOT properties.riskLevelDuringSignIn:\"none\""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "riskLevelDuringSignIn"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": "Risk Levels"
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "40cd9000-16e0-457e-b728-27e13da274dd"
+                  },
+                  "title": "Sign-ins Risk State",
+                  "description": "Provides an overview of count of risky sign-in attempts by the current state of the risk associated with the sign-in events.",
+                  "definition": {
+                    "barChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "operationName:\"sign\\-in activity\" AND NOT properties.riskState:\"none\""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "riskState"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "xAxis": {
+                        "value": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "barValueDisplay": "BAR_VALUE_DISPLAY_UNSPECIFIED",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_SIDE"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "9103f985-9970-4c5d-970a-1464a604670b"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "de73e254-4a85-42f5-8f2c-6118e37b08ea"
+                  },
+                  "title": "Risky Sign-in Event Types",
+                  "description": "Provides an overview of count of risky sign-ins by the event types that caused the sign-in to be labeled as a risky event.",
+                  "definition": {
+                    "horizontalBarChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "properties.activity:\"signin\" AND _exists_:properties.riskEventType AND properties.source:\"IdentityProtection\""
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "riskEventType"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxBarsPerChart": 24,
+                      "groupNameTemplate": null,
+                      "stackDefinition": {
+                        "maxSlicesPerBar": 7,
+                        "stackNameTemplate": null
+                      },
+                      "scaleType": "SCALE_TYPE_LINEAR",
+                      "colorsBy": {
+                        "groupBy": {}
+                      },
+                      "unit": "UNIT_UNSPECIFIED",
+                      "displayOnBar": true,
+                      "yAxisViewBy": {
+                        "category": {}
+                      },
+                      "sortBy": "SORT_BY_TYPE_VALUE",
+                      "colorScheme": "cold",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "customUnit": "",
+                      "decimal": 2,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "yAxisMin": null,
+                      "yAxisMax": null,
+                      "decimalPrecision": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "c96845a8-9fd9-4ec0-8837-39fed7c79ff1"
+                  },
+                  "title": "Users with Risky Sign-ins",
+                  "description": "Provides an tabular overview of users associated with the risky sign-ins. The table provides also information about the user type, the risk event type, level of risk associated.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | lucene 'properties.activity:\"signin\" AND _exists_:properties.riskEventType AND properties.source:\"IdentityProtection\"' | countby $d.properties.userPrincipalName as $d.User_Name, $d.properties.userType as $d.User_Type, $d.properties.riskEventType as Risk_EventType, $d.properties.riskLevel as $d.Risk_Level | filter $d.User_Name != null | sortby $d._count desc"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.User_Name",
+                          "width": 326
+                        },
+                        {
+                          "field": "$d.User_Type",
+                          "width": 158
+                        },
+                        {
+                          "field": "$d.Risk_EventType",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.Risk_Level",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d._count",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Sign-in Related Risk",
+              "description": "This section provides an overview of risks associated with the sign-in related activities. The risks can be of different levels, types and the panels also give overview of the current state of the risk associated.",
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "9111c4ce-3d83-4e82-a4c9-bdd94dd7dc28"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "5608fe15-60f0-4a7f-8269-57a3cbca8031"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "735ebaa0-c1fd-4a5b-962f-234963110d2a"
+                  },
+                  "title": "Trend Chart - Azure AD Logs",
+                  "description": "Provides an overview of trend of overall user activities over a time.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f0afe673-a03c-445b-90f0-4b3c112e2951",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "_exists_:\"category\""
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a4188b14-28c1-472c-8019-ac2dcee2ac0d"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "c42da6e6-3c5b-4770-a49b-f241e2ac059f"
+                  },
+                  "title": "Top Users Activity",
+                  "description": "Provides a tabular overview of the top users with specific operations count.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | lucene '_exists_:\"category\"' | countby $d.properties.initiatedBy.user_obj.userPrincipalName as $d.User_Name, $d.operationName | filter $d.User_Name != null | sortby $d._count desc"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.operationName",
+                          "width": 394
+                        },
+                        {
+                          "field": "$d.User_Name",
+                          "width": 517
+                        },
+                        {
+                          "field": "$d._count",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "3341d51e-12a7-43dd-8ae2-adc8ecb56169"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "b75e1078-2554-4b82-bb50-ff8ee691df1d"
+                  },
+                  "title": "Top Users by Unique Operations",
+                  "description": "Provides a tabular overview of top users with the number of unique operations performed by them in a specific period of time. This table also provides the name of the operations performed.",
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | lucene '_exists_:\"category\"' \n| groupby $d.properties.initiatedBy.user_obj.ipAddress as $d.IP_Address, $d.properties.initiatedBy.user_obj.userPrincipalName as $d.User_Name aggregate approx_count_distinct($d.operationName) as unique_count, collect($d.operationName, distinct = true) as operationName | filter $d.User_Name != null\n| orderby $d.unique_count desc"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.IP_Address",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.User_Name",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.unique_count",
+                          "width": 200
+                        },
+                        {
+                          "field": "$d.operationName",
+                          "width": 709
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "User Activities",
+              "description": "This section provides an overview of the different activities performed by the users, the top users with the most activities performed and the overall trend of the user actions/activities performed over a time.",
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        },
+        {
+          "id": {
+            "value": "56914961-f7c6-4e66-9198-f92192a5e41e"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "4bbed81b-6e9b-4cdd-a167-432bb6c6d887"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "4efbf569-9ce8-422b-a960-abce5bc3362c"
+                  },
+                  "title": "Password Reset Trend",
+                  "description": "Provides an overview of password reset trend over time.",
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "060ee136-951c-472c-82f9-f1bb8736a498",
+                          "query": {
+                            "logs": {
+                              "luceneQuery": {
+                                "value": "properties.operationName:(\"reset user password\" OR \"Reset password \\(self\\-service\\)\")"
+                              },
+                              "groupBy": [],
+                              "aggregations": [
+                                {
+                                  "count": {}
+                                }
+                              ],
+                              "filters": [],
+                              "groupBys": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": "Password Reset Count",
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query 1",
+                          "isVisible": true,
+                          "colorScheme": "severity",
+                          "resolution": {
+                            "interval": null,
+                            "bucketsPresented": 96
+                          },
+                          "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                          "customUnit": "",
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": null
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "5ef77f91-c210-461b-9638-34f01f9376a9"
+                  },
+                  "title": "Password Reset Success vs Failure",
+                  "description": "Provides an overview of success and failure outcome of password reset actions. It is represented in the form of a pie chart here.",
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "properties.operationName:(\"reset user password\" OR \"Reset password \\(self\\-service\\)\")"
+                          },
+                          "aggregation": {
+                            "count": {}
+                          },
+                          "filters": [],
+                          "groupNames": [],
+                          "stackedGroupName": null,
+                          "groupNamesFields": [
+                            {
+                              "keypath": [
+                                "properties",
+                                "result"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "stackedGroupNameField": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_ARCHIVE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": false,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "hashColors": false,
+                      "decimalPrecision": null,
+                      "showTotal": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "custom": {
+              "name": "Password Related Activities",
+              "description": "This section provides an overview of the password related trends over time and the success/failure ratio of the password reset activities.",
+              "collapsed": false,
+              "color": {
+                "predefined": "SECTION_PREDEFINED_COLOR_UNSPECIFIED"
+              },
+              "repetitiveVar": null
+            }
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "7200s",
+    "folderId": {
+      "value": "872485cf-4bfb-4ba6-a1d4-7d6f3cbcaf00"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Security Dashboards"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "id": "ushiC8IBC5Qx5hZ7rn1Fc",
+  "name": "Visual Explorer - 07/01/2026 15:41:16",
+  "exported_at": "2026-02-02T10:55:17.920337",
+  "data": {
+    "id": "ushiC8IBC5Qx5hZ7rn1Fc",
+    "name": "Visual Explorer - 07/01/2026 15:41:16",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "d8da0d3f-2b75-4493-9229-80e3baa63ad6"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "865055b4-f43c-4286-b8b0-850f4cfc355f"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ef31ebfe-5213-4865-8e5d-c8790f86af8f"
+                  },
+                  "title": "Query #1",
+                  "description": null,
+                  "definition": {
+                    "lineChart": {
+                      "legend": {
+                        "isVisible": true,
+                        "columns": [],
+                        "groupByQuery": true,
+                        "placement": "LEGEND_PLACEMENT_AUTO"
+                      },
+                      "tooltip": {
+                        "showLabels": false,
+                        "type": "TOOLTIP_TYPE_ALL"
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "f0ee94f7-10ea-44d0-a4f4-0f70166cb1a3",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs last 7d\n| filter $l.subsystemname == 'product-catalog' && productId_enriched.category!=''\n| filter productId_enriched.price_in_currency:num > 0\n| create Trans_usd from \n  case_equals {\n        productId_enriched.currency,\n        'USD'   -> productId_enriched.price_in_currency:num * 1,\n        'EUR'   -> productId_enriched.price_in_currency:num * 1.04,\n        'JPY'   -> productId_enriched.price_in_currency:num * 0.0066,\n        'CAD'   -> productId_enriched.price_in_currency:num * 0.69}\n| groupby $m.timestamp/1h as Time, productId_enriched.category as Categories agg \n    count() as Transactions, \n    `${round(sum(Trans_usd),2)}` as Total_Revenue,\n    `${round(avg(Trans_usd),2)}` as Avg_Revenue\n| orderby Time"
+                              },
+                              "filters": [],
+                              "timeFrame": null
+                            }
+                          },
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": "20",
+                          "unit": "UNIT_UNSPECIFIED",
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "name": "Query #1",
+                          "isVisible": true,
+                          "colorScheme": "classic",
+                          "resolution": null,
+                          "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                          "customUnit": null,
+                          "decimal": 2,
+                          "hashColors": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null,
+                          "decimalPrecision": false
+                        }
+                      ],
+                      "stackedLine": "STACKED_LINE_UNSPECIFIED",
+                      "connectNulls": false
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "97eb6a42-718e-4667-a839-bf2e4b9644b3"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "85992ada-7b4c-402c-bdde-25f7d1cb35aa"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": null,
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "timeSeriesLines": {
+                          "temporalField": {
+                            "keypath": [
+                              "Time"
+                            ],
+                            "scope": "DATASET_SCOPE_USER_DATA"
+                          },
+                          "valueFields": [
+                            {
+                              "keypath": [
+                                "Transactions"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "categoryFields": [
+                            {
+                              "keypath": [
+                                "Categories"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            },
+                            {
+                              "keypath": [
+                                "Total_Revenue"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            },
+                            {
+                              "keypath": [
+                                "Avg_Revenue"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ],
+                          "legend": {
+                            "isVisible": true,
+                            "columns": [],
+                            "groupByQuery": true,
+                            "placement": "LEGEND_PLACEMENT_AUTO"
+                          },
+                          "tooltip": {
+                            "showAllSeries": true,
+                            "showLabels": false
+                          },
+                          "stackedLine": "STACKED_LINE_ABSOLUTE",
+                          "connectNulls": true,
+                          "seriesNameTemplate": null,
+                          "seriesCountLimit": null,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "scaleType": "SCALE_TYPE_LINEAR",
+                          "colorScheme": "classic",
+                          "hashColors": false,
+                          "decimalPrecision": 2,
+                          "allowAbbreviation": false,
+                          "yAxisMin": null,
+                          "yAxisMax": null
+                        }
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "fa700e67-f864-49ba-af95-c17a17585b8d",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs last 7d\n| filter $l.subsystemname == 'product-catalog' && productId_enriched.category!=''\n| filter productId_enriched.price_in_currency:num > 0\n| create Trans_usd from \n  case_equals {\n        productId_enriched.currency,\n        'USD'   -> productId_enriched.price_in_currency:num * 1,\n        'EUR'   -> productId_enriched.price_in_currency:num * 1.04,\n        'JPY'   -> productId_enriched.price_in_currency:num * 0.0066,\n        'CAD'   -> productId_enriched.price_in_currency:num * 0.69}\n| groupby $m.timestamp/1h as Time, productId_enriched.category as Categories agg \n    count() as Transactions, \n    `${round(sum(Trans_usd),2)}` as Total_Revenue,\n    `${round(avg(Trans_usd),2)}` as Avg_Revenue\n| orderby Time"
+                              },
+                              "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                            }
+                          },
+                          "name": "Query 1"
+                        }
+                      ]
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

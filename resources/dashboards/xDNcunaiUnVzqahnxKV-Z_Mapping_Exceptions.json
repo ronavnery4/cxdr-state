@@ -1,0 +1,328 @@
+{
+  "id": "xDNcunaiUnVzqahnxKV-Z",
+  "name": "Mapping Exceptions",
+  "exported_at": "2026-02-02T10:55:17.899142",
+  "data": {
+    "id": "xDNcunaiUnVzqahnxKV-Z",
+    "name": "Mapping Exceptions",
+    "description": "View and monitor your frequent search logs mapping exceptions",
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "609f9645-2821-4dcd-9572-f46af1d65f34"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "0a7f093a-0de8-4588-a5cb-3fb2854ae187"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "cfbf0d96-4107-4cd3-ac45-dc601dd14e0f"
+                  },
+                  "title": "New Markdown",
+                  "description": null,
+                  "definition": {
+                    "markdown": {
+                      "markdownText": "#### **Mapping Exceptions Monitor**\n\nMapping exceptions happen when we see the same field with two different types. For instance, in a log received from your account we see a field as type string and in another log the same field has been received as a number or a different type.\nMapping problems that are caused by the above conditions will result in a possibility to search the logs only in free text query. Logs that will have mapping exceptions in them or logs that contain fields that were not indexed due to the maximum set in your account will lack the advanced capabilities of Coralogix logs tab such as visualization of fields or advanced queries.\n[Read More](https://coralogix.com/docs/mapping-statistics/)",
+                      "tooltipText": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "8ab53225-492d-4bff-a29d-644ea34c9ec0"
+                  },
+                  "title": "Number of Mapping Exceptions",
+                  "description": null,
+                  "definition": {
+                    "gauge": {
+                      "query": {
+                        "logs": {
+                          "luceneQuery": {
+                            "value": "_exists_:coralogix.failed_reason"
+                          },
+                          "logsAggregation": {
+                            "count": {}
+                          },
+                          "aggregation": "AGGREGATION_UNSPECIFIED",
+                          "filters": [],
+                          "groupBy": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "min": 0,
+                      "max": 100,
+                      "showInnerArc": false,
+                      "showOuterArc": false,
+                      "unit": "UNIT_NUMBER",
+                      "thresholds": [
+                        {
+                          "from": 0,
+                          "color": "var(--c-severity-log-verbose)",
+                          "label": null
+                        },
+                        {
+                          "from": 33,
+                          "color": "var(--c-severity-log-warning)",
+                          "label": null
+                        },
+                        {
+                          "from": 66,
+                          "color": "var(--c-severity-log-error)",
+                          "label": null
+                        }
+                      ],
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
+                      "customUnit": "",
+                      "decimal": null,
+                      "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                      "legend": null,
+                      "legendBy": "LEGEND_BY_UNSPECIFIED",
+                      "displaySeriesName": null,
+                      "decimalPrecision": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                },
+                {
+                  "id": {
+                    "value": "cd7ecd92-a43f-4e82-9ce3-f13efe618cb2"
+                  },
+                  "title": "Mapping Exceptions Failed Reasons",
+                  "description": null,
+                  "definition": {
+                    "pieChart": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | filter $m.failed_reason != null | countby $m.failed_reason"
+                          },
+                          "filters": [],
+                          "groupNames": [
+                            "failed_reason"
+                          ],
+                          "stackedGroupName": null,
+                          "timeFrame": null
+                        }
+                      },
+                      "maxSlicesPerChart": 8,
+                      "minSlicePercentage": 1,
+                      "stackDefinition": {
+                        "maxSlicesPerStack": 4,
+                        "stackNameTemplate": null
+                      },
+                      "labelDefinition": {
+                        "labelSource": "LABEL_SOURCE_INNER",
+                        "isVisible": true,
+                        "showName": true,
+                        "showValue": true,
+                        "showPercentage": true
+                      },
+                      "showLegend": true,
+                      "groupNameTemplate": null,
+                      "unit": "UNIT_UNSPECIFIED",
+                      "colorScheme": "classic",
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
+                      "customUnit": null,
+                      "decimal": null,
+                      "legend": null,
+                      "hashColors": null,
+                      "decimalPrecision": null,
+                      "showTotal": null
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "a787f487-e91b-433a-a389-7f47c221e57e"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "ccca212a-1c25-4da2-9bc7-f4835d55fd6a"
+                  },
+                  "title": "Mapping Exceptions Failed Reasons",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | filter $m.failed_reason != null | countby $m.failed_reason"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_ONE_LINE",
+                      "columns": [
+                        {
+                          "field": "$d.failed_reason",
+                          "width": 1146
+                        },
+                        {
+                          "field": "$d._count",
+                          "width": 200
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            },
+            {
+              "id": {
+                "value": "f386acff-42ec-441d-9481-03e68a651ede"
+              },
+              "appearance": {
+                "height": 58
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "6248a8d3-d7c3-4774-996c-1797bd27ff6d"
+                  },
+                  "title": "Logs with Mapping Exceptions",
+                  "description": null,
+                  "definition": {
+                    "dataTable": {
+                      "query": {
+                        "dataprime": {
+                          "dataprimeQuery": {
+                            "text": "source logs | filter $m.failed_reason != null"
+                          },
+                          "filters": [],
+                          "timeFrame": null
+                        }
+                      },
+                      "resultsPerPage": 100,
+                      "rowStyle": "ROW_STYLE_JSON",
+                      "columns": [
+                        {
+                          "field": "$m.timestamp",
+                          "width": null
+                        },
+                        {
+                          "field": "$d",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.applicationname",
+                          "width": null
+                        },
+                        {
+                          "field": "$l.subsystemname",
+                          "width": null
+                        }
+                      ],
+                      "orderBy": null,
+                      "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "applicationname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      },
+      {
+        "source": {
+          "logs": {
+            "field": null,
+            "operator": {
+              "equals": {
+                "selection": {
+                  "list": {
+                    "values": []
+                  }
+                }
+              }
+            },
+            "observationField": {
+              "keypath": [
+                "subsystemname"
+              ],
+              "scope": "DATASET_SCOPE_LABEL"
+            }
+          }
+        },
+        "enabled": true,
+        "collapsed": false,
+        "displayName": null,
+        "id": null
+      }
+    ],
+    "relativeTimeFrame": "21600s",
+    "folderId": {
+      "value": "6f334164-8288-47ec-9d59-f84e2443bfb9"
+    },
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": [],
+    "_source_folder_name": "Coralogix System Monitoring"
+  }
+}

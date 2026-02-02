@@ -1,34 +1,34 @@
 {
-  "id": "a0eca7a9-50ed-4cd0-bd46-c33f5d81cb3d",
-  "name": "RumMetrics_webVitalsTTFB_TimetoFirstByte_1",
-  "exported_at": "2026-02-02T07:27:30.325948",
+  "id": "7a7addbe-9422-4e89-9abe-1362857a6f06",
+  "name": "RUM_Network_Request_ron2",
+  "exported_at": "2026-02-02T07:27:30.325201",
   "data": {
-    "id": "a0eca7a9-50ed-4cd0-bd46-c33f5d81cb3d",
-    "name": "RumMetrics_webVitalsTTFB_TimetoFirstByte_1",
-    "description": "Time to First Byte metric",
-    "createTime": "2025-12-08T10:05:06.000Z",
-    "updateTime": "2025-12-08T10:05:06.000Z",
+    "id": "7a7addbe-9422-4e89-9abe-1362857a6f06",
+    "name": "RUM_Network_Request_ron2",
+    "description": "Deployed via extension package to create metrics from RUM (Real User Monitoring) data.",
+    "createTime": "2025-06-05T15:37:46.000Z",
+    "updateTime": "2026-02-02T07:27:11.000Z",
     "permutations": {
       "limit": 30000,
       "hasExceededLimit": false
     },
     "metricLabels": [
       {
-        "targetLabel": "Page_Fragments",
-        "sourceField": "cx_rum.page_context.page_fragments"
+        "targetLabel": "network_request",
+        "sourceField": "cx_rum.network_request_context.fragments"
       },
       {
-        "targetLabel": "App_Version",
-        "sourceField": "cx_rum.version_metadata.app_version"
+        "targetLabel": "status_code",
+        "sourceField": "cx_rum.network_request_context.status_code"
       }
     ],
     "metricFields": [
       {
-        "targetBaseMetricName": "RumMetrics_webVitalsTTFB_TimetoFirstByte_1",
-        "sourceField": "cx_rum.web_vitals_context.value",
+        "targetBaseMetricName": "rum_network_request_duration",
+        "sourceField": "cx_rum.network_request_context.duration",
         "aggregations": [
           {
-            "enabled": true,
+            "enabled": false,
             "aggType": "AGG_TYPE_AVG",
             "targetMetricName": "cx_avg"
           },
@@ -63,7 +63,7 @@
             "targetMetricName": "cx_sum"
           },
           {
-            "enabled": true,
+            "enabled": false,
             "aggType": "AGG_TYPE_SAMPLES",
             "targetMetricName": "cx_value",
             "samples": {
@@ -75,11 +75,9 @@
     ],
     "type": "E2M_TYPE_LOGS2METRICS",
     "logsQuery": {
-      "lucene": "cx_rum.web_vitals_context.name: \"TTFB\"",
+      "lucene": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.fragments",
       "applicationnameFilters": [],
-      "subsystemnameFilters": [
-        "cx_rum"
-      ],
+      "subsystemnameFilters": [],
       "severityFilters": []
     },
     "isInternal": false

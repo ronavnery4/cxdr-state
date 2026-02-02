@@ -1,0 +1,74 @@
+{
+  "id": "9b62991c-1b88-4821-a414-205bfd1f5902",
+  "name": "K8s - Pods with Crash Errors in K8S Clusters",
+  "exported_at": "2026-02-02T12:13:59.581412",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Pods with Crash Errors in K8S Clusters",
+      "description": "This alert is triggered when pods in a Kubernetes cluster enter the `CrashLoopBackOff` state, indicating that they are repeatedly failing to start due to application errors, configuration issues, or resource constraints. This can significantly impact the availability and functionality of workloads.\n\nThe alert is activated when one or more pods enter a `CrashLoopBackOff` state and remain in this condition for a prolonged period or exceed a predefined threshold of crashes.\n\nCustomization Guidance:\n      - Threshold: Set the threshold for triggering the alert based on the number of affected pods or the duration of the `CrashLoopBackOff` state (e.g., 5 crashes within 10 minutes or 1 pod in a `CrashLoopBackOff` state for 15 minutes).\n      - Monitoring Period: Adjust the monitoring window based on workload criticality. For high-priority workloads, reduce the monitoring interval to detect issues sooner.\n      - Notification Frequency: Optimize notification intervals to balance timely responses with minimizing alert noise.\n\nAction: Investigate the root cause of the crashes by reviewing the pod logs and Kubernetes events. Common issues include:\n      - Application bugs or misconfigurations\n      - Insufficient resources (e.g., CPU, memory)\n      - Missing environment variables or secrets\n      - Failing health checks (liveness/readiness probes)\n    Resolve the issue by addressing the underlying cause, and consider implementing retries, resource adjustments, or backoff policies to prevent recurrence.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_deployment_name",
+        "k8s_namespace_name",
+        "reason"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 60
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_deployment_name",
+          "k8s_namespace_name",
+          "reason"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(increase(k8s_container_status_last_terminated_reason{reason=~\"(Error|OOMKilled|StartError)\"}[10m])) by (k8s_deployment_name,k8s_namespace_name,k8s_cluster_name,reason)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 2,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_15"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": false
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9b62991c-1b88-4821-a414-205bfd1f5902",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "2b3a6955-0898-4d16-97a8-1215972bfb38"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "33aaf056-c876-4282-9a9e-5a8524a83aa6",
+  "name": "High Memory Utilization",
+  "exported_at": "2026-02-02T12:13:59.595259",
+  "data": {
+    "alertDefProperties": {
+      "name": "High Memory Utilization",
+      "description": "This alert is triggered when memory Utilization exceeds the defined threshold. This could indicate high workload, memory leaks, or inefficient resource allocation.\n\nThe alert is activated when `MemoryUtilization` exceeds the threshold for more than 10 minutes.\n\nCustomisation Guidance:\n  - Threshold: Trigger when `MemoryUtilization` exceeds the defined limit for more than 10 minutes.\n  - Monitoring Period: Adjust based on workload patterns and scaling requirements.\n  - Notification Frequency: Ensure repeated alerts are minimised to avoid noise.\n\nAction: Investigate the impacted resource, analyse memory usage trends, and consider optimising application performance or scaling resources.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "cloud_provider",
+        "host_name",
+        "os_type"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Memory": "",
+        "Metrics": "",
+        "OTEL": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "(sum(sum_over_time(system_memory_usage_By{state=~\"used\" }[10m])) by (cloud_account_id,cloud_provider,host_name,os_type)) /(sum(sum_over_time(system_memory_usage_By{}[10m])) by (cloud_account_id,cloud_provider,host_name,os_type)) * 100"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "33aaf056-c876-4282-9a9e-5a8524a83aa6",
+    "createdTime": "2025-07-21T08:27:53Z",
+    "updatedTime": "2025-07-21T08:27:53Z",
+    "lastTriggeredTime": "2025-11-14T14:37:09Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "b1212bf4-1d94-41bc-a1ff-2c403fa45692"
+  }
+}

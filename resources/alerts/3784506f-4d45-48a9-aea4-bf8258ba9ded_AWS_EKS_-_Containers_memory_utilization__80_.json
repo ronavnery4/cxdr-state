@@ -1,0 +1,68 @@
+{
+  "id": "3784506f-4d45-48a9-aea4-bf8258ba9ded",
+  "name": "AWS EKS - Containers memory utilization >80%",
+  "exported_at": "2026-02-02T12:13:59.577961",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Containers memory utilization >80%",
+      "description": "This alert triggers when the average memory utilization of containers in an Amazon EKS cluster exceeds 80%. High memory utilization can lead to container performance issues or even crashes if it reaches critical levels.\n\nCustomization Guidance:\n\nThreshold: The alert is set to trigger at 80% memory utilization. Adjust this threshold based on your environment's tolerance for high memory usage.\n\nCluster Specificity: Customize the alert for different clusters based on their criticality and expected memory consumption.\n\nNotification Frequency: Ensure timely notifications to prevent container failures due to memory exhaustion.\n\nAction: Monitor container performance, scale resources if necessary, and optimize container memory usage.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(amazonaws_com_ContainerInsights_container_memory_utilization_avg) by (ClusterName, cloud_region, cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "3784506f-4d45-48a9-aea4-bf8258ba9ded",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-03-10T15:57:39Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "074caff2-3bca-4b6b-ab24-c8698a6f5546"
+  }
+}

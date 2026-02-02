@@ -1,0 +1,68 @@
+{
+  "id": "0e0e2f6a-58a0-44e3-be8a-4abeb92808b6",
+  "name": "Amazon S3 -  High Total Request Latency",
+  "exported_at": "2026-02-02T12:13:59.590634",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon S3 -  High Total Request Latency",
+      "description": "This alert monitors the total request latency of Amazon S3 Buckets to ensure that it remains within acceptable limits. The alert is triggered when the request latency exceeds a predefined threshold over a 10-minute period.Total request latency measures the time taken from when a request is made to Amazon S3 until a response is received\n\nHigh total request latency can indicate potential issues with the origin server, Amazon S3 itself, or the network. These latency issues can significantly impact the performance and availability of web applications, leading to a poor user experience. Prompt detection and resolution of these latency issues are crucial for maintaining service reliability.\n\nCustomization Guidance\n\nThreshold\n\nThe default threshold is set to trigger the alert when the request latency exceeds a predefined limit within the monitoring period. Adjust this threshold based on historical latency data observed. Lower thresholds may be suitable for high-availability environments.\n\nMonitoring Period\n\nThe standard monitoring period is 10 minutes. Adjust this period to be shorter for more immediate detection or longer for trend analysis, depending on your operational requirements.\n\nRegion Specificity\n\nDefine specific regions to monitor if your services have regional dependencies or if certain regions are more critical to your operations. This ensures that alerts are relevant and actionable.\n\nNotification Frequency\n\nBalance the alert frequency to optimize responsiveness while minimizing noise. Adjust according to the criticality of uninterrupted operation.\n\nAction\n\nUpon triggering, review Amazon S3 logs to identify patterns or specific requests causing the high latency. Verify the health and performance of your origin servers and the network infrastructure. Ensure that the Amazon S3 Bucket settings, including connection settings, are correctly configured. If the origin server is overloaded, consider scaling up resources or distributing the load across additional servers. Investigate any potential network issues that may be contributing to the increased latency. If configuration issues are identified, deploy the necessary fixes to resolve them. Ensure that all software components, including web servers and application servers, are up to date and optimized for performance.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Metrics": "",
+        "Observability": "",
+        "S3": "",
+        "Storage": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum by (cloud_region)(sum_over_time(amazonaws_com_AWS_S3_TotalRequestLatency_sum{cloud_region=~\".+\"})) / sum by (cloud_region) (sum_over_time(amazonaws_com_AWS_S3_TotalRequestLatency_count{cloud_region=~\".+\"}))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 500,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "0e0e2f6a-58a0-44e3-be8a-4abeb92808b6",
+    "createdTime": "2026-01-06T15:48:27Z",
+    "updatedTime": "2026-01-06T15:48:27Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "8ac44fe5-4a69-47e7-bc2e-0c4dbfe8faf9"
+  }
+}

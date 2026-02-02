@@ -1,0 +1,72 @@
+{
+  "id": "96dd6376-5c59-49d5-a897-61beed64a81f",
+  "name": "K8s - Node CPU Utilization Above 80%",
+  "exported_at": "2026-02-02T12:13:59.589608",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Node CPU Utilization Above 80%",
+      "description": "This alert is triggered when the average CPU utilization of a node in a Kubernetes cluster exceeds 80%, indicating potential performance degradation or resource contention. High CPU usage can lead to pod evictions, application slowdowns, or even node instability.\n\nThe alert is activated when the average CPU utilization for a node surpasses 80% for a predefined period, signaling that the node may be under heavy load.\n\nCustomization Guidance:\n      - Threshold: The default threshold is set to 80%, but it can be adjusted based on the workload and node specifications. For nodes running critical services, you may set the threshold lower (e.g., 70%).\n      - Monitoring Period: The monitoring period can be adjusted based on the nature of the workloads. For more dynamic workloads, shorter periods (e.g., 5 or 10 minutes) may be more appropriate to catch spikes early.\n      - Notification Frequency: Set notification intervals to ensure timely alerts without overwhelming operators. Consider configuring multiple levels of notifications based on CPU usage severity.\n\nAction: Investigate the node's CPU usage to identify the cause of high utilization. Common causes include:\n      - High resource-consuming applications or containers running on the node\n      - Insufficient resource allocation (e.g., CPU requests/limits not set appropriately for pods)\n      - Node running multiple critical workloads or resource-heavy services\n    Resolve the issue by optimizing the workloads, adjusting resource requests and limits, or distributing workloads across more nodes to balance the load.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "k8s_cluster_name",
+        "k8s_node_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_node_name",
+          "k8s_cluster_name",
+          "cloud_account_id"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "100 * sum(increase(system_cpu_time_total{state!=\"idle\"}[10m])) by (cloud_account_id, k8s_cluster_name, k8s_node_name) / sum(increase(system_cpu_time_total{state!=\"\"}[10m])) by (cloud_account_id, k8s_cluster_name, k8s_node_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 50,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": false
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "96dd6376-5c59-49d5-a897-61beed64a81f",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "84f727b7-69ac-41ef-baa5-cc3750b3c2dc"
+  }
+}

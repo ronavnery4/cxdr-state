@@ -1,0 +1,69 @@
+{
+  "id": "f6a4bb90-a537-4bf8-9694-e3cda9e7e2f4",
+  "name": "Amazon EC2 - Instance Status Checks Failed",
+  "exported_at": "2026-02-02T12:13:59.582232",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon EC2 - Instance Status Checks Failed",
+      "description": "This alert is designed to monitor the health of the EC2 instance itself by tracking the instance status check. The alert is triggered when the instance status check fails, indicating an issue with the instance\u2019s operating system, boot process, or underlying configuration that prevents it from functioning properly.\n\nTrigger Condition:\nThe alert is activated when the EC2 instance status check fails. This failure generally signals problems within the instance, such as OS corruption, software misconfigurations, or insufficient resources (CPU, memory, disk space) preventing the instance from operating correctly.\n\nCustomization Guidance:\n\nThreshold:\nThe alert should be triggered immediately upon a status check failure, as this often indicates that the instance is unresponsive or malfunctioning. Immediate notification is critical to minimizing downtime.\n\nGranularity:\nInstance status checks focus on problems internal to the instance, such as OS-level issues. You may want to combine this with system status checks (which monitor the AWS infrastructure) to get comprehensive visibility into both the host environment and instance health.\n\nAlert Tiering:\nConsider setting a warning alert if the status check fails intermittently, and a critical alert for sustained failure (e.g., more than 5 minutes) or when multiple consecutive status checks fail, suggesting a serious problem with the instance.\n\nNotification Frequency:\nImmediate notifications are recommended as instance-level failures can impact the availability of your applications. Consider setting repeat notifications until the issue is resolved to ensure swift action.\n\nAction:\nUpon activation of this alert, it is essential to investigate the root cause of the instance status check failure and take appropriate corrective actions:\n\nReboot the Instance: Attempt to reboot the instance to resolve transient issues, such as kernel crashes or misconfigurations.\n\nCheck Logs: Investigate the instance system logs (e.g., dmesg, syslog) to identify any software errors, misconfigurations, or resource exhaustion (CPU, memory, disk).\n\nVerify Instance Resources: Check if the instance is running out of key resources like memory or disk space and consider scaling up or modifying the instance.\n\nStop/Start the Instance: If the reboot doesn't fix the issue, perform a full stop/start cycle to move the instance to new hardware and reload the instance from scratch.\n\nPerform OS-Level Troubleshooting: If necessary, connect to the instance using a recovery method such as EC2 Instance Recovery or attach the root EBS volume to another instance for detailed troubleshooting.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "InstanceId",
+        "cloud_account_id"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Compute": "",
+        "EC2": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum((amazonaws_com_AWS_EC2_StatusCheckFailed_Instance{})) by (InstanceId,cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f6a4bb90-a537-4bf8-9694-e3cda9e7e2f4",
+    "createdTime": "2026-01-06T15:47:14Z",
+    "updatedTime": "2026-01-06T15:47:14Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "33607187-7d0b-400a-bed3-32fdf688abeb"
+  }
+}

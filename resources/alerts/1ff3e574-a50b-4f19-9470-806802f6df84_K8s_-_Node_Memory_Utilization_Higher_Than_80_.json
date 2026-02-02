@@ -1,0 +1,70 @@
+{
+  "id": "1ff3e574-a50b-4f19-9470-806802f6df84",
+  "name": "K8s - Node Memory Utilization Higher Than 80%",
+  "exported_at": "2026-02-02T12:13:59.592327",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Node Memory Utilization Higher Than 80%",
+      "description": "This alert is triggered when a node in a Kubernetes cluster is higher than 80% indicating that the node is at risk of running out of memory (OOM). Nodes that are close to exhausting their memory resources can cause pod evictions, degraded performance, and potential system crashes.\n\nThe alert is activated when the node's memory usage exceeds a predefined threshold (e.g., 80%) and is approaching the point where an OOM event may occur.\n\nAction: Investigate the node's memory usage to identify any workloads consuming excessive memory. Common causes include:\n      - Pods with memory leaks or excessive memory requests\n      - High-resource-consuming applications without proper resource limits\n      - Insufficient memory resources on the node itself\n    Address the issue by optimizing pod memory requests, scaling workloads appropriately, or considering adding more memory resources to the node to prevent OOM errors.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_node_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_node_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "((sum(k8s_node_memory_usage_By{k8s_node_name =~ '.*'}) by (k8s_cluster_name,k8s_node_name)) / (sum(k8s_node_allocatable_memory_By{k8s_node_name =~ '.*'}) by (k8s_cluster_name,k8s_node_name)))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.8,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "1ff3e574-a50b-4f19-9470-806802f6df84",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "96cdb168-f239-4bf4-af18-d09a59343442"
+  }
+}

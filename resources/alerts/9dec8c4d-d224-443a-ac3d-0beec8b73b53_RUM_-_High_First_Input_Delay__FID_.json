@@ -1,0 +1,62 @@
+{
+  "id": "9dec8c4d-d224-443a-ac3d-0beec8b73b53",
+  "name": "RUM - High First Input Delay (FID)",
+  "exported_at": "2026-02-02T12:13:59.600929",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High First Input Delay (FID)",
+      "description": "This alert monitors elevated First Input Delay (FID) values as captured through Real User Monitoring (RUM) data. High FID times indicate sluggish responsiveness to user interactions, such as clicks or taps, potentially frustrating users and degrading the interactive experience.\n\nThe alert is triggered when the average FID exceeds a defined threshold (e.g., 100 ms) over a specified monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps ensure your application remains responsive to user inputs, which is critical for usability and compliance with Core Web Vitals standards.\n\nCustomization Guidance:\n  - Threshold: Set the FID threshold based on industry best practices (e.g., under 100 ms for optimal interactivity).\n  - Monitoring Period: Choose a short window to promptly detect spikes in input delay, especially during peak usage.\n  - Notification Frequency: Trigger alerts on repeated or sustained FID degradation to stay informed without over-alerting.\n\nAction: If this alert is triggered, investigate long JavaScript tasks, input blocking resources, and inefficient event handling. Optimize script execution and defer non-critical work to improve responsiveness.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "page"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RUM_web_vitals_context_value_cx_avg{context_name=\"FID\"}) by (page)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 100,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9dec8c4d-d224-443a-ac3d-0beec8b73b53",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:31:25Z",
+    "lastTriggeredTime": "2026-02-01T12:26:38Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "e4616603-a3d4-4537-a3c2-064d80bc42ab"
+  }
+}

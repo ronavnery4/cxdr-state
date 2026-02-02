@@ -1,0 +1,71 @@
+{
+  "id": "c8ccc37e-8bdd-45fc-bd69-95772fb696c1",
+  "name": "High Disk Utilization",
+  "exported_at": "2026-02-02T12:13:59.585586",
+  "data": {
+    "alertDefProperties": {
+      "name": "High Disk Utilization",
+      "description": "This alert is triggered when disk Utilization exceeds the defined threshold. This could indicate high storage usage, inefficient resource allocation, or potential disk performance issues.\n\nThe alert is activated when `DiskUtilization` exceeds the threshold for more than 10 minutes.\n\nCustomisation Guidance:\n  - Threshold: Trigger when `DiskUtilization` exceeds the defined limit for more than 10 minutes.\n  - Monitoring Period: Adjust based on storage usage patterns and workload requirements.\n  - Notification Frequency: Ensure repeated alerts are minimised to avoid noise.\n\nAction: Investigate the impacted resource, analyse disk usage trends, and consider cleaning up unused files, optimising storage, or increasing disk capacity.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "cloud_provider",
+        "device",
+        "host_name",
+        "os_type"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Disk": "",
+        "Metrics": "",
+        "OTEL": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "(100 * sum(system_filesystem_usage_By{state=\"used\"}[10m]) by (cloud_provider,host_name,device,cloud_account_id,os_type) / sum(system_filesystem_usage_By{ }[10m]) by (cloud_provider,host_name,device,cloud_account_id,os_type))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "c8ccc37e-8bdd-45fc-bd69-95772fb696c1",
+    "createdTime": "2025-07-21T08:27:48Z",
+    "updatedTime": "2025-07-21T08:27:48Z",
+    "lastTriggeredTime": "2026-02-02T00:10:33Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "5fbffe45-4e04-41e2-ab9f-00ef6a210ccf"
+  }
+}

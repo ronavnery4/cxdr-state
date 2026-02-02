@@ -1,0 +1,62 @@
+{
+  "id": "c28137d5-7d8d-431a-ae8c-72e903421c36",
+  "name": "TEST - Response Check",
+  "exported_at": "2026-02-02T12:13:59.580775",
+  "data": {
+    "alertDefProperties": {
+      "name": "TEST - Response Check",
+      "description": "Testing response structure",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 5
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "test": "response_check"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "up"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1000,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "c28137d5-7d8d-431a-ae8c-72e903421c36",
+    "createdTime": "2025-10-20T14:25:44Z",
+    "updatedTime": "2025-10-20T14:25:44Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "261ee696-3606-4972-9007-1fb510fde110"
+  }
+}

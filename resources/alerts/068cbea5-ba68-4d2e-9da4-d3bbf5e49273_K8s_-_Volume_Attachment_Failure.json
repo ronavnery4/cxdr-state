@@ -1,0 +1,76 @@
+{
+  "id": "068cbea5-ba68-4d2e-9da4-d3bbf5e49273",
+  "name": "K8s - Volume Attachment Failure",
+  "exported_at": "2026-02-02T12:13:59.586533",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Volume Attachment Failure",
+      "description": "This alert is triggered when Kubernetes fails to attach a persistent volume (PV) to a pod. A volume attachment failure can prevent a pod from starting or cause it to become unresponsive if it depends on the attached storage for its operation. This may indicate issues with the storage configuration, permissions, or availability of the underlying storage provider. \n\nThe alert is activated when a volume attachment operation fails, preventing the pod from accessing the required persistent storage.\n\nCustomization Guidance:\n      - Threshold: Define the threshold based on the criticality of the volume attachment failure. For example, set the alert to trigger when a volume attachment fails for more than 1 minute or after multiple failed retry attempts.\n      - Monitoring Period: The monitoring period can be customized depending on your application's dependency on storage. Use a shorter monitoring window for critical applications that rely on persistent storage.\n      - Notification Frequency: Set the notification frequency to balance between responsiveness and noise. High-priority applications may require more frequent alerts to ensure rapid resolution of volume attachment issues.\n\nAction: Investigate the cause of the volume attachment failure by reviewing the pod's logs, events, and storage system status. Common causes include:\n      - Misconfigured persistent volume claims (PVCs) or missing storage classes\n      - Permissions issues preventing the pod from accessing the volume (e.g., incorrect roles or policies)\n      - Storage backend issues, such as unavailable or misconfigured storage providers (e.g., EBS, NFS, etc.)\n      - Node or networking issues affecting volume availability \n    Resolve the issue by checking the PVC configuration, ensuring that the storage provider is healthy and accessible, reviewing access control policies, and confirming that nodes are properly configured to handle volume attachment requests.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [
+        "object.regarding.namespace",
+        "resource.attributes.k8s_cluster_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "resource.attributes.k8s_cluster_name",
+          "object.regarding.namespace"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Logs": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "object.reason:\"FailedAttachVolume\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": null,
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [
+          "object.note"
+        ],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "068cbea5-ba68-4d2e-9da4-d3bbf5e49273",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "672ebc1e-0cb9-417b-9967-1db979cb6ddd"
+  }
+}

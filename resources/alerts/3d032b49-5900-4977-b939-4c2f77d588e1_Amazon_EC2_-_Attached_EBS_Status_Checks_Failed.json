@@ -1,0 +1,69 @@
+{
+  "id": "3d032b49-5900-4977-b939-4c2f77d588e1",
+  "name": "Amazon EC2 - Attached EBS Status Checks Failed",
+  "exported_at": "2026-02-02T12:13:59.589764",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon EC2 - Attached EBS Status Checks Failed",
+      "description": "This alert is designed to monitor the health and availability of Amazon EBS volumes attached to an EC2 instance. The alert is triggered when the EBS volume status check fails, indicating an issue with the attached EBS volume that may prevent the instance from reading from or writing to the volume.\n\nTrigger Condition:\nThe alert is activated when the status check for an attached EBS volume fails. This failure could indicate several underlying problems, including data corruption, I/O performance issues, or connectivity problems between the EC2 instance and the EBS volume.\n\nCustomization Guidance:\n\nThreshold:\nThe alert should be triggered immediately upon EBS volume status check failure, as this issue can lead to application outages or data unavailability. EBS volumes are critical for persistent storage, so rapid detection is essential.\n\nGranularity:\nConsider setting separate alerts for I/O performance degradation and volume state (e.g., impaired or stalled) to differentiate between temporary I/O slowdowns and complete volume failures.\n\nAlert Tiering:\nYou can create multi-tier alerts based on the nature of the failure:\nWarning Alerts for temporary I/O performance issues or latency (e.g., exceeding 90% I/O capacity).\nCritical Alerts when the EBS volume is marked as \"impaired\" or \"failed\" by AWS, as this could lead to complete data inaccessibility.\n\nNotification Frequency:\nImmediate notifications are highly recommended for this alert since EBS status check failures can directly affect application performance or availability. Set the alert to repeat until the issue is resolved to ensure continuous awareness.\n\nAction:\nWhen the alert is triggered, it's crucial to quickly identify and resolve the issue with the EBS volume to prevent data loss or performance degradation:\n\nCheck EBS Volume Status in AWS Console:\nGo to the EC2 Dashboard > Volumes section to inspect the status of the attached EBS volume. AWS may provide further details if the volume is marked as \"impaired\" or \"failed.\"\n\nInvestigate CloudWatch Metrics for EBS:\nReview CloudWatch metrics for the volume, such as IOPS, throughput, and latency, to determine if the issue is related to heavy usage or throttling.\n\nCheck Disk Utilization:\nLog into the EC2 instance and check the disk space usage (df -h) and volume health (dmesg, lsblk) to detect if there\u2019s any corruption or unmounted file systems.\n\nDetach and Reattach the EBS Volume:\nIf the volume is not responding, detach it from the instance and reattach it. This may resolve issues with connectivity or I/O errors.\n\nRestore from Snapshot:\nIf the volume is severely impaired or corrupted, and recovery efforts fail, restore the volume from a recent EBS snapshot.\n\nContact AWS Support:\nIf AWS indicates an issue with the volume that cannot be resolved through the above steps, contact AWS Support for assistance in recovering or replacing the volume.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "InstanceId",
+        "cloud_account_id"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Compute": "",
+        "EC2": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum((amazonaws_com_AWS_EC2_StatusCheckFailed_AttachedEBS{})) by (InstanceId,cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "3d032b49-5900-4977-b939-4c2f77d588e1",
+    "createdTime": "2026-01-06T15:47:15Z",
+    "updatedTime": "2026-01-06T15:47:15Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "84f9aa78-6a80-430b-ab97-97fd1addbac9"
+  }
+}

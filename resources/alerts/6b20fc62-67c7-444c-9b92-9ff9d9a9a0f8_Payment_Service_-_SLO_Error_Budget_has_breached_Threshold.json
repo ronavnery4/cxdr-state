@@ -1,0 +1,71 @@
+{
+  "id": "6b20fc62-67c7-444c-9b92-9ff9d9a9a0f8",
+  "name": "Payment Service - SLO Error Budget has breached Threshold",
+  "exported_at": "2026-02-02T12:13:59.599232",
+  "data": {
+    "alertDefProperties": {
+      "name": "Payment Service - SLO Error Budget has breached Threshold",
+      "description": "The Error Budget for the Payment Service Error SLO has breached a predefined Threshold",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "product": "apm-service-catalog",
+        "serviceName": "payment"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "daed0794-f965-4932-ac54-2a902c228c79"
+        },
+        "errorBudget": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 10
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P1"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 50
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P2"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 75
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            }
+          ]
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "6b20fc62-67c7-444c-9b92-9ff9d9a9a0f8",
+    "createdTime": "2025-10-03T14:34:16Z",
+    "updatedTime": "2025-10-03T14:34:16Z",
+    "lastTriggeredTime": "2026-02-02T12:12:40Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "d702da86-901f-43ce-9b9e-c3e983360696"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "e8cc9aaa-ea3c-4bef-b203-a33d20a0bab2",
+  "name": "Anomaly Detection \u2013 APM \u2013 Requests (Throughput) \u2013 Less Than Usual Request Volume Detected in a Service",
+  "exported_at": "2026-02-02T12:13:59.585437",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 APM \u2013 Requests (Throughput) \u2013 Less Than Usual Request Volume Detected in a Service",
+      "description": "Coralogix\u2019s anomaly detection automatically learns historical traffic patterns for each service, accounting for typical daily and weekly fluctuations. When a service begins receiving fewer requests than usual (20%), the alert triggers to highlight potential outages, routing issues, or misconfigurations that could be impacting availability or data flow.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_ANOMALY",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "core"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricAnomaly": {
+        "metricFilter": {
+          "promql": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\"}[30s])) by (service_name) or on () vector(0)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "minNonNullValuesPct": 100,
+              "conditionType": "METRIC_ANOMALY_CONDITION_TYPE_LESS_THAN_USUAL"
+            }
+          }
+        ],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 20
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "e8cc9aaa-ea3c-4bef-b203-a33d20a0bab2",
+    "createdTime": "2025-10-26T12:35:34Z",
+    "updatedTime": "2025-10-26T12:35:34Z",
+    "lastTriggeredTime": "2026-02-02T12:11:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "5ef72e9c-0b5d-454d-bc57-6e7a7448433e"
+  }
+}

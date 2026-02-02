@@ -1,0 +1,68 @@
+{
+  "id": "8fd19737-513e-4b42-b054-a494ed1af8f0",
+  "name": "AWS Lambda - Asynchronous Event Drop Detected",
+  "exported_at": "2026-02-02T12:13:59.584972",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS Lambda - Asynchronous Event Drop Detected",
+      "description": "This alert is designed to monitor and respond to excessive dropping of asynchronous events in AWS Lambda functions, which can indicate processing issues or insufficient resources.\n\nThe alert triggers when the number of dropped asynchronous events exceeds 10 within a 10-minute period.\n\nTracking dropped events is crucial for ensuring that all asynchronous tasks are processed as expected. Excessive drops may result from configuration issues, resource limits, or unexpected surges in event volume.\n\nTroubleshooting Guidance:\n  - Errors Metric: Check the Errors metric to identify any recent increases in function errors, which could be contributing to processing delays.\n  - Throttles Metric: Review the Throttles metric to determine if concurrency limits are being reached, leading to throttling events that delay event processing.\n\nCustomization Guidance:\n  - Threshold: The default threshold is set at 10 dropped events in 10 minutes. Adjust this threshold based on the usual event traffic and tolerance for dropped events in your specific application.\n  - Monitoring Period: The standard monitoring period is 10 minutes, which may be modified to be more or less frequent based on the application\u2019s operational needs and event processing characteristics.\n  - Notification Frequency: Consider the frequency of this alert to optimize the balance between responsiveness and noise. Adjust according to the criticality of the function\u2019s uninterrupted operation.\n\nAction: Upon activation, examine the Lambda function\u2019s execution logs to identify the root causes of the dropped events. Review and adjust function configurations, such as timeout settings, memory allocation, and concurrency limits, to prevent future drops.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "FunctionName",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Lambda": "",
+        "Metrics": "",
+        "Serverless": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(sum_over_time(amazonaws_com_AWS_Lambda_AsyncEventsDropped_sum{}[10m])) by (FunctionName,cloud_region)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 10,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "8fd19737-513e-4b42-b054-a494ed1af8f0",
+    "createdTime": "2026-01-06T15:48:07Z",
+    "updatedTime": "2026-01-06T15:48:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "58de402d-f465-4644-a00a-863e2a46ad77"
+  }
+}

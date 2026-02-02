@@ -1,0 +1,68 @@
+{
+  "id": "8731d1e3-97cf-4c8f-b886-d48a73b47934",
+  "name": "Amazon S3 - High 4xx Error Rate",
+  "exported_at": "2026-02-02T12:13:59.602976",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon S3 - High 4xx Error Rate",
+      "description": "This alert monitors the errors of Amazon S3 Buckets to ensure that client-side errors (4xx errors) remain within acceptable limits. The alert is triggered when the 4xx error rate exceeds 5 errors over a 10-minute period. \n\nHigh 4xx error counts indicate issues with the client requests, such as incorrect URLs, authentication failures, or permission issues. These errors can significantly impact the performance and availability of web applications, leading to a poor user experience. Prompt detection and resolution of these errors are crucial for maintaining service reliability.\n\nCustomization Guidance\n\nThreshold\n\nThe default threshold is set to trigger the alert when 4xx errors exceed 5 within the monitoring period. Adjust this threshold based on historical error counts observed. Lower thresholds may be suitable for high-availability environments.\n\nMonitoring Period\n\nThe standard monitoring period is 10 minutes. Adjust this period to be shorter for more immediate detection or longer for trend analysis, depending on your operational requirements.\n\nRegion Specificity\n\nDefine specific regions to monitor if your services have regional dependencies or if certain regions are more critical to your operations. This ensures that alerts are relevant and actionable.\n\nNotification Frequency\n\nBalance the alert frequency to optimize responsiveness while minimizing noise. Adjust according to the criticality of uninterrupted operation.\n\nAction\n\nUpon triggering, review S3 logs to identify patterns or specific requests causing the errors. Verify the client configurations and the permissions set for accessing the S3 Buckets. Ensure that the S3 Bucket settings, including access policies, are correctly configured. If specific requests are causing repeated errors, work with the clients to correct their requests. If configuration issues are identified, deploy the necessary fixes to resolve the errors. Ensure that all software components involved in making the requests are up to date and correctly configured.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Metrics": "",
+        "Observability": "",
+        "S3": "",
+        "Storage": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum by (cloud_region)(sum_over_time(amazonaws_com_AWS_S3_4xxErrors_sum{cloud_region=~\".+\"})) / sum by (cloud_region)(sum_over_time(amazonaws_com_AWS_S3_AllRequests_sum{cloud_region=~\".+\"}))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 5,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "8731d1e3-97cf-4c8f-b886-d48a73b47934",
+    "createdTime": "2026-01-06T15:48:27Z",
+    "updatedTime": "2026-01-06T15:48:27Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "f6b4a246-c371-482f-84d0-31dc268d2aed"
+  }
+}

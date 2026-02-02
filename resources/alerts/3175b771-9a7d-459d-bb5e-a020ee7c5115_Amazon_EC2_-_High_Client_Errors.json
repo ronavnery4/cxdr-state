@@ -1,0 +1,68 @@
+{
+  "id": "3175b771-9a7d-459d-bb5e-a020ee7c5115",
+  "name": "Amazon EC2 - High Client Errors",
+  "exported_at": "2026-02-02T12:13:59.600344",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon EC2 - High Client Errors",
+      "description": "This alert is designed to monitor the occurrence of HTTP 4xx client-side errors on your Amazon EC2 instance. 4xx errors indicate that the client sent a bad request that the server could not process. These errors are often caused by misconfigured applications, incorrect API requests, or authentication issues. Common 4xx errors include:\n\nTrigger Condition:\nThe alert is triggered when the number of HTTP 4xx errors exceeds a specified threshold, indicating a potential issue with how the client interacts with the EC2 instance. For example, you may set the alert to trigger when the count of 4xx errors exceeds 10 errors in 10 minutes.\n\nCustomization Guidance:\n\nThreshold :\nSet a specific count threshold for 4xx errors. For example:\nA warning alert can be triggered when there are 5 4xx errors in a 10-minute window.\nA critical alert can be triggered when there are 10 or more 4xx errors in a 10-minute window. Adjust these thresholds based on your application's traffic and tolerance for client errors.\n\nGranularity:\nCustomize the alert to differentiate between specific 4xx errors . This helps in identifying the exact root cause more efficiently.\n\nAlert Tiering:\nImplement multi-level alerting:\nWarning alerts for a lower count of errors (e.g., 5 in 10 minutes).\nCritical alerts for a higher count of errors (e.g., 10 or more in 10 minutes), indicating a more significant client-side issue.\n\nNotification Frequency:\nConfigure the alert to notify immediately when the error count crosses the threshold, but fine-tune the frequency to avoid excessive noise for temporary spikes.\n\nAction:\nUpon activation of the alert, investigate the cause of high client errors:\n\nReview API Requests: Check for malformed or incorrect API requests coming from the client, such as incorrect parameters, invalid URLs, or unsupported operations.\n\nCheck Authentication Issues: Investigate any 401 or 403 errors to ensure that clients have the correct permissions and tokens to access resources.\n\nVerify Application Configuration: Look for misconfigurations in the client application or issues in the communication between the client and the EC2 instance.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "Action"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Compute": "",
+        "EC2": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum((amazonaws_com_AWS_EC2_API_ClientErrors{Action!=\"\"})) by (Action)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 10,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "3175b771-9a7d-459d-bb5e-a020ee7c5115",
+    "createdTime": "2026-01-06T15:47:15Z",
+    "updatedTime": "2026-01-06T15:47:15Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "e25e261e-1c0b-4c72-b5a9-a655b4d86da2"
+  }
+}

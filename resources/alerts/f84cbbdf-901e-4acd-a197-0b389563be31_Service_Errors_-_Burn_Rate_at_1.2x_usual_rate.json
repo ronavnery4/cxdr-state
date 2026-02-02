@@ -1,0 +1,66 @@
+{
+  "id": "f84cbbdf-901e-4acd-a197-0b389563be31",
+  "name": "Service Errors - Burn Rate at 1.2x usual rate",
+  "exported_at": "2026-02-02T12:13:59.602831",
+  "data": {
+    "alertDefProperties": {
+      "name": "Service Errors - Burn Rate at 1.2x usual rate",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [
+        "service_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "service_name"
+        ],
+        "webhooks": [],
+        "destinations": [],
+        "router": {
+          "id": "1572147b-e9e9-4d62-9133-f2a0ccfcc52b",
+          "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED"
+        }
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "d9b469b0-8447-426b-a640-c2f8fd3eadd5"
+        },
+        "burnRate": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 1.2
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            }
+          ],
+          "single": {
+            "timeDuration": {
+              "duration": "1",
+              "unit": "DURATION_UNIT_HOURS"
+            }
+          }
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f84cbbdf-901e-4acd-a197-0b389563be31",
+    "createdTime": "2025-12-10T09:24:57Z",
+    "updatedTime": "2025-12-10T09:24:57Z",
+    "lastTriggeredTime": "2026-02-02T12:12:38Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "f5c8d29e-e9c1-4ca4-84d6-3f974d6724a9"
+  }
+}

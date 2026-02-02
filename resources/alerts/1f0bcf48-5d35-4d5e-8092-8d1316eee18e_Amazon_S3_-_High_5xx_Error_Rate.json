@@ -1,0 +1,71 @@
+{
+  "id": "1f0bcf48-5d35-4d5e-8092-8d1316eee18e",
+  "name": "Amazon S3 - High 5xx Error Rate",
+  "exported_at": "2026-02-02T12:13:59.587229",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon S3 - High 5xx Error Rate",
+      "description": "This alert monitors the errors of Amazon S3 Buckets to ensure that server-side errors (5xx errors) remain within acceptable limits. The alert is triggered when the 5xx error rate exceeds 5 errors over a 10-minute period. \n\nHigh 5xx error counts indicate issues with the origin server, S3 itself, or the network. These errors can significantly impact the performance and availability of web applications, leading to a poor user experience. Prompt detection and resolution of these errors are crucial for maintaining service reliability.\n\nCustomization Guidance\n\nThreshold\n\nThe default threshold is set to trigger the alert when 5xx errors exceed 5 within the monitoring period. Adjust this threshold based on historical error counts observed. Lower thresholds may be suitable for high-availability environments.\n\nMonitoring Period\n\nThe standard monitoring period is 10 minutes. Adjust this period to be shorter for more immediate detection or longer for trend analysis, depending on your operational requirements.\n\nRegion Specificity\n\nDefine specific regions to monitor if your services have regional dependencies or if certain regions are more critical to your operations. This ensures that alerts are relevant and actionable.\n\nNotification Frequency\n\nBalance the alert frequency to optimize responsiveness while minimizing noise. Adjust according to the criticality of uninterrupted operation.\n\nAction\n\nUpon triggering, review S3 logs to identify patterns or specific requests causing the errors. Verify the health and performance of your origin servers. Ensure that the S3 Bucket settings are correctly configured, including the connection settings. If the origin server is overloaded, consider scaling up resources or distributing the load across additional servers. If configuration issues are identified, deploy the necessary fixes to resolve the errors. Ensure that all software components, including web servers and application servers, are up to date and free from known issues.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Metrics": "",
+        "Observability": "",
+        "S3": "",
+        "Storage": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum by (cloud_region)(sum_over_time(amazonaws_com_AWS_S3_5xxErrors{cloud_region=~\".+\"})) / sum by (cloud_region)(sum_over_time(amazonaws_com_AWS_S3_AllRequests_sum{cloud_region=~\".+\"}))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 5,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_LESS_THAN"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": {
+          "triggerUndetectedValues": true,
+          "autoRetireTimeframe": "AUTO_RETIRE_TIMEFRAME_NEVER_OR_UNSPECIFIED"
+        },
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "1f0bcf48-5d35-4d5e-8092-8d1316eee18e",
+    "createdTime": "2026-01-06T15:48:27Z",
+    "updatedTime": "2026-01-06T15:48:27Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "6e784c2a-ba66-4d6c-be87-a010b657a3b0"
+  }
+}

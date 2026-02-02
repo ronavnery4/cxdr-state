@@ -1,0 +1,64 @@
+{
+  "id": "f99e4966-4ffe-4e5f-a88c-4312961f1da4",
+  "name": "Impossible Traveller Alert",
+  "exported_at": "2026-02-02T12:13:59.601077",
+  "data": {
+    "alertDefProperties": {
+      "name": "Impossible Traveller Alert",
+      "description": "A user has access our system from more than 1 georgraphical location in under 1 hour",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_LOGS_UNIQUE_COUNT",
+      "groupByKeys": [
+        "cx_rum.session_context.user_id"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "cx_rum.session_context.user_id"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsUniqueCount": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "_exists_:cx_rum.session_context.ip_geoip.country_name AND _exists_:cx_rum.session_context.user_id",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "maxUniqueCount": "1",
+              "timeWindow": {
+                "logsUniqueValueTimeWindowSpecificValue": "LOGS_UNIQUE_VALUE_TIME_WINDOW_VALUE_HOURS_1"
+              }
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "maxUniqueCountPerGroupByKey": "500",
+        "uniqueCountKeypath": "cx_rum.session_context.ip_geoip.country_name"
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f99e4966-4ffe-4e5f-a88c-4312961f1da4",
+    "createdTime": "2025-11-28T09:25:45Z",
+    "updatedTime": "2025-11-28T09:25:45Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "e5fedd87-2e27-4dc7-89e4-101238431763"
+  }
+}

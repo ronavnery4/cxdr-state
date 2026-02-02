@@ -1,0 +1,63 @@
+{
+  "id": "cb65d6f6-b50d-41b7-b822-72a88ac03193",
+  "name": "OpenTelemetry Collector Log Send Failures",
+  "exported_at": "2026-02-02T12:13:59.582090",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector Log Send Failures",
+      "description": "OpenTelemetry Collector is failing to send logs, please investigate Collector logs.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "exporter",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_exporter_send_failed_log_records_total{}[5m])) by (exporter, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "cb65d6f6-b50d-41b7-b822-72a88ac03193",
+    "createdTime": "2025-03-07T08:17:27Z",
+    "updatedTime": "2025-07-21T08:26:18Z",
+    "lastTriggeredTime": "2026-02-02T12:12:33Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "32493031-f15b-4a47-a821-8e520442947d"
+  }
+}

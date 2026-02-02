@@ -1,0 +1,75 @@
+{
+  "id": "dcf26cbd-2cd7-4e76-8707-6a6b3a750a9d",
+  "name": "K8s - Percentage of Healthy Pods Below 44%",
+  "exported_at": "2026-02-02T12:13:59.587057",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Percentage of Healthy Pods Below 44%",
+      "description": "This alert is triggered when the percentage of healthy pods in a Kubernetes cluster drops below 44%, indicating a significant degradation in cluster health. A large number of unhealthy pods can severely affect application availability and overall cluster stability, requiring immediate attention.\n\nThe alert is activated when the proportion of healthy pods in the cluster is less than 44%, deviating from the expected state where most pods should remain healthy (close to 100%). \n\nAction: Investigate the root cause of the unhealthy pods. Common causes include: \n      - Application crashes or failed health checks (liveness/readiness probes)\n      - Resource limitations or misconfigurations (e.g., CPU, memory)\n      - Pod eviction due to resource constraints or node failures\n      - Misconfigured deployments, replicas, or affinity rules preventing pods from starting\n    Take corrective action by reviewing the logs and events for the affected pods, addressing resource allocation issues, and ensuring that workloads are correctly configured for the expected environment.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_deployment_name",
+        "k8s_namespace_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 15
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_deployment_name",
+          "k8s_namespace_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(100 * sum(k8s_pod_phase_1{}==2) by (k8s_deployment_name,k8s_cluster_name,k8s_namespace_name) / (sum(k8s_pod_phase_1{}==2) by (k8s_deployment_name,k8s_cluster_name,k8s_namespace_name) + sum(k8s_pod_phase_1{}==1) by (k8s_deployment_name,k8s_cluster_name,k8s_namespace_name))[1m])by (k8s_deployment_name,k8s_cluster_name,k8s_namespace_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 44,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_1_OR_UNSPECIFIED"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_LESS_THAN"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": {
+          "triggerUndetectedValues": false,
+          "autoRetireTimeframe": "AUTO_RETIRE_TIMEFRAME_NEVER_OR_UNSPECIFIED"
+        },
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "dcf26cbd-2cd7-4e76-8707-6a6b3a750a9d",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "68f6eb1d-a8d3-4472-b4c2-d1f8fc85b322"
+  }
+}

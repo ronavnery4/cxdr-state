@@ -1,0 +1,70 @@
+{
+  "id": "d44fa696-1260-4df4-ad03-8338dbcf0442",
+  "name": "K8s - Pod Unhealthy",
+  "exported_at": "2026-02-02T12:13:59.602545",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Pod Unhealthy",
+      "description": "This alert is triggered when a pod in a Kubernetes cluster is in an unhealthy state, typically indicated by failing liveness or readiness probes. An unhealthy pod cannot serve traffic or perform its expected function, and prolonged unhealthiness can lead to application downtime or failure.\n\nAction: Investigate the cause of the pod's unhealthiness. Common causes include:\n      - Failing liveness or readiness probes, indicating that the pod cannot handle traffic or is not starting correctly\n      - Application crashes or unhandled exceptions preventing the pod from operating\n      - Resource constraints, such as insufficient CPU or memory, leading to pod instability\n      - Misconfigured environment variables, secrets, or network connectivity issues affecting the pod's operation\n    Resolve the issue by reviewing pod logs and events, adjusting health check configurations, addressing resource constraints, or fixing application or configuration errors that might be causing the pod to become unhealthy.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 120
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_pod_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "min by (k8s_cluster_name,k8s_pod_name) (k8s_pod_status_reason{k8s_namespace_name!~\"kube-system\"} > 3 )"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "d44fa696-1260-4df4-ad03-8338dbcf0442",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "f491c228-654c-48b8-8201-5423e271bbe4"
+  }
+}

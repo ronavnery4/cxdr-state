@@ -1,0 +1,68 @@
+{
+  "id": "8b2f669f-01d9-4857-b83b-c0fcef60ae83",
+  "name": "AWS Lambda - More than 10 throttling  events in 10 minutes",
+  "exported_at": "2026-02-02T12:13:59.577761",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS Lambda - More than 10 throttling  events in 10 minutes",
+      "description": "This alert is specifically designed to monitor and address potential scalability or configuration issues in AWS Lambda by tracking throttling events. Throttling often indicates that the function is hitting service limits, which can impact performance and availability.\n\nThe alert is activated when the Lambda function experiences more than 5 throttling events within a 10-minute period.\n\nThrottling events occur when AWS Lambda limits the function\u2019s execution due to reaching predefined concurrency or rate limits, possibly leading to delayed or denied service. Monitoring these events helps in understanding and managing workload distributions and operational limits effectively.\n\nCustomization Guidance:\n  - Threshold: The default threshold is set at 5 throttling events in 10 minutes. Depending on the function\u2019s role and expected load, this threshold may be adjusted to better reflect the operational norms and service requirements.\n  - Monitoring Period: The monitoring period can be adjusted to shorter or longer than 10 minutes based on the traffic pattern and criticality of the function. Shorter periods may be used for high-traffic, critical functions to catch issues more rapidly.\n  - Notification Frequency: Consider the frequency of this alert to optimize the balance between responsiveness and noise. Adjust according to the criticality of the function\u2019s uninterrupted operation\n\nAction: Should this alert trigger, review the function\u2019s concurrency settings and the code\u2019s execution path. Consider increasing the concurrency limits, optimizing code performance, or employing strategies such as queueing mechanisms to handle peak loads better",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "FunctionName",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Lambda": "",
+        "Metrics": "",
+        "Serverless": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(sum_over_time(amazonaws_com_AWS_Lambda_Throttles_sum[10m])) by (FunctionName,cloud_region)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 10,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "8b2f669f-01d9-4857-b83b-c0fcef60ae83",
+    "createdTime": "2026-01-06T15:48:07Z",
+    "updatedTime": "2026-01-06T15:48:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "0182b161-c771-44b3-a64b-bb3f595f92b4"
+  }
+}

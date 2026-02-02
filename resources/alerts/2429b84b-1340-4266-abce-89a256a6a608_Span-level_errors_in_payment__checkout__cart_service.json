@@ -1,0 +1,88 @@
+{
+  "id": "2429b84b-1340-4266-abce-89a256a6a608",
+  "name": "Span-level errors in payment/ checkout/ cart service",
+  "exported_at": "2026-02-02T12:13:59.589218",
+  "data": {
+    "alertDefProperties": {
+      "name": "Span-level errors in payment/ checkout/ cart service",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_TRACING_THRESHOLD",
+      "groupByKeys": [
+        "operationName"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "operationName"
+        ],
+        "webhooks": [],
+        "destinations": [],
+        "router": {
+          "id": "1572147b-e9e9-4d62-9133-f2a0ccfcc52b",
+          "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED"
+        }
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "tracingThreshold": {
+        "tracingFilter": {
+          "simpleFilter": {
+            "tracingLabelFilters": {
+              "applicationName": [],
+              "subsystemName": [
+                {
+                  "values": [
+                    "checkout",
+                    "payment",
+                    "cart"
+                  ],
+                  "operation": "TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "serviceName": [],
+              "operationName": [],
+              "spanFields": [
+                {
+                  "key": "tags.otel.status_code",
+                  "filterType": {
+                    "values": [
+                      "ERROR"
+                    ],
+                    "operation": "TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                  }
+                }
+              ]
+            },
+            "latencyThresholdMs": "0"
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "spanAmount": 1,
+              "timeWindow": {
+                "tracingTimeWindowValue": "TRACING_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "notificationPayloadFilter": []
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "2429b84b-1340-4266-abce-89a256a6a608",
+    "createdTime": "2026-01-20T08:46:42Z",
+    "updatedTime": "2026-01-20T08:46:42Z",
+    "lastTriggeredTime": "2026-02-02T12:14:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "80b0c3b3-d259-4bb4-b5c2-e78b10b0b354"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "9cb96e55-595d-492e-951f-a2cb01c8869f",
+  "name": "RUM - High First Contentful Paint (FCP)",
+  "exported_at": "2026-02-02T12:13:59.599764",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High First Contentful Paint (FCP)",
+      "description": "This alert monitors elevated First Contentful Paint (FCP) times reported via Real User Monitoring (RUM) data. High FCP values indicate that users are experiencing delays before seeing the first visual response from your web page, affecting perceived performance and user satisfaction.\n\nThe alert is triggered when the average FCP time exceeds a defined threshold (e.g., 2.5 seconds) within a specified monitoring period (e.g., 5 minutes).\n\nMonitoring this metric helps ensure that critical visual content loads promptly, which is essential for maintaining a responsive and engaging user experience.\n\nCustomization Guidance:\n  - Threshold: Set the FCP threshold based on performance goals (e.g., keeping it under the recommended 1.8\u20132.5 seconds range).\n  - Monitoring Period: Choose a monitoring window that aligns with peak traffic times to detect real-time performance drops.\n  - Notification Frequency: Adjust frequency to alert on persistent high FCP values, avoiding noise from brief spikes.\n\nAction: If this alert is triggered, investigate frontend performance bottlenecks, such as render-blocking resources, large assets, or inefficient JavaScript, and optimize critical rendering paths for faster content delivery.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "page"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RUM_web_vitals_context_value_cx_avg{context_name=\"FCP\"}) by (page)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 2500,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9cb96e55-595d-492e-951f-a2cb01c8869f",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:31:19Z",
+    "lastTriggeredTime": "2026-02-02T07:08:47Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "ded663ff-e719-46b7-b270-f41244f87262"
+  }
+}

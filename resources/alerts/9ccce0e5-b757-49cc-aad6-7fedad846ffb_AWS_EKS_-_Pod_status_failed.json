@@ -1,0 +1,68 @@
+{
+  "id": "9ccce0e5-b757-49cc-aad6-7fedad846ffb",
+  "name": "AWS EKS - Pod status failed",
+  "exported_at": "2026-02-02T12:13:59.581254",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Pod status failed",
+      "description": "This alert triggers when there is a failed pod status detected in an Amazon EKS cluster. Failed pods can indicate issues with the underlying infrastructure or application code.\n\nCustomization Guidance:\n\nThreshold: The alert is triggered by any instance of a failed pod status. Adjust alert sensitivity based on the criticality of your workloads.\n\nCluster Specificity: Focus on clusters where pod failures would have the most significant impact.\n\nNotification Frequency: Set alerts to notify immediately upon detection of failed pods.\n\nAction: Investigate the cause of the pod failure, check logs, and resolve underlying issues promptly.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "max(amazonaws_com_ContainerInsights_pod_status_failed_max) by (ClusterName, cloud_region, cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9ccce0e5-b757-49cc-aad6-7fedad846ffb",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-03-10T15:57:39Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "284c49f7-ac24-45cb-8673-b94ce2066a80"
+  }
+}

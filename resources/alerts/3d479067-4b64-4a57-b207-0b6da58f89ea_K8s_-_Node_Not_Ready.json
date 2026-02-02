@@ -1,0 +1,76 @@
+{
+  "id": "3d479067-4b64-4a57-b207-0b6da58f89ea",
+  "name": "K8s - Node Not Ready",
+  "exported_at": "2026-02-02T12:13:59.595551",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Node Not Ready",
+      "description": "This alert is triggered when a Kubernetes node is not in a ready state, indicating potential issues with the node availability or functionality. Nodes in this state cannot schedule or run pods, potentially affecting workload availability and overall cluster performance. \nThe alert is activated when a node remains in the NodeNotReady state for an extended duration, signaling the need for immediate attention.\n\nAction: Investigate the cause of the scheduling failure by reviewing the pod's events and node conditions. Common causes include: \n      - Insufficient resources (CPU, memory, disk) available on any node in the cluster\n      - Node taints, labels, or affinity rules preventing the pod from being scheduled\n      - Pod resource requests exceeding the available node capacity\n      - Misconfigured Kubernetes scheduler settings or node capacity issues\n    Resolve the issue by adjusting the pod's resource requests, reviewing node status and taints, or reconfiguring affinity/anti-affinity rules to ensure successful pod scheduling.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [
+        "object.regarding.namespace",
+        "resource.attributes.k8s_cluster_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "resource.attributes.k8s_cluster_name",
+          "object.regarding.namespace"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Logs": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "object.reason:\"NodeNotReady\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": null,
+        "rules": [
+          {
+            "condition": {
+              "threshold": 5,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [
+          "object.note"
+        ],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "3d479067-4b64-4a57-b207-0b6da58f89ea",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "b31e3df9-a93e-4670-b226-003d9e7fc2ed"
+  }
+}

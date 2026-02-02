@@ -1,0 +1,75 @@
+{
+  "id": "8c29e161-f526-4306-8e1a-c5641c89aeac",
+  "name": "Frontend Application Cart Failures",
+  "exported_at": "2026-02-02T12:13:59.585924",
+  "data": {
+    "alertDefProperties": {
+      "name": "Frontend Application Cart Failures",
+      "description": "Coralogix has detected a significant number of failures for the cart/checkout path within the frontend web application",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_TRACING_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "tracingThreshold": {
+        "tracingFilter": {
+          "simpleFilter": {
+            "tracingLabelFilters": {
+              "applicationName": [],
+              "subsystemName": [
+                {
+                  "values": [
+                    "frontend"
+                  ],
+                  "operation": "TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "serviceName": [
+                {
+                  "values": [
+                    "frontend"
+                  ],
+                  "operation": "TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "operationName": [],
+              "spanFields": []
+            },
+            "latencyThresholdMs": "100"
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "spanAmount": 10,
+              "timeWindow": {
+                "tracingTimeWindowValue": "TRACING_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "notificationPayloadFilter": []
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "8c29e161-f526-4306-8e1a-c5641c89aeac",
+    "createdTime": "2025-11-12T10:26:49Z",
+    "updatedTime": "2025-11-12T10:26:49Z",
+    "lastTriggeredTime": "2026-02-02T12:14:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "61770fd7-8d2a-4479-9b6f-a456142e9166"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "b97ebb7e-a0f6-4af9-811b-48a5021c67f7",
+  "name": "RUM - Failed Fetch Requests",
+  "exported_at": "2026-02-02T12:13:59.603187",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - Failed Fetch Requests",
+      "description": "This alert monitors failed fetch requests in the frontend application as reported through Real User Monitoring (RUM) data. Failures in fetch requests can disrupt data retrieval, leading to broken features, incomplete content, and degraded user experience.\n\nThe alert is triggered when the number of failed fetch requests exceeds a defined threshold (e.g., 100 failures) over a specified monitoring period (e.g., 5 minutes).\n\nMonitoring this metric helps quickly identify issues in network connectivity, backend availability, or request formatting that affect application functionality.\n\nCustomization Guidance:\n  - Threshold: Adjust the threshold based on normal fetch traffic volume and error tolerance specific to your application.\n  - Monitoring Period: Use shorter windows to detect acute failures or longer ones to track patterns across user sessions.\n  - Notification Frequency: Set alerts for sustained or frequent failures to focus on significant disruptions without excessive alerts.\n\nAction: If this alert is triggered, inspect failed request URLs, HTTP response statuses, and associated error messages. Validate backend service health, network conditions, and frontend logic responsible for initiating the requests.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND cx_rum.event_context.type:\"network\\-request\" AND cx_rum.event_context.source:\"fetch\" AND cx_rum.event_context.severity:\"5\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": null,
+        "rules": [
+          {
+            "condition": {
+              "threshold": 100,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "b97ebb7e-a0f6-4af9-811b-48a5021c67f7",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:29:40Z",
+    "lastTriggeredTime": "2025-10-06T19:44:51Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "f8510952-0111-49ac-8ad8-56846e4b8830"
+  }
+}

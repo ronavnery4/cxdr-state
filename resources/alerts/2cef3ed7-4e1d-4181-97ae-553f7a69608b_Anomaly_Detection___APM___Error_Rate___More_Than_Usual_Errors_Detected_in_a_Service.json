@@ -1,0 +1,61 @@
+{
+  "id": "2cef3ed7-4e1d-4181-97ae-553f7a69608b",
+  "name": "Anomaly Detection \u2013 APM \u2013 Error Rate \u2013 More Than Usual Errors Detected in a Service",
+  "exported_at": "2026-02-02T12:13:59.593453",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 APM \u2013 Error Rate \u2013 More Than Usual Errors Detected in a Service",
+      "description": "This alert monitors the error rate of each instrumented service, operation and http method. The alert when the error rate deviates significantly (20%) above its normal historical baseline.\nCoralogix\u2019s anomaly detection automatically learns typical error patterns (including natural daily or weekly fluctuations) and flags when a service begins returning more errors than usual.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_ANOMALY",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "core",
+        "environment": "ob-dev",
+        "team": "se"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricAnomaly": {
+        "metricFilter": {
+          "promql": "(sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code=\"STATUS_CODE_ERROR\"})) by (span_name, http_method, service_name) > 0)[30s] or on () vector(0)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "minNonNullValuesPct": 100,
+              "conditionType": "METRIC_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "evaluationDelayMs": 60000,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 15
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "2cef3ed7-4e1d-4181-97ae-553f7a69608b",
+    "createdTime": "2025-12-10T08:37:06Z",
+    "updatedTime": "2025-12-10T08:37:06Z",
+    "lastTriggeredTime": "2026-02-02T12:11:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "a0097c97-7af3-46ae-8630-ab412b8a96ea"
+  }
+}

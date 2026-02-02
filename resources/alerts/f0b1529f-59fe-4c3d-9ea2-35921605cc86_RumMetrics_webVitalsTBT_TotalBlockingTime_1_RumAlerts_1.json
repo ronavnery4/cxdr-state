@@ -1,0 +1,66 @@
+{
+  "id": "f0b1529f-59fe-4c3d-9ea2-35921605cc86",
+  "name": "RumMetrics_webVitalsTBT_TotalBlockingTime_1_RumAlerts_1",
+  "exported_at": "2026-02-02T12:13:59.583354",
+  "data": {
+    "alertDefProperties": {
+      "name": "RumMetrics_webVitalsTBT_TotalBlockingTime_1_RumAlerts_1",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [
+          {
+            "integration": {
+              "integrationId": 505549
+            }
+          }
+        ],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RumMetrics_webVitalsTBT_TotalBlockingTime_1)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_1_OR_UNSPECIFIED"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f0b1529f-59fe-4c3d-9ea2-35921605cc86",
+    "createdTime": "2025-12-19T12:45:36Z",
+    "updatedTime": "2025-12-19T12:45:36Z",
+    "lastTriggeredTime": "2026-02-02T12:12:40Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "41552eb4-2069-44d0-89f3-0a3a9943bce4"
+  }
+}

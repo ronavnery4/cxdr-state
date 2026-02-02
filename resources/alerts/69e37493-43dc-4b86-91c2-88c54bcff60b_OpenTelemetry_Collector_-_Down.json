@@ -1,0 +1,71 @@
+{
+  "id": "69e37493-43dc-4b86-91c2-88c54bcff60b",
+  "name": "OpenTelemetry Collector - Down",
+  "exported_at": "2026-02-02T12:13:59.592157",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector - Down",
+      "description": "This alert monitors the availability of the OpenTelemetry Collector, specifically detecting when it is down or unavailable. A downed Collector disrupts the flow of telemetry data, leading to gaps in observability and potential delays in diagnosing system issues.\n\nThe alert is triggered when the OpenTelemetry Collector is unreachable or non-responsive for more than 10 minutes.\n\nMonitoring this metric helps ensure continuous telemetry data collection and delivery, which is critical for maintaining system visibility and troubleshooting capabilities.\n\nCustomization Guidance:\n  - Threshold: Adjust the downtime threshold based on your tolerance for temporary outages versus critical failures.\n  - Monitoring Period: Align the monitoring period with the expected uptime requirements of your environment.\n  - Notification Frequency: Set notification frequency to ensure timely responses while avoiding alert fatigue during transient issues.\n\nAction: If this alert is triggered, verify the health and status of the Collector service, check for infrastructure issues (e.g., network or host failures), and review logs for error messages or configuration issues. Restart the service if necessary and ensure redundancy to minimize future downtime.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cx_application_name",
+        "cx_subsystem_name",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "count(otelcol_process_uptime_total{}) by (cx_application_name, cx_subsystem_name, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_LESS_THAN"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": {
+          "triggerUndetectedValues": true,
+          "autoRetireTimeframe": "AUTO_RETIRE_TIMEFRAME_NEVER_OR_UNSPECIFIED"
+        },
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "69e37493-43dc-4b86-91c2-88c54bcff60b",
+    "createdTime": "2025-02-21T08:46:56Z",
+    "updatedTime": "2025-07-21T08:28:04Z",
+    "lastTriggeredTime": "2026-02-02T12:12:33Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "95d47bad-d9f9-403d-956f-1cfa51ab4ce4"
+  }
+}

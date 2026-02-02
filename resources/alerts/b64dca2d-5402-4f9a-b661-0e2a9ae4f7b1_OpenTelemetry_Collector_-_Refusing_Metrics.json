@@ -1,0 +1,66 @@
+{
+  "id": "b64dca2d-5402-4f9a-b661-0e2a9ae4f7b1",
+  "name": "OpenTelemetry Collector - Refusing Metrics",
+  "exported_at": "2026-02-02T12:13:59.597603",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector - Refusing Metrics",
+      "description": "This alert monitors instances where the OpenTelemetry Collector refuses to process incoming metric data. Such refusals may indicate resource exhaustion, misconfigurations, or an inability to handle the current metric volume, potentially impacting observability and performance monitoring.\n\nThe alert is triggered when the OpenTelemetry Collector rejects incoming metrics for more than 10 consecutive minutes.\n\nMonitoring this metric helps ensure the reliable collection and processing of metrics, which is critical for maintaining visibility into system health and performance.\n\nCustomization Guidance:\n  - Threshold: Adjust the refusal duration or count threshold based on your system's capacity and acceptable limits for temporary metric processing delays.\n  - Monitoring Period: Set the monitoring period to reflect your environment's typical workload and peak activity times.\n  - Notification Frequency: Configure notification intervals to balance timely responses with minimizing alert fatigue during transient issues.\n\nAction: If this alert is triggered, investigate the Collector's resource allocations (CPU, memory), review pipeline configurations for bottlenecks, and optimize metric batching or rate-limiting settings. Scale infrastructure if necessary or adjust configurations to accommodate higher metric ingestion volumes.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "receiver"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_receiver_refused_metric_points_total{}[10m])) by (receiver)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "b64dca2d-5402-4f9a-b661-0e2a9ae4f7b1",
+    "createdTime": "2025-02-21T08:46:56Z",
+    "updatedTime": "2025-07-21T08:28:18Z",
+    "lastTriggeredTime": "2025-11-18T23:00:01Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "c39c489c-85d4-4fc4-9874-e437b451bdd0"
+  }
+}

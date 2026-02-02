@@ -1,0 +1,71 @@
+{
+  "id": "4f3876f2-7097-4b4f-937b-18886de0b3d9",
+  "name": "K8s - No New Events in Last 6 Hours",
+  "exported_at": "2026-02-02T12:13:59.578313",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - No New Events in Last 6 Hours",
+      "description": "This alert is triggered when no new Kubernetes events are recorded in the cluster for the past 6 hours, which may indicate a lack of activity or potential issues with the event reporting system. Monitoring event activity is critical to ensure cluster health and the detection of system anomalies.\n\nThe alert is activated when the event stream shows no new events within the past 6-hour period, which could suggest system malfunction, network issues, or inactivity in the cluster.\n\nCustomization Guidance:\n      - Threshold: The default threshold is 6 hours, but it can be adjusted based on the cluster's activity level. For highly dynamic clusters, a shorter threshold may be used (e.g., 1-2 hours).\n      - Monitoring Period: The monitoring period should reflect the expected level of activity in the cluster. Critical clusters with frequent updates may require more frequent event checks.\n      - Notification Frequency: Set the frequency of notifications based on cluster importance. Consider configuring notifications only for clusters that should be regularly generating events.\n\nAction: Investigate the lack of event activity to identify potential causes. Common causes include:\n      - Network or connectivity issues preventing event communication\n      - Misconfigured event logging or monitoring components\n      - Insufficient cluster activity (e.g., workloads not generating events)\n    Resolve the issue by ensuring event logging and monitoring systems are working correctly, reviewing network connectivity, and verifying that the Kubernetes API server and event infrastructure are functioning properly.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [
+        "resource.attributes.cloud.region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "_exists_:resource.attributes.cloud.region",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": {
+          "triggerUndetectedValues": true,
+          "autoRetireTimeframe": "AUTO_RETIRE_TIMEFRAME_NEVER_OR_UNSPECIFIED"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_HOURS_6"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_LESS_THAN"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "4f3876f2-7097-4b4f-937b-18886de0b3d9",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "0f096fe5-696e-4388-ac65-9474667dca91"
+  }
+}

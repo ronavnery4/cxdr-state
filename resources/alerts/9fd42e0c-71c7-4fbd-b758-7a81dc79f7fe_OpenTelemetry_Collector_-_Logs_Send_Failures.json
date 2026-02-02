@@ -1,0 +1,67 @@
+{
+  "id": "9fd42e0c-71c7-4fbd-b758-7a81dc79f7fe",
+  "name": "OpenTelemetry Collector - Logs Send Failures",
+  "exported_at": "2026-02-02T12:13:59.591168",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector - Logs Send Failures",
+      "description": "This alert monitors failures in the OpenTelemetry Collector when sending log data to its configured destinations. Log send failures can indicate connectivity issues, misconfigurations, or destination overload, potentially resulting in data loss and incomplete observability.\n\nThe alert is triggered when the OpenTelemetry Collector encounters a significant number of log send failures over a 10-minute period.\n\nMonitoring this metric helps ensure reliable delivery of log data, which is essential for effective monitoring, troubleshooting, and compliance requirements.\n\nCustomization Guidance:\n  - Threshold: Adjust the failure count threshold based on your system's tolerance for temporary send issues and the criticality of the logs.\n  - Monitoring Period: Modify the monitoring period to reflect the expected log transmission intervals and traffic peaks in your environment.\n  - Notification Frequency: Balance timely notifications with minimizing alert fatigue by setting appropriate notification intervals.\n\nAction: If this alert is triggered, investigate the Collector's connectivity to its log destinations, verify configuration settings (e.g., endpoint URLs, credentials), and check for destination-side issues such as throttling or overload. Implement retry mechanisms and consider scaling resources on either side to handle increased log traffic.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "exporter",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_exporter_send_failed_log_records_total{}[10m])) by (exporter, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9fd42e0c-71c7-4fbd-b758-7a81dc79f7fe",
+    "createdTime": "2025-02-21T08:46:56Z",
+    "updatedTime": "2025-07-21T08:28:23Z",
+    "lastTriggeredTime": "2026-02-02T12:12:33Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "8ed33165-3966-447e-9300-d7025540cdd7"
+  }
+}

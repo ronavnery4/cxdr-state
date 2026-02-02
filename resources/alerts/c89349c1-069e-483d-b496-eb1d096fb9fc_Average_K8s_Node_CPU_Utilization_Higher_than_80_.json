@@ -1,0 +1,62 @@
+{
+  "id": "c89349c1-069e-483d-b496-eb1d096fb9fc",
+  "name": "Average K8s Node CPU Utilization Higher than 80%",
+  "exported_at": "2026-02-02T12:13:59.582467",
+  "data": {
+    "alertDefProperties": {
+      "name": "Average K8s Node CPU Utilization Higher than 80%",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_node_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "(1 - avg(rate(system_cpu_time_total{state=\"idle\"}[5m])) by (k8s_node_name)) * 100"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 50,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "c89349c1-069e-483d-b496-eb1d096fb9fc",
+    "createdTime": "2025-03-07T08:17:27Z",
+    "updatedTime": "2025-07-21T08:26:18Z",
+    "lastTriggeredTime": "2026-01-01T00:07:10Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "35fc5f05-67a4-4f4e-a4ab-09bf09fd529b"
+  }
+}

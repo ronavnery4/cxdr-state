@@ -1,0 +1,72 @@
+{
+  "id": "ca2455f0-331e-4d99-b077-195f8e2e5700",
+  "name": "Mark Test RESOLVED STATUS",
+  "exported_at": "2026-02-02T12:13:59.599390",
+  "data": {
+    "alertDefProperties": {
+      "name": "Mark Test RESOLVED STATUS",
+      "description": "",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "process_parent_pid"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "process_parent_pid"
+        ],
+        "webhooks": [],
+        "destinations": [],
+        "router": {
+          "id": "1572147b-e9e9-4d62-9133-f2a0ccfcc52b",
+          "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED"
+        }
+      },
+      "entityLabels": {
+        "routing.team": "dynamic.routing",
+        "team": "apps",
+        "test": "resolved_mark"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "100*sum(process_cpu_utilization_1{process_parent_pid='2817348'}) by (process_parent_pid)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 4,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowDynamicDuration": "3m"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "ca2455f0-331e-4d99-b077-195f8e2e5700",
+    "createdTime": "2025-12-16T07:25:46Z",
+    "updatedTime": "2025-12-16T07:25:46Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "d9012e58-1e73-4902-b665-9e42e3e6efa2"
+  }
+}

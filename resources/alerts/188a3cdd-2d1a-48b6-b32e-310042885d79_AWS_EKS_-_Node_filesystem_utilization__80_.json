@@ -1,0 +1,69 @@
+{
+  "id": "188a3cdd-2d1a-48b6-b32e-310042885d79",
+  "name": "AWS EKS - Node filesystem utilization >80%",
+  "exported_at": "2026-02-02T12:13:59.599050",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Node filesystem utilization >80%",
+      "description": "This alert triggers when the average filesystem utilization of nodes in an Amazon EKS cluster exceeds 80%. High filesystem utilization can lead to disk exhaustion, causing pods to fail or degrade in performance.\n\nCustomization Guidance:\n\nThreshold: The default threshold is 80% filesystem utilization. Adjust this threshold based on your nodes' storage capacity.\n\nNode Specificity: Customize alerts for nodes with critical workloads or limited storage capacity.\n\nNotification Frequency: Optimize notifications to prevent disk space-related issues.\n\nAction: Monitor and manage disk usage, clean up unnecessary files, or expand storage as needed.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "NodeName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(amazonaws_com_ContainerInsights_node_filesystem_utilization_avg{NodeName!=\"\"}) by (ClusterName, NodeName, cloud_region, cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "188a3cdd-2d1a-48b6-b32e-310042885d79",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-07-21T08:28:58Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "d31a7001-9393-4a55-b0cc-6e38d6aba6fc"
+  }
+}

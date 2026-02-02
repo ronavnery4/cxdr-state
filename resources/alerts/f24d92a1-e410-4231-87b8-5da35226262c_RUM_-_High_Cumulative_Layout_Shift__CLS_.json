@@ -1,0 +1,62 @@
+{
+  "id": "f24d92a1-e410-4231-87b8-5da35226262c",
+  "name": "RUM - High Cumulative Layout Shift (CLS)",
+  "exported_at": "2026-02-02T12:13:59.597758",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High Cumulative Layout Shift (CLS)",
+      "description": "This alert monitors elevated Cumulative Layout Shift (CLS) scores as measured through Real User Monitoring (RUM) data. High CLS indicates unexpected layout shifts during page load or interaction, which can disrupt the user experience and lead to frustration.\n\nThe alert is triggered when the average CLS exceeds a specified threshold (e.g., 0.1) over a defined monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps maintain visual stability on your web pages, supporting usability and alignment with Core Web Vitals performance standards.\n\nCustomization Guidance:\n  - Threshold: Set the CLS threshold based on best practice targets (e.g., maintain below 0.1 for good user experience).\n  - Monitoring Period: Choose a short monitoring window to detect layout instability in near real-time.\n  - Notification Frequency: Limit alerts to persistent or widespread issues to reduce noise and focus on meaningful problems.\n\nAction: If this alert is triggered, review page layout and styles, ensure dimensions are set for images and ads, and avoid inserting content above existing elements without space reservation. Optimize animations and transitions for layout stability.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "page"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RUM_web_vitals_context_value_cx_avg{context_name=\"TBT\"}) by (page)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f24d92a1-e410-4231-87b8-5da35226262c",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:30:49Z",
+    "lastTriggeredTime": "2026-02-02T12:03:36Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "c4dae358-00f4-4d7e-ba30-9727c06b6bd2"
+  }
+}

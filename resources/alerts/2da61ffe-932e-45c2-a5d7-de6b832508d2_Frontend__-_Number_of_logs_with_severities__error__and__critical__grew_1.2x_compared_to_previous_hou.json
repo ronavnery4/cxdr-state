@@ -1,0 +1,71 @@
+{
+  "id": "2da61ffe-932e-45c2-a5d7-de6b832508d2",
+  "name": "Frontend  - Number of logs with severities \"error\" and \"critical\" grew 1.2x compared to previous hour ",
+  "exported_at": "2026-02-02T12:13:59.587618",
+  "data": {
+    "alertDefProperties": {
+      "name": "Frontend  - Number of logs with severities \"error\" and \"critical\" grew 1.2x compared to previous hour ",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_LOGS_TIME_RELATIVE_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsTimeRelativeThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": null,
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [
+                {
+                  "value": "frontend",
+                  "operation": "LOG_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "severities": [
+                "LOG_SEVERITY_ERROR",
+                "LOG_SEVERITY_CRITICAL"
+              ]
+            }
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1.2,
+              "comparedTo": "LOGS_TIME_RELATIVE_COMPARED_TO_PREVIOUS_HOUR_OR_UNSPECIFIED",
+              "conditionType": "LOGS_TIME_RELATIVE_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "ignoreInfinity": true,
+        "notificationPayloadFilter": [],
+        "undetectedValuesManagement": null,
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "2da61ffe-932e-45c2-a5d7-de6b832508d2",
+    "createdTime": "2025-11-12T10:07:43Z",
+    "updatedTime": "2025-11-12T10:07:43Z",
+    "lastTriggeredTime": "2026-01-11T01:16:05Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "7002ab5e-39af-411b-8eae-751c92d86e4e"
+  }
+}

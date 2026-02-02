@@ -1,0 +1,57 @@
+{
+  "id": "e4c10077-6684-4ce1-8509-fe656fa294fd",
+  "name": "Checkout_Service_High_Latency",
+  "exported_at": "2026-02-02T12:13:59.585279",
+  "data": {
+    "alertDefProperties": {
+      "name": "Checkout_Service_High_Latency",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [
+        "service_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "product": "apm-service-catalog",
+        "serviceName": "checkout"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "c24f02a9-00c9-40b6-9a5d-bff757ca6d01"
+        },
+        "errorBudget": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 100
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            }
+          ]
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "e4c10077-6684-4ce1-8509-fe656fa294fd",
+    "createdTime": "2025-10-03T15:28:36Z",
+    "updatedTime": "2025-10-03T15:28:36Z",
+    "lastTriggeredTime": "2026-01-28T13:45:28Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "5d108a70-885f-4a53-bccf-40098d6c3ec0"
+  }
+}

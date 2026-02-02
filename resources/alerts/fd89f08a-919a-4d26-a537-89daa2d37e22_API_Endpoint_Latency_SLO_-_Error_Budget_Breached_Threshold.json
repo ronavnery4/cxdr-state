@@ -1,0 +1,86 @@
+{
+  "id": "fd89f08a-919a-4d26-a537-89daa2d37e22",
+  "name": "API Endpoint Latency SLO - Error Budget Breached Threshold",
+  "exported_at": "2026-02-02T12:13:59.598855",
+  "data": {
+    "alertDefProperties": {
+      "name": "API Endpoint Latency SLO - Error Budget Breached Threshold",
+      "description": "An API Endpoint Latency Error Budget has breached a threshold",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [
+        "service_name",
+        "span_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "service_name",
+          "span_name"
+        ],
+        "webhooks": [],
+        "destinations": [],
+        "router": {
+          "id": "65ef06f6-1bb9-4d51-bca0-b858ffb07d5b",
+          "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED"
+        }
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "972529c9-182a-4eed-a55d-7b17bc220958"
+        },
+        "errorBudget": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 10
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P1"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 25
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P2"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 50
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 75
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P4"
+              }
+            }
+          ]
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "fd89f08a-919a-4d26-a537-89daa2d37e22",
+    "createdTime": "2026-01-29T15:36:49Z",
+    "updatedTime": "2026-01-29T15:36:49Z",
+    "lastTriggeredTime": "2026-02-02T12:12:44Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "d2c3ab7c-f00b-437e-8f75-482806fd6817"
+  }
+}

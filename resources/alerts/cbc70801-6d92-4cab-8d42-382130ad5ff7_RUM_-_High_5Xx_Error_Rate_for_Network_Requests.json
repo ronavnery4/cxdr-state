@@ -1,0 +1,80 @@
+{
+  "id": "cbc70801-6d92-4cab-8d42-382130ad5ff7",
+  "name": "RUM - High 5Xx Error Rate for Network Requests",
+  "exported_at": "2026-02-02T12:13:59.590303",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High 5Xx Error Rate for Network Requests",
+      "description": "This alert monitors high rates of 5xx HTTP status codes returned for network requests as captured through Real User Monitoring (RUM) data. A surge in 5xx errors indicates server-side failures affecting user interactions and page functionality.\n\nThe alert is triggered when the proportion of 5xx errors among total network requests exceeds a defined threshold (e.g., 2%) during a specified monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps ensure backend reliability and availability, which are crucial for maintaining a responsive and functional frontend application.\n\nCustomization Guidance:\n  - Threshold: Adjust the threshold based on historical backend performance and acceptable failure tolerance for your application.\n  - Monitoring Period: Use shorter windows for rapid response to outages or longer ones to track systemic backend issues.\n  - Notification Frequency: Configure alerts for persistent or recurring spikes to focus on significant backend disruptions.\n\nAction: If this alert is triggered, investigate server logs, recent backend deployments, load balancer behavior, and API health. Coordinate with backend teams to identify and resolve the root cause of the failures.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_LOGS_RATIO_THRESHOLD",
+      "groupByKeys": [
+        "cx_rum.network_request_context.fragments"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsRatioThreshold": {
+        "numerator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.status_code AND cx_rum.network_request_context.status_code.keyword:/5[0-9]{2}/",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "numeratorAlias": "Query 1",
+        "denominator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.status_code",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "denominatorAlias": "Query 2",
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.02,
+              "timeWindow": {
+                "logsRatioTimeWindowSpecificValue": "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "groupByFor": "LOGS_RATIO_GROUP_BY_FOR_BOTH_OR_UNSPECIFIED",
+        "undetectedValuesManagement": null,
+        "ignoreInfinity": true,
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "cbc70801-6d92-4cab-8d42-382130ad5ff7",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:29:13Z",
+    "lastTriggeredTime": "2026-02-02T12:12:31Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "899f63e9-da94-4f4d-a8ee-a005c00bc0e1"
+  }
+}

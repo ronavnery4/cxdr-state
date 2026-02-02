@@ -1,0 +1,62 @@
+{
+  "id": "f4f21893-b6d8-408b-800b-ff422f3d7321",
+  "name": "Anomaly Detection \u2013 Infra \u2013 Saturation \u2013 More Than Usual Memory Usage Detected on a Node",
+  "exported_at": "2026-02-02T12:13:59.582762",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 Infra \u2013 Saturation \u2013 More Than Usual Memory Usage Detected on a Node",
+      "description": "Coralogix\u2019s anomaly detection automatically learns normal memory usage patterns for each node within a k8s cluster. When a node begins consuming more memory than usual for the same period and conditions (25%), the alert triggers to provide early warning of resource saturation or potential instability.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_ANOMALY",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_node_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "optional"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricAnomaly": {
+        "metricFilter": {
+          "promql": "(\n  sum by (k8s_node_name, k8s_cluster_name) (\n    k8s_node_memory_usage_By\n  )\n  /\n  (\n    sum by (k8s_node_name, k8s_cluster_name) (\n      k8s_node_memory_usage_By\n    )\n    +\n    sum by (k8s_node_name, k8s_cluster_name) (\n      k8s_node_memory_available_By\n    )\n  )\n) * 100"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "minNonNullValuesPct": 100,
+              "conditionType": "METRIC_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 25
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f4f21893-b6d8-408b-800b-ff422f3d7321",
+    "createdTime": "2025-10-26T12:33:32Z",
+    "updatedTime": "2025-10-26T13:02:53Z",
+    "lastTriggeredTime": "2026-02-02T10:16:00Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "381a7d9c-592f-4f63-ba88-1603e8abbc34"
+  }
+}

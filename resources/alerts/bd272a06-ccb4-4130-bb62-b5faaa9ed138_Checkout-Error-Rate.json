@@ -1,0 +1,57 @@
+{
+  "id": "bd272a06-ccb4-4130-bb62-b5faaa9ed138",
+  "name": "Checkout-Error-Rate",
+  "exported_at": "2026-02-02T12:13:59.599909",
+  "data": {
+    "alertDefProperties": {
+      "name": "Checkout-Error-Rate",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [
+        "service_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "product": "apm-service-catalog",
+        "serviceName": "checkout"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "0c02087f-89ff-485e-8d2a-436612d4d54a"
+        },
+        "errorBudget": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 100
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P1"
+              }
+            }
+          ]
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "bd272a06-ccb4-4130-bb62-b5faaa9ed138",
+    "createdTime": "2025-10-03T15:17:30Z",
+    "updatedTime": "2025-10-03T15:17:30Z",
+    "lastTriggeredTime": "2026-02-02T12:12:39Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "dfcfbc6c-f54c-4dff-ad36-358af7f79330"
+  }
+}

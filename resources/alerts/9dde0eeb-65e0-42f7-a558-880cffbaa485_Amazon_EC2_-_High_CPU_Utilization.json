@@ -1,0 +1,69 @@
+{
+  "id": "9dde0eeb-65e0-42f7-a558-880cffbaa485",
+  "name": "Amazon EC2 - High CPU Utilization",
+  "exported_at": "2026-02-02T12:13:59.597041",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon EC2 - High CPU Utilization",
+      "description": "This alert is designed to monitor the CPU utilization of Amazon EC2 instances to ensure optimal performance and avoid potential resource exhaustion. The alert is triggered when the CPU utilization exceeds a predefined critical threshold, indicating that the instance is under high load, which could lead to performance degradation or application instability.\n\nTrigger Condition:\nThe alert is activated when the CPU utilization of an EC2 instance exceeds a critical threshold of 80%. This high CPU usage can signify that the instance is nearing its processing capacity, potentially leading to slower response times, throttling, or even system failures.\n\nCustomization Guidance:\n\nThreshold:\nThe default critical threshold is set at 80%. However, this can be adjusted based on the instance type, workload, and performance requirements of your application. Some high-compute workloads may require a higher threshold (e.g., 90%), while sensitive applications may need a lower limit (e.g., 70%).\n\nGranularity:\nFor more precise monitoring, consider breaking down the CPU utilization by process or service to identify which specific tasks or applications are consuming the most CPU. This could help pinpoint whether it\u2019s a specific application, service, or external factor causing the spike.\n\nAlert Tiering:\nImplement multi-level alerts to catch CPU utilization spikes early. For instance, set a warning threshold at 60% to allow proactive steps, such as scaling or load balancing, before reaching critical levels.\nNotification Frequency:\nConfigure the alert frequency to avoid excessive noise while maintaining awareness of sustained CPU utilization issues. For example, you might want to trigger notifications only after the threshold is exceeded for a sustained period (e.g., 5 minutes) rather than for brief spikes.\n\nAction:\nWhen the alert is triggered, immediately analyze the workload on the EC2 instance. Consider whether vertical scaling (increasing instance size) or horizontal scaling (adding instances) is needed. Check for inefficient processes, high computational demands, or underlying service issues. Other potential optimizations include balancing the load across multiple instances, adjusting auto-scaling policies, or offloading tasks to less busy instances.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "InstanceId",
+        "cloud_account_id"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Compute": "",
+        "EC2": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum by (InstanceId,cloud_account_id)(sum_over_time(amazonaws_com_AWS_EC2_CPUUtilization_sum{cloud_region!~\"cx_null\",cloud_account_id!~\"cx_null\",InstanceId!~\"cx_null\"}[1m])) / sum by (InstanceId,cloud_account_id)(sum_over_time(amazonaws_com_AWS_EC2_CPUUtilization_count{cloud_region!~\"cx_null\",cloud_account_id!~\"cx_null\",InstanceId!~\"cx_null\"}[1m]))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9dde0eeb-65e0-42f7-a558-880cffbaa485",
+    "createdTime": "2026-01-06T15:47:15Z",
+    "updatedTime": "2026-01-06T15:47:15Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "be57a0a0-1bbd-4b2e-903e-0f374c75146b"
+  }
+}

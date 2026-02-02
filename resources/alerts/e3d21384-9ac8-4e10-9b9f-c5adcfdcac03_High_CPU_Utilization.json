@@ -1,0 +1,70 @@
+{
+  "id": "e3d21384-9ac8-4e10-9b9f-c5adcfdcac03",
+  "name": "High CPU Utilization",
+  "exported_at": "2026-02-02T12:13:59.600786",
+  "data": {
+    "alertDefProperties": {
+      "name": "High CPU Utilization",
+      "description": "This alert is triggered when CPU Utilization exceeds the defined threshold. This could indicate high workload, inefficient resource allocation, or potential performance degradation.\n\nThe alert is activated when `CPU Utilization` exceeds the threshold for more than 10 minutes.\n\nCustomisation Guidance:\n  - Threshold: Trigger when `CPUUtilization` exceeds the defined limit for more than 10 minutes. Currently defined threshold is 80%.  \n  - Monitoring Period: Adjust based on workload patterns and scaling requirements.\n  - Notification Frequency: Ensure repeated alerts are minimised to avoid noise.\n\nAction: Investigate the impacted resource, analyse running processes, and consider scaling or optimising workload distribution.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "cloud_provider",
+        "host_name",
+        "os_type"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "CPU": "",
+        "Metrics": "",
+        "OTEL": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "(100 - (avg(avg_over_time(system_cpu_utilization_1{state=\"idle\"}[10m])) by (cloud_provider,host_name,cloud_account_id,os_type) * 100))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "e3d21384-9ac8-4e10-9b9f-c5adcfdcac03",
+    "createdTime": "2025-07-21T08:27:42Z",
+    "updatedTime": "2025-07-21T08:27:42Z",
+    "lastTriggeredTime": "2026-01-01T00:12:10Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "e41dcf26-7eaf-4d18-b9d8-e110822c8048"
+  }
+}

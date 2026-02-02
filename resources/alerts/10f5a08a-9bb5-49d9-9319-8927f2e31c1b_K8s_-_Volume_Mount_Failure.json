@@ -1,0 +1,76 @@
+{
+  "id": "10f5a08a-9bb5-49d9-9319-8927f2e31c1b",
+  "name": "K8s - Volume Mount Failure",
+  "exported_at": "2026-02-02T12:13:59.592606",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Volume Mount Failure",
+      "description": "This alert is triggered when a pod in a Kubernetes cluster fails to mount a volume, which can prevent the pod from starting or cause it to fail during runtime. Mount failures are often related to misconfigured storage classes, missing secrets, permissions issues, or resource availability problems.\n\nThe alert is activated when a pod fails to mount a volume due to errors such as \"mount failed\" or \"volume not found\", preventing the pod from accessing required storage.\n\nCustomization Guidance:\n      - Threshold: Define the threshold based on the number of volume mount failures. For example, trigger the alert if a pod fails to mount its volume within a specific time window or after multiple retry attempts.\n      - Monitoring Period: The monitoring period should be adjusted based on your workloads and storage criticality. For mission-critical workloads, reduce the time window for faster detection of volume mount issues.\n      - Notification Frequency: Set notification intervals to minimize alert noise while ensuring operators are notified promptly about mount failures that may affect service availability.\n\nAction: Investigate the failed volume mount by checking the pod's logs and events. Common causes of mount failures include:\n      - Incorrect volume path or misconfigured persistent volume claim (PVC)\n      - Insufficient permissions or security settings preventing the pod from accessing the volume\n      - Incorrect storage class or unavailable storage backends\n      - Network issues affecting NFS or cloud-based storage volumes\n    Resolve the issue by correcting the volume configuration, ensuring proper permissions, or checking the availability of the underlying storage system to ensure smooth pod operation.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [
+        "object.regarding.namespace",
+        "resource.attributes.k8s_cluster_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "resource.attributes.k8s_cluster_name",
+          "object.regarding.namespace"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Logs": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "object.reason:\"FailedMount\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": null,
+        "rules": [
+          {
+            "condition": {
+              "threshold": 3,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [
+          "object.note"
+        ],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "10f5a08a-9bb5-49d9-9319-8927f2e31c1b",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "9835cc7a-ef9b-498c-852c-30f7036049e5"
+  }
+}

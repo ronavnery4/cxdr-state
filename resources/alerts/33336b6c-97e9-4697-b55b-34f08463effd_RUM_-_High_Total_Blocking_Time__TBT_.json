@@ -1,0 +1,62 @@
+{
+  "id": "33336b6c-97e9-4697-b55b-34f08463effd",
+  "name": "RUM - High Total Blocking Time (TBT)",
+  "exported_at": "2026-02-02T12:13:59.587761",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High Total Blocking Time (TBT)",
+      "description": "This alert monitors elevated Total Blocking Time (TBT) values as recorded by Real User Monitoring (RUM) data. High TBT reflects significant delays in the main thread, preventing the browser from responding to user inputs, which can lead to a poor interactive experience.\n\nThe alert is triggered when the average TBT exceeds a defined threshold (e.g., 200 ms) over a specified monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps ensure the application remains responsive by identifying performance issues caused by long tasks or inefficient script execution.\n\nCustomization Guidance:\n  - Threshold: Set the TBT threshold based on your site's interactivity goals, targeting under 200\u2013300 ms for smooth responsiveness.\n  - Monitoring Period: Use shorter windows to catch real-time performance issues, especially during high user activity.\n  - Notification Frequency: Configure alerts for sustained high TBT to prioritize issues impacting multiple users or sessions.\n\nAction: If this alert is triggered, investigate long-running JavaScript tasks, reduce third-party script load, and optimize resource loading. Consider breaking up large code blocks and deferring non-critical scripts to improve main thread availability.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "page"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RUM_web_vitals_context_value_cx_avg{context_name=\"TBT\"}) by (page)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 200,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "33336b6c-97e9-4697-b55b-34f08463effd",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:30:33Z",
+    "lastTriggeredTime": "2026-02-02T12:03:36Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "72e5bf83-cc87-4f9c-b0be-7b75ec7d6ea6"
+  }
+}

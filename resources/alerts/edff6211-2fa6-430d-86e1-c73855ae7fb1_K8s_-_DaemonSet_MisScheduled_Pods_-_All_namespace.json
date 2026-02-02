@@ -1,0 +1,72 @@
+{
+  "id": "edff6211-2fa6-430d-86e1-c73855ae7fb1",
+  "name": "K8s - DaemonSet MisScheduled Pods - All namespace",
+  "exported_at": "2026-02-02T12:13:59.594213",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - DaemonSet MisScheduled Pods - All namespace",
+      "description": "This alert is triggered when a DaemonSet in a Kubernetes cluster fails to schedule its pods on the expected nodes, indicating potential issues with node availability, resource constraints, or DaemonSet configuration.  \n\nAction: Investigate the reason for DaemonSet pod mis-scheduling. Common causes include: \n      - Insufficient resources on nodes (e.g., CPU, memory, disk)\n      - Node taints or labels preventing pod scheduling\n      - Resource limits in DaemonSet configurations that prevent pods from fitting on available nodes\n      - DaemonSet selector or node affinity misconfigurations\n    Address the underlying issue by reviewing node conditions, updating resource requests, or adjusting scheduling constraints to ensure proper pod placement.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "k8s_cluster_name",
+        "k8s_daemonset_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "cloud_account_id",
+          "k8s_cluster_name",
+          "k8s_daemonset_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum by (k8s_cluster_name,cloud_account_id,k8s_daemonset_name)({__name__=~\"k8s_daemonset_misscheduled_nodes__node_\",k8s_namespace_name=~\".+\"}) > 0"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_1_OR_UNSPECIFIED"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "edff6211-2fa6-430d-86e1-c73855ae7fb1",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "a2872aca-0f16-4b3a-be3a-96993d655507"
+  }
+}

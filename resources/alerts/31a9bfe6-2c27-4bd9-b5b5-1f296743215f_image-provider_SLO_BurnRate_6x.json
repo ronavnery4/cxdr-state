@@ -1,0 +1,79 @@
+{
+  "id": "31a9bfe6-2c27-4bd9-b5b5-1f296743215f",
+  "name": "image-provider_SLO_BurnRate_6x",
+  "exported_at": "2026-02-02T12:13:59.589429",
+  "data": {
+    "alertDefProperties": {
+      "name": "image-provider_SLO_BurnRate_6x",
+      "description": "\u26a0\ufe0f Multi-tier SLO Alert: Escalating severity based on error budget burn rate over 2h window. P3@6x (budget exhausts in ~4.7d), P2@10x (~2.8d), P1@14x (~2d). Immediate response required at P1/P2.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "alert_id": "slo_burn_rate_multi",
+        "managed_by": "slo_manager",
+        "product": "apm-service-catalog",
+        "serviceName": "image-provider"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "b678c206-9b6c-44cf-80d4-2839f45d2bab"
+        },
+        "burnRate": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 6
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 10
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P2"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 14
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P1"
+              }
+            }
+          ],
+          "single": {
+            "timeDuration": {
+              "duration": "2",
+              "unit": "DURATION_UNIT_HOURS"
+            }
+          }
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "31a9bfe6-2c27-4bd9-b5b5-1f296743215f",
+    "createdTime": "2025-10-21T01:16:27Z",
+    "updatedTime": "2025-10-21T01:16:27Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "836be221-3ba6-4ba0-94f2-757e06cc6780"
+  }
+}

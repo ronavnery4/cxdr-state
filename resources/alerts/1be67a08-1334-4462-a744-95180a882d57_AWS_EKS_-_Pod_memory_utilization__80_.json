@@ -1,0 +1,68 @@
+{
+  "id": "1be67a08-1334-4462-a744-95180a882d57",
+  "name": "AWS EKS - Pod memory utilization >80%",
+  "exported_at": "2026-02-02T12:13:59.579215",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Pod memory utilization >80%",
+      "description": "This alert triggers when the maximum memory utilization of pods in an Amazon EKS cluster exceeds 80%. Excessive memory usage at the pod level can lead to out-of-memory (OOM) errors and disrupt application availability.\n\nCustomization Guidance:\n\nThreshold: The default threshold is set at 80% memory utilization. Adjust this based on the application's memory requirements.\n\nPod Specificity: Focus on critical pods where memory overutilization could severely impact application performance.\n\nNotification Frequency: Set notifications to quickly detect and mitigate memory issues.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "max(amazonaws_com_ContainerInsights_pod_memory_utilization_max) by (ClusterName, cloud_region, cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "1be67a08-1334-4462-a744-95180a882d57",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-03-10T15:57:39Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "15a646d3-b7ef-4103-9f17-a7b9081b7128"
+  }
+}

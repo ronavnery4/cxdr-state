@@ -1,0 +1,77 @@
+{
+  "id": "0a27d2e0-1447-4258-ab8f-e95e6ba5937a",
+  "name": "OpenTelemetry Collector Span Send Failures",
+  "exported_at": "2026-02-02T12:13:59.601960",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector Span Send Failures",
+      "description": "This alert monitors the number of failed attempts by the OpenTelemetry Collector to send spans to the configured backend. Persistent failures can result in missing trace data, impacting observability and troubleshooting capabilities.\n\nThe alert is triggered when the number of span send failures exceeds 100 within a 5-minute period.\n\nMonitoring this metric helps ensure that trace data is reliably transmitted to the backend, preventing gaps in distributed tracing and maintaining system observability.\n\nCustomization Guidance:\n  - Threshold: Adjust the threshold based on typical network performance and backend reliability.\n  - Monitoring Period: Modify the monitoring period to detect failures promptly without excessive noise.\n  - Notification Frequency: Set a suitable notification frequency to avoid alert fatigue while ensuring timely responses.\n\nAction: If this alert is triggered, consider checking network connectivity, backend availability, and retry policies in the OpenTelemetry Collector configuration. Review logs for errors and adjust buffer settings if necessary.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "cx_agent_type",
+        "cx_otel_integration_name",
+        "exporter",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "exporter",
+          "k8s_pod_name",
+          "cloud_account_id",
+          "cx_agent_type",
+          "cx_otel_integration_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_exporter_send_failed_spans_total{}[5m])) by (exporter, k8s_pod_name, cloud_account_id, cx_agent_type, cx_otel_integration_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 100,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": false
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "0a27d2e0-1447-4258-ab8f-e95e6ba5937a",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "edb342a0-ba3d-4e2a-b25b-818c3e18ce0f"
+  }
+}

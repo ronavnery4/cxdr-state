@@ -1,0 +1,80 @@
+{
+  "id": "8067734b-b595-49ed-bd2a-5751cb8e9a66",
+  "name": "RUM - High 4Xx Error Rate for Network Requests",
+  "exported_at": "2026-02-02T12:13:59.594050",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High 4Xx Error Rate for Network Requests",
+      "description": "This alert monitors high rates of 4xx HTTP status codes for network requests as recorded through Real User Monitoring (RUM) data. A spike in 4xx errors typically indicates client-side issues such as broken links, unauthorized access, or malformed requests.\n\nThe alert is triggered when the percentage of 4xx errors among total network requests exceeds a defined threshold (e.g., 5%) over a specified monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps identify user experience problems stemming from incorrect client behavior, misconfigured endpoints, or permission errors.\n\nCustomization Guidance:\n  - Threshold: Set the threshold based on expected error behavior, factoring in legitimate user actions versus misconfigurations.\n  - Monitoring Period: Choose short periods to catch immediate spikes or longer durations to detect persistent client-side issues.\n  - Notification Frequency: Configure notifications for ongoing or high-volume occurrences to prevent alert fatigue while maintaining visibility.\n\nAction: If this alert is triggered, analyze the specific 4xx status codes and affected endpoints. Check for recent frontend changes, broken links, expired sessions, or missing authentication. Resolve by correcting request logic or updating client-side routing.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_LOGS_RATIO_THRESHOLD",
+      "groupByKeys": [
+        "cx_rum.network_request_context.fragments"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsRatioThreshold": {
+        "numerator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.status_code AND cx_rum.network_request_context.status_code.keyword:/4[0-9]{2}/",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "numeratorAlias": "Query 1",
+        "denominator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND _exists_:cx_rum.network_request_context.status_code",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "denominatorAlias": "Query 2",
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.05,
+              "timeWindow": {
+                "logsRatioTimeWindowSpecificValue": "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "groupByFor": "LOGS_RATIO_GROUP_BY_FOR_BOTH_OR_UNSPECIFIED",
+        "undetectedValuesManagement": null,
+        "ignoreInfinity": true,
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "8067734b-b595-49ed-bd2a-5751cb8e9a66",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:29:32Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "a15ed911-edd9-467a-b3fe-336b5404d280"
+  }
+}

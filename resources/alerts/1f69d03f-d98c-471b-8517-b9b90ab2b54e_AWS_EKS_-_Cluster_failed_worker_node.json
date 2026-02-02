@@ -1,0 +1,68 @@
+{
+  "id": "1f69d03f-d98c-471b-8517-b9b90ab2b54e",
+  "name": "AWS EKS - Cluster failed worker node",
+  "exported_at": "2026-02-02T12:13:59.589056",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Cluster failed worker node",
+      "description": "This alert triggers when a worker node in an Amazon EKS cluster fails. Worker node failures can disrupt the availability and performance of applications running in the cluster.\n\nCustomization Guidance:\n\nThreshold: The alert triggers on any instance of a failed worker node. Adjust sensitivity based on the cluster's redundancy and failover capabilities.\n\nCluster Specificity: Focus on clusters where worker node availability is critical to business operations.\n\nNotification Frequency: Set alerts to notify immediately upon detection of a failed worker node.\n\nAction: Investigate the cause of the node failure, initiate failover procedures, and ensure the cluster's resilience.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "max(amazonaws_com_ContainerInsights_cluster_failed_node_count_max) by (ClusterName, cloud_region, cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "1f69d03f-d98c-471b-8517-b9b90ab2b54e",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-03-10T15:57:39Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "7b57c85c-cce2-4a92-9394-3e227bc97299"
+  }
+}

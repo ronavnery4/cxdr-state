@@ -1,0 +1,72 @@
+{
+  "id": "13ef42f1-6e7c-4e9c-aab8-0e8a534836ac",
+  "name": "K8s - Disk Utilization Nearing Capacity",
+  "exported_at": "2026-02-02T12:13:59.586079",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Disk Utilization Nearing Capacity",
+      "description": "This alert is triggered when a disk utilization is near capacity\nAction: Review the storage utilization of the affected volume. Common steps include:\n      - Expanding the persistent volume (if supported by the storage class)\n      - Cleaning up unnecessary data\n      - Optimizing application storage usage\n      - Planning for additional storage allocation\n    Proactively monitor storage growth trends to prevent similar issues in the future.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_namespace_name",
+        "k8s_node_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 1440
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_namespace_name",
+          "k8s_node_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "100 * avg by (k8s_cluster_name,k8s_namespace_name,k8s_node_name)(k8s_node_filesystem_usage_By{}) / avg by (k8s_cluster_name,k8s_namespace_name,k8s_node_name)(k8s_node_filesystem_capacity_By{})"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 85,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_1_OR_UNSPECIFIED"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "13ef42f1-6e7c-4e9c-aab8-0e8a534836ac",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "64470ff9-1f58-4fa9-97e4-5b3a3b706906"
+  }
+}

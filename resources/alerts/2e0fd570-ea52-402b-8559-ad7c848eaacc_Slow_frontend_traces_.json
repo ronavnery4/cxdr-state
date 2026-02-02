@@ -1,0 +1,72 @@
+{
+  "id": "2e0fd570-ea52-402b-8559-ad7c848eaacc",
+  "name": "Slow frontend traces ",
+  "exported_at": "2026-02-02T12:13:59.588343",
+  "data": {
+    "alertDefProperties": {
+      "name": "Slow frontend traces ",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P5_OR_UNSPECIFIED",
+      "type": "ALERT_DEF_TYPE_TRACING_THRESHOLD",
+      "groupByKeys": [
+        "operationName"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "operationName"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "tracingThreshold": {
+        "tracingFilter": {
+          "simpleFilter": {
+            "tracingLabelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "serviceName": [
+                {
+                  "values": [
+                    "frontend"
+                  ],
+                  "operation": "TRACING_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "operationName": [],
+              "spanFields": []
+            },
+            "latencyThresholdMs": "10"
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "spanAmount": 100,
+              "timeWindow": {
+                "tracingTimeWindowValue": "TRACING_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "TRACING_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "notificationPayloadFilter": []
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "2e0fd570-ea52-402b-8559-ad7c848eaacc",
+    "createdTime": "2025-11-12T10:25:33Z",
+    "updatedTime": "2025-11-12T10:25:33Z",
+    "lastTriggeredTime": "2026-02-02T12:14:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "750bc996-245c-434d-99f9-d6e140bceb59"
+  }
+}

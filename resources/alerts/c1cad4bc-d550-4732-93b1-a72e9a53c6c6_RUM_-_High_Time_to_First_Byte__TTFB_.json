@@ -1,0 +1,62 @@
+{
+  "id": "c1cad4bc-d550-4732-93b1-a72e9a53c6c6",
+  "name": "RUM - High Time to First Byte (TTFB)",
+  "exported_at": "2026-02-02T12:13:59.598234",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - High Time to First Byte (TTFB)",
+      "description": "This alert monitors elevated Time to First Byte (TTFB) values as reported by Real User Monitoring (RUM) data. High TTFB indicates delays in server response, affecting the overall page load performance and user experience.\n\nThe alert is triggered when the average TTFB exceeds a specified threshold (e.g., 800 ms) during a defined monitoring period (e.g., 10 minutes).\n\nMonitoring this metric helps identify backend or network latency issues early, ensuring that users receive content promptly and that application performance remains optimal.\n\nCustomization Guidance:\n  - Threshold: Define the TTFB threshold based on your application's performance targets and historical baselines.\n  - Monitoring Period: Use shorter windows for rapid detection or longer ones to catch persistent server latency trends.\n  - Notification Frequency: Set alerts for consistent or repeated high TTFB occurrences to focus attention on systemic issues.\n\nAction: If this alert is triggered, review server response times, backend processing efficiency, and CDN or caching configurations. Investigate database query performance and network latency for potential bottlenecks.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "page"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(RUM_web_vitals_context_value_cx_avg{context_name=\"TTFB\"}) by (page)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 800,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "c1cad4bc-d550-4732-93b1-a72e9a53c6c6",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:31:12Z",
+    "lastTriggeredTime": "2026-01-30T05:46:54Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "cbd4f3ea-faaf-4408-a53c-e184b5061cfb"
+  }
+}

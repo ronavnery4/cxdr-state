@@ -1,0 +1,77 @@
+{
+  "id": "ac167af6-e528-49a3-8546-a10fc2b8fe0c",
+  "name": "OpenTelemetry Collector Refusing Metrics",
+  "exported_at": "2026-02-02T12:13:59.580055",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector Refusing Metrics",
+      "description": "This alert monitors instances where the OpenTelemetry Collector refuses to accept metrics, indicating potential resource constraints, misconfiguration, or backend ingestion limits. If metrics are not ingested properly, critical performance and system health data may be lost.\n\nThe alert is triggered when the number of refused metric entries exceeds 100 within a 5-minute period.\n\nMonitoring this metric helps ensure that performance and operational metrics are successfully processed, preventing data gaps and maintaining observability.\n\nCustomization Guidance:\n  - Threshold: Adjust the threshold based on expected metric volume and acceptable data loss tolerance.\n  - Monitoring Period: Modify the monitoring period to capture persistent issues while minimizing noise.\n  - Notification Frequency: Set a suitable notification frequency to ensure prompt awareness without excessive alerts.\n\nAction: If this alert is triggered, consider checking resource limits on the OpenTelemetry Collector, increasing buffer sizes, and reviewing memory and CPU usage. Ensure backend availability and adjust rate limits if necessary.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "cloud_account_id",
+        "cx_agent_type",
+        "cx_otel_integration_name",
+        "k8s_pod_name",
+        "receiver"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "cloud_account_id",
+          "cx_agent_type",
+          "cx_otel_integration_name",
+          "receiver",
+          "k8s_pod_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(increase(otelcol_receiver_refused_metric_points_total{}[5m])) by (receiver, k8s_pod_name, cloud_account_id, cx_agent_type, cx_otel_integration_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 100,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": false
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "ac167af6-e528-49a3-8546-a10fc2b8fe0c",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "20b2e633-f9f6-4482-ae90-7da7e22c4686"
+  }
+}

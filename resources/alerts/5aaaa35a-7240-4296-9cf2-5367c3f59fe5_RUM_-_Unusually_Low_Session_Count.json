@@ -1,0 +1,57 @@
+{
+  "id": "5aaaa35a-7240-4296-9cf2-5367c3f59fe5",
+  "name": "RUM - Unusually Low Session Count",
+  "exported_at": "2026-02-02T12:13:59.591328",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - Unusually Low Session Count",
+      "description": "This alert monitors unusually low session counts as reported through Real User Monitoring (RUM) data. A sudden drop in session volume can indicate frontend loading failures, traffic disruptions, or monitoring integration issues.\n\nThe alert is triggered when the total session count falls below a defined threshold within a specified monitoring period (e.g., 20 Minutes).\n\nMonitoring this metric helps detect anomalies in user traffic or technical failures early, ensuring consistent data flow and user engagement visibility.\n\nCustomization Guidance:\n  - Threshold: Set the threshold relative to typical session volumes, considering expected traffic patterns and time-of-day variations.\n  - Monitoring Period: Choose a window that aligns with your application's usage cycles to detect meaningful deviations.\n  - Notification Frequency: Configure to alert on sustained low counts or repeated drops to focus on significant anomalies.\n\nAction: If this alert is triggered, check for frontend issues affecting RUM tracking, CDN or DNS disruptions, recent code deployments, or outages in traffic sources such as marketing campaigns or referral links.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_ANOMALY",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricAnomaly": {
+        "metricFilter": {
+          "promql": "count(count(RUM_web_vitals_context_value_cx_count{}[20m]) by (session_id))"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 100,
+              "forOverPct": 80,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_20"
+              },
+              "minNonNullValuesPct": 100,
+              "conditionType": "METRIC_ANOMALY_CONDITION_TYPE_LESS_THAN_USUAL"
+            }
+          }
+        ],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": null
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "5aaaa35a-7240-4296-9cf2-5367c3f59fe5",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:30:40Z",
+    "lastTriggeredTime": "2026-02-02T11:51:00Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "8f5dc427-e757-47ba-9757-d1bcb30d77ca"
+  }
+}

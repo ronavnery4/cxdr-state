@@ -1,0 +1,76 @@
+{
+  "id": "de2d4bb0-92a3-42b1-872c-ee2ce1e9109e",
+  "name": "K8s - Pod Scheduling Failure",
+  "exported_at": "2026-02-02T12:13:59.579882",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Pod Scheduling Failure",
+      "description": "This alert is triggered when a pod in a Kubernetes cluster fails to be scheduled onto any available node, preventing the pod from starting. Scheduling failures can occur due to various reasons such as insufficient resources, unsatisfied node constraints, or misconfigured affinity/taint settings.\n\nThe alert is activated when Kubernetes cannot find an appropriate node to schedule the pod, which can lead to delays in service deployment or application startup.  \n\nAction: Investigate the cause of the scheduling failure by reviewing the pod's events and node conditions. Common causes include: \n      - Insufficient resources (CPU, memory, disk) available on any node in the cluster\n      - Node taints, labels, or affinity rules preventing the pod from being scheduled\n      - Pod resource requests exceeding the available node capacity\n      - Misconfigured Kubernetes scheduler settings or node capacity issues\n    Resolve the issue by adjusting the pod's resource requests, reviewing node status and taints, or reconfiguring affinity/anti-affinity rules to ensure successful pod scheduling.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
+      "groupByKeys": [
+        "object.regarding.namespace",
+        "resource.attributes.k8s_cluster_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "resource.attributes.k8s_cluster_name",
+          "object.regarding.namespace"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Logs": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsThreshold": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "object.reason:\"FailedScheduling\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "undetectedValuesManagement": null,
+        "rules": [
+          {
+            "condition": {
+              "threshold": 5,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_5_OR_UNSPECIFIED"
+              },
+              "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [
+          "object.note"
+        ],
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "de2d4bb0-92a3-42b1-872c-ee2ce1e9109e",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "1de3ade9-d844-4906-83e4-45adb7628885"
+  }
+}

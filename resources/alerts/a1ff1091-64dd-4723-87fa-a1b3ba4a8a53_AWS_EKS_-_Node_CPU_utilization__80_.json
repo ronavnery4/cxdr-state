@@ -1,0 +1,69 @@
+{
+  "id": "a1ff1091-64dd-4723-87fa-a1b3ba4a8a53",
+  "name": "AWS EKS - Node CPU utilization >80%",
+  "exported_at": "2026-02-02T12:13:59.581719",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS EKS - Node CPU utilization >80%",
+      "description": "This alert triggers when the CPU utilization of nodes in an Amazon EKS cluster exceeds 80%. High CPU usage at the node level can impact the overall performance of the cluster.\n\nCustomization Guidance:\n\nThreshold: Set at 80% CPU utilization, this threshold can be adjusted based on node capacity and workload demands.\n\nNode Specificity: Focus on critical nodes where high CPU usage could affect the entire cluster.\n\nNotification Frequency: Ensure that alerts are frequent enough to catch spikes in CPU utilization early.\n\nAction: Monitor node performance, optimize workloads, and scale nodes if necessary.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "ClusterName",
+        "NodeName",
+        "cloud_account_id",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 1
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "EKS": "",
+        "Metrics": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(amazonaws_com_ContainerInsights_node_cpu_usage_total_avg{NodeName!=\"\"}) by (ClusterName, NodeName, cloud_region, cloud_account_id) / avg(amazonaws_com_ContainerInsights_node_cpu_limit_avg{NodeName!=\"\"}) by (ClusterName, NodeName, cloud_region, cloud_account_id) * 100"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 80,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "a1ff1091-64dd-4723-87fa-a1b3ba4a8a53",
+    "createdTime": "2025-03-10T15:57:39Z",
+    "updatedTime": "2025-03-10T15:57:39Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "306ca413-72a8-4c62-83d9-2732f459d785"
+  }
+}

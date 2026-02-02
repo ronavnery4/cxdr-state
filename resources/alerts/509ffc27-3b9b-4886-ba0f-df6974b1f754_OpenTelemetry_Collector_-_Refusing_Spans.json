@@ -1,0 +1,67 @@
+{
+  "id": "509ffc27-3b9b-4886-ba0f-df6974b1f754",
+  "name": "OpenTelemetry Collector - Refusing Spans",
+  "exported_at": "2026-02-02T12:13:59.587469",
+  "data": {
+    "alertDefProperties": {
+      "name": "OpenTelemetry Collector - Refusing Spans",
+      "description": "This alert monitors instances where the OpenTelemetry Collector refuses to process incoming span data. Such refusals may indicate resource constraints, misconfigurations, or an inability to handle the current trace volume, potentially disrupting distributed tracing and application observability.\n\nThe alert is triggered when the OpenTelemetry Collector rejects incoming spans for more than 10 consecutive minutes.\n\nMonitoring this metric helps ensure the reliable collection and processing of spans, which is essential for maintaining end-to-end visibility and diagnosing performance or dependency issues.\n\nCustomization Guidance:\n  - Threshold: Adjust the refusal duration or count threshold based on your system's capacity and acceptable tolerance for temporary delays in span processing.\n  - Monitoring Period: Set the monitoring period to align with your typical tracing patterns, particularly during peak traffic times.\n  - Notification Frequency: Configure notification intervals to provide timely responses while avoiding alert fatigue for short-term issues.\n\nAction: If this alert is triggered, review the Collector\u2019s resource allocations (CPU, memory), check for pipeline bottlenecks, and optimize trace batching or rate-limiting settings. Consider scaling infrastructure or adjusting configurations to accommodate higher span ingestion rates if necessary.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_pod_name",
+        "receiver"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "Metrics": "",
+        "Observability": "",
+        "OpenTelemetry": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(rate(otelcol_receiver_refused_spans_total{}[10m])) by (receiver, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "509ffc27-3b9b-4886-ba0f-df6974b1f754",
+    "createdTime": "2025-02-21T08:46:56Z",
+    "updatedTime": "2025-07-21T08:28:09Z",
+    "lastTriggeredTime": "2025-09-21T15:37:19Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "6fd5d500-fc3b-4fc3-a2b6-3fe475db371a"
+  }
+}

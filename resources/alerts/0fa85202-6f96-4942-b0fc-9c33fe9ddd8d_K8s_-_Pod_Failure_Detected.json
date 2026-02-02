@@ -1,0 +1,72 @@
+{
+  "id": "0fa85202-6f96-4942-b0fc-9c33fe9ddd8d",
+  "name": "K8s - Pod Failure Detected",
+  "exported_at": "2026-02-02T12:13:59.591958",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - Pod Failure Detected",
+      "description": "This alert is triggered when a pod in a Kubernetes cluster enters a `Failed` state, indicating that it has terminated unexpectedly and cannot be restarted. Pod failures can disrupt workloads and reduce application availability if not addressed promptly. \nAction: Investigate the failed pod by checking its logs, Kubernetes events, and associated resources. Common causes of pod failure include:\n      - Application crashes due to unhandled exceptions or runtime errors\n      - Misconfigured environment variables, secrets, or volumes\n      - Insufficient resources (e.g., CPU, memory)\n      - Failed probes (liveness or readiness)\n    Take corrective actions, such as fixing the root cause, redeploying the pod, or increasing resource limits, to restore normal operations.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_namespace_name",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 60
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_namespace_name",
+          "k8s_pod_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "count(k8s_pod_phase_1{}==4) by (k8s_cluster_name, k8s_namespace_name, k8s_pod_name)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 50,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "0fa85202-6f96-4942-b0fc-9c33fe9ddd8d",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "9501d2be-bc96-44e3-bb02-8ba07eebcedc"
+  }
+}

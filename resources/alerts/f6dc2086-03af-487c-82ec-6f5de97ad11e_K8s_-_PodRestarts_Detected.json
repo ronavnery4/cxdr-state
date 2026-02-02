@@ -1,0 +1,72 @@
+{
+  "id": "f6dc2086-03af-487c-82ec-6f5de97ad11e",
+  "name": "K8s - PodRestarts Detected",
+  "exported_at": "2026-02-02T12:13:59.598386",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - PodRestarts Detected",
+      "description": "The alert is activated when a pod restarts more than a predefined threshold (1) within a specified time window (e.g., 10 minutes), signaling instability in the pod's operation.\n\nAction: Investigate the pod's logs and events to identify the root cause of the restarts. Common causes include:\n      - Application crashes or unhandled exceptions\n      - Misconfigured resource requests/limits leading to insufficient resources\n      - Failing health checks (liveness/readiness probes)\n      - Issues with environment variables or secrets\n    Resolve the issue by addressing the application bugs, adjusting resource limits, optimizing health checks, or reviewing other configuration issues that might be causing instability.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_namespace_name",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 60
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_namespace_name",
+          "k8s_pod_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(increase({__name__=~\"k8s_container_restarts__restart_\",k8s_cluster_name=~\".+\",k8s_namespace_name=~\".+\",k8s_container_name=~\".+\"})) by (k8s_cluster_name,k8s_namespace_name,k8s_pod_name) > 2"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 100,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_5"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "f6dc2086-03af-487c-82ec-6f5de97ad11e",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "cc3ee17c-c085-4e62-864b-e0ec86607279"
+  }
+}

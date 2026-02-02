@@ -1,0 +1,69 @@
+{
+  "id": "43e89ff9-376a-4c63-85a2-3cfde31674a4",
+  "name": "Amazon EC2 - System Status Checks Failed",
+  "exported_at": "2026-02-02T12:13:59.600571",
+  "data": {
+    "alertDefProperties": {
+      "name": "Amazon EC2 - System Status Checks Failed",
+      "description": "This alert is designed to monitor the health of the underlying infrastructure supporting an Amazon EC2 instance. The alert is triggered when system status checks fail, indicating a potential issue with the AWS infrastructure hosting the instance. System checks evaluate the health of the instance's physical host, network, and underlying hardware.\n\nTrigger Condition:\nThe alert is activated when the EC2 system status check fails. This failure often points to problems with the physical hardware, networking, or other AWS-related issues that prevent the instance from functioning properly. These checks are beyond the control of the user but critical for the instance's operational integrity.\n\nCustomization Guidance:\n\nThreshold:\nThe alert should be triggered immediately upon the system status check failure. Since this indicates an infrastructure-level issue, quick detection is essential to minimize downtime.\n\nGranularity:\nWhile system checks monitor the health of the AWS infrastructure supporting your instance, consider combining this alert with instance-level health checks to get a full picture of any potential issues (e.g., hardware, networking, or OS-level issues).\n\nAlert Tiering:\nYou can set multi-tiered alerts. For example, a warning alert can be issued if an instance is experiencing occasional failures, while a critical alert is triggered when the system check fails for an extended period (e.g., 5 minutes), signaling a more serious underlying issue.\n\nNotification Frequency:\nImmediate notification is recommended since system check failures typically require AWS intervention or instance recovery actions. Configure the alert to repeat until the issue is resolved to ensure quick response.\n\nAction:\nUpon activation of this alert, investigate the system status check failure by performing the following steps:\nCheck AWS Health Dashboard: Visit the AWS Health Dashboard to see if there are any ongoing infrastructure issues in the AWS region where your instance is hosted.\nReboot or Stop/Start the Instance: In many cases, a simple reboot or stop/start can resolve the issue by migrating your instance to healthy hardware within the AWS infrastructure.\nContact AWS Support: If the issue persists, contact AWS Support to investigate further. Since system checks are AWS-managed, any prolonged failure will likely need AWS intervention.\nConsider Auto-Recovery: If system checks fail frequently, enable EC2 Auto-Recovery to automatically reboot or replace the instance in case of underlying infrastructure failure.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "InstanceId",
+        "cloud_account_id"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Compute": "",
+        "EC2": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum((amazonaws_com_AWS_EC2_StatusCheckFailed_System{})) by (InstanceId,cloud_account_id)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "43e89ff9-376a-4c63-85a2-3cfde31674a4",
+    "createdTime": "2026-01-06T15:47:15Z",
+    "updatedTime": "2026-01-06T15:47:15Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "e2c8f6ae-56c2-48ab-a787-bee7be7f9248"
+  }
+}

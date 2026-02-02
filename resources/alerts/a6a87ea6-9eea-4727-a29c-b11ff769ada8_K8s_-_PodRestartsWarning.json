@@ -1,0 +1,72 @@
+{
+  "id": "a6a87ea6-9eea-4727-a29c-b11ff769ada8",
+  "name": "K8s - PodRestartsWarning",
+  "exported_at": "2026-02-02T12:13:59.591004",
+  "data": {
+    "alertDefProperties": {
+      "name": "K8s - PodRestartsWarning",
+      "description": "This alert is triggered when a pod experiences frequent restarts within a specified time period, indicating potential issues with the application, configuration, or underlying infrastructure. Frequent restarts can lead to degraded service performance and availability.\n\nThe alert is activated when a pod restarts more than a defined threshold (e.g., 3 times) within a monitoring window.\n\nCustomization Guidance:\n      - Threshold: The default threshold is set to a specific number of restarts (e.g., 3 restarts within 10 minutes). Adjust this based on the workload's behavior and tolerance for restarts.\n      - Monitoring Period: The monitoring period can be fine-tuned depending on the workload's criticality. For critical applications, use shorter periods to detect issues quickly.\n      - Notification Frequency: Set appropriate notification intervals to balance between timely responses and avoiding alert fatigue.\n\nAction: Investigate the pod's logs and events to identify the cause of the restarts. Common causes include application crashes, configuration errors, or resource limits. Depending on the root cause, consider debugging the application, increasing resource limits, or reviewing liveness and readiness probes.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_cluster_name",
+        "k8s_namespace_name",
+        "k8s_pod_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_AND_RESOLVED",
+        "minutes": 60
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "k8s_cluster_name",
+          "k8s_namespace_name",
+          "k8s_pod_name"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "K8S": "",
+        "Metrics": "",
+        "Observability": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(increase({__name__=~\"k8s_container_restarts__restart_\",k8s_cluster_name=~\".+\",k8s_namespace_name=~\".+\",k8s_container_name=~\".+\"})) by (k8s_cluster_name,k8s_namespace_name,k8s_pod_name) > 3"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 3,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_EQUALS"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "replaceWithZero": true
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "a6a87ea6-9eea-4727-a29c-b11ff769ada8",
+    "createdTime": "2025-11-17T14:26:07Z",
+    "updatedTime": "2025-11-17T14:26:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "8e01e45f-0fa5-470c-8904-95af121c4d53"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "id": "eaf31c33-4580-4cd4-b170-5bb0fe2ee6d6",
+  "name": "RUM - Error Rate Spike",
+  "exported_at": "2026-02-02T12:13:59.582900",
+  "data": {
+    "alertDefProperties": {
+      "name": "RUM - Error Rate Spike",
+      "description": "This alert monitors spikes in the overall error rate across all types of errors captured through Real User Monitoring (RUM) data. An increase in error rate may indicate widespread issues impacting frontend performance and user interactions.\n\nThe alert is triggered when the total error rate exceeds a defined threshold (e.g., 7%) over a specified monitoring period (e.g., 10 minutes), compared to normal baseline levels.\n\nMonitoring this metric helps detect frontend instabilities early, allowing for prompt action to prevent degraded user experience or functionality issues.\n\nCustomization Guidance:\n  - Threshold: Set the threshold based on acceptable error levels for your application, considering its complexity and user base.\n  - Monitoring Period: Use shorter windows for faster detection of sudden issues or longer ones to monitor overall stability trends.\n  - Notification Frequency: Configure to notify on sustained or recurrent spikes to focus on impactful events without excessive noise.\n\nAction: If this alert is triggered, review error logs and types to identify root causes, check for recent frontend deployments or third-party changes, and prioritize fixing errors with the highest user impact.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_LOGS_RATIO_THRESHOLD",
+      "groupByKeys": [
+        "cx_rum.version_metadata.app_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsRatioThreshold": {
+        "numerator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\" AND cx_rum.event_context.severity:\"5\" AND _exists_:cx_rum.error_context.error_type",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "numeratorAlias": "Query 1",
+        "denominator": {
+          "simpleFilter": {
+            "luceneQuery": "coralogix.metadata.subsystemName:\"cx_rum\"",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "denominatorAlias": "Query 2",
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.07,
+              "timeWindow": {
+                "logsRatioTimeWindowSpecificValue": "LOGS_RATIO_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "LOGS_RATIO_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "groupByFor": "LOGS_RATIO_GROUP_BY_FOR_BOTH_OR_UNSPECIFIED",
+        "undetectedValuesManagement": null,
+        "ignoreInfinity": true,
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "eaf31c33-4580-4cd4-b170-5bb0fe2ee6d6",
+    "createdTime": "2025-06-05T15:37:41Z",
+    "updatedTime": "2025-07-21T08:28:41Z",
+    "lastTriggeredTime": "2025-12-04T04:21:52Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "39381386-a233-496b-9397-881dfab493c9"
+  }
+}

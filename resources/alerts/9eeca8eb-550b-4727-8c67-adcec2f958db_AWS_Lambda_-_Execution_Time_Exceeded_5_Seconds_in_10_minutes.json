@@ -1,0 +1,68 @@
+{
+  "id": "9eeca8eb-550b-4727-8c67-adcec2f958db",
+  "name": "AWS Lambda - Execution Time Exceeded 5 Seconds in 10 minutes",
+  "exported_at": "2026-02-02T12:13:59.601257",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS Lambda - Execution Time Exceeded 5 Seconds in 10 minutes",
+      "description": "This alert is designed to monitor the average execution time of a Lambda function to identify and address performance issues related to longer processing times, which can affect user experience and resource utilization.\n\nThe alert is activated when the average execution time of the Lambda function exceeds 5 seconds over the last 10 minutes.\n\nMonitoring execution time is crucial for ensuring that the Lambda function operates within its performance and cost-efficiency targets. Extended execution times may indicate issues with the function\u2019s code, external service latencies, or suboptimal resource allocation.\n\nCustomization Guidance:\n  - Threshold: The default threshold for triggering this alert is an average execution time of 5 seconds. Modify this threshold based on the specific performance expectations and criticality of the function within your application.\n  - Monitoring Period: The standard monitoring period is set at 10 minutes to provide a timely overview of performance trends. This time range should be adjusted based on the expected frequency and variability of function invocations.\n  - Notification Frequency: Consider the frequency of this alert to optimize the balance between responsiveness and noise. Adjust according to the criticality of the function\u2019s uninterrupted operation\n\nAction: If this alert triggers, review the detailed execution logs to identify any anomalies or efficiency issues. Consider optimizing the function\u2019s code, increasing allocated resources, or adjusting timeout settings. Further, investigate dependencies on external services that may be contributing to increased latency.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "FunctionName",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Lambda": "",
+        "Metrics": "",
+        "Serverless": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(sum_over_time(amazonaws_com_AWS_Lambda_Duration_sum{}[10m])) by (FunctionName,cloud_region)/sum(sum_over_time(amazonaws_com_AWS_Lambda_Duration_count[10m])) by (FunctionName,cloud_region)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 5,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "9eeca8eb-550b-4727-8c67-adcec2f958db",
+    "createdTime": "2026-01-06T15:48:07Z",
+    "updatedTime": "2026-01-06T15:48:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "e7762949-b6db-4765-889a-c015dc33b067"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "7313293b-8c80-4aa2-8332-a893893f56e7",
+  "name": "Anomaly Detection \u2013 APM \u2013 Latency (p95) \u2013 More than usual Latency Detected for Service",
+  "exported_at": "2026-02-02T12:13:59.587946",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 APM \u2013 Latency (p95) \u2013 More than usual Latency Detected for Service",
+      "description": "This alert monitors the 95th-percentile latency (p95) for each instrumented service using OpenTelemetry span metrics.\nCoralogix\u2019s anomaly detection automatically establishes a historical baseline for normal performance patterns and triggers when a service exhibits latency significantly higher (20%) than usual for the same period and conditions.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_ANOMALY",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "core"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricAnomaly": {
+        "metricFilter": {
+          "promql": "(histogram_quantile(0.95, sum(increase(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=~\".*\"})) by (service_name,le))  * 1000)[30s] or on () vector(0)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "minNonNullValuesPct": 100,
+              "conditionType": "METRIC_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 20
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "7313293b-8c80-4aa2-8332-a893893f56e7",
+    "createdTime": "2025-10-26T13:46:25Z",
+    "updatedTime": "2025-10-26T13:50:45Z",
+    "lastTriggeredTime": "2026-02-02T12:11:00Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "7463ef8b-58db-4264-8ed7-61265681f276"
+  }
+}

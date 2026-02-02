@@ -1,0 +1,81 @@
+{
+  "id": "6016c7b3-8250-4fcb-a583-89ccbc1eb416",
+  "name": "Product Catalog - Error Rate SLO - Error Budget",
+  "exported_at": "2026-02-02T12:13:59.584676",
+  "data": {
+    "alertDefProperties": {
+      "name": "Product Catalog - Error Rate SLO - Error Budget",
+      "description": "Error Budget threshold has been breached by Product Catalog Service",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_SLO_THRESHOLD",
+      "groupByKeys": [
+        "service_name",
+        "deployment_environment_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "service_name",
+          "deployment_environment_name"
+        ],
+        "webhooks": [],
+        "destinations": [],
+        "router": {
+          "id": "65ef06f6-1bb9-4d51-bca0-b858ffb07d5b",
+          "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED"
+        }
+      },
+      "entityLabels": {
+        "service": "product-catalog",
+        "serviceName": "product-catalog"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "sloThreshold": {
+        "sloDefinition": {
+          "sloId": "7576a71e-d0d4-4008-a1aa-1b61c184e5d8"
+        },
+        "errorBudget": {
+          "rules": [
+            {
+              "condition": {
+                "threshold": 10
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P1"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 25
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P2"
+              }
+            },
+            {
+              "condition": {
+                "threshold": 50
+              },
+              "override": {
+                "priority": "ALERT_DEF_PRIORITY_P3"
+              }
+            }
+          ]
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "6016c7b3-8250-4fcb-a583-89ccbc1eb416",
+    "createdTime": "2026-01-29T16:17:41Z",
+    "updatedTime": "2026-01-29T16:17:41Z",
+    "lastTriggeredTime": "2026-02-02T12:12:44Z",
+    "status": "ALERT_DEF_STATUS_ALERTING",
+    "alertVersionId": "55cd5c49-bab9-4940-9ee4-de11d2a413e7"
+  }
+}

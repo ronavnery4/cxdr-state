@@ -1,0 +1,68 @@
+{
+  "id": "0cbfc286-609e-4ecc-8fda-0c8053b7be62",
+  "name": "AWS Lambda Asynchronous Event Age Exceeded 10 Minutes",
+  "exported_at": "2026-02-02T12:13:59.601652",
+  "data": {
+    "alertDefProperties": {
+      "name": "AWS Lambda Asynchronous Event Age Exceeded 10 Minutes",
+      "description": "This alert helps ensure that asynchronous events are processed in a timely manner by monitoring the age of these events in the Lambda function\u2019s queue.\n\nThe alert is activated when the median age of the oldest asynchronous event in the Lambda function\u2019s queue exceeds 10 minutes.\n\nMonitoring the age of asynchronous events helps in identifying delays or backlogs in event processing. A high median age can indicate issues with event handling or resource allocation.\n\nTroubleshooting Guidance:\n  - Errors Metric: Check the Errors metric to identify any recent increases in function errors, which could be contributing to processing delays.\n  - Throttles Metric: Review the Throttles metric to determine if concurrency limits are being reached, leading to throttling events that delay event processing\n\nCustomization Guidance:\n  - Threshold Adjustment: The default threshold is set at 10 minutes. Adjust this based on the criticality of event processing times and the expected throughput of your application.\n  - Monitoring Period: Consider the typical processing time and event volume to determine if a shorter or longer monitoring period is appropriate.\n  - Notification Frequency: Consider the frequency of this alert to optimize the balance between responsiveness and noise. Adjust according to the criticality of the function\u2019s uninterrupted operation\n\nAction: Should this alert trigger, investigate the underlying causes of increased queue times. Possible actions include optimizing code for faster execution, adjusting concurrency settings, or increasing resource allocation.",
+      "enabled": false,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "FunctionName",
+        "cloud_region"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "AWS": "",
+        "Lambda": "",
+        "Metrics": "",
+        "Serverless": ""
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "sum(sum_over_time(amazonaws_com_AWS_Lambda_AsyncEventAge_sum{}[10m])) by (FunctionName,cloud_region) /sum(sum_over_time(amazonaws_com_AWS_Lambda_AsyncEventAge_count{}[10m]) ) by (FunctionName,cloud_region)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 10,
+              "forOverPct": 10,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P2"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "0cbfc286-609e-4ecc-8fda-0c8053b7be62",
+    "createdTime": "2026-01-06T15:48:07Z",
+    "updatedTime": "2026-01-06T15:48:07Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "e88c1dac-1723-4c0f-acf6-6cb5dd9d862a"
+  }
+}

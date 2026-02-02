@@ -1,0 +1,63 @@
+{
+  "id": "baeaef12-2be3-4f27-b360-44552697f8c7",
+  "name": "Average K8s Pod Container CPU Utilization Higher than 80%",
+  "exported_at": "2026-02-02T12:13:59.603343",
+  "data": {
+    "alertDefProperties": {
+      "name": "Average K8s Pod Container CPU Utilization Higher than 80%",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P3",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [
+        "k8s_container_name",
+        "k8s_namespace_name"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {},
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "avg(rate(container_cpu_utilization_1{}[5m])) by (k8s_namespace_name,k8s_container_name) * 100"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 0.8,
+              "forOverPct": 50,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P3"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 0
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "baeaef12-2be3-4f27-b360-44552697f8c7",
+    "createdTime": "2025-03-07T08:17:27Z",
+    "updatedTime": "2025-07-21T08:26:18Z",
+    "lastTriggeredTime": "2026-01-01T00:06:10Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "fabccfed-6b7e-42cc-a6aa-324c91f87c19"
+  }
+}

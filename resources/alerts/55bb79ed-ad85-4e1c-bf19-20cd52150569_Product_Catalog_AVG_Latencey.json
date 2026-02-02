@@ -1,0 +1,63 @@
+{
+  "id": "55bb79ed-ad85-4e1c-bf19-20cd52150569",
+  "name": "Product_Catalog_AVG_Latencey",
+  "exported_at": "2026-02-02T12:13:59.591659",
+  "data": {
+    "alertDefProperties": {
+      "name": "Product_Catalog_AVG_Latencey",
+      "description": "",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P1",
+      "type": "ALERT_DEF_TYPE_METRIC_THRESHOLD",
+      "groupByKeys": [],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "product": "apm-service-catalog",
+        "serviceName": "productcatalog"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "metricThreshold": {
+        "metricFilter": {
+          "promql": "(sum(sum_over_time(cx_service_catalog_duration_update_cx_sum{spanKind=~\"consumer|server\", cx_source=\"spans2metrics\", service=~\"productcatalogservice\"}[900]) or on () vector(0)) / sum(sum_over_time(cx_service_catalog_duration_update_cx_count{spanKind=~\"consumer|server\", cx_source=\"spans2metrics\", service=~\"productcatalogservice\"}[900]))) or on () vector(0)"
+        },
+        "rules": [
+          {
+            "condition": {
+              "threshold": 1,
+              "forOverPct": 0,
+              "ofTheLast": {
+                "metricTimeWindowSpecificValue": "METRIC_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "METRIC_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
+            },
+            "override": {
+              "priority": "ALERT_DEF_PRIORITY_P1"
+            }
+          }
+        ],
+        "undetectedValuesManagement": null,
+        "missingValues": {
+          "minNonNullValuesPct": 100
+        },
+        "evaluationDelayMs": null
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "55bb79ed-ad85-4e1c-bf19-20cd52150569",
+    "createdTime": "2025-10-06T14:59:35Z",
+    "updatedTime": "2025-10-06T14:59:35Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "920aa091-95f7-425c-8730-04e90ae4b89b"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "400945f6-839b-491e-8acb-3bf12b731974",
+  "name": "Anomaly Detection \u2013 Logs \u2013 Error Rate - More Than Usual Error Logs Detected in an Application and Subsystem",
+  "exported_at": "2026-02-02T12:13:59.594519",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 Logs \u2013 Error Rate - More Than Usual Error Logs Detected in an Application and Subsystem",
+      "description": "Coralogix\u2019s log anomaly detection automatically learns historical log behaviour for each application and subsystem, adapting to normal fluctuations in log volume and message patterns. When a system starts producing more error logs than usual (20%) the alert triggers to surface potential regressions or emerging failures.",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P2",
+      "type": "ALERT_DEF_TYPE_LOGS_ANOMALY",
+      "groupByKeys": [
+        "coralogix.metadata.applicationName",
+        "coralogix.metadata.subsystemName"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [
+          "coralogix.metadata.applicationName",
+          "coralogix.metadata.subsystemName"
+        ],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "core"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsAnomaly": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "_exists_:coralogix.metadata.severity",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": [
+                "LOG_SEVERITY_ERROR",
+                "LOG_SEVERITY_CRITICAL"
+              ]
+            }
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "minimumThreshold": 0,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "LOGS_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 20
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "400945f6-839b-491e-8acb-3bf12b731974",
+    "createdTime": "2025-11-06T13:56:25Z",
+    "updatedTime": "2025-11-06T13:56:25Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "a2c864e7-df16-4a06-923c-86d8ff277f30"
+  }
+}

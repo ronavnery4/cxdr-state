@@ -1,0 +1,68 @@
+{
+  "id": "d66f99a1-1d48-4423-8c15-1658d16f9a96",
+  "name": "Anomaly Detection \u2013 Logs \u2013 Requests (Throughput) - More Than Usual Logs Volume Detected from an Application and Subsystem",
+  "exported_at": "2026-02-02T12:13:59.586379",
+  "data": {
+    "alertDefProperties": {
+      "name": "Anomaly Detection \u2013 Logs \u2013 Requests (Throughput) - More Than Usual Logs Volume Detected from an Application and Subsystem",
+      "description": "Coralogix\u2019s log anomaly detection automatically learns historical log behaviour for each application and subsystem and flags unusual surges that often accompany noisy deployments, retry loops or misbehaving applications. ",
+      "enabled": true,
+      "priority": "ALERT_DEF_PRIORITY_P4",
+      "type": "ALERT_DEF_TYPE_LOGS_ANOMALY",
+      "groupByKeys": [
+        "coralogix.metadata.applicationName",
+        "coralogix.metadata.subsystemName"
+      ],
+      "incidentsSettings": {
+        "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
+        "minutes": 10
+      },
+      "notificationGroup": {
+        "groupByKeys": [],
+        "webhooks": [],
+        "destinations": []
+      },
+      "entityLabels": {
+        "anomaly_detection": "optional"
+      },
+      "phantomMode": false,
+      "deleted": false,
+      "dataSources": [],
+      "logsAnomaly": {
+        "logsFilter": {
+          "simpleFilter": {
+            "luceneQuery": "_exists_: coralogix.metadata.applicationName AND _exists_:coralogix.metadata.subsystemName",
+            "labelFilters": {
+              "applicationName": [],
+              "subsystemName": [],
+              "severities": []
+            }
+          }
+        },
+        "rules": [
+          {
+            "condition": {
+              "minimumThreshold": 0,
+              "timeWindow": {
+                "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_10"
+              },
+              "conditionType": "LOGS_ANOMALY_CONDITION_TYPE_MORE_THAN_USUAL_OR_UNSPECIFIED"
+            }
+          }
+        ],
+        "notificationPayloadFilter": [],
+        "evaluationDelayMs": null,
+        "anomalyAlertSettings": {
+          "percentageOfDeviation": 25
+        }
+      },
+      "notificationGroupExcess": []
+    },
+    "id": "d66f99a1-1d48-4423-8c15-1658d16f9a96",
+    "createdTime": "2025-10-26T13:21:14Z",
+    "updatedTime": "2025-10-26T13:22:03Z",
+    "lastTriggeredTime": "2026-01-29T17:19:00Z",
+    "status": "ALERT_DEF_STATUS_OK",
+    "alertVersionId": "662cdd9e-4c44-4429-858d-7802b11bcaff"
+  }
+}

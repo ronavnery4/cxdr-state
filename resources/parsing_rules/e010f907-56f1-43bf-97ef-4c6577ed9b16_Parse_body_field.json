@@ -1,0 +1,155 @@
+{
+  "id": "e010f907-56f1-43bf-97ef-4c6577ed9b16",
+  "name": "Parse body field",
+  "exported_at": "2026-02-02T08:57:46.635396",
+  "data": {
+    "id": "e010f907-56f1-43bf-97ef-4c6577ed9b16",
+    "name": "Parse body field",
+    "description": "",
+    "creator": "david.bott+obdev@coralogix.com",
+    "enabled": true,
+    "hidden": false,
+    "ruleMatchers": [],
+    "ruleSubgroups": [
+      {
+        "id": "90d4a508-c0ed-401f-8325-f4cbd75bc9a2",
+        "rules": [
+          {
+            "id": "acdbb230-3b30-4902-ad61-716234cd733e",
+            "name": "Parse envoy",
+            "description": "{\"spanId\":\"385e89605c55e80d\",\"traceId\":\"9b7af74e1345258c8a1caea7f590b0aa\",\"resource\":{\"attributes\":{\"log_name\":\"otel_envoy_access_log\",\"zone_name\":\"\",\"cluster_name\":\"\",\"node_name\":\"\",\"service_name\":\"frontend-proxy\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"k8s_pod_ip\":\"172.31.41.140\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_deployment_name\":\"frontend-proxy\",\"k8s_node_name\":\"ip-172-31-45-146.us-west-2.compute.internal\",\"app_label_component\":\"frontend-proxy\",\"k8s_pod_name\":\"frontend-proxy-6d6cfc54df-hqf7g\",\"host_name\":\"ip-172-31-45-146.us-west-2.compute.internal\",\"os_type\":\"linux\",\"host_id\":\"i-0add83f5bd2a0bb10\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-2\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-2a\",\"host_image_id\":\"ami-0a3bc55cf89c55f96\",\"host_type\":\"t3.large\"}},\"timeUnixNano\":1743521777215784000,\"scope\":{\"attributes\":{}},\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"attributes\":{\"destination_address\":\"10.100.8.188\",\"event_name\":\"proxy.access\",\"server_address\":\"172.31.41.140:8080\",\"source_address\":\"172.31.33.206\",\"upstream_cluster\":\"frontend\",\"upstream_host\":\"10.100.8.188:8080\",\"user_agent_original\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 12_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15\",\"url_full\":\"http://frontend-proxy:8080/api/cart?sessionId=cc260a8e-e6b9-4a46-9a19-3aca4c724100&currencyCode=USD\",\"url_path\":\"/api/cart?sessionId=cc260a8e-e6b9-4a46-9a19-3aca4c724100&currencyCode=USD\",\"url_query\":\"-\",\"url_template\":\"-\"},\"body\":\"[2025-04-01T15:36:17.215Z] \\\"GET /api/cart?sessionId=cc260a8e-e6b9-4a46-9a19-3aca4c724100&currencyCode=USD HTTP/1.1\\\" 500 - via_upstream - \\\"-\\\" 0 33 11 10 \\\"-\\\" \\\"Mozilla/5.0 (Macintosh; Intel Mac OS X 12_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15\\\" \\\"2be5d382-cade-959d-95e0-480a6a3e358b\\\" \\\"frontend-proxy:8080\\\" \\\"10.100.8.188:8080\\\" frontend 172.31.41.140:50962 172.31.41.140:8080 172.31.33.206:45198 - -\\n\"}",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"time\":\"$start_time\",\"method\":\"$method\",\"path\":\"$path\",\"protocol\":\"$protocol\",\"response_code\":\"$response_code\",\"response_flags\":\"$response_flags\",\"upstream_transport_reason\":\"$upstream_transport_reason\",\"ef1\":\"$extra_field1\",\"referrer\":\"$referrer\",\"retries\":\"$retries\",\"bytes_received\":\"$bytes_received\",\"bytes_sent\":\"$bytes_sent\",\"duration\":\"$duration\",\"forwarded_for\":\"$forwarded_for\",\"user_agent\":\"$user_agent\",\"request_id\":\"$request_id\",\"upstream_host\":\"$upstream_host\",\"upstream_address\":\"$upstream_address\",\"downstream_cluster\":\"$downstream_cluster\",\"downstream_local_address\":\"$downstream_local_address\",\"downstream_remote_address\":\"$downstream_remote_address\",\"upstream_local_address\":\"$upstream_local_address\",\"ef2\":\"$extra_field2\",\"ef3\":\"$extra_field3\"",
+                "rule": "\"body\"\\s*:\\s*\"\\s*\\[(?P<start_time>[^\\]]+)\\]\\s+\\\\+\"(?P<method>\\S+)\\s+(?P<path>[^\\s\"]+)\\s+(?P<protocol>[^\"]+)\\\\\"\\s+(?P<response_code>\\d+)\\s+(?P<response_flags>\\S+)\\s+(?P<upstream_transport_reason>\\S+)\\s*(?P<extra_field1>\\S+)\\s+\\\\+\"(?P<referrer>[^\"]*)\\\\\"\\s+(?P<retries>\\d+)\\s+(?P<bytes_received>\\d+)\\s+(?P<bytes_sent>\\d+)\\s+(?P<duration>\\d+)\\s+\\\\+\"(?P<forwarded_for>[^\"]*)\\\\\"\\s*\\\\\"(?P<user_agent>[^\"]+)\\\\\"\\s*\\\\\"(?P<request_id>[^\"]+)\\\\\"\\s*\\\\\"(?P<upstream_host>[^\"]+)\\\\\"\\s*\\\\\"(?P<upstream_address>[^\"]+)\\\\\"\\s*(?P<downstream_cluster>\\S+)\\s*(?P<downstream_local_address>\\S+)\\s*(?P<downstream_remote_address>\\S+)\\s*(?P<upstream_local_address>\\S+)\\s*(?P<extra_field2>\\S*)\\s*(?P<extra_field3>\\S*)\\\\n?\""
+              }
+            },
+            "enabled": true,
+            "order": 1
+          },
+          {
+            "id": "6d6b3cfd-e08f-4cef-9728-e3e20e40df9a",
+            "name": "Parse ad body field",
+            "description": "{\"observedTimeUnixNano\":1747431797649024119,\"resource\":{\"attributes\":{\"k8s_container_name\":\"ad\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_pod_name\":\"ad-5859f89ff-lzcg9\",\"k8s_container_restart_count\":\"0\",\"k8s_pod_uid\":\"a75994a3-f98a-4ddd-85cc-963d44c81230\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"app_label_component\":\"ad\",\"k8s_deployment_name\":\"ad\",\"k8s_node_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"host_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"os_type\":\"linux\",\"host_id\":\"i-000d8595ed6541edf\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-1\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-1c\",\"host_image_id\":\"ami-003f75c45b5beb426\",\"host_type\":\"t3.large\"}},\"timeUnixNano\":1747431797634805720,\"scope\":{\"attributes\":{}},\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"attributes\":{\"log_file_path\":\"/var/log/pods/astronomy-demo_ad-5859f89ff-lzcg9_a75994a3-f98a-4ddd-85cc-963d44c81230/ad/0.log\",\"log_iostream\":\"stdout\",\"logtag\":\"F\",\"time\":\"2025-05-16T21:43:17.63480572Z\"},\"body\":\"2025-05-16 21:43:17 - oteldemo.AdService - Targeted ad request received for [accessories] trace_id=9dc1afbcbd22a69cf3e13c045aa4a7cd span_id=0a18a4b4d44cbeef trace_flags=01\"}\n\n{\"observedTimeUnixNano\":1747432546848613537,\"resource\":{\"attributes\":{\"k8s_pod_uid\":\"a75994a3-f98a-4ddd-85cc-963d44c81230\",\"k8s_container_name\":\"ad\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_pod_name\":\"ad-5859f89ff-lzcg9\",\"k8s_container_restart_count\":\"0\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"k8s_deployment_name\":\"ad\",\"k8s_node_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"app_label_component\":\"ad\",\"host_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"os_type\":\"linux\",\"host_id\":\"i-000d8595ed6541edf\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-1\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-1c\",\"host_image_id\":\"ami-003f75c45b5beb426\",\"host_type\":\"t3.large\"}},\"timeUnixNano\":1747432546691994059,\"scope\":{\"attributes\":{}},\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"attributes\":{\"log_file_path\":\"/var/log/pods/astronomy-demo_ad-5859f89ff-lzcg9_a75994a3-f98a-4ddd-85cc-963d44c81230/ad/0.log\",\"log_iostream\":\"stdout\",\"logtag\":\"F\",\"time\":\"2025-05-16T21:55:46.691994059Z\"},\"body\":\"2025-05-16 21:55:46 - oteldemo.AdService - GetAds Failed with status Status{code=UNAVAILABLE, description=null, cause=null} trace_id=2016f46dc64083c40f6628b2dd6eb0e4 span_id=79ebeeaf7b34b950 trace_flags=01\"}",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"start_time\":\"$start_time\",\"serviceName\":\"$serviceName\",\"msg\":\"$msg\",\"traceId\":\"$traceId\",\"spanId\":\"$spanId\",\"trace_flags\":\"$trace_flags\"",
+                "rule": "\"body\"\\s*:\\s*\"\\s*(?P<start_time>[^ ]* [^ ]*) - (?P<serviceName>[^ ]*) - (?P<msg>[^\\]\\}]*\\]?\\}?) trace_id=(?P<traceId>[^ ]*) span_id=(?P<spanId>[^ ]*) trace_flags=(?P<trace_flags>[\\d]*)\""
+              }
+            },
+            "enabled": true,
+            "order": 2
+          },
+          {
+            "id": "c36924af-73ab-406a-b92c-915b9d445b15",
+            "name": "recommendation body",
+            "description": "{\"observedTimeUnixNano\":1747433362144242680,\"resource\":{\"attributes\":{\"k8s_pod_uid\":\"2ed08b1d-4438-43f8-91c3-773a699c85a5\",\"k8s_container_name\":\"recommendation\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_pod_name\":\"recommendation-7fb66bb69-z4hwn\",\"k8s_container_restart_count\":\"0\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"k8s_deployment_name\":\"recommendation\",\"k8s_node_name\":\"ip-172-31-1-213.us-west-1.compute.internal\",\"app_label_component\":\"recommendation\",\"host_name\":\"ip-172-31-1-213.us-west-1.compute.internal\",\"os_type\":\"linux\",\"host_id\":\"i-0dc650be28a77e31d\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-1\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-1c\",\"host_image_id\":\"ami-003f75c45b5beb426\",\"host_type\":\"t3.large\"}},\"timeUnixNano\":1747433361996561399,\"scope\":{\"attributes\":{}},\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"attributes\":{\"log_file_path\":\"/var/log/pods/astronomy-demo_recommendation-7fb66bb69-z4hwn_2ed08b1d-4438-43f8-91c3-773a699c85a5/recommendation/0.log\",\"time\":\"2025-05-16T22:09:21.996561399Z\",\"logtag\":\"F\",\"log_iostream\":\"stderr\"},\"body\":\"2025-05-16 22:09:21,996 INFO [main] [recommendation_server.py:47] [trace_id=1dd2434bcbec5793a121f32f38fb4b1e span_id=5e7de5f7b416b0fc resource.service.name=recommendation trace_sampled=True] - Receive ListRecommendations for product ids:['0PUK6V6EV0', 'LS4PSXUNUM', '6E92ZMYYFZ', 'HQTGWGPNH4', '1YMWWN1N4O']\"}",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"time\":\"$time\",\"status\":\"$status\",\"thread\":\"$thread\",\"source_file\":\"$source_file\",\"line_number\":\"$line_number\",\"traceId\":\"$trace_id\",\"spanId\":\"$span_id\",\"service_name\":\"$service_name\",\"trace_sampled\":\"$trace_sampled\",\"message\":\"$message\",\"product_ids\":\"$product_ids\"",
+                "rule": "\"body\":\"\\s*(?P<time>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}[^ ]*) (?P<status>\\w+) \\[(?P<thread>\\w+)] \\[(?P<source_file>.+?):(?P<line_number>\\d+)] \\[trace_id=(?P<trace_id>[a-f0-9]+) span_id=(?P<span_id>[a-f0-9]+) resource\\.service\\.name=(?P<service_name>\\S+) trace_sampled=(?P<trace_sampled>\\w+)] - (?P<message>.+?) for product ids:(?P<product_ids>\\[.*\\])\""
+              }
+            },
+            "enabled": true,
+            "order": 3
+          }
+        ],
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "id": "2c79f0d4-ba5c-4012-96c0-30a98f51b051",
+        "rules": [
+          {
+            "id": "5efe5283-bfad-41c5-abca-54e6209ee887",
+            "name": "Extract productId",
+            "description": "{\"spanId\":\"468e92204bab15f4\",\"traceId\":\"f37d9410d30d8d220668049d6974f6ee\",\"observedTimeUnixNano\":1748028025436390013,\"resource\":{\"attributes\":{\"k8s_pod_name\":\"product-catalog-69f486f798-6wx8j\",\"k8s_container_restart_count\":\"0\",\"k8s_pod_uid\":\"90e84a9b-c5dd-4b6a-8025-b9491bf7dbda\",\"k8s_container_name\":\"product-catalog\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"k8s_deployment_name\":\"product-catalog\",\"k8s_node_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"app_label_component\":\"product-catalog\",\"host_name\":\"ip-172-31-6-176.us-west-1.compute.internal\",\"os_type\":\"linux\",\"host_id\":\"i-000d8595ed6541edf\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-1\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-1c\",\"host_image_id\":\"ami-003f75c45b5beb426\",\"host_type\":\"t3.large\"}},\"level\":\"info\",\"timeUnixNano\":1748028025387318561,\"scope\":{\"attributes\":{}},\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"attributes\":{\"time\":\"2025-05-23T19:20:25.387318561Z\",\"logtag\":\"F\",\"log_iostream\":\"stderr\",\"log_file_path\":\"/var/log/pods/astronomy-demo_product-catalog-69f486f798-6wx8j_90e84a9b-c5dd-4b6a-8025-b9491bf7dbda/product-catalog/0.log\"},\"time\":\"2025-05-23T19:20:25Z\",\"message\":\"GetProduct called with id: L9ECAV7KIM\"}",
+            "sourceField": "text",
+            "parameters": {
+              "extractParameters": {
+                "rule": "\"GetProduct called with id: (?P<productId>[^\"]*)\""
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "id": "13fd2156-5f5e-46d0-a805-1cef433f6f25",
+        "rules": [
+          {
+            "id": "2669833d-ec58-45c7-9f3f-9e38a3559e86",
+            "name": "Rename msg field to message",
+            "description": "Normalize to use the message field",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"message\":",
+                "rule": "\"msg\"\\s*:"
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 3
+      },
+      {
+        "id": "75c9e960-f2cd-4aff-98b7-6a5586878272",
+        "rules": [
+          {
+            "id": "ecd0335c-f7de-48b9-8f25-6e9f936f01a0",
+            "name": "Rename any remaining body field to message",
+            "description": "",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"message\":",
+                "rule": "\"body\"\\s*:"
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 4
+      },
+      {
+        "id": "89bfb995-67a3-4b15-9062-422d1811dd3e",
+        "rules": [
+          {
+            "id": "a97a039f-0c54-460c-9a4d-82bfb394c080",
+            "name": "Fix  payment process  where the message is not a string",
+            "description": "{\"hostname\":\"payment-598c59b769-9kbfh\",\"trace_id\":\"a94f9673f675ebcbfedb6fde3d97c5c0\",\"scope\":{\"attributes\":{}},\"spanId\":\"fc52fa56690da974\",\"observedTimeUnixNano\":1749056172345771693,\"trace_flags\":\"01\",\"attributes\":{\"log_file_path\":\"/var/log/pods/astronomy-demo_payment-598c59b769-9kbfh_0c39a1f9-e8ad-45a7-9e5f-d43db840eb48/payment/0.log\",\"log_iostream\":\"stdout\",\"logtag\":\"F\",\"time\":\"2025-06-04T16:56:12.298433021Z\"},\"pid\":17,\"resource\":{\"attributes\":{\"k8s_container_name\":\"payment\",\"k8s_namespace_name\":\"astronomy-demo\",\"k8s_pod_name\":\"payment-598c59b769-9kbfh\",\"k8s_container_restart_count\":\"0\",\"k8s_pod_uid\":\"0c39a1f9-e8ad-45a7-9e5f-d43db840eb48\",\"k8s_cluster_name\":\"onlineboutique\",\"cx_otel_integration_name\":\"coralogix-integration-helm\",\"cloud_provider\":\"aws\",\"cloud_platform\":\"aws_ec2\",\"cloud_region\":\"us-west-1\",\"cloud_account_id\":\"104013952213\",\"cloud_availability_zone\":\"us-west-1c\",\"host_id\":\"i-0a01325492377389b\",\"host_image_id\":\"ami-09db726706c6f5c09\",\"host_type\":\"t3.large\",\"host_name\":\"ip-172-31-6-184.us-west-1.compute.internal\",\"os_type\":\"linux\",\"k8s_node_name\":\"ip-172-31-6-184.us-west-1.compute.internal\",\"k8s_deployment_name\":\"payment\",\"app_label_component\":\"payment\"}},\"span_id\":\"fc52fa56690da974\",\"message\":{\"err\":{}},\"time\":\"2025-06-04T16:56:12.297Z\",\"traceId\":\"a94f9673f675ebcbfedb6fde3d97c5c0\",\"resourceSchemaUrl\":\"https://opentelemetry.io/schemas/1.6.1\",\"timeUnixNano\":1749056172298433021,\"level\":40}",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"message\":\"err\"",
+                "rule": "\"message\":{\"err\":{}}"
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 5
+      }
+    ],
+    "order": 2
+  }
+}

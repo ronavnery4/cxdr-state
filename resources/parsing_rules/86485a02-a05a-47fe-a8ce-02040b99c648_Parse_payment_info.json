@@ -1,0 +1,45 @@
+{
+  "id": "86485a02-a05a-47fe-a8ce-02040b99c648",
+  "name": "Parse payment info",
+  "exported_at": "2026-02-02T08:57:46.636420",
+  "data": {
+    "id": "86485a02-a05a-47fe-a8ce-02040b99c648",
+    "name": "Parse payment info",
+    "description": "",
+    "creator": "george.boddey@coralogix.com",
+    "enabled": true,
+    "hidden": false,
+    "ruleMatchers": [
+      {
+        "subsystemName": {
+          "value": "payment"
+        }
+      }
+    ],
+    "ruleSubgroups": [
+      {
+        "id": "ee2a1bfa-3416-4e2a-acb8-b0991745434b",
+        "rules": [
+          {
+            "id": "14d1fb0d-f5bf-4247-a720-8cd35dcbc3eb",
+            "name": "Parse payment info",
+            "description": "",
+            "sourceField": "text",
+            "parameters": {
+              "replaceParameters": {
+                "destinationField": "text",
+                "replaceNewVal": "\"pay_transaction\":{\"cc\":\"$1\",\"currency\":\"$2\",\"amount\":\"$3\"}",
+                "rule": "\"message\"\\s*:\\s*\"Transaction processed:\\s*(?P<cc>\\w+)\\s*ending\\s*\\d+\\s*Amount:\\s*(?P<currency>[A-Z]+)(?P<amount>[\\d\\.]+)\""
+              }
+            },
+            "enabled": true,
+            "order": 1
+          }
+        ],
+        "enabled": true,
+        "order": 1
+      }
+    ],
+    "order": 3
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "70512038-ea78-48a7-a22f-0171626466e9",
+  "name": "Severity Rules",
+  "exported_at": "2026-02-02T08:57:46.636840",
+  "data": {
+    "id": "70512038-ea78-48a7-a22f-0171626466e9",
+    "name": "Severity Rules",
+    "description": "",
+    "creator": "bot@coralogix.com",
+    "enabled": true,
+    "hidden": false,
+    "ruleMatchers": [],
+    "ruleSubgroups": [
+      {
+        "id": "dcb43f55-b89a-4600-b32f-396a6bb58709",
+        "rules": [
+          {
+            "id": "ea063cdb-ac13-4366-a1ed-e4238a88c340",
+            "name": "Extract Status field as Severity",
+            "description": "",
+            "sourceField": "text",
+            "parameters": {
+              "jsonExtractParameters": {
+                "destinationFieldType": "DESTINATION_FIELD_SEVERITY",
+                "rule": "status",
+                "destinationFieldText": null
+              }
+            },
+            "enabled": true,
+            "order": 1
+          },
+          {
+            "id": "2ee0678a-d1fb-438e-9ef9-906a1915246c",
+            "name": "Severity Rule",
+            "description": "Look for default severity text",
+            "sourceField": "text",
+            "parameters": {
+              "extractParameters": {
+                "rule": "\\b(?P<severity>DEBUG|TRACE|INFO|WARN|ERROR|FATAL|EXCEPTION|[Dd]ebug|[Tt]race|[Ii]nfo|[Ww]arn|[Ee]rror|[Ff]atal|[Ee]xception)\\b"
+              }
+            },
+            "enabled": true,
+            "order": 2
+          }
+        ],
+        "enabled": true,
+        "order": 1
+      }
+    ],
+    "order": 4
+  }
+}

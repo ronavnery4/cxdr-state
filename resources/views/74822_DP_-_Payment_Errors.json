@@ -1,0 +1,47 @@
+{
+  "id": "74822",
+  "name": "DP - Payment Errors",
+  "exported_at": "2026-02-02T12:07:16.390197",
+  "data": {
+    "id": 74822,
+    "name": "DP - Payment Errors",
+    "searchQuery": {
+      "query": "source logs\n| filter $l.subsystemname == 'payment'\n| filter $d.message.err.code != null\n#| filter code != null\n#| groupby code aggregate count() as err_count\n#| orderby $d.err_count desc",
+      "syntaxType": "SYNTAX_TYPE_DATAPRIME"
+    },
+    "timeSelection": {
+      "customSelection": {
+        "fromTime": "2026-01-19T15:19:44.823Z",
+        "toTime": "2026-01-19T15:34:44.823Z"
+      }
+    },
+    "filters": {
+      "filters": [
+        {
+          "name": "applicationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "subsystemName",
+          "selectedValues": {}
+        },
+        {
+          "name": "operationName",
+          "selectedValues": {}
+        },
+        {
+          "name": "serviceName",
+          "selectedValues": {}
+        },
+        {
+          "name": "severity",
+          "selectedValues": {
+            "error": true
+          }
+        }
+      ]
+    },
+    "isCompactMode": false,
+    "viewType": "VIEW_TYPE_ARCHIVE_LOGS"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "79f26738-0d5a-4747-ad7b-d70cbad13c04",
+  "name": "payment_Latency_P95_97ms",
+  "exported_at": "2026-02-02T12:18:45.924397",
+  "data": {
+    "id": "79f26738-0d5a-4747-ad7b-d70cbad13c04",
+    "name": "payment_Latency_P95_97ms",
+    "description": "payment: Latency SLO - P95 < 97ms. Based on historical P99 (97ms). Current P95: 87ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "payment",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:29.837Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:29.837Z",
+    "updateTime": "2025-10-21T01:16:29.838Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"payment\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 97.4,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

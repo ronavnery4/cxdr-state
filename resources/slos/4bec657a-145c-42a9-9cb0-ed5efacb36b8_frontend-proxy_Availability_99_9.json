@@ -1,0 +1,38 @@
+{
+  "id": "4bec657a-145c-42a9-9cb0-ed5efacb36b8",
+  "name": "frontend-proxy_Availability_99_9",
+  "exported_at": "2026-02-02T12:18:45.927098",
+  "data": {
+    "id": "4bec657a-145c-42a9-9cb0-ed5efacb36b8",
+    "name": "frontend-proxy_Availability_99_9",
+    "description": "frontend-proxy: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "frontend-proxy",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:19.997Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:19.997Z",
+    "updateTime": "2025-10-21T01:16:20.024Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"frontend-proxy\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"frontend-proxy\"}[5m]))"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

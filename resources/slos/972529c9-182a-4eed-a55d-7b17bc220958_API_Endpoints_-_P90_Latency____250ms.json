@@ -1,0 +1,37 @@
+{
+  "id": "972529c9-182a-4eed-a55d-7b17bc220958",
+  "name": "API Endpoints - P90 Latency <= 250ms",
+  "exported_at": "2026-02-02T12:18:45.939294",
+  "data": {
+    "id": "972529c9-182a-4eed-a55d-7b17bc220958",
+    "name": "API Endpoints - P90 Latency <= 250ms",
+    "description": "",
+    "creator": "george.boddey@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2026-01-29T15:17:58.915Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name",
+        "span_name"
+      ]
+    },
+    "createTime": "2026-01-29T15:17:58.915Z",
+    "updateTime": "2026-01-29T15:17:58.932Z",
+    "targetThresholdPercentage": 95,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.9, sum(increase(duration_ms_bucket{span_name=~\"(GET|POST) /api.*\"}[1m])) by (service_name, span_name, le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN_OR_EQUALS",
+      "threshold": 250,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "38ce216c-cdee-4bf7-b683-0744c8f0c2cd",
+  "name": "flagd_Traffic_Presence_55rpm",
+  "exported_at": "2026-02-02T12:18:45.925983",
+  "data": {
+    "id": "38ce216c-cdee-4bf7-b683-0744c8f0c2cd",
+    "name": "flagd_Traffic_Presence_55rpm",
+    "description": "flagd: Traffic Presence SLO - Must have > 55 req/min. Average traffic: 111 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "flagd",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:09.275Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:09.275Z",
+    "updateTime": "2025-10-21T01:16:09.276Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"flagd\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 55.72,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

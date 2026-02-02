@@ -1,0 +1,35 @@
+{
+  "id": "ea837b15-246c-4126-bfa4-13cd17381ef9",
+  "name": "dbottTest",
+  "exported_at": "2026-02-02T12:18:45.926549",
+  "data": {
+    "id": "ea837b15-246c-4126-bfa4-13cd17381ef9",
+    "name": "dbottTest",
+    "description": "",
+    "creator": "david.bott+obdev@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2026-01-21T22:42:24.610Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name"
+      ]
+    },
+    "createTime": "2026-01-21T22:42:24.610Z",
+    "updateTime": "2026-01-21T22:42:24.623Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "(sum(increase(calls_total{status_code!='STATUS_CODE_ERROR'}[1m])) by (service_name))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total[1m])) by (service_name)"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "e68fb860-78f1-47f4-a464-88b6bcf778fa",
+  "name": "ad_Traffic_Presence_7rpm",
+  "exported_at": "2026-02-02T12:18:45.930511",
+  "data": {
+    "id": "e68fb860-78f1-47f4-a464-88b6bcf778fa",
+    "name": "ad_Traffic_Presence_7rpm",
+    "description": "ad: Traffic Presence SLO - Must have > 7 req/min. Average traffic: 15 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "ad",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:40.301Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:40.301Z",
+    "updateTime": "2025-10-21T01:21:40.302Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"ad\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 7.76,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

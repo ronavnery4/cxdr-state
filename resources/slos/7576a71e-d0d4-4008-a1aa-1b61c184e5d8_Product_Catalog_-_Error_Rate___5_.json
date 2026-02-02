@@ -1,0 +1,40 @@
+{
+  "id": "7576a71e-d0d4-4008-a1aa-1b61c184e5d8",
+  "name": "Product Catalog - Error Rate < 5%",
+  "exported_at": "2026-02-02T12:18:45.939422",
+  "data": {
+    "id": "7576a71e-d0d4-4008-a1aa-1b61c184e5d8",
+    "name": "Product Catalog - Error Rate < 5%",
+    "description": "",
+    "creator": "george.boddey@coralogix.com",
+    "labels": {
+      "service": "product-catalog",
+      "serviceName": "product-catalog"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2026-01-29T16:16:40.780Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name",
+        "deployment_environment_name"
+      ]
+    },
+    "createTime": "2026-01-29T16:16:40.780Z",
+    "updateTime": "2026-01-29T16:16:40.796Z",
+    "targetThresholdPercentage": 95,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "100 * (sum(increase(calls_total{service_name=\"product-catalog\", span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", status_code=\"STATUS_CODE_ERROR\"}[1m])) by (service_name, deployment_environment_name) / sum(increase(calls_total{service_name=\"product-catalog\", span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\"}[1m])) by (service_name, deployment_environment_name))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN_OR_EQUALS",
+      "threshold": 5,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "ca295b0f-cbf2-400a-848b-9e7334f1988c",
+  "name": "cart_Traffic_Presence_37rpm",
+  "exported_at": "2026-02-02T12:18:45.922503",
+  "data": {
+    "id": "ca295b0f-cbf2-400a-848b-9e7334f1988c",
+    "name": "cart_Traffic_Presence_37rpm",
+    "description": "cart: Traffic Presence SLO - Must have > 37 req/min. Average traffic: 75 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "cart",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:15:53.702Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:15:53.702Z",
+    "updateTime": "2025-10-21T01:15:53.703Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"cart\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 37.54,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

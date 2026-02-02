@@ -1,0 +1,39 @@
+{
+  "id": "63763c01-3e7b-493f-8572-f3e73cd3a78e",
+  "name": "email_Traffic_Presence_1rpm",
+  "exported_at": "2026-02-02T12:18:45.925534",
+  "data": {
+    "id": "63763c01-3e7b-493f-8572-f3e73cd3a78e",
+    "name": "email_Traffic_Presence_1rpm",
+    "description": "email: Traffic Presence SLO - Must have > 1 req/min. Average traffic: 1 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "email",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:05.254Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:05.254Z",
+    "updateTime": "2025-10-21T01:16:05.255Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"email\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 1,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

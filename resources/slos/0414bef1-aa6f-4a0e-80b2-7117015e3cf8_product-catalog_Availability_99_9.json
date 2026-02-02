@@ -1,0 +1,38 @@
+{
+  "id": "0414bef1-aa6f-4a0e-80b2-7117015e3cf8",
+  "name": "product-catalog_Availability_99_9",
+  "exported_at": "2026-02-02T12:18:45.928495",
+  "data": {
+    "id": "0414bef1-aa6f-4a0e-80b2-7117015e3cf8",
+    "name": "product-catalog_Availability_99_9",
+    "description": "product-catalog: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "product-catalog",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:32.724Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:32.724Z",
+    "updateTime": "2025-10-21T01:16:32.725Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"product-catalog\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"product-catalog\"}[5m]))"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

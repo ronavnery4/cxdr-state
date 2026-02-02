@@ -1,0 +1,35 @@
+{
+  "id": "e4221b78-7c9c-4a46-b8ed-c90c62485aa6",
+  "name": "Errors detected in Product-Catalog",
+  "exported_at": "2026-02-02T12:18:45.920440",
+  "data": {
+    "id": "e4221b78-7c9c-4a46-b8ed-c90c62485aa6",
+    "name": "Errors detected in Product-Catalog",
+    "description": "",
+    "creator": "prabhjyot.kang@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-06T15:04:31.484Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name"
+      ]
+    },
+    "createTime": "2025-10-06T15:04:31.484Z",
+    "updateTime": "2025-10-06T15:04:31.505Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR' , service_name = 'product-catalog'}) by (service_name)"
+      },
+      "totalEvents": {
+        "query": "sum(calls_total{service_name = 'product-catalog'}) by (service_name)"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

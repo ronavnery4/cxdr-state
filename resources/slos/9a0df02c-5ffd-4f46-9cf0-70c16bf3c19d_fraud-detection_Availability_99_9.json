@@ -1,0 +1,38 @@
+{
+  "id": "9a0df02c-5ffd-4f46-9cf0-70c16bf3c19d",
+  "name": "fraud-detection_Availability_99_9",
+  "exported_at": "2026-02-02T12:18:45.926296",
+  "data": {
+    "id": "9a0df02c-5ffd-4f46-9cf0-70c16bf3c19d",
+    "name": "fraud-detection_Availability_99_9",
+    "description": "fraud-detection: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "fraud-detection",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:12.097Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:12.097Z",
+    "updateTime": "2025-10-21T01:16:12.099Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"fraud-detection\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"fraud-detection\"}[5m]))"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "fad37f3d-9998-4ae5-910d-ae847c5f2a81",
+  "name": "fraud-detection_Latency_P95_0ms",
+  "exported_at": "2026-02-02T12:18:45.935447",
+  "data": {
+    "id": "fad37f3d-9998-4ae5-910d-ae847c5f2a81",
+    "name": "fraud-detection_Latency_P95_0ms",
+    "description": "fraud-detection: Latency SLO - P95 < 0ms. Based on historical P99 (0ms). Current P95: 0ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "fraud-detection",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:22:06.150Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:22:06.150Z",
+    "updateTime": "2025-10-21T01:22:06.151Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"fraud-detection\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 0.99,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

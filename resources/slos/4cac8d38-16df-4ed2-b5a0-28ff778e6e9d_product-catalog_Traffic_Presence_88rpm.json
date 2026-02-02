@@ -1,0 +1,39 @@
+{
+  "id": "4cac8d38-16df-4ed2-b5a0-28ff778e6e9d",
+  "name": "product-catalog_Traffic_Presence_88rpm",
+  "exported_at": "2026-02-02T12:18:45.929312",
+  "data": {
+    "id": "4cac8d38-16df-4ed2-b5a0-28ff778e6e9d",
+    "name": "product-catalog_Traffic_Presence_88rpm",
+    "description": "product-catalog: Traffic Presence SLO - Must have > 88 req/min. Average traffic: 177 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "product-catalog",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:33.574Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:33.574Z",
+    "updateTime": "2025-10-21T01:16:33.575Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"product-catalog\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 88.84,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "32122df8-ac18-4a52-ad41-995f8cf405a3",
+  "name": "ad_Latency_P95_8ms",
+  "exported_at": "2026-02-02T12:18:45.921758",
+  "data": {
+    "id": "32122df8-ac18-4a52-ad41-995f8cf405a3",
+    "name": "ad_Latency_P95_8ms",
+    "description": "ad: Latency SLO - P95 < 8ms. Based on historical P99 (8ms). Current P95: 3ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "ad",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:15:49.004Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:15:49.004Z",
+    "updateTime": "2025-10-21T01:15:49.032Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"ad\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 8.42,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

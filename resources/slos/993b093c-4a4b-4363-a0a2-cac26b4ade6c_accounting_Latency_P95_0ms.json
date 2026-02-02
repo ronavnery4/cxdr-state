@@ -1,0 +1,40 @@
+{
+  "id": "993b093c-4a4b-4363-a0a2-cac26b4ade6c",
+  "name": "accounting_Latency_P95_0ms",
+  "exported_at": "2026-02-02T12:18:45.930252",
+  "data": {
+    "id": "993b093c-4a4b-4363-a0a2-cac26b4ade6c",
+    "name": "accounting_Latency_P95_0ms",
+    "description": "accounting: Latency SLO - P95 < 0ms. Based on historical P99 (0ms). Current P95: 0ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "accounting",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:36.339Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:36.339Z",
+    "updateTime": "2025-10-21T01:21:36.358Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"accounting\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 0.99,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

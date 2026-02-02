@@ -1,0 +1,36 @@
+{
+  "id": "b966bd0b-5b7f-4ffb-b42b-99065e4609da",
+  "name": "Service Call Success Rate",
+  "exported_at": "2026-02-02T12:18:45.918510",
+  "data": {
+    "id": "b966bd0b-5b7f-4ffb-b42b-99065e4609da",
+    "name": "Service Call Success Rate",
+    "description": "",
+    "creator": "prabhjyot.kang@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-09-23T14:26:55.994Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_name",
+        "k8s_node_name"
+      ]
+    },
+    "createTime": "2025-09-23T14:26:55.994Z",
+    "updateTime": "2025-09-23T14:26:56.014Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR'}) by (service_name, k8s_node_name)"
+      },
+      "totalEvents": {
+        "query": "sum(calls_total) by (service_name, k8s_node_name)"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

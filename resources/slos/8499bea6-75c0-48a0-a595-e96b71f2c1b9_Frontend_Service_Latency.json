@@ -1,0 +1,33 @@
+{
+  "id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+  "name": "Frontend Service Latency",
+  "exported_at": "2026-02-02T12:18:45.919230",
+  "data": {
+    "id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+    "name": "Frontend Service Latency",
+    "description": "SLO for the latency of requests for the Frontend Service",
+    "creator": "george.pickers@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-09-17T08:24:54.184Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-09-17T08:24:54.184Z",
+    "updateTime": "2025-09-19T09:01:20.747Z",
+    "targetThresholdPercentage": 75,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "(((sum(increase(duration_ms_sum{service_name=~\"frontend\", span_name=~\".*\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"})) / sum(increase(duration_ms_count{service_name=~\"frontend\", span_name=~\"GET\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}))) * 1000) or on () vector(0)) < 150000"
+      },
+      "totalEvents": {
+        "query": "((sum(increase(duration_ms_sum{service_name=~\"frontend\", span_name=~\".*\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"})) / sum(increase(duration_ms_count{service_name=~\"frontend\", span_name=~\"GET\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}))) * 1000) or on () vector(0)"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

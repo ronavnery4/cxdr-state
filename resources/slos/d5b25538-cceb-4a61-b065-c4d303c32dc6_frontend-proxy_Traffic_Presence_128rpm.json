@@ -1,0 +1,39 @@
+{
+  "id": "d5b25538-cceb-4a61-b065-c4d303c32dc6",
+  "name": "frontend-proxy_Traffic_Presence_128rpm",
+  "exported_at": "2026-02-02T12:18:45.927723",
+  "data": {
+    "id": "d5b25538-cceb-4a61-b065-c4d303c32dc6",
+    "name": "frontend-proxy_Traffic_Presence_128rpm",
+    "description": "frontend-proxy: Traffic Presence SLO - Must have > 128 req/min. Average traffic: 257 req/min. Detects silent failures.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "frontend-proxy",
+      "slo_type": "traffic",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:21.023Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:21.023Z",
+    "updateTime": "2025-10-21T01:16:21.025Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"frontend-proxy\"}[5m])) * 60"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_GREATER_THAN",
+      "threshold": 128.91,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

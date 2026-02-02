@@ -1,0 +1,40 @@
+{
+  "id": "2e227f3f-7172-4c4c-ac98-826ea28faf9d",
+  "name": "cart_Latency_P95_367ms",
+  "exported_at": "2026-02-02T12:18:45.931385",
+  "data": {
+    "id": "2e227f3f-7172-4c4c-ac98-826ea28faf9d",
+    "name": "cart_Latency_P95_367ms",
+    "description": "cart: Latency SLO - P95 < 367ms. Based on historical P99 (367ms). Current P95: 18ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "fast",
+      "managed_by": "slo_manager",
+      "service": "cart",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:43.586Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:43.586Z",
+    "updateTime": "2025-10-21T01:21:43.587Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"cart\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 367.25,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

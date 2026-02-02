@@ -1,0 +1,40 @@
+{
+  "id": "10f657d2-7e6e-4b52-b763-94d2246738d4",
+  "name": "checkout_Latency_P95_5000ms",
+  "exported_at": "2026-02-02T12:18:45.932151",
+  "data": {
+    "id": "10f657d2-7e6e-4b52-b763-94d2246738d4",
+    "name": "checkout_Latency_P95_5000ms",
+    "description": "checkout: Latency SLO - P95 < 5000ms. Based on historical P99 (5000ms). Current P95: 733ms.",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "classification": "slow",
+      "managed_by": "slo_manager",
+      "service": "checkout",
+      "slo_type": "latency",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:21:47.409Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:21:47.409Z",
+    "updateTime": "2025-10-21T01:21:47.410Z",
+    "targetThresholdPercentage": 99,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "windowBasedMetricSli": {
+      "query": {
+        "query": "histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"checkout\"}[5m])) by (le))"
+      },
+      "window": "WINDOW_SLO_WINDOW_1_MINUTE",
+      "comparisonOperator": "COMPARISON_OPERATOR_LESS_THAN",
+      "threshold": 5000,
+      "missingDataStrategy": "MISSING_DATA_STRATEGY_UNCOUNTED"
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

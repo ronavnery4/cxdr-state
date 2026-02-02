@@ -1,0 +1,38 @@
+{
+  "id": "28f4b04f-39ec-45d3-b7bf-a0aff942a44e",
+  "name": "flagd_Availability_99_9",
+  "exported_at": "2026-02-02T12:18:45.925659",
+  "data": {
+    "id": "28f4b04f-39ec-45d3-b7bf-a0aff942a44e",
+    "name": "flagd_Availability_99_9",
+    "description": "flagd: Availability SLO - 99.9% success rate over 28 days. Allows 0.1% error budget (40 minutes downtime per month).",
+    "creator": "bot@coralogix.com",
+    "labels": {
+      "managed_by": "slo_manager",
+      "service": "flagd",
+      "slo_type": "availability",
+      "version": "v3"
+    },
+    "revision": {
+      "revision": 1,
+      "updateTime": "2025-10-21T01:16:08.352Z"
+    },
+    "grouping": {
+      "labels": []
+    },
+    "createTime": "2025-10-21T01:16:08.352Z",
+    "updateTime": "2025-10-21T01:16:08.354Z",
+    "targetThresholdPercentage": 99.9,
+    "sloTimeFrame": "SLO_TIME_FRAME_28_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"flagd\"}[5m]))"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"flagd\"}[5m]))"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST"
+  }
+}

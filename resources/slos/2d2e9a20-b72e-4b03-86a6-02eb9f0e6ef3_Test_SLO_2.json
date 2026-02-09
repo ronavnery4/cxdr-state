@@ -1,0 +1,36 @@
+{
+  "id": "2d2e9a20-b72e-4b03-86a6-02eb9f0e6ef3",
+  "name": "Test_SLO_2",
+  "exported_at": "2026-02-09T11:57:37.260131",
+  "data": {
+    "id": "2d2e9a20-b72e-4b03-86a6-02eb9f0e6ef3",
+    "name": "Test_SLO_2",
+    "description": "test",
+    "creator": "bot@coralogix.com",
+    "labels": {},
+    "revision": {
+      "revision": 3,
+      "updateTime": "2026-02-09T11:56:36.708Z"
+    },
+    "grouping": {
+      "labels": [
+        "service_namespace"
+      ]
+    },
+    "createTime": "2025-10-08T04:05:38.540Z",
+    "updateTime": "2026-02-09T11:56:36.717Z",
+    "targetThresholdPercentage": 50,
+    "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
+    "requestBasedMetricSli": {
+      "goodEvents": {
+        "query": "sum(increase(calls_total{status_code!=\"STATUS_CODE_ERROR\"}[1m])) by (service_namespace)"
+      },
+      "totalEvents": {
+        "query": "sum(increase(calls_total[1m])) by (service_namespace)"
+      }
+    },
+    "type": "request",
+    "sloType": "SLO_TYPE_REQUEST",
+    "productType": "SLO_PRODUCT_TYPE_UNSPECIFIED"
+  }
+}

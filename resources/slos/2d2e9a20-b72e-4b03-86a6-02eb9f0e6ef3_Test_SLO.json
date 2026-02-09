@@ -1,7 +1,7 @@
 {
   "id": "2d2e9a20-b72e-4b03-86a6-02eb9f0e6ef3",
   "name": "Test_SLO",
-  "exported_at": "2026-02-09T11:46:39.644273",
+  "exported_at": "2026-02-09T11:54:33.483737",
   "data": {
     "id": "2d2e9a20-b72e-4b03-86a6-02eb9f0e6ef3",
     "name": "Test_SLO",
@@ -9,8 +9,8 @@
     "creator": "bot@coralogix.com",
     "labels": {},
     "revision": {
-      "revision": 1,
-      "updateTime": "2025-10-08T04:05:38.540Z"
+      "revision": 2,
+      "updateTime": "2026-02-09T11:53:30.223Z"
     },
     "grouping": {
       "labels": [
@@ -18,15 +18,15 @@
       ]
     },
     "createTime": "2025-10-08T04:05:38.540Z",
-    "updateTime": "2025-10-08T04:05:38.574Z",
+    "updateTime": "2026-02-09T11:53:30.234Z",
     "targetThresholdPercentage": 50,
     "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
     "requestBasedMetricSli": {
       "goodEvents": {
-        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR'}) by (service_name)"
+        "query": "sum(increase(calls_total{status_code!=\"STATUS_CODE_ERROR\"}[1m])) by (service_name)"
       },
       "totalEvents": {
-        "query": "sum(calls_total) by (service_name)"
+        "query": "sum(increase(calls_total[1m])) by (service_name)"
       }
     },
     "type": "request",

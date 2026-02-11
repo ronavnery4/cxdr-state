@@ -1,7 +1,7 @@
 {
   "id": "d9b469b0-8447-426b-a640-c2f8fd3eadd5",
   "name": "APM Errors per Service SLO",
-  "exported_at": "2026-02-09T13:08:00.433115",
+  "exported_at": "2026-02-11T03:40:34.513484",
   "data": {
     "id": "d9b469b0-8447-426b-a640-c2f8fd3eadd5",
     "name": "APM Errors per Service SLO",
@@ -9,8 +9,8 @@
     "creator": "george.pickers@coralogix.com",
     "labels": {},
     "revision": {
-      "revision": 1,
-      "updateTime": "2025-09-17T08:18:12.103Z"
+      "revision": 2,
+      "updateTime": "2026-02-11T03:38:50.269Z"
     },
     "grouping": {
       "labels": [
@@ -18,15 +18,15 @@
       ]
     },
     "createTime": "2025-09-17T08:18:12.103Z",
-    "updateTime": "2025-09-17T08:18:12.132Z",
+    "updateTime": "2026-02-11T03:38:50.278Z",
     "targetThresholdPercentage": 97,
     "sloTimeFrame": "SLO_TIME_FRAME_7_DAYS",
     "requestBasedMetricSli": {
       "goodEvents": {
-        "query": "sum(calls_total{status_code!='STATUS_CODE_ERROR'}) by (service_name)"
+        "query": "sum(increase(calls_total{status_code!=\"STATUS_CODE_ERROR\"}[1m])) by (service_name)"
       },
       "totalEvents": {
-        "query": "sum(calls_total) by (service_name)"
+        "query": "sum(increase(calls_total[1m])) by (service_name)"
       }
     },
     "type": "request",

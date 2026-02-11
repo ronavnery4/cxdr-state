@@ -1,7 +1,7 @@
 {
   "id": "1aBKUpPUH6bnba39Lhvf1",
   "name": "Online Boutique Dashboard",
-  "exported_at": "2026-02-02T12:04:30.370014",
+  "exported_at": "2026-02-11T08:21:52.456884",
   "data": {
     "id": "1aBKUpPUH6bnba39Lhvf1",
     "name": "Online Boutique Dashboard",
@@ -45,12 +45,12 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "sum(container_cpu_utilization__cpu_{ k8s_cluster_name='onlineboutique', k8s_namespace_name=\"astronomy-demo\"}) by (k8s_node_name)"
+                                "value": "sum(container_cpu_utilization_1{ k8s_cluster_name='onlineboutique', k8s_namespace_name=\"astronomy-demo\"}) by (k8s_node_name)"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -70,11 +70,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -105,12 +106,12 @@
                           "query": {
                             "metrics": {
                               "promqlQuery": {
-                                "value": "\nlast_over_time((avg_over_time((avg(k8s_node_cpu_utilization__cpu_{k8s_cluster_name=~\"onlineboutique\"} / on (node_id) group_left () count(system_cpu_time_total{state=\"idle\", k8s_cluster_name=~\"onlineboutique\"}) by (node_id)) without (host_id, host_type))[900s:]) * on (k8s_node_name) group_left () max(container_cpu_utilization__cpu_{k8s_namespace_name=~\"astronomy-demo\"} > bool -1) by (k8s_node_name))[15m])"
+                                "value": "\nlast_over_time((avg_over_time((avg(k8s_node_cpu_utilization_1{k8s_cluster_name=~\"onlineboutique\"} / on (node_id) group_left () count(system_cpu_time_total{state=\"idle\", k8s_cluster_name=~\"onlineboutique\"}) by (node_id)) without (host_id, host_type))[900s:]) * on (k8s_node_name) group_left () max(container_cpu_utilization_1{k8s_namespace_name=~\"astronomy-demo\"} > bool -1) by (k8s_node_name))[15m])"
                               },
                               "filters": [],
                               "editorMode": "METRICS_QUERY_EDITOR_MODE_TEXT",
                               "timeFrame": null,
-                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_UNSPECIFIED"
+                              "seriesLimitType": "METRICS_SERIES_LIMIT_TYPE_BY_SERIES_COUNT"
                             }
                           },
                           "seriesNameTemplate": null,
@@ -130,11 +131,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -210,11 +212,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -284,9 +287,7 @@
                       "decimal": null,
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
@@ -304,7 +305,7 @@
                   "id": {
                     "value": "57f0d632-947b-b229-a61f-8aa9d7195491"
                   },
-                  "title": "New bar chart",
+                  "title": "Log Breakdown by Subsystem",
                   "description": null,
                   "definition": {
                     "barChart": {
@@ -353,9 +354,7 @@
                       "decimal": null,
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
@@ -373,7 +372,7 @@
                   "id": {
                     "value": "177a63fe-1d60-e56b-1593-cf3dc440396f"
                   },
-                  "title": "New bar char",
+                  "title": "Susbsystem Breakdown",
                   "description": null,
                   "definition": {
                     "barChart": {
@@ -422,9 +421,7 @@
                       "decimal": null,
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
@@ -570,11 +567,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -640,14 +638,12 @@
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": true,
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -710,14 +706,12 @@
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": true,
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -800,11 +794,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -864,20 +859,18 @@
                         }
                       ],
                       "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED",
-                      "thresholdBy": "THRESHOLD_BY_UNSPECIFIED",
+                      "thresholdBy": "THRESHOLD_BY_VALUE",
                       "customUnit": "",
                       "decimal": null,
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
-                        "groupByQuery": false,
+                        "columns": [],
+                        "groupByQuery": true,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
                       "legendBy": "LEGEND_BY_GROUPS",
-                      "displaySeriesName": true,
+                      "displaySeriesName": false,
                       "decimalPrecision": null
                     }
                   },
@@ -1015,7 +1008,8 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         },
                         {
                           "id": "73c65643-91d5-dba2-35cd-baa49dc65331",
@@ -1053,7 +1047,8 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         },
                         {
                           "id": "f9d262cb-39ff-c6eb-4f0c-e8bae32eab2c",
@@ -1088,11 +1083,12 @@
                           "hashColors": false,
                           "yAxisMin": null,
                           "yAxisMax": null,
-                          "decimalPrecision": null
+                          "decimalPrecision": null,
+                          "intervalResolution": null
                         }
                       ],
                       "stackedLine": "STACKED_LINE_UNSPECIFIED",
-                      "connectNulls": null
+                      "connectNulls": false
                     }
                   },
                   "appearance": null,
@@ -1158,9 +1154,7 @@
                       "thresholdType": "THRESHOLD_TYPE_RELATIVE",
                       "legend": {
                         "isVisible": true,
-                        "columns": [
-                          "LEGEND_COLUMN_NAME"
-                        ],
+                        "columns": [],
                         "groupByQuery": false,
                         "placement": "LEGEND_PLACEMENT_AUTO"
                       },
@@ -1182,94 +1176,7 @@
         }
       ]
     },
-    "variables": [
-      {
-        "name": "hostname",
-        "definition": {
-          "multiSelect": {
-            "selected": [],
-            "source": {
-              "query": {
-                "query": {
-                  "logsQuery": {
-                    "type": {
-                      "fieldValue": {
-                        "observationField": {
-                          "keypath": [
-                            "kubernetes",
-                            "node",
-                            "hostname"
-                          ],
-                          "scope": "DATASET_SCOPE_USER_DATA"
-                        }
-                      }
-                    }
-                  }
-                },
-                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-                "valueDisplayOptions": {
-                  "valueRegex": null,
-                  "labelRegex": null
-                }
-              }
-            },
-            "selection": {
-              "all": {}
-            },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "selectionOptions": {
-              "selectionType": "SELECTION_TYPE_MULTI_ALL"
-            }
-          }
-        },
-        "displayName": "Host Name 1",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
-      },
-      {
-        "name": "k8s_node_name",
-        "definition": {
-          "multiSelect": {
-            "selected": [],
-            "source": {
-              "query": {
-                "query": {
-                  "logsQuery": {
-                    "type": {
-                      "fieldValue": {
-                        "observationField": {
-                          "keypath": [
-                            "resource",
-                            "attributes",
-                            "k8s_node_name"
-                          ],
-                          "scope": "DATASET_SCOPE_USER_DATA"
-                        }
-                      }
-                    }
-                  }
-                },
-                "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
-                "valueDisplayOptions": {
-                  "valueRegex": null,
-                  "labelRegex": null
-                }
-              }
-            },
-            "selection": {
-              "all": {}
-            },
-            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
-            "selectionOptions": {
-              "selectionType": "SELECTION_TYPE_MULTI_ALL"
-            }
-          }
-        },
-        "displayName": "Hostname 2",
-        "description": null,
-        "displayType": "VARIABLE_DISPLAY_TYPE_UNSPECIFIED"
-      }
-    ],
+    "variables": [],
     "filters": [
       {
         "source": {
@@ -1295,7 +1202,9 @@
         "enabled": true,
         "collapsed": false,
         "displayName": null,
-        "id": null
+        "id": {
+          "value": "d1bd7aae-03da-489e-b328-c16630421aaa"
+        }
       }
     ],
     "relativeTimeFrame": "86400s",
@@ -1349,13 +1258,102 @@
           }
         },
         "description": null,
-        "scope": null,
-        "color": "ANNOTATION_COLOR_UNSPECIFIED"
+        "scope": {
+          "allWidgets": {}
+        },
+        "color": "ANNOTATION_COLOR_DEFAULT"
       }
     ],
     "off": {},
     "slugName": null,
-    "variablesV2": [],
+    "variablesV2": [
+      {
+        "name": "hostname",
+        "displayName": "Host Name 1",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "kubernetes",
+                      "node",
+                      "hostname"
+                    ],
+                    "scope": "DATASET_SCOPE_USER_DATA"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": {
+          "value": "e5f1a230-2583-47a8-9adf-797c881de00a"
+        }
+      },
+      {
+        "name": "k8s_node_name",
+        "displayName": "Hostname 2",
+        "description": null,
+        "displayType": "VARIABLE_DISPLAY_TYPE_V2_LABEL_VALUE",
+        "source": {
+          "query": {
+            "logsQuery": {
+              "type": {
+                "fieldValue": {
+                  "observationField": {
+                    "keypath": [
+                      "resource",
+                      "attributes",
+                      "k8s_node_name"
+                    ],
+                    "scope": "DATASET_SCOPE_USER_DATA"
+                  }
+                }
+              }
+            },
+            "valuesOrderDirection": "ORDER_DIRECTION_ASC",
+            "refreshStrategy": "REFRESH_STRATEGY_UNSPECIFIED",
+            "valueDisplayOptions": {
+              "valueRegex": null,
+              "labelRegex": null
+            },
+            "allOption": {
+              "includeAll": true,
+              "label": null
+            }
+          }
+        },
+        "value": {
+          "multiString": {
+            "all": {}
+          }
+        },
+        "displayFullRow": false,
+        "id": {
+          "value": "f046225e-438d-4a1d-9d4d-93b8f0898387"
+        }
+      }
+    ],
     "actions": []
   }
 }

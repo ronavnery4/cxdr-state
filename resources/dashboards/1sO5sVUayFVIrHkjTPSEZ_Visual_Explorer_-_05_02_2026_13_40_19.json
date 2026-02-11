@@ -1,0 +1,122 @@
+{
+  "id": "1sO5sVUayFVIrHkjTPSEZ",
+  "name": "Visual Explorer - 05/02/2026 13:40:19",
+  "exported_at": "2026-02-11T08:21:52.465905",
+  "data": {
+    "id": "1sO5sVUayFVIrHkjTPSEZ",
+    "name": "Visual Explorer - 05/02/2026 13:40:19",
+    "description": null,
+    "layout": {
+      "sections": [
+        {
+          "id": {
+            "value": "965e0c04-ce62-4d2d-a7b3-cf9f0cb1cf92"
+          },
+          "rows": [
+            {
+              "id": {
+                "value": "b66080cc-9013-45ff-88e9-af6aebbbfa32"
+              },
+              "appearance": {
+                "height": 19
+              },
+              "widgets": [
+                {
+                  "id": {
+                    "value": "94af4120-1851-4f6f-87d6-8fe13b641735"
+                  },
+                  "title": "New dynamic widget",
+                  "description": null,
+                  "definition": {
+                    "dynamic": {
+                      "query": null,
+                      "timeFrame": null,
+                      "interpretation": "INTERPRETATION_UNSPECIFIED",
+                      "visualization": {
+                        "stat": {
+                          "valueField": null,
+                          "categoryFields": [],
+                          "min": 0,
+                          "max": 100,
+                          "unit": "UNIT_UNSPECIFIED",
+                          "customUnit": null,
+                          "thresholdType": "THRESHOLD_TYPE_RELATIVE",
+                          "thresholds": [
+                            {
+                              "from": 0,
+                              "color": "var(--c-severity-log-verbose)",
+                              "label": null
+                            },
+                            {
+                              "from": 33,
+                              "color": "var(--c-severity-log-warning)",
+                              "label": null
+                            },
+                            {
+                              "from": 66,
+                              "color": "var(--c-severity-log-error)",
+                              "label": null
+                            }
+                          ],
+                          "legend": {
+                            "isVisible": true,
+                            "columns": [],
+                            "groupByQuery": true,
+                            "placement": "LEGEND_PLACEMENT_AUTO"
+                          },
+                          "legendBy": "LEGEND_BY_GROUPS",
+                          "decimalPrecision": 2,
+                          "allowAbbreviation": true,
+                          "displaySeriesName": false,
+                          "thresholdBy": "THRESHOLD_BY_VALUE",
+                          "valueFields": [
+                            {
+                              "keypath": [
+                                "error_log_count"
+                              ],
+                              "scope": "DATASET_SCOPE_USER_DATA"
+                            }
+                          ]
+                        }
+                      },
+                      "queryDefinitions": [
+                        {
+                          "id": "77d73bf1-8593-4734-a0c5-184726a7c196",
+                          "query": {
+                            "dataprime": {
+                              "dataprimeQuery": {
+                                "text": "source logs\n| filter $m.severity == ERROR\n| filter $d ~~ 'payment'\n| count into $d.error_log_count"
+                              },
+                              "dataModeType": "DATA_MODE_TYPE_HIGH_UNSPECIFIED"
+                            }
+                          },
+                          "name": "Query 1"
+                        }
+                      ]
+                    }
+                  },
+                  "appearance": null,
+                  "createdAt": null,
+                  "updatedAt": null
+                }
+              ]
+            }
+          ],
+          "options": {
+            "internal": {}
+          }
+        }
+      ]
+    },
+    "variables": [],
+    "filters": [],
+    "relativeTimeFrame": "900s",
+    "folderId": null,
+    "folderPath": null,
+    "annotations": [],
+    "off": {},
+    "slugName": null,
+    "variablesV2": [],
+    "actions": []
+  }
+}

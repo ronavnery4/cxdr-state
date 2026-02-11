@@ -1,0 +1,71 @@
+{
+  "id": "01K825RS3X5QH83CYHMJKQ7DP3",
+  "name": "cx:slo:e009ab1e-2736-47c0-b920-63a80e29caab",
+  "exported_at": "2026-02-11T04:42:32.624435",
+  "data": {
+    "id": "01K825RS3X5QH83CYHMJKQ7DP3",
+    "groups": [
+      {
+        "name": "cx_slo_hourly_status",
+        "interval": 3600,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:statuses:hourly",
+            "expr": "count_values(\"status\", ceil(clamp(1- ((((sum_over_time(cx:slo:request:total_events{slo_id=\"e009ab1e-2736-47c0-b920-63a80e29caab\",revision=\"1\"}[28d]) - sum_over_time(cx:slo:request:good_events{slo_id=\"e009ab1e-2736-47c0-b920-63a80e29caab\",revision=\"1\"}[28d])) / sum_over_time(cx:slo:request:total_events{slo_id=\"e009ab1e-2736-47c0-b920-63a80e29caab\",revision=\"1\"}[28d])) or on() vector(0))) / (1-(99.9/100)) , 0, 1) * 4))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "e009ab1e-2736-47c0-b920-63a80e29caab",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "241"
+          }
+        ],
+        "lastEvalAt": "1770783755",
+        "version": 0,
+        "id": "01K825RS3Z8GFEVT2M8VNQH8XC"
+      },
+      {
+        "name": "cx_slo_request_based",
+        "interval": 60,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:request:good_events",
+            "expr": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", status_code!=\"STATUS_CODE_ERROR\", service_name=~\"recommendation\"}[5m]))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "e009ab1e-2736-47c0-b920-63a80e29caab",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "4"
+          },
+          {
+            "record": "cx:slo:request:total_events",
+            "expr": "sum(increase(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=~\"recommendation\"}[5m]))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "e009ab1e-2736-47c0-b920-63a80e29caab",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "9"
+          },
+          {
+            "record": "cx:slo:target",
+            "expr": "99.9",
+            "labels": {
+              "revision": "1",
+              "slo_id": "e009ab1e-2736-47c0-b920-63a80e29caab",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "1"
+          }
+        ],
+        "lastEvalAt": "1770784895",
+        "version": 0,
+        "id": "01K825RS3YCEA5S28NNA2VZ1D6"
+      }
+    ],
+    "name": "cx:slo:e009ab1e-2736-47c0-b920-63a80e29caab"
+  }
+}

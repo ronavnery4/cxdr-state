@@ -1,0 +1,71 @@
+{
+  "id": "01K5BCDM6CDE2FA6292SR455MC",
+  "name": "cx:slo:8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+  "exported_at": "2026-02-11T04:42:32.540481",
+  "data": {
+    "id": "01K5BCDM6CDE2FA6292SR455MC",
+    "groups": [
+      {
+        "name": "cx_slo_hourly_status",
+        "interval": 3600,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:statuses:hourly",
+            "expr": "count_values(\"status\", ceil(clamp(1- ((((sum_over_time(cx:slo:request:total_events{slo_id=\"8499bea6-75c0-48a0-a595-e96b71f2c1b9\",revision=\"1\"}[7d:1m]) - sum_over_time(cx:slo:request:good_events{slo_id=\"8499bea6-75c0-48a0-a595-e96b71f2c1b9\",revision=\"1\"}[7d:1m])) / sum_over_time(cx:slo:request:total_events{slo_id=\"8499bea6-75c0-48a0-a595-e96b71f2c1b9\",revision=\"1\"}[7d:1m])) or on() vector(0))) / (1-(75/100)) , 0, 1) * 4))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+              "slo_time_window": "7d"
+            },
+            "lastEvalDurationMs": "155"
+          }
+        ],
+        "lastEvalAt": "1770783894",
+        "version": 2,
+        "id": "01K5BCDM6E466VHNZKSE6CR92Y"
+      },
+      {
+        "name": "cx_slo_request_based",
+        "interval": 60,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:request:good_events",
+            "expr": "(((sum(increase(duration_ms_sum{service_name=~\"frontend\", span_name=~\".*\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}[1m])) / sum(increase(duration_ms_count{service_name=~\"frontend\", span_name=~\"GET\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}[1m]))) * 1000) or on () vector(0)) < 150000",
+            "labels": {
+              "revision": "1",
+              "slo_id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+              "slo_time_window": "7d"
+            },
+            "lastEvalDurationMs": "7"
+          },
+          {
+            "record": "cx:slo:request:total_events",
+            "expr": "((sum(increase(duration_ms_sum{service_name=~\"frontend\", span_name=~\".*\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}[1m])) / sum(increase(duration_ms_count{service_name=~\"frontend\", span_name=~\"GET\", span_kind=~\"(SPAN_KIND_CONSUMER|SPAN_KIND_SERVER)\"}[1m]))) * 1000) or on () vector(0)",
+            "labels": {
+              "revision": "1",
+              "slo_id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+              "slo_time_window": "7d"
+            },
+            "lastEvalDurationMs": "7"
+          },
+          {
+            "record": "cx:slo:target",
+            "expr": "75",
+            "labels": {
+              "revision": "1",
+              "slo_id": "8499bea6-75c0-48a0-a595-e96b71f2c1b9",
+              "slo_time_window": "7d"
+            },
+            "lastEvalDurationMs": "31"
+          }
+        ],
+        "lastEvalAt": "1770784854",
+        "version": 2,
+        "id": "01K5BCDM6DZENXXS58CCJEF0E9"
+      }
+    ],
+    "name": "cx:slo:8499bea6-75c0-48a0-a595-e96b71f2c1b9"
+  }
+}

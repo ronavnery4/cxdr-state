@@ -1,0 +1,61 @@
+{
+  "id": "01K825QJKDGZ0DY5095RRAH4PD",
+  "name": "cx:slo:df5130de-e44b-43a8-85ec-16b01170fc30",
+  "exported_at": "2026-02-11T04:42:32.614315",
+  "data": {
+    "id": "01K825QJKDGZ0DY5095RRAH4PD",
+    "groups": [
+      {
+        "name": "cx_slo_hourly_status",
+        "interval": 3600,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:statuses:hourly",
+            "expr": "count_values(\"status\", ceil(clamp(1- ((((count_over_time(cx:slo:window{slo_id=\"df5130de-e44b-43a8-85ec-16b01170fc30\",revision=\"1\"}[28d]) - sum_over_time(cx:slo:window{slo_id=\"df5130de-e44b-43a8-85ec-16b01170fc30\",revision=\"1\"}[28d])) / count_over_time(cx:slo:window{slo_id=\"df5130de-e44b-43a8-85ec-16b01170fc30\",revision=\"1\"}[28d])) or on() vector(0))) / (1-(99.9/100)) , 0, 1) * 4))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "df5130de-e44b-43a8-85ec-16b01170fc30",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "167"
+          }
+        ],
+        "lastEvalAt": "1770783715",
+        "version": 0,
+        "id": "01K825QJKGMKQQ7B99FTTBYB5F"
+      },
+      {
+        "name": "cx_slo_window_based",
+        "interval": 60,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:window",
+            "expr": "((clamp(sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"email\"}[5m])) * 60 > 1, 1, 1)) or on() vector(0)) and count(sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"email\"}[5m])) * 60[60])  > 0",
+            "labels": {
+              "revision": "1",
+              "slo_id": "df5130de-e44b-43a8-85ec-16b01170fc30",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "4"
+          },
+          {
+            "record": "cx:slo:target",
+            "expr": "99.9",
+            "labels": {
+              "revision": "1",
+              "slo_id": "df5130de-e44b-43a8-85ec-16b01170fc30",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "1"
+          }
+        ],
+        "lastEvalAt": "1770784855",
+        "version": 0,
+        "id": "01K825QJKFHSEG8T4QHJYZ8KJ0"
+      }
+    ],
+    "name": "cx:slo:df5130de-e44b-43a8-85ec-16b01170fc30"
+  }
+}

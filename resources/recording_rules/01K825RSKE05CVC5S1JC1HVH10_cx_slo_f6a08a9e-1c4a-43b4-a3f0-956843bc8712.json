@@ -1,0 +1,61 @@
+{
+  "id": "01K825RSKE05CVC5S1JC1HVH10",
+  "name": "cx:slo:f6a08a9e-1c4a-43b4-a3f0-956843bc8712",
+  "exported_at": "2026-02-11T04:42:32.624667",
+  "data": {
+    "id": "01K825RSKE05CVC5S1JC1HVH10",
+    "groups": [
+      {
+        "name": "cx_slo_hourly_status",
+        "interval": 3600,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:statuses:hourly",
+            "expr": "count_values(\"status\", ceil(clamp(1- ((((count_over_time(cx:slo:window{slo_id=\"f6a08a9e-1c4a-43b4-a3f0-956843bc8712\",revision=\"1\"}[28d]) - sum_over_time(cx:slo:window{slo_id=\"f6a08a9e-1c4a-43b4-a3f0-956843bc8712\",revision=\"1\"}[28d])) / count_over_time(cx:slo:window{slo_id=\"f6a08a9e-1c4a-43b4-a3f0-956843bc8712\",revision=\"1\"}[28d])) or on() vector(0))) / (1-(99/100)) , 0, 1) * 4))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "f6a08a9e-1c4a-43b4-a3f0-956843bc8712",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "146"
+          }
+        ],
+        "lastEvalAt": "1770783755",
+        "version": 0,
+        "id": "01K825RSKG2RB2VC73T045YQEJ"
+      },
+      {
+        "name": "cx_slo_window_based",
+        "interval": 60,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:window",
+            "expr": "((clamp(histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"recommendation\"}[5m])) by (le)) < 39.400001525878906, 1, 1)) or on() vector(0)) and count(histogram_quantile(0.95, sum(rate(duration_ms_bucket{span_kind=~\"SPAN_KIND_SERVER|SPAN_KIND_CONSUMER\", service_name=\"recommendation\"}[5m])) by (le))[60])  > 0",
+            "labels": {
+              "revision": "1",
+              "slo_id": "f6a08a9e-1c4a-43b4-a3f0-956843bc8712",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "2"
+          },
+          {
+            "record": "cx:slo:target",
+            "expr": "99",
+            "labels": {
+              "revision": "1",
+              "slo_id": "f6a08a9e-1c4a-43b4-a3f0-956843bc8712",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "0"
+          }
+        ],
+        "lastEvalAt": "1770784895",
+        "version": 0,
+        "id": "01K825RSKF6QQR6334F446KRDM"
+      }
+    ],
+    "name": "cx:slo:f6a08a9e-1c4a-43b4-a3f0-956843bc8712"
+  }
+}

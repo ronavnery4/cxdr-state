@@ -1,0 +1,61 @@
+{
+  "id": "01K825RA7Z648REWRCT5T6N5QR",
+  "name": "cx:slo:4e509f9b-be9a-4cb4-97e5-a0516c7c4856",
+  "exported_at": "2026-02-11T04:42:32.620943",
+  "data": {
+    "id": "01K825RA7Z648REWRCT5T6N5QR",
+    "groups": [
+      {
+        "name": "cx_slo_hourly_status",
+        "interval": 3600,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:statuses:hourly",
+            "expr": "count_values(\"status\", ceil(clamp(1- ((((count_over_time(cx:slo:window{slo_id=\"4e509f9b-be9a-4cb4-97e5-a0516c7c4856\",revision=\"1\"}[28d]) - sum_over_time(cx:slo:window{slo_id=\"4e509f9b-be9a-4cb4-97e5-a0516c7c4856\",revision=\"1\"}[28d])) / count_over_time(cx:slo:window{slo_id=\"4e509f9b-be9a-4cb4-97e5-a0516c7c4856\",revision=\"1\"}[28d])) or on() vector(0))) / (1-(99.9/100)) , 0, 1) * 4))",
+            "labels": {
+              "revision": "1",
+              "slo_id": "4e509f9b-be9a-4cb4-97e5-a0516c7c4856",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "163"
+          }
+        ],
+        "lastEvalAt": "1770783740",
+        "version": 0,
+        "id": "01K825RA81ZMR66XH7TWD6QP9X"
+      },
+      {
+        "name": "cx_slo_window_based",
+        "interval": 60,
+        "limit": "0",
+        "rules": [
+          {
+            "record": "cx:slo:window",
+            "expr": "((clamp(sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"image-provider\"}[5m])) * 60 > 20.75, 1, 1)) or on() vector(0)) and count(sum(rate(calls_total{span_kind=~\"SPAN_KIND_CONSUMER|SPAN_KIND_SERVER\", service_name=\"image-provider\"}[5m])) * 60[60])  > 0",
+            "labels": {
+              "revision": "1",
+              "slo_id": "4e509f9b-be9a-4cb4-97e5-a0516c7c4856",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "3"
+          },
+          {
+            "record": "cx:slo:target",
+            "expr": "99.9",
+            "labels": {
+              "revision": "1",
+              "slo_id": "4e509f9b-be9a-4cb4-97e5-a0516c7c4856",
+              "slo_time_window": "28d"
+            },
+            "lastEvalDurationMs": "0"
+          }
+        ],
+        "lastEvalAt": "1770784880",
+        "version": 0,
+        "id": "01K825RA81YTK04KG79A39Z8DW"
+      }
+    ],
+    "name": "cx:slo:4e509f9b-be9a-4cb4-97e5-a0516c7c4856"
+  }
+}

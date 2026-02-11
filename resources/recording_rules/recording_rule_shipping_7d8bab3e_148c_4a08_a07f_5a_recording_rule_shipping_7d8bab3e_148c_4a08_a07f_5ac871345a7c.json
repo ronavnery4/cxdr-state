@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:shipping_7d8bab3e_148c_4a08_a07f_5ac871345a7c",
+  "name": "recording_rule:shipping_7d8bab3e_148c_4a08_a07f_5ac871345a7c",
+  "exported_at": "2026-02-11T04:28:47.125921",
+  "data": {
+    "name": "recording_rule:shipping_7d8bab3e_148c_4a08_a07f_5ac871345a7c",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:shipping_7d8bab3e_148c_4a08_a07f_5ac871345a7c",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "shipping",
+          "sliId": "7d8bab3e-148c-4a08-a07f-5ac871345a7c"
+        },
+        "lastEvalDurationMs": "4805"
+      }
+    ],
+    "lastEvalAt": "1770784031",
+    "version": 0,
+    "id": "01K5V5T18HCEM3RR6FYJX45HKQ"
+  }
+}

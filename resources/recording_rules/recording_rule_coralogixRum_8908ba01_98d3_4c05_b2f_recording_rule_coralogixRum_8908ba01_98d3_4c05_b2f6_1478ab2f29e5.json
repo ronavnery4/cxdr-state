@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:coralogixRum_8908ba01_98d3_4c05_b2f6_1478ab2f29e5",
+  "name": "recording_rule:coralogixRum_8908ba01_98d3_4c05_b2f6_1478ab2f29e5",
+  "exported_at": "2026-02-11T04:28:47.131791",
+  "data": {
+    "name": "recording_rule:coralogixRum_8908ba01_98d3_4c05_b2f6_1478ab2f29e5",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:coralogixRum_8908ba01_98d3_4c05_b2f6_1478ab2f29e5",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "coralogixRum",
+          "sliId": "8908ba01-98d3-4c05-b2f6-1478ab2f29e5"
+        },
+        "lastEvalDurationMs": "998"
+      }
+    ],
+    "lastEvalAt": "1770783970",
+    "version": 0,
+    "id": "01K81PGZ1M06NQG7VBD93ANQ1K"
+  }
+}

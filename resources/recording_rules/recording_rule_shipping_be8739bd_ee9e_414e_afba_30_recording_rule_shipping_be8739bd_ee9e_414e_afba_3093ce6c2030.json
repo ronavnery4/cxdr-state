@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:shipping_be8739bd_ee9e_414e_afba_3093ce6c2030",
+  "name": "recording_rule:shipping_be8739bd_ee9e_414e_afba_3093ce6c2030",
+  "exported_at": "2026-02-11T04:28:47.130035",
+  "data": {
+    "name": "recording_rule:shipping_be8739bd_ee9e_414e_afba_3093ce6c2030",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:shipping_be8739bd_ee9e_414e_afba_3093ce6c2030",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"shipping\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"shipping\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "shipping",
+          "sliId": "be8739bd-ee9e-414e-afba-3093ce6c2030"
+        },
+        "lastEvalDurationMs": "86"
+      }
+    ],
+    "lastEvalAt": "1770783965",
+    "version": 0,
+    "id": "01K5V7EY7EKVSEDYR3F4D6RHVC"
+  }
+}

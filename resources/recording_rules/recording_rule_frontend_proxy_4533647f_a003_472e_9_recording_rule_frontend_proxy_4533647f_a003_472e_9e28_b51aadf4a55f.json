@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:frontend_proxy_4533647f_a003_472e_9e28_b51aadf4a55f",
+  "name": "recording_rule:frontend_proxy_4533647f_a003_472e_9e28_b51aadf4a55f",
+  "exported_at": "2026-02-11T04:28:47.126504",
+  "data": {
+    "name": "recording_rule:frontend_proxy_4533647f_a003_472e_9e28_b51aadf4a55f",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:frontend_proxy_4533647f_a003_472e_9e28_b51aadf4a55f",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "frontend-proxy",
+          "sliId": "4533647f-a003-472e-9e28-b51aadf4a55f"
+        },
+        "lastEvalDurationMs": "6053"
+      }
+    ],
+    "lastEvalAt": "1770783889",
+    "version": 0,
+    "id": "01K5V680SM0TM1QB42FXW5DYQ6"
+  }
+}

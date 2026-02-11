@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:product_catalog_3b79cfc8_e3e0_4795_a974_4c5915c9d010",
+  "name": "recording_rule:product_catalog_3b79cfc8_e3e0_4795_a974_4c5915c9d010",
+  "exported_at": "2026-02-11T04:28:47.130616",
+  "data": {
+    "name": "recording_rule:product_catalog_3b79cfc8_e3e0_4795_a974_4c5915c9d010",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:product_catalog_3b79cfc8_e3e0_4795_a974_4c5915c9d010",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"100\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "product-catalog",
+          "sliId": "3b79cfc8-e3e0-4795-a974-4c5915c9d010"
+        },
+        "lastEvalDurationMs": "1208"
+      }
+    ],
+    "lastEvalAt": "1770783963",
+    "version": 0,
+    "id": "01K6YVVSYN11N1GZWXYND2NTCA"
+  }
+}

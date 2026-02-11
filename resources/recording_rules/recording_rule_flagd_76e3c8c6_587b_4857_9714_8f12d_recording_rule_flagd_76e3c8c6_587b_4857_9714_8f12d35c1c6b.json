@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:flagd_76e3c8c6_587b_4857_9714_8f12d35c1c6b",
+  "name": "recording_rule:flagd_76e3c8c6_587b_4857_9714_8f12d35c1c6b",
+  "exported_at": "2026-02-11T04:28:47.127592",
+  "data": {
+    "name": "recording_rule:flagd_76e3c8c6_587b_4857_9714_8f12d35c1c6b",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:flagd_76e3c8c6_587b_4857_9714_8f12d35c1c6b",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "flagd",
+          "sliId": "76e3c8c6-587b-4857-9714-8f12d35c1c6b"
+        },
+        "lastEvalDurationMs": "5017"
+      }
+    ],
+    "lastEvalAt": "1770783784",
+    "version": 0,
+    "id": "01K5V708A9X00ZPVDVQZEQQZQV"
+  }
+}

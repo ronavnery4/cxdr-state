@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:coralogixRum_8a224d17_2674_40de_97a1_bd6c06ef8b3c",
+  "name": "recording_rule:coralogixRum_8a224d17_2674_40de_97a1_bd6c06ef8b3c",
+  "exported_at": "2026-02-11T04:28:47.132057",
+  "data": {
+    "name": "recording_rule:coralogixRum_8a224d17_2674_40de_97a1_bd6c06ef8b3c",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:coralogixRum_8a224d17_2674_40de_97a1_bd6c06ef8b3c",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "coralogixRum",
+          "sliId": "8a224d17-2674-40de-97a1-bd6c06ef8b3c"
+        },
+        "lastEvalDurationMs": "921"
+      }
+    ],
+    "lastEvalAt": "1770783974",
+    "version": 0,
+    "id": "01K81PH3493BSWM2EW9VP02B3N"
+  }
+}

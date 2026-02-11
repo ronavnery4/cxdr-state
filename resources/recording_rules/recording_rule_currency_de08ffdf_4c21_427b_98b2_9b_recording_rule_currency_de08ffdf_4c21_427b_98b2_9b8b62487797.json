@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:currency_de08ffdf_4c21_427b_98b2_9b8b62487797",
+  "name": "recording_rule:currency_de08ffdf_4c21_427b_98b2_9b8b62487797",
+  "exported_at": "2026-02-11T04:28:47.124855",
+  "data": {
+    "name": "recording_rule:currency_de08ffdf_4c21_427b_98b2_9b8b62487797",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:currency_de08ffdf_4c21_427b_98b2_9b8b62487797",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"currency\"}[7d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"currency\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "currency",
+          "sliId": "de08ffdf-4c21-427b-98b2-9b8b62487797"
+        },
+        "lastEvalDurationMs": "109"
+      }
+    ],
+    "lastEvalAt": "1770783797",
+    "version": 0,
+    "id": "01K5V25186P04ZR1E8KZEYAA63"
+  }
+}

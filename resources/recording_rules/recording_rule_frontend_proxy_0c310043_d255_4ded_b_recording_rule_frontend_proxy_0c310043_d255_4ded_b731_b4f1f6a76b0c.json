@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:frontend_proxy_0c310043_d255_4ded_b731_b4f1f6a76b0c",
+  "name": "recording_rule:frontend_proxy_0c310043_d255_4ded_b731_b4f1f6a76b0c",
+  "exported_at": "2026-02-11T04:28:47.130338",
+  "data": {
+    "name": "recording_rule:frontend_proxy_0c310043_d255_4ded_b731_b4f1f6a76b0c",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:frontend_proxy_0c310043_d255_4ded_b731_b4f1f6a76b0c",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"frontend-proxy\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"frontend-proxy\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "frontend-proxy",
+          "sliId": "0c310043-d255-4ded-b731-b4f1f6a76b0c"
+        },
+        "lastEvalDurationMs": "184"
+      }
+    ],
+    "lastEvalAt": "1770784067",
+    "version": 0,
+    "id": "01K5V7J1SK5K5M3JK2Z5WDSF2D"
+  }
+}

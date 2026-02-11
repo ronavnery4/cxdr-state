@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:checkout_51c7eb77_80ed_4de0_af69_815e30d3d1be",
+  "name": "recording_rule:checkout_51c7eb77_80ed_4de0_af69_815e30d3d1be",
+  "exported_at": "2026-02-11T04:28:47.134342",
+  "data": {
+    "name": "recording_rule:checkout_51c7eb77_80ed_4de0_af69_815e30d3d1be",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:checkout_51c7eb77_80ed_4de0_af69_815e30d3d1be",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "checkout",
+          "sliId": "51c7eb77-80ed-4de0-af69-815e30d3d1be"
+        },
+        "lastEvalDurationMs": "1011"
+      }
+    ],
+    "lastEvalAt": "1770784027",
+    "version": 0,
+    "id": "01K81X58ZNXCXRHABRCEYM3B3R"
+  }
+}

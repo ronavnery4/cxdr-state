@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:flagd_aec78701_e0f1_4b00_83f1_5954ad74038f",
+  "name": "recording_rule:flagd_aec78701_e0f1_4b00_83f1_5954ad74038f",
+  "exported_at": "2026-02-11T04:28:47.133408",
+  "data": {
+    "name": "recording_rule:flagd_aec78701_e0f1_4b00_83f1_5954ad74038f",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:flagd_aec78701_e0f1_4b00_83f1_5954ad74038f",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "flagd",
+          "sliId": "aec78701-e0f1-4b00-83f1-5954ad74038f"
+        },
+        "lastEvalDurationMs": "842"
+      }
+    ],
+    "lastEvalAt": "1770783953",
+    "version": 0,
+    "id": "01K81R7CP3TXH02NE1JTD9BJYE"
+  }
+}

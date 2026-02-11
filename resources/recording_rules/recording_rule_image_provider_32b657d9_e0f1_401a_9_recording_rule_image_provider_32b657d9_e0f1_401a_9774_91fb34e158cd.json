@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:image_provider_32b657d9_e0f1_401a_9774_91fb34e158cd",
+  "name": "recording_rule:image_provider_32b657d9_e0f1_401a_9774_91fb34e158cd",
+  "exported_at": "2026-02-11T04:28:47.129182",
+  "data": {
+    "name": "recording_rule:image_provider_32b657d9_e0f1_401a_9774_91fb34e158cd",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:image_provider_32b657d9_e0f1_401a_9774_91fb34e158cd",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"image-provider\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"image-provider\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "image-provider",
+          "sliId": "32b657d9-e0f1-401a-9774-91fb34e158cd"
+        },
+        "lastEvalDurationMs": "92"
+      }
+    ],
+    "lastEvalAt": "1770783795",
+    "version": 0,
+    "id": "01K5V79RCM5C99T5RW79QQ276X"
+  }
+}

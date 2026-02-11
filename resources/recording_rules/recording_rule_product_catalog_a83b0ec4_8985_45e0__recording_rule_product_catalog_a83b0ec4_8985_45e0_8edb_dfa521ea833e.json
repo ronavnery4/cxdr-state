@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:product_catalog_a83b0ec4_8985_45e0_8edb_dfa521ea833e",
+  "name": "recording_rule:product_catalog_a83b0ec4_8985_45e0_8edb_dfa521ea833e",
+  "exported_at": "2026-02-11T04:28:47.131141",
+  "data": {
+    "name": "recording_rule:product_catalog_a83b0ec4_8985_45e0_8edb_dfa521ea833e",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:product_catalog_a83b0ec4_8985_45e0_8edb_dfa521ea833e",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"product-catalog\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\", cx_subsystem_name=~\"product-catalog\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "product-catalog",
+          "sliId": "a83b0ec4-8985-45e0-8edb-dfa521ea833e"
+        },
+        "lastEvalDurationMs": "82"
+      }
+    ],
+    "lastEvalAt": "1770783979",
+    "version": 0,
+    "id": "01K6YVW9M1X8RBDJ7P9CHVA2DT"
+  }
+}

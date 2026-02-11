@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:quote_f7e2c6e5_a30c_40ac_a0da_765c9fa955de",
+  "name": "recording_rule:quote_f7e2c6e5_a30c_40ac_a0da_765c9fa955de",
+  "exported_at": "2026-02-11T04:28:47.127300",
+  "data": {
+    "name": "recording_rule:quote_f7e2c6e5_a30c_40ac_a0da_765c9fa955de",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:quote_f7e2c6e5_a30c_40ac_a0da_765c9fa955de",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "quote",
+          "sliId": "f7e2c6e5-a30c-40ac-a0da-765c9fa955de"
+        },
+        "lastEvalDurationMs": "4934"
+      }
+    ],
+    "lastEvalAt": "1770784029",
+    "version": 0,
+    "id": "01K5V6YK4ARCYBS5VCYWEWBGY9"
+  }
+}

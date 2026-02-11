@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:accounting_0c06af67_8d78_4a8a_99fe_ab2d56b53b1d",
+  "name": "recording_rule:accounting_0c06af67_8d78_4a8a_99fe_ab2d56b53b1d",
+  "exported_at": "2026-02-11T04:28:47.128839",
+  "data": {
+    "name": "recording_rule:accounting_0c06af67_8d78_4a8a_99fe_ab2d56b53b1d",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:accounting_0c06af67_8d78_4a8a_99fe_ab2d56b53b1d",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "accounting",
+          "sliId": "0c06af67-8d78-4a8a-99fe-ab2d56b53b1d"
+        },
+        "lastEvalDurationMs": "5115"
+      }
+    ],
+    "lastEvalAt": "1770783961",
+    "version": 0,
+    "id": "01K5V75NRT7P1G88565K4277YA"
+  }
+}

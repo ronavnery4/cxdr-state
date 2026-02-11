@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:frontend_web_4c2d8154_e15d_4c08_be74_7cc339011eaf",
+  "name": "recording_rule:frontend_web_4c2d8154_e15d_4c08_be74_7cc339011eaf",
+  "exported_at": "2026-02-11T04:28:47.133634",
+  "data": {
+    "name": "recording_rule:frontend_web_4c2d8154_e15d_4c08_be74_7cc339011eaf",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:frontend_web_4c2d8154_e15d_4c08_be74_7cc339011eaf",
+        "expr": "sum(increase(duration_ms_count{status_code=\"STATUS_CODE_ERROR\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d])) / sum(increase(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[7d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "error",
+          "service": "frontend-web",
+          "sliId": "4c2d8154-e15d-4c08-be74-7cc339011eaf"
+        },
+        "lastEvalDurationMs": "1503"
+      }
+    ],
+    "lastEvalAt": "1770784005",
+    "version": 0,
+    "id": "01K81R8ZE58NWG9PKYZX6SXK2F"
+  }
+}

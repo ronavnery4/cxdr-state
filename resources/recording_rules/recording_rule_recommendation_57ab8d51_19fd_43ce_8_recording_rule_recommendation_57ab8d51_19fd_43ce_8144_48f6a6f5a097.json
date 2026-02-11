@@ -1,0 +1,26 @@
+{
+  "id": "recording_rule:recommendation_57ab8d51_19fd_43ce_8144_48f6a6f5a097",
+  "name": "recording_rule:recommendation_57ab8d51_19fd_43ce_8144_48f6a6f5a097",
+  "exported_at": "2026-02-11T04:28:47.125243",
+  "data": {
+    "name": "recording_rule:recommendation_57ab8d51_19fd_43ce_8144_48f6a6f5a097",
+    "interval": 300,
+    "limit": "0",
+    "rules": [
+      {
+        "record": "recording_rule:recommendation_57ab8d51_19fd_43ce_8144_48f6a6f5a097",
+        "expr": "1 - (sum(duration_ms_bucket{le=~\"500\", span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]) / sum(duration_ms_count{span_kind=~\"(SPAN_KIND_SERVER|SPAN_KIND_CONSUMER)\"}[30d]))",
+        "labels": {
+          "isSliRecord": "true",
+          "metricType": "latency",
+          "service": "recommendation",
+          "sliId": "57ab8d51-19fd-43ce-8144-48f6a6f5a097"
+        },
+        "lastEvalDurationMs": "5396"
+      }
+    ],
+    "lastEvalAt": "1770784013",
+    "version": 0,
+    "id": "01K5V2MRBM5VP7XRDTXBNFKDQX"
+  }
+}

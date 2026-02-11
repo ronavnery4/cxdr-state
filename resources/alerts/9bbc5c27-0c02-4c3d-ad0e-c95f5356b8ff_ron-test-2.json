@@ -1,47 +1,62 @@
 {
-  "id": "26aeffce-5e27-4fe7-ba44-a9c897b22900",
-  "name": "Payment DB errors",
-  "exported_at": "2026-02-11T04:14:15.723277",
+  "id": "9bbc5c27-0c02-4c3d-ad0e-c95f5356b8ff",
+  "name": "ron-test-2",
+  "exported_at": "2026-02-11T04:14:15.689412",
   "data": {
     "alertDefProperties": {
-      "name": "Payment DB errors",
-      "description": "When encountering the error 22P02: invalid text representation in a PostgreSQL database, it indicates an issue with converting or casting a text value to a specific data type, such as integer or date, that the operation or query expects.",
+      "name": "ron-test-2",
+      "description": "abc",
       "enabled": true,
-      "priority": "ALERT_DEF_PRIORITY_P2",
+      "priority": "ALERT_DEF_PRIORITY_P1",
       "type": "ALERT_DEF_TYPE_LOGS_THRESHOLD",
-      "groupByKeys": [],
+      "groupByKeys": [
+        "__CURSOR"
+      ],
       "incidentsSettings": {
         "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED",
         "minutes": 10
       },
       "notificationGroup": {
-        "groupByKeys": [],
-        "webhooks": [],
+        "groupByKeys": [
+          "__CURSOR"
+        ],
+        "webhooks": [
+          {
+            "integration": {
+              "integrationId": 505549
+            }
+          }
+        ],
         "destinations": [],
         "router": {
           "id": "1572147b-e9e9-4d62-9133-f2a0ccfcc52b",
           "notifyOn": "NOTIFY_ON_TRIGGERED_ONLY_UNSPECIFIED"
         }
       },
-      "entityLabels": {},
+      "entityLabels": {
+        "test": ""
+      },
       "phantomMode": false,
       "deleted": false,
       "dataSources": [],
       "logsThreshold": {
         "logsFilter": {
           "simpleFilter": {
-            "luceneQuery": "message.err.code:\"22P02\"",
+            "luceneQuery": null,
             "labelFilters": {
-              "applicationName": [],
-              "subsystemName": [
+              "applicationName": [
                 {
-                  "value": "payment",
+                  "value": "i-0ecbedbbc0f67156e",
                   "operation": "LOG_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
                 }
               ],
-              "severities": [
-                "LOG_SEVERITY_ERROR"
-              ]
+              "subsystemName": [
+                {
+                  "value": "accounting",
+                  "operation": "LOG_FILTER_OPERATION_TYPE_IS_OR_UNSPECIFIED"
+                }
+              ],
+              "severities": []
             }
           }
         },
@@ -49,14 +64,14 @@
         "rules": [
           {
             "condition": {
-              "threshold": 0,
+              "threshold": 100000,
               "timeWindow": {
                 "logsTimeWindowSpecificValue": "LOGS_TIME_WINDOW_VALUE_MINUTES_10"
               },
               "conditionType": "LOGS_THRESHOLD_CONDITION_TYPE_MORE_THAN_OR_UNSPECIFIED"
             },
             "override": {
-              "priority": "ALERT_DEF_PRIORITY_P2"
+              "priority": "ALERT_DEF_PRIORITY_P1"
             }
           }
         ],
@@ -65,11 +80,11 @@
       },
       "notificationGroupExcess": []
     },
-    "id": "26aeffce-5e27-4fe7-ba44-a9c897b22900",
-    "createdTime": "2026-01-19T16:51:59Z",
-    "updatedTime": "2026-01-19T16:51:59Z",
-    "lastTriggeredTime": "2026-02-11T04:08:17Z",
-    "status": "ALERT_DEF_STATUS_OK",
-    "alertVersionId": "efaee242-5ddc-4a2e-a208-c785d6009c30"
+    "id": "9bbc5c27-0c02-4c3d-ad0e-c95f5356b8ff",
+    "createdTime": "2026-02-11T04:13:38Z",
+    "updatedTime": "2026-02-11T04:13:38Z",
+    "lastTriggeredTime": null,
+    "status": "ALERT_DEF_STATUS_UNSPECIFIED",
+    "alertVersionId": "009157f9-3700-4882-8f38-f437e4b1c0ac"
   }
 }
